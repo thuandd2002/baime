@@ -1,0 +1,95 @@
+<div class="info-home-wrap">
+
+<!-- START BLOCK : cell_cat_home -->
+<div class="info">
+    <div class="grid">
+        <div class="flex-container flex-on-mobile {flex-column-reverse}">
+            <div class="cell-info-1-2 tab-cell-1-1 pad-cell-1-1">
+                <div class="info-image">
+                    {catimageadv}
+                </div>
+            </div>
+            <div class="cell-info-1-2 tab-cell-1-1 pad-cell-1-1">
+                <div class="info-detail-1">
+                    <div class="c10 hide-on-tab hide-on-pad"></div>
+                    <div class="c20 hide-on-pad hide-on-tab"></div>
+                    <h2 class="info-title-home"> <a href="{linkcat}"> {catname} </a> </h2>
+                    <div class="c5"></div>
+                    <div class="info-intro-home">
+                        {catintro}
+                    </div>
+                    <div class="c20"></div>
+                    <div class="text-line-6">
+                        {catcontent}
+                    </div>
+                    <div class="c20"></div>
+                    <a href="{linkcat}" class="view-more-btn">{_viewmore}</a>
+                    <div class="c20"></div>
+                </div>
+            </div>
+        </div>
+
+
+        <div style="position: relative;">
+            <div class="c10"></div>
+
+            <div class="cathome{idcat}-next btn-next" style="transform: translateY(-35px);"> <i class="fa fa-angle-right" aria-hidden="true"></i> </div>
+            <div class="cathome{idcat}-prev btn-prev" style="transform: translateY(-35px);"> <i class="fa fa-angle-left" aria-hidden="true"></i> </div>
+
+            <div class="swiper-container inHome{idcat}">
+                <div class="swiper-wrapper">
+                    <!-- START BLOCK : cell_sub_cat  -->
+                    <div class="swiper-slide">
+
+                        <div class="cat-home-img">
+                            <div style="overflow: hidden;">
+                                <a class="hvr-grow" href="{link}">{image}</a> 
+                            </div>
+                        </div>
+						<div class="c5"></div>
+						<div class="sub-cat-home"> <a href="{link}">{name}</a> </div>
+
+                    </div>
+                    <!-- END BLOCK : cell_sub_cat  -->
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<div class="c10"></div>
+<script>
+    var inHome{idcat} = new Swiper('.inHome{idcat}', {
+    slidesPerView: 4,
+            autoplay: {
+            delay: 3200,
+                    disableOnInteraction: false,
+            },
+            spaceBetween: 20,
+            navigation: {
+            nextEl: '.cathome{idcat}-next',
+                    prevEl: '.cathome{idcat}-prev',
+            },
+            speed: 400,
+            loop: true,
+            breakpoints: {
+            768: {
+            slidesPerView: 2,
+                    spaceBetween: 20
+            }
+            }
+    });
+    $('.inHome{idcat}').on('mouseover', function () {
+    inHome{idcat}.autoplay.stop();
+    });
+    $('.inHome{idcat}').on('mouseout', function () {
+    inHome{idcat}.autoplay.start();
+    });
+</script>
+
+<div class="c20"></div>
+
+<!-- END BLOCK : cell_cat_home -->
+
+</div>

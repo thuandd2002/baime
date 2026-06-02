@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="{langcode}" xmlns="http://www.w3.org/1999/xhtml"
+  xml:lang="{langcode}">
+  <head>
+
+    <meta charset="utf-8" />
+    <title>{site_name}</title>
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes" />
+    {no_index}
+    <meta name="theme-color" content="#0099ff" />
+    <!--
+        <meta http-equiv="Content-Language" content="{langcode}" />
+		-->
+    <meta name="description" content="{site_description}" />
+    <meta name="keywords" content="{site_keywords}" />
+    <meta property="og:url" name="og:url" content="{site_url}" data-app />
+    <meta property="og:type" name="og:type" content="website" data-app />
+    <meta property="og:description" name="og:description"
+      content="{site_description}" data-app />
+    <meta property="og:title" name="og:title" content="{site_name}" data-app />
+
+    {site_image}
+    {site_image_alt}
+    {canonical_url}
+
+    <link href="/favicon.ico" rel="shortcut icon" />
+
+    <link rel="stylesheet" type="text/css" href="{dir_path}/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="{dir_path}/css/grid.css" />
+    <link rel="stylesheet" type="text/css" href="/css/responsive.css" />
+    <link rel="stylesheet" type="text/css" href="{dir_path}/css/font.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&display=swap"
+      rel="stylesheet" />
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+    <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!--
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.css"/>
+		-->
+
+    <script src="{dir_path}/js/script.js"></script>
+
+    {toppage}
+
+    {header_tag}
+
+  </head>
+  <body>
+
+    {bodypage}
+
+    <img src="{dir_path}/lib/imagesercurity.php" style="display:none; " />
+    <div id="page">
+
+      <div class="toppage hide-on-tab hide-on-mobile">
+        <div class="grid">
+
+          <div class="company-name">{companyname}</div>
+
+          <span style="color: #fff;"><i class="fa-solid fa-phone"
+              style="color: rgb(255, 255, 255);"></i> {hotline}
+          </span>
+
+          <span><i class="fa-solid fa-envelope"
+              style="color: rgb(255, 255, 255);"></i>{companyemail}</span>
+          {lang_flag}
+        </div>
+
+      </div>
+    </div>
+
+    <div class="header hide-on-tab hide-on-mobile">
+      <div class="grid">
+
+        <div class="flex-container flex-space-between align-center">
+          <div class="cell-2-12">
+            <div class="logo">
+              {logo}
+              <div class="c5"></div>
+            </div>
+
+          </div>
+
+          <div class="cell-10-12">
+            <div class="menubar">
+              {menubar}
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="c"></div>
+    </div>
+
+    <div class="content">
+

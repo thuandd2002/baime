@@ -1,0 +1,136 @@
+/* Mobile & Table */
+@media (max-width: 1023px) {
+    .hethong-wrap:nth-of-type(3n+1) .hethong-card {
+        border-left: 2px solid #bfbfbf;
+        padding-left: 18px;
+    }
+
+    .info-card {
+        border-bottom: 2px solid #fff;
+    }
+
+    .info-item:nth-child(odd) .info-item--detail {
+        padding-left: 0;
+    }
+
+    .info-item:nth-child(even) .info-item--detail {
+        padding-right: 0;
+    }
+
+    .product-item {
+        margin-bottom: 40px;
+    }
+
+    .category-product-detail-odd,
+    .category-product-detail-even {
+        padding: 0 10px;
+    }
+
+    .album-slide .swiper-slide {
+        opacity: 1;
+    }
+
+    .product-other-title {
+        margin: 0;
+    }
+
+    .flex-column-reverse {
+        flex-direction: column-reverse;
+    }
+
+    .info-detail-1 {
+        padding-left: 0;
+    }
+
+    .info-detail-2 {
+        padding-right: 0;
+    }
+
+    .contact__right,
+    .contact__right-social {
+        right: 5px;
+    }
+
+    .info:nth-child(odd) .flex-on-mobile {
+        flex-direction: column-reverse;
+    }
+
+}
+
+/* Table */
+@media (min-width: 740px) and (max-width: 1023px) {
+    .news-item {
+        height: 400px;
+    }
+}
+
+/* Table Lanscape */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+    .hethong-wrap:nth-of-type(3n+1) .hethong-card {
+        border-left: 2px solid #bfbfbf;
+        padding-left: 18px;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 739px) {
+    .select-option {
+        margin-bottom: 10px;
+    }
+
+    .download-btn-product {
+        margin: 10px 0 6px;
+    }
+
+
+    .news-item {
+        height: 400px;
+    }
+
+    .category-product-detail-odd {
+        padding-bottom: 20px;
+    }
+
+
+}
+
+/* Ipad pro */
+
+
+@media only screen and (min-device-width: 1024px) and (max-device-height: 1366px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+    .hethong-wrap:nth-of-type(3n+1) .hethong-card {
+        border-left: 2px solid #bfbfbf;
+        padding-left: 18px;
+    }
+
+    .flex-column-reverse {
+        flex-direction: column-reverse;
+    }
+
+    .info-detail-1 {
+        padding-left: 0;
+    }
+
+    .info-detail-2 {
+        padding-right: 0;
+    }
+}
+
+
+/* PC LARGE */
+
+@media (min-width: 1919px) {
+
+    .grid {
+        width: 100%;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .gallery-thumbs-height {
+        height: 505px;
+    }
+
+
+}

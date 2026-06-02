@@ -1,0 +1,39 @@
+@font-face {
+  font-family: Barlow;
+  src: url('fonts/Barlow/Barlow-Regular.ttf');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Barlow-B;
+  src: url('fonts/Barlow/Barlow-Bold.ttf');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Barlow-SemiBold;
+  src: url('fonts/Barlow/Barlow-SemiBold.ttf');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Barlow-M;
+  src: url('fonts/Barlow/Barlow-Medium.ttf');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Barlow-I;
+  src: url('fonts/Barlow/Barlow-Italic.ttf');
+  font-display: swap;
+}
+/* @font-face {
+  font-family: Quicksand-B;
+  src: url('fonts/Quicksand-Bold.ttf');
+  font-display: swap;
+}
+@font-face {
+  font-family: Quicksand;
+  src: url('fonts/Quicksand-Medium.ttf');
+  font-display: swap;
+} */

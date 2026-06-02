@@ -1,0 +1,175 @@
+
+
+<div class="slide-child">
+    {slideshow}
+    
+</div>
+{pathpage}
+
+<div class="c10"></div>
+<div class="grid">
+
+	<div class="c20"></div>
+    <div class="flex-container flex-center">
+	
+        <div class="cell-2-3 tab-cell-1-1"> 
+
+            <!-- START BLOCK : newsCat --> 
+            <div class="page-one form-trac-nghiem">
+			
+			  <form action="/index4.php?page=tracnghiem_submit&lang=" method="post" id="contactform" onsubmit="return check_contact();">
+
+					<input type="hidden"  name="code" value="save" />       
+
+					<input type="hidden"  name="catid" value="{catid}" />
+					<input type="hidden" name="formTitle" value="{titlehome}"  />
+			
+
+                    <h1 class="title-page">{titlehome}</h1>
+					<div class="c20"></div>
+					<div class="content-detail">{catcontent}</div>
+					<div class="c10"></div>
+					<div class="content-detail">{catintro}</div>
+                    
+					<h3> CHỌN CƠ SỞ ĐÁNH GIÁ </h3>
+					<div class="c5"></div>
+					<!-- START BLOCK : dailyItem -->
+					<div class="" style="color: #51b7c0;     font-family: 'Muli-B'; margin-bottom:5px; font-size:16px; ">
+						<label > <input style="float:left; margin-top: 1px; zoom: 1.3; margin-left: 0px;" type="radio" name="coso" value="{name} - {address}"> {name} - {address} - Tel: {phone} </label>
+						
+					</div>
+					<!-- END BLOCK : dailyItem -->
+					
+                    <div class="c10"></div>
+					<h3> I. ĐÁNH GIÁ CHUNG </h3>
+					<div class="c5"></div>
+                    <!-- START BLOCK : news_list -->
+					{image}
+					<h3 class="news-name">{name} - {intro}</h3>
+
+                    <div class="">
+						<!-- START BLOCK : dapan -->
+                        <div class="" style="float:left; margin-right:30px;">
+							<label > <input type="radio" name="dapan_{id_tracnghiem}" value="{dapan} - {motadapan}"> {motadapan} </label>
+                        </div>
+						<!-- END BLOCK : dapan -->
+						
+						<div class="cell-1-4"></div><div class="cell-1-4"></div>
+
+                        
+                    </div>                
+                    <div class="c20"></div>
+                    <!-- END BLOCK : news_list -->
+					
+					<h3> II. Ý KIẾN, GÓP Ý TÂM HUYẾT CỦA KHÁCH HÀNG CHO SMILE ONE</h3>
+					(Những ý kiến đóng góp này sẽ giúp chúng tôi hoàn thiện mình để nâng cao chất lượng dịch vụ tốt nhất)
+					<div class="c5"></div>
+					<div class="line-frm">
+						<textarea name="ykiengopy" rows="5" style="height:95px;" placeholder="Nội dung góp ý" class="txt-contact notNull"></textarea>
+					</div>
+					
+					<div class="c20"></div>
+					<h3> III. Tiêu chí mà khách hàng LỰA CHỌN phòng khám nha khoa nói chung, là gì?</h3>
+					<div class="c5"></div>
+					<div class="line-frm">
+						<textarea name="tieuchiluachon" rows="5" style="height:95px;" placeholder="Tiêu chí của bạn" class="txt-contact notNull"></textarea>
+					</div>					
+
+                    <div class="c10"></div>
+					<div class="flex-container flex-center">
+						
+						<div class="cell-1-4 tab-cell-1-2 mobile-cell-1-1">
+							
+							<div class="line-frm" style="position:relative;">
+								<input class="txt-contact notNull" placeholder="Enter Captcha" name="sercurity"/>
+								<img src="{dir_path}/lib/imagesercurity.php" name="imgCaptcha" align="absmiddle" class="imgCaptcha newsletter-capt-img" style="height: 40px; position: absolute; top: 0px; right: 0px; " />
+							</div>
+							
+
+						
+						</div>
+					</div>  
+					
+					<div class="flex-container flex-center">
+						<div class="cell-1-4 tab-cell-1-2 mobile-cell-1-1">
+							<input name="input" type="button" onClick="$('#contactform').submit()" style="border:none;" class="btn-reg" value="Gửi đánh giá" />
+							
+						</div>						
+					
+					</div>  
+					
+					<div class="c5"></div>  
+					<div class="msgbox" style="font-size: 16px; text-align:center;"> </div>		
+					
+					<div class="c5"></div>
+			
+				</form>			
+			
+			</div>
+			   
+			
+			<div class="c30"></div>        
+			<div class="c20"></div>
+            </div>
+			
+			
+			
+            <!-- END BLOCK : newsCat -->
+
+    
+
+        </div>
+
+        
+    </div>
+
+
+
+</div>
+
+<script type="text/javascript">
+    function check_contact() {
+        ok = true;
+        $('#contactform .notNull').removeClass("error");
+        $('#contactform .notNull').each(function () {
+            if ($(this).val() == '') {
+                $(this).addClass("error");
+                ok = false;
+            }
+        });
+        if (ok == true) {
+            $('#contactform').ajaxSubmit({
+                beforeSubmit: function (a, f, o) {
+                    $('#contactform').fadeTo('fast', 0.3);
+                    $('.waiting').show();
+                    o.dataType = 'html';
+                },
+                success: function (data) {
+                    $('#contactform').fadeTo('fast', 1);
+                    $('.waiting').hide();
+                    if (data == 1) {
+                        $(".msgbox").removeClass("form_error");
+                        $(".msgbox").addClass("form_success");
+                        $(".msgbox").html('{_form_success}');
+                        $('#contactform')[0].reset();
+						
+						window.location.href = '/contact-success/';
+						
+                        clearForm: true;
+                    } else if (data == -1) {
+                        $(".msgbox").addClass("form_error");
+                        $(".msgbox").html('{_captcha_invalid}');
+                    } else {
+                        $(".msgbox").html(data);
+                    }
+                    //alert(data);
+                    $('#imgCaptcha').attr("src", "/lib/imagesercurity.php");
+                }
+            });
+        } else {
+            $(".msgbox").addClass("form_error");
+            $(".msgbox").html('{_check_field}');
+        }
+        return false;
+    }
+</script> 
