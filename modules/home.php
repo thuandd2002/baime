@@ -305,11 +305,11 @@ class clsHome
     global $DBi, $tpl, $cache_image_path, $dir_path;
     $idc = intval($idc);
     $lg = new dbLogo;
-    $dblg = $lg->logoList($idc);
+    $dblg = $lg->logoList($idc, 10);
     foreach ($dblg as $rs) {
       $tpl->newBlock("logo_item");
       if ($rs['image']) {
-        $tpl->assign("image", '<a href="' . $rs['link'] . '" target="' . $rs['target'] . '"><img src="' . $rs['image'] . '" width="100%" alt="' . $rs['name'] . '"></a>');
+       $tpl->assign("image", '<img src="' . $cache_image_path . resizeimage1(200, 200, $dir_path . '/' . $rs['image']) . '"  width="100%" alt="' . $rs['name'] . '">');
       } else {
         $tpl->assign("image", $rs['comment']);
       }
