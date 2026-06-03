@@ -64,7 +64,8 @@ class clsHome
 
       if ($rs['id_category'] > 0) {
         if ($rs['data_type'] == 'logo') {
-          $tpl->newBlock("advhome");
+          $tpl->newBlock("logo");
+          $tpl->assign("catname", html_entity_decode($rs['subname']));
           $this->advHome($rs['id_category']);
         }
         if ($rs['data_type'] == 'album') {
@@ -306,7 +307,7 @@ class clsHome
     $lg = new dbLogo;
     $dblg = $lg->logoList($idc);
     foreach ($dblg as $rs) {
-      $tpl->newBlock("advItem");
+      $tpl->newBlock("logo_item");
       if ($rs['image']) {
         $tpl->assign("image", '<a href="' . $rs['link'] . '" target="' . $rs['target'] . '"><img src="' . $rs['image'] . '" width="100%" alt="' . $rs['name'] . '"></a>');
       } else {

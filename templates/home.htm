@@ -117,6 +117,48 @@
 
 <!-- END BLOCK : productHot -->
 
+{inhome}
+
+<!-- START BLOCK : logo -->
+<div class="chungnhan-wrapper">
+  <div class="c20"></div>
+  <div class="grid">
+    <div class="homecat-title">
+      {catname}
+    </div>
+    <div class="c10"></div>
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <!-- START BLOCK : logo_item -->
+        <div class="swiper-slide">
+          {image}
+        </div>
+        <!-- END BLOCK : logo_item -->
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+new Swiper('.swiper', {
+  slidesPerView: 6,
+  spaceBetween: 20,
+  loop: true,
+
+  breakpoints: {
+      320: {
+          slidesPerView: 2
+      },
+      768: {
+          slidesPerView: 4
+      },
+      1200: {
+          slidesPerView: 6
+      }
+  }
+});
+</script>
+<!-- END BLOCK : logo -->
+
 <!-- START BLOCK : news  -->
 <div class="news">
   <div class="grid">
@@ -178,7 +220,3 @@
 </div>
 
 <!-- end đối tác -->
-
-<div class="c20"></div>
-<div class="c10"></div>
-<div class="c20 hide-on-pad hide-on-tab"></div>
