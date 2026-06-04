@@ -5,11 +5,20 @@
 
 defined('_VALID_NVB') or die('Direct Access to this location is not allowed.');
 
+if (session_status() === PHP_SESSION_NONE) {
+  session_start();
+}
+if (!isset($_SESSION['inquiry_products'])) {
+  $_SESSION['inquiry_products'] = [];
+}
+
+
+
 $template_name = $cateinfo['template_name'];
 if ($template_name)
-    $tpl = new TemplatePower("templates/$template_name.htm");
+  $tpl = new TemplatePower("templates/$template_name.htm");
 else
-    $tpl = new TemplatePower("templates/product.htm");
+  $tpl = new TemplatePower("templates/product.htm");
 
 $tpl->prepare();
 $tpl->assignGlobal("dir_path", $dir_path);
@@ -24,25 +33,25 @@ langsite();
 $id = intval($_GET['id']);
 
 if ($_GET['idcgr']) {
-    $idc = intval($_GET['idcgr']);
+  $idc = intval($_GET['idcgr']);
 } else {
-    $idc = intval($_GET['idc']);
+  $idc = intval($_GET['idc']);
 }
 
 
-/*
 
-  include_once("modules/left_right_col.php");
-  $leftcol = left_right_col();
-  $tpl->assignGlobal("leftcol", $leftcol);
- */
+
+include_once("modules/left_right_col.php");
+$leftcol = left_right_col();
+$tpl->assignGlobal("leftcol", $leftcol);
+
 
 if ($id == 0)
-    $tpl->assignGlobal("slideshow", slidechild());
+  $tpl->assignGlobal("slideshow", slidechild());
 
 
 
-$tpl->assignGlobal("pathpage", '<div class="crumb"><div class="grid"><a href="/' . $lang_dir . '">Trang chủ</a> <i class="fa fa-angle-right"></i> ' . Get_Main_Cat_Name_path($idc) . '</div><div class="c5"></div></div>');
+$tpl->assignGlobal("pathpage", '<div class="crumb"><div class="grid"><a href="/' . $lang_dir . '">Home</a> <i class="fa fa-angle-right"></i> ' . Get_Main_Cat_Name_path($idc) . '</div><div class="c5"></div></div>');
 
 
 //$root_idc = Category::get_root_category_id($idc);
@@ -57,105 +66,123 @@ $tpl->assignGlobal("companyemail", $SETTING->companyemail);
 
 $tpl->assignGlobal("idcat", $idc);
 
+// if (isset($_POST['action']) && $_POST['action'] == 'update_inquiry') {
+//   $id = intval($_POST['id']);
+//   $checked = $_POST['checked'] === 'true';
+//   if ($id > 0) {
+//     if ($checked) {
+//       $_SESSION['inquiry_products'][$id] = $id;
+//     } else {
+//       unset($_SESSION['inquiry_products'][$id]);
+//     }
+//   }
+//   exit;
+// }
 
 $objProduct = new dbProduct();
 $product = new clsProduct();
 $tags_news = $product->_construct();
 $tpl->printToScreen();
 
-class clsProduct {
+class clsProduct
+{
 
-    public function _construct() {
-        global $DBi, $tpl, $dir_path, $idc, $id, $cache_image_path, $rs_cat, $root_idc;
-
-
-        $tpl->assignGlobal("cat_title", $rs_cat['name']);
-        $tpl->assignGlobal("cat_intro", '<div style="padding:10px 0px">' . $rs_cat['intro'] . '</div>');
-        $tpl->assignGlobal("cat_content", '<div style="padding:10px 0px">' . $rs_cat['content'] . '</div>');
-
-        if ($rs_cat['image'] != "")
-            $tpl->assignGlobal("cat_image", $rs_cat['image']);
-        else
-            $tpl->assignGlobal("cat_image", $rs_cat['imageadv']);
-
-        $tpl->assignGlobal("cat_link", $rs_cat['url']);
-        $tpl->assignGlobal("cat_description", $rs_cat['description']);
-        $tpl->assignGlobal("create_date", date('d/m/Y', $rs_cat['last_modify']));
+  public function _construct()
+  {
+    global $DBi, $tpl, $dir_path, $idc, $id, $cache_image_path, $rs_cat, $root_idc;
 
 
+    $tpl->assignGlobal("cat_title", $rs_cat['name']);
+    $tpl->assignGlobal("cat_intro", '<div style="padding:10px 0px">' . $rs_cat['intro'] . '</div>');
+    $tpl->assignGlobal("cat_content", '<div style="padding:10px 0px">' . $rs_cat['content'] . '</div>');
 
-        if ($id > 0) {
-            $tpl->newBlock("proDetail");
-            $this->proDetail($id);
-        } else {
+    if ($rs_cat['image'] != "")
+      $tpl->assignGlobal("cat_image", $rs_cat['image']);
+    else
+      $tpl->assignGlobal("cat_image", $rs_cat['imageadv']);
 
-            if (Category::checkChildCat($idc) && ($rs_cat['id_category'] == $root_idc )) {
+    $tpl->assignGlobal("cat_link", $rs_cat['url']);
+    $tpl->assignGlobal("cat_description", $rs_cat['description']);
+    $tpl->assignGlobal("create_date", date('d/m/Y', $rs_cat['last_modify']));
 
-                $tpl->newBlock("productCatList");
-                $this->productCatList();
-            } else {
 
-                if (Category::checkChildCat($idc)) {
-                    $tpl->assignGlobal("menutab", menutab($rs_cat['id_category']));
-                }
 
-                $tpl->newBlock("productList");
-                $this->productList();
-            }
-        }
+    if ($id > 0) {
+      $tpl->newBlock("proDetail");
+      $this->proDetail($id);
+    } else {
+      $tpl->newBlock("productList");
+      $tpl->assignGlobal("menutab", menutab($rs_cat['id_category']));
+      $this->productList($idc);
+      // if (Category::checkChildCat($idc) && ($rs_cat['id_category'] == $root_idc)) {
+
+      //   $tpl->newBlock("productCatList");
+      //   $this->productCatList();
+      // } else {
+
+      //   if (Category::checkChildCat($idc)) {
+      //     $tpl->assignGlobal("menutab", menutab($rs_cat['id_category']));
+      //   }
+
+      //   $tpl->newBlock("productList");
+      //   $this->productList();
+      // }
     }
+  }
 
-    function productCatList() {
-        global $DBi, $tpl, $objProduct, $idc, $dir_path, $cache_image_path, $SETTING, $langLabel;
+  function productCatList()
+  {
+    global $DBi, $tpl, $objProduct, $idc, $dir_path, $cache_image_path, $SETTING, $langLabel;
 
-        $db1 = dbMenu::listSubCat($idc);
-        foreach ($db1 as $rs1) {
-            $tpl->newBlock("catItem");
-            $tpl->assign("catname", $rs1['name']);
-            $tpl->assign("catContentItem", strstrim(strip_tags($rs1['content']), 60));
-            $tpl->assign("linkcat", $dir_path . '/' . $rs1['url']);
-            if ($rs1['image']) {
-                $image = $cache_image_path . cropimage(400, 270, $dir_path . '/' . $rs1['image'], false);
+    $db1 = dbMenu::listSubCat($idc);
+    foreach ($db1 as $rs1) {
+      $tpl->newBlock("catItem");
+      $tpl->assign("catname", $rs1['name']);
+      $tpl->assign("catContentItem", strstrim(strip_tags($rs1['content']), 60));
+      $tpl->assign("linkcat", $dir_path . '/' . $rs1['url']);
+      if ($rs1['image']) {
+        $image = $cache_image_path . cropimage(400, 270, $dir_path . '/' . $rs1['image'], false);
 
-                $tpl->assign("catimage", '<img src="' . $image . '" alt="' . $rs1['name'] . '" width="100%">');
-            }
+        $tpl->assign("catimage", '<img src="' . $image . '" alt="' . $rs1['name'] . '" width="100%">');
+      }
 
-            $db = $objProduct->itemList($rs1['id_category'], 4);
-            $i = 0;
-            foreach ($db as $rs) {
-                if ($rs['id_product'] > 0) {
-                    $i++;
-                    $tpl->newBlock("catProductItem");
+      $db = $objProduct->itemList($rs1['id_category'], 4);
+      $i = 0;
+      foreach ($db as $rs) {
+        if ($rs['id_product'] > 0) {
+          $i++;
+          $tpl->newBlock("catProductItem");
 
-                    $tpl->assign("name", $rs['name']);
-                    $tpl->assign("intro", $rs['intro']);
-                    $tpl->assign("ma", $rs['ma']);
-                    $tpl->assign("ttkhuyenmai", $rs['ttkhuyenmai']);
+          $tpl->assign("name", $rs['name']);
+          $tpl->assign("intro", $rs['intro']);
+          $tpl->assign("ma", $rs['ma']);
+          $tpl->assign("ttkhuyenmai", $rs['ttkhuyenmai']);
 
-                    $tpl->assign("hangsx", $objProduct->getManufactureName($rs['id_manufacture']));
-                    //$tpl->assign("size", $rs['size']);
+          $tpl->assign("hangsx", $objProduct->getManufactureName($rs['id_manufacture']));
+          //$tpl->assign("size", $rs['size']);
 
-                    if ($rs['icon'])
-                        $tpl->assign("icon", '<div class="' . $rs['icon'] . '">' . $rs['texticon'] . '</div>');
+          if ($rs['icon'])
+            $tpl->assign("icon", '<div class="' . $rs['icon'] . '">' . $rs['texticon'] . '</div>');
 
-                    $tpl->assign("attribute", $objProduct->getAttr(intval($rs['id_category']), $rs['attr']));
-                    $objProduct->showPrice($rs);
+          $tpl->assign("attribute", $objProduct->getAttr(intval($rs['id_category']), $rs['attr']));
+          $objProduct->showPrice($rs);
 
-                    if ($rs['image'])
-                        $tpl->assign("image", '<img src="' . $cache_image_path . cropimage(300, 300, $dir_path . '/' . $rs['image']) . '" alt="' . $rs['name'] . '" width="100%" >');
+          if ($rs['image'])
+            $tpl->assign("image", '<img src="' . $cache_image_path . cropimage(300, 300, $dir_path . '/' . $rs['image']) . '" alt="' . $rs['name'] . '" width="100%" >');
 
-                    $tpl->assign("ttkhuyenmai", str_replace("&nbsp;", " ", strstrim(strip_tags($rs['intro']), 20)));
-                    $tpl->assign("link_detail", $dir_path . '/' . url_process::getUrlCategory($rs['id_category']) . $rs['url']);
-                    $tpl->assign("linkcart", $dir_path . '/' . $lang_dir . 'addcart/' . $rs['url']);
-                }
-            }
+          $tpl->assign("ttkhuyenmai", str_replace("&nbsp;", " ", strstrim(strip_tags($rs['intro']), 20)));
+          $tpl->assign("link_detail", $dir_path . '/' . url_process::getUrlCategory($rs['id_category']) . $rs['url']);
+          $tpl->assign("linkcart", $dir_path . '/' . $lang_dir . 'addcart/' . $rs['url']);
         }
+      }
     }
+  }
 
-    public function productList() {
-        global $DBi, $idc, $tpl, $objProduct, $dir_path, $cache_image_path;
+  public function productList()
+  {
+    global $DBi, $idc, $tpl, $objProduct, $dir_path, $cache_image_path;
 
-        /*
+    /*
           $s = clean_value($_GET['s']);
           if($s == 'gia-thap-den-cao'){
           $orderby = "ORDER BY CONVERT(price, UNSIGNED) ASC";
@@ -167,86 +194,90 @@ class clsProduct {
          */
 
 
-        $db = $objProduct->itemList($idc, 18);
-        $i = 0;
-        foreach ($db as $rs) {
-            if ($rs['id_product'] > 0) {
-                $i++;
-                $tpl->newBlock("product_item");
+    $db = $objProduct->itemList($idc, 18);
+    $i = 0;
+    foreach ($db as $rs) {
+      if ($rs['id_product'] > 0) {
+        $i++;
+        $tpl->newBlock("product_item");
 
-                $tpl->assign("name", $rs['name']);
-                $tpl->assign("intro", $rs['intro']);
-                $tpl->assign("ma", $rs['ma']);
-                $tpl->assign("ttkhuyenmai", $rs['ttkhuyenmai']);
+        $tpl->assign("name", $rs['name']);
+        $tpl->assign("intro", $rs['intro']);
+        $tpl->assign("ma", $rs['ma']);
+        $tpl->assign("ttkhuyenmai", $rs['ttkhuyenmai']);
 
-                $tpl->assign("hangsx", $objProduct->getManufactureName($rs['id_manufacture']));
+        $tpl->assign("hangsx", $objProduct->getManufactureName($rs['id_manufacture']));
 
-                //$tpl->assign("size", $rs['size']);
+        //$tpl->assign("size", $rs['size']);
+        $tpl->assign("id", $rs['id_product']);
+        $isChecked = isset($_SESSION['inquiry_products'][$rs['id_product']]) ? 'checked' : '';
+        $tpl->assign("checked", $isChecked);
 
-                if ($rs['icon'])
-                    $tpl->assign("icon", '<div class="' . $rs['icon'] . '">' . $rs['texticon'] . '</div>');
+        if ($rs['icon'])
+          $tpl->assign("icon", '<div class="' . $rs['icon'] . '">' . $rs['texticon'] . '</div>');
 
-                $tpl->assign("attribute", $objProduct->getAttr(intval($rs['id_category']), $rs['attr']));
-                $objProduct->showPrice($rs);
+        $tpl->assign("attribute", $objProduct->getAttr(intval($rs['id_category']), $rs['attr']));
+        $objProduct->showPrice($rs);
 
-                if ($rs['image'])
-                    $tpl->assign("image", '<img src="' . $cache_image_path . cropimage(300, 300, $dir_path . '/' . $rs['image']) . '" alt="' . $rs['name'] . '" width="100%" >');
+        if ($rs['image'])
+          $tpl->assign("image", '<img src="' . $cache_image_path . cropimage(800, 600, $dir_path . '/' . $rs['image']) . '" alt="' . $rs['name'] . '" width="100%" >');
 
-                $tpl->assign("ttkhuyenmai", str_replace("&nbsp;", " ", strstrim(strip_tags($rs['intro']), 20)));
-                $tpl->assign("link_detail", $dir_path . '/' . url_process::getUrlCategory($rs['id_category']) . $rs['url']);
-                $tpl->assign("linkcart", $dir_path . '/' . $lang_dir . 'addcart/' . $rs['url']);
-            }
-        }
-
-        $tpl->assignGlobal("pages", $db['pages']);
+        $tpl->assign("ttkhuyenmai", str_replace("&nbsp;", " ", strstrim(strip_tags($rs['intro']), 20)));
+        $tpl->assign("link_detail", $dir_path . '/' . url_process::getUrlCategory($rs['id_category']) . $rs['url']);
+        $tpl->assign("linkcart", $dir_path . '/' . $lang_dir . 'addcart/' . $rs['url']);
+      }
     }
 
-    function proDetail($id) {
-        global $DBi, $idc, $tpl, $objProduct, $dir_path, $cache_image_path, $SETTING, $site_address;
-        $rs = $objProduct->itemDetail($id);
+    $tpl->assignGlobal("pages", $db['pages']);
+  }
 
-        $tpl->assignGlobal("hotline", $SETTING->hotline);
-        if (intval($rs['id_product']) > 0) {
-            $tpl->assignGlobal("name", $rs['name']);
-            $tpl->assignGlobal("ma", $rs['ma']);
+  function proDetail($id)
+  {
+    global $DBi, $idc, $tpl, $objProduct, $dir_path, $cache_image_path, $SETTING, $site_address;
+    $rs = $objProduct->itemDetail($id);
 
-            $tpl->assignGlobal("hangsx", $objProduct->getManufactureName($rs['id_manufacture']));
-            $tpl->assignGlobal("xuatxu", $objProduct->getMaterialName($rs['id_material']));
-            $objProduct->showPrice($rs);
+    $tpl->assignGlobal("hotline", $SETTING->hotline);
+    if (intval($rs['id_product']) > 0) {
+      $tpl->assignGlobal("name", $rs['name']);
+      $tpl->assignGlobal("ma", $rs['ma']);
 
-            $tpl->assign("linkcart", $dir_path . '/' . $lang_dir . 'addcart/' . $rs['url']);
-            $tpl->assign("fileurl", $rs['fileurl']);
+      $tpl->assignGlobal("hangsx", $objProduct->getManufactureName($rs['id_manufacture']));
+      $tpl->assignGlobal("xuatxu", $objProduct->getMaterialName($rs['id_material']));
+      $objProduct->showPrice($rs);
 
-            if ($rs['description'])
-                $tpl->assign("description", $rs['description']);
-            else
-                $tpl->assign("description", strstrim($rs['intro'], 100));
-            $tpl->assign("ttkhuyenmai", $rs['ttkhuyenmai']);
-            $tpl->assign("intro", $rs['intro']);
-            $tpl->assign("content", $rs['content']);
-            $tpl->assign("contenttab0", $rs['contenttab0']);
-            $tpl->assign("contenttab1", $rs['contenttab1']);
+      $tpl->assign("linkcart", $dir_path . '/' . $lang_dir . 'addcart/' . $rs['url']);
+      $tpl->assign("fileurl", $rs['fileurl']);
 
-            if ($rs['image']) {
-                $tpl->assign("image_first", $cache_image_path . cropimage(500, 500, $dir_path . '/' . $rs['image']));
-                $tpl->assign("bigimage_first", $rs['image']);
-                $tpl->assignGlobal("thumb_image_first", $cache_image_path . cropimage(100, 100, $dir_path . '/' . $rs['image']));
-                $tpl->assign("image", $site_address . $cache_image_path . cropimage(500, 500, $dir_path . '/' . $rs['image']));
-            }
+      if ($rs['description'])
+        $tpl->assign("description", $rs['description']);
+      else
+        $tpl->assign("description", strstrim($rs['intro'], 100));
+      $tpl->assign("ttkhuyenmai", $rs['ttkhuyenmai']);
+      $tpl->assign("intro", $rs['intro']);
+      $tpl->assign("content", $rs['content']);
+      $tpl->assign("contenttab0", $rs['contenttab0']);
+      $tpl->assign("contenttab1", $rs['contenttab1']);
 
-            $tpl->assignGlobal("id_product", $rs['id_product']);
-            $tpl->assign("proDetail.thumbimage", $this->sliderImage($rs['image_list']));
+      if ($rs['image']) {
+        $tpl->assign("image_first", $cache_image_path . cropimage(500, 500, $dir_path . '/' . $rs['image']));
+        $tpl->assign("bigimage_first", $rs['image']);
+        $tpl->assignGlobal("thumb_image_first", $cache_image_path . cropimage(100, 100, $dir_path . '/' . $rs['image']));
+        $tpl->assign("image", $site_address . $cache_image_path . cropimage(500, 500, $dir_path . '/' . $rs['image']));
+      }
 
-            $attr = $objProduct->getAttrDetail($rs['id_category'], $rs['attr']);
-            foreach ($attr as $key => $val) {
-                $tpl->newBlock("attr");
-                $tpl->assign("attrname", $key);
-                $tpl->assign("attrvalue", $val);
-            }
+      $tpl->assignGlobal("id_product", $rs['id_product']);
+      $tpl->assign("proDetail.thumbimage", $this->sliderImage($rs['image_list']));
 
-            $tpl->assignGlobal("link_detail_pro", $site_address . $dir_path . '/' . url_process::getUrlCategory($rs['id_category']) . $rs['url']);
+      $attr = $objProduct->getAttrDetail($rs['id_category'], $rs['attr']);
+      foreach ($attr as $key => $val) {
+        $tpl->newBlock("attr");
+        $tpl->assign("attrname", $key);
+        $tpl->assign("attrvalue", $val);
+      }
 
-            /*
+      $tpl->assignGlobal("link_detail_pro", $site_address . $dir_path . '/' . url_process::getUrlCategory($rs['id_category']) . $rs['url']);
+
+      /*
             $product_ver = json_decode($rs['product_ver']);
             foreach ($product_ver as $key => $value) {
                 $tpl->newBlock("phienban");
@@ -256,25 +287,25 @@ class clsProduct {
                 $tpl->assign("gianumber", $value->gianumber);
             }
             */
-            
-            
-            $this->sp_cungdanhmuc($rs['id_category']);
-            $this->sp_lienquan($rs['spcungloai']);
 
-            /*
+
+      $this->sp_cungdanhmuc($rs['id_category']);
+      $this->sp_lienquan($rs['spcungloai']);
+
+      /*
             $this->showManufactory($rs['id_manufacture']);
             $this->relate_project($rs['relate_project']);
             $this->productManufactory($rs['id_manufacture']);
             */
 
-            /*
+      /*
               include_once("modules/comment.php");
               $tpl->assignGlobal("comments", getComments($id, 'product', 'id_product'));
              */
-			 
-			 
-			//unset($_COOKIE['viewed_product']);			
-			/*
+
+
+      //unset($_COOKIE['viewed_product']);
+      /*
 			$product_viewed = array(0);
 			if(!isset($_COOKIE["viewed_product"])) {
 				$product_viewed[] = $id;
@@ -287,203 +318,205 @@ class clsProduct {
 				}
 				$list_id_viewed = $_COOKIE['viewed_product'];
 				$this->viewed_product($list_id_viewed);
-			}			 
-			*/ 
-			 
-        }
+			}
+			*/
     }
-	
-	
-    private function viewed_product($listid) {
-        global $DBi, $idc, $tpl, $objProduct, $dir_path, $cache_image_path;
+  }
 
-        if (strlen($listid) != "")
-            $tpl->newBlock("viewed_product");
 
-        $db = $objProduct->sanphamdaxem($listid);
-        $i = 0;
-        foreach ($db as $rs) {
-            if ($rs['id_product'] > 0) {
-                $tpl->newBlock("viewed_product_item");
-                $tpl->assign("ma", $rs['ma']);
-                $tpl->assign("name", $rs['name']);
+  private function viewed_product($listid)
+  {
+    global $DBi, $idc, $tpl, $objProduct, $dir_path, $cache_image_path;
 
-                $tpl->assign("attribute", $objProduct->getAttr(intval($rs['id_category']), $rs['attr']));
-                if ($rs['icon'])
-                    $tpl->assign("icon", '<div class="' . $rs['icon'] . '">' . $rs['texticon'] . '</div>');
+    if (strlen($listid) != "")
+      $tpl->newBlock("viewed_product");
 
-                $objProduct->showPrice($rs);
+    $db = $objProduct->sanphamdaxem($listid);
+    $i = 0;
+    foreach ($db as $rs) {
+      if ($rs['id_product'] > 0) {
+        $tpl->newBlock("viewed_product_item");
+        $tpl->assign("ma", $rs['ma']);
+        $tpl->assign("name", $rs['name']);
 
-                if ($rs['image'])
-                    $tpl->assign("image", '<img src="' . $cache_image_path . cropimage(360, 360, $dir_path . '/' . $rs['image']) . '" alt="' . $rs['name'] . '" width="100%">');
+        $tpl->assign("attribute", $objProduct->getAttr(intval($rs['id_category']), $rs['attr']));
+        if ($rs['icon'])
+          $tpl->assign("icon", '<div class="' . $rs['icon'] . '">' . $rs['texticon'] . '</div>');
 
-                $tpl->assign("link_detail", $dir_path . '/' . url_process::getUrlCategory($rs['id_category']) . $rs['url']);
-				
-            }
-        }
-    }	
+        $objProduct->showPrice($rs);
 
-    private function showManufactory($id_tacgia) {
-        global $DBi, $tpl, $objProduct, $dir_path, $cache_image_path, $langLabel;
-        $id_tacgia = intval($id_tacgia);
-        $rs = $objProduct->getManufactureDetail($id_tacgia);
-        if ($rs['id'] > 0) {
-            $tpl->newBlock("tacgia");
-            $tpl->assign("name", $rs['name']);
-            $tpl->assign("intro", $rs['intro']);
-            $tpl->assign("content", strstrim(strip_tags($rs['content']), 100));
-            if ($rs['image'])
-                $tpl->assign("image", '<img src="' . $cache_image_path . cropimage(310, 360, $dir_path . '/' . $rs['image']) . '" alt="' . $rs['name'] . '" width="100%" >');
+        if ($rs['image'])
+          $tpl->assign("image", '<img src="' . $cache_image_path . cropimage(360, 360, $dir_path . '/' . $rs['image']) . '" alt="' . $rs['name'] . '" width="100%">');
 
-            $tpl->assign("link_detail", $dir_path . '/' . url_process::getUrlCategory($rs['id_category']) . $rs['url']);
-        }
+        $tpl->assign("link_detail", $dir_path . '/' . url_process::getUrlCategory($rs['id_category']) . $rs['url']);
+      }
     }
+  }
 
-    private function productManufactory($id_manufacture) {
-        global $DBi, $idc, $tpl, $objProduct, $dir_path, $cache_image_path;
-        $id_manufacture = intval($id_manufacture);
+  private function showManufactory($id_tacgia)
+  {
+    global $DBi, $tpl, $objProduct, $dir_path, $cache_image_path, $langLabel;
+    $id_tacgia = intval($id_tacgia);
+    $rs = $objProduct->getManufactureDetail($id_tacgia);
+    if ($rs['id'] > 0) {
+      $tpl->newBlock("tacgia");
+      $tpl->assign("name", $rs['name']);
+      $tpl->assign("intro", $rs['intro']);
+      $tpl->assign("content", strstrim(strip_tags($rs['content']), 100));
+      if ($rs['image'])
+        $tpl->assign("image", '<img src="' . $cache_image_path . cropimage(310, 360, $dir_path . '/' . $rs['image']) . '" alt="' . $rs['name'] . '" width="100%" >');
 
-        $db = $objProduct->product_manufactory($id_manufacture);
-        $i = 0;
-        foreach ($db as $rs) {
-            if ($rs['id_product'] > 0) {
-                $tpl->newBlock("relate_product_item");
-                $tpl->assign("ma", $rs['ma']);
-                $tpl->assign("name", $rs['name']);
-
-                $tpl->assign("chuyenmuc", Category::categoryName($rs['id_category']));
-                $tpl->assign("size", $rs['size']);
-                if ($rs['icon'])
-                    $tpl->assign("icon", '<div class="' . $rs['icon'] . '">' . $rs['texticon'] . '</div>');
-
-                $tpl->assign("attribute", $objProduct->getAttr(intval($rs['id_category']), $rs['attr']));
-                $objProduct->showPrice($rs);
-
-                if ($rs['image'])
-                    $tpl->assign("image", '<img src="' . $cache_image_path . cropimage(300, 300, $dir_path . '/' . $rs['image']) . '" alt="' . $rs['name'] . '" width="100%">');
-
-
-
-                $tpl->assign("link_detail", $dir_path . '/' . url_process::getUrlCategory($rs['id_category']) . $rs['url']);
-            }
-        }
+      $tpl->assign("link_detail", $dir_path . '/' . url_process::getUrlCategory($rs['id_category']) . $rs['url']);
     }
+  }
 
-    private function relate_project($lstID) {
-        global $DBi, $id, $tpl, $dir_path, $cache_image_path, $langLabel;
+  private function productManufactory($id_manufacture)
+  {
+    global $DBi, $idc, $tpl, $objProduct, $dir_path, $cache_image_path;
+    $id_manufacture = intval($id_manufacture);
 
-        if ($lstID != "")
-            $tpl->newBlock("relate_project");
+    $db = $objProduct->product_manufactory($id_manufacture);
+    $i = 0;
+    foreach ($db as $rs) {
+      if ($rs['id_product'] > 0) {
+        $tpl->newBlock("relate_product_item");
+        $tpl->assign("ma", $rs['ma']);
+        $tpl->assign("name", $rs['name']);
 
-        $sql = "SELECT * FROM du_an WHERE active = 1 AND id_duan IN(" . $lstID . ") ORDER BY id_duan DESC";
+        $tpl->assign("chuyenmuc", Category::categoryName($rs['id_category']));
+        $tpl->assign("size", $rs['size']);
+        if ($rs['icon'])
+          $tpl->assign("icon", '<div class="' . $rs['icon'] . '">' . $rs['texticon'] . '</div>');
 
-        $db = $DBi->query($sql);
-        while ($rs = $DBi->fetch_array($db)) {
+        $tpl->assign("attribute", $objProduct->getAttr(intval($rs['id_category']), $rs['attr']));
+        $objProduct->showPrice($rs);
 
-            $tpl->newBlock("relate_project_item");
-            $tpl->assign("name", $rs['name']);
-            $tpl->assign("intro", $rs['intro']);
-            $tpl->assign("tienich", $rs['tienich']);
-            if ($rs['image'])
-                $tpl->assign("image", '<img src="' . $cache_image_path . cropimage(400, 280, $dir_path . '/' . $rs['image']) . '" alt="' . $rs['name'] . '" width="100%" >');
-            $tpl->assign("link_detail", $dir_path . '/' . url_process::getUrlCategory($rs['id_category']) . $rs['url']);
-        }
+        if ($rs['image'])
+          $tpl->assign("image", '<img src="' . $cache_image_path . cropimage(300, 300, $dir_path . '/' . $rs['image']) . '" alt="' . $rs['name'] . '" width="100%">');
+
+
+
+        $tpl->assign("link_detail", $dir_path . '/' . url_process::getUrlCategory($rs['id_category']) . $rs['url']);
+      }
     }
+  }
 
-    private function sp_cungdanhmuc($id_category) {
-        global $DBi, $id, $tpl, $objProduct, $dir_path, $cache_image_path, $langLabel;
+  private function relate_project($lstID)
+  {
+    global $DBi, $id, $tpl, $dir_path, $cache_image_path, $langLabel;
 
-        $db = $objProduct->other_product($id, $id_category);
-        $i = 0;
-        foreach ($db as $rs) {
-            if ($rs['id_product'] > 0) {
-                $i++;
+    if ($lstID != "")
+      $tpl->newBlock("relate_project");
 
-                $tpl->newBlock("other_products");
+    $sql = "SELECT * FROM du_an WHERE active = 1 AND id_duan IN(" . $lstID . ") ORDER BY id_duan DESC";
 
-                $tpl->assign("name", $rs['name']);
-                $tpl->assign("ma", $rs['ma']);
-                if ($rs['icon'])
-                    $tpl->assign("icon", '<div class="' . $rs['icon'] . '">' . $rs['texticon'] . '</div>');
-                //$tpl->assign("tacgia", $objProduct->getManufactureName($rs['id_manufacture']));
-                //$tpl->assign("size", $rs['size']);
-                $tpl->assign("attribute", $objProduct->getAttr(intval($rs['id_category']), $rs['attr']));
-                $objProduct->showPrice($rs);
+    $db = $DBi->query($sql);
+    while ($rs = $DBi->fetch_array($db)) {
 
-                $tpl->assign("ttkhuyenmai", $rs['ttkhuyenmai']);
-                if ($rs['image'])
-                    $tpl->assign("image", '<img src="' . $cache_image_path . cropimage(300, 300, $dir_path . '/' . $rs['image']) . '" alt="' . $rs['name'] . '" width="100%" >');
-
-                $tpl->assign("link_detail", $dir_path . '/' . url_process::getUrlCategory($rs['id_category']) . $rs['url']);
-            }
-        }
+      $tpl->newBlock("relate_project_item");
+      $tpl->assign("name", $rs['name']);
+      $tpl->assign("intro", $rs['intro']);
+      $tpl->assign("tienich", $rs['tienich']);
+      if ($rs['image'])
+        $tpl->assign("image", '<img src="' . $cache_image_path . cropimage(400, 280, $dir_path . '/' . $rs['image']) . '" alt="' . $rs['name'] . '" width="100%" >');
+      $tpl->assign("link_detail", $dir_path . '/' . url_process::getUrlCategory($rs['id_category']) . $rs['url']);
     }
+  }
 
-    private function sp_lienquan($listid) {
-        global $DBi, $idc, $tpl, $objProduct, $dir_path, $cache_image_path;
+  private function sp_cungdanhmuc($id_category)
+  {
+    global $DBi, $id, $tpl, $objProduct, $dir_path, $cache_image_path, $langLabel;
 
-        if (strlen($listid) != "")
-            $tpl->newBlock("sp_lienquan");
+    $db = $objProduct->other_product($id, $id_category);
+    $i = 0;
+    foreach ($db as $rs) {
+      if ($rs['id_product'] > 0) {
+        $i++;
 
-        $db = $objProduct->splienquan($listid);
-        $i = 0;
-        foreach ($db as $rs) {
-            if ($rs['id_product'] > 0) {
-                $tpl->newBlock("relate_product_item");
-                $tpl->assign("ma", $rs['ma']);
-                $tpl->assign("name", $rs['name']);
+        $tpl->newBlock("other_products");
 
-                //$tpl->assign("tacgia", $objProduct->getManufactureName($rs['id_manufacture']));
-                //$tpl->assign("size", $rs['size']);
-                $tpl->assign("attribute", $objProduct->getAttr(intval($rs['id_category']), $rs['attr']));
-                if ($rs['icon'])
-                    $tpl->assign("icon", '<div class="' . $rs['icon'] . '">' . $rs['texticon'] . '</div>');
+        $tpl->assign("name", $rs['name']);
+        $tpl->assign("ma", $rs['ma']);
+        if ($rs['icon'])
+          $tpl->assign("icon", '<div class="' . $rs['icon'] . '">' . $rs['texticon'] . '</div>');
+        //$tpl->assign("tacgia", $objProduct->getManufactureName($rs['id_manufacture']));
+        //$tpl->assign("size", $rs['size']);
+        $tpl->assign("attribute", $objProduct->getAttr(intval($rs['id_category']), $rs['attr']));
+        $objProduct->showPrice($rs);
 
-                $objProduct->showPrice($rs);
+        $tpl->assign("ttkhuyenmai", $rs['ttkhuyenmai']);
+        if ($rs['image'])
+          $tpl->assign("image", '<img src="' . $cache_image_path . cropimage(800, 600, $dir_path . '/' . $rs['image']) . '" alt="' . $rs['name'] . '" width="100%" >');
 
-                if ($rs['image'])
-                    $tpl->assign("image", '<img src="' . $cache_image_path . cropimage(300, 300, $dir_path . '/' . $rs['image']) . '" alt="' . $rs['name'] . '" width="100%">');
-
-
-
-                $tpl->assign("link_detail", $dir_path . '/' . url_process::getUrlCategory($rs['id_category']) . $rs['url']);
-            }
-        }
+        $tpl->assign("link_detail", $dir_path . '/' . url_process::getUrlCategory($rs['id_category']) . $rs['url']);
+      }
     }
+  }
 
-	private function sliderImage($image_list) {
-        global $DBi, $tpl, $dir_path, $cache_image_path;
+  private function sp_lienquan($listid)
+  {
+    global $DBi, $idc, $tpl, $objProduct, $dir_path, $cache_image_path;
 
-        $images = json_decode($image_list);
-		
-		usort($images, function($a, $b) { 
-			return $a->image_thu_tu < $b->image_thu_tu ? -1 : 1; 
-		});
-		
-		
-        $thumbimage = '';
+    if (strlen($listid) != "")
+      $tpl->newBlock("sp_lienquan");
 
-        foreach ($images as $rs) {
-            $tpl->newBlock("slider_image");
-            $tpl->assign(array(
-                name => $rs->image_name,
-                thu_tu => $rs->image_thu_tu,
-                image_desc => $rs->image_desc
-            ));
-            
-            $image_path = $dir_path . '/' . $rs->image_path;
-            $image_path = str_replace("//", "/", $image_path);
-            $image_path = str_replace("//", "/", $image_path);
-            
-            $tpl->assign("image", '<img  src="' . $cache_image_path . resizeimage1(600, 600, $image_path) . '" alt="' . $rs->image_name . '" title="' . $rs->image_name . '" width="100%" />');
-            $tpl->assign("bigimage", '<img  src="' . $image_path . '" alt="' . $rs->image_name . '" title="' . $rs->image_name . '" width="100%" />');
-            $tpl->assign("bigimage_url", $image_path );
+    $db = $objProduct->splienquan($listid);
+    $i = 0;
+    foreach ($db as $rs) {
+      if ($rs['id_product'] > 0) {
+        $tpl->newBlock("relate_product_item");
+        $tpl->assign("ma", $rs['ma']);
+        $tpl->assign("name", $rs['name']);
 
-            $thumbimage .= '<div class="swiper-slide"><img src="' . $cache_image_path . cropimage(50 * 2, 50 * 2, $image_path) . '" width="100%"/> </div>';
-        }
-        return $thumbimage;
+        //$tpl->assign("tacgia", $objProduct->getManufactureName($rs['id_manufacture']));
+        //$tpl->assign("size", $rs['size']);
+        $tpl->assign("attribute", $objProduct->getAttr(intval($rs['id_category']), $rs['attr']));
+        if ($rs['icon'])
+          $tpl->assign("icon", '<div class="' . $rs['icon'] . '">' . $rs['texticon'] . '</div>');
+
+        $objProduct->showPrice($rs);
+
+        if ($rs['image'])
+          $tpl->assign("image", '<img src="' . $cache_image_path . cropimage(300, 300, $dir_path . '/' . $rs['image']) . '" alt="' . $rs['name'] . '" width="100%">');
+
+
+
+        $tpl->assign("link_detail", $dir_path . '/' . url_process::getUrlCategory($rs['id_category']) . $rs['url']);
+      }
     }
+  }
 
+  private function sliderImage($image_list)
+  {
+    global $DBi, $tpl, $dir_path, $cache_image_path;
+
+    $images = json_decode($image_list);
+
+    usort($images, function ($a, $b) {
+      return $a->image_thu_tu < $b->image_thu_tu ? -1 : 1;
+    });
+
+
+    $thumbimage = '';
+
+    foreach ($images as $rs) {
+      $tpl->newBlock("slider_image");
+      $tpl->assign(array(
+        name => $rs->image_name,
+        thu_tu => $rs->image_thu_tu,
+        image_desc => $rs->image_desc
+      ));
+
+      $image_path = $dir_path . '/' . $rs->image_path;
+      $image_path = str_replace("//", "/", $image_path);
+      $image_path = str_replace("//", "/", $image_path);
+
+      $tpl->assign("image", '<img  src="' . $cache_image_path . resizeimage1(600, 600, $image_path) . '" alt="' . $rs->image_name . '" title="' . $rs->image_name . '" width="100%" />');
+      $tpl->assign("bigimage", '<img  src="' . $image_path . '" alt="' . $rs->image_name . '" title="' . $rs->image_name . '" width="100%" />');
+      $tpl->assign("bigimage_url", $image_path);
+
+      $thumbimage .= '<div class="swiper-slide"><img src="' . $cache_image_path . cropimage(50 * 2, 50 * 2, $image_path) . '" width="100%"/> </div>';
+    }
+    return $thumbimage;
+  }
 }
-
-?>

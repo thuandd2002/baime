@@ -286,10 +286,9 @@ a img {
 
 .pagecat-title {
   font-size: 22px;
+  font-family: var(--fontSemiBold);
   text-transform: uppercase;
-  font-family: var(--fontB);
-  text-transform: uppercase;
-  margin: 0px;
+  color: var(--subcolor);
 }
 
 .nav {
@@ -336,7 +335,7 @@ a img {
 .nav li ul {
   position: absolute;
   /* top: 100%; */
-  left: 0;
+  /* left: 0; */
   width: 250px;
   text-align: left;
   display: none;
@@ -682,8 +681,7 @@ a img {
   font-family: var(--fontB);
   font-size: 24px;
   text-transform: uppercase;
-  text-align: left;
-  color:var(--subcolor);
+  color: var(--subcolor);
 }
 
 .footer-title .fa {
@@ -698,59 +696,37 @@ a img {
   transform: rotate(225deg);
 }
 
-.menutab {
-  width: 100%;
-}
 
 .menutab-item {
-  background: #ebebeb;
+  position: relative;
   padding: 12px 15px;
-  text-align: center;
-  border-radius: 3px;
-  background-color: #ebebeb;
-  margin: 0px 5px 5px;
-  font-family: var(--fontB);
+  font-family: var(--fontSemiBold);
+  margin: 0 10px;
 }
 
 .menutab-item a {
-  color: #414042;
+  color: #000;
 }
 
-.tab-item {
-  display: block;
-  width: 20%;
-  float: left;
-  text-align: center;
-  font-family: 'R-b';
-  font-weight: normal;
-  color: #58595b;
-  font-size: 15px;
-  padding: 5px 5px;
-  border-right: solid 1px #ccc;
-  margin: 10px 0px;
+.menutab-item::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: red;
+  transition: all .3s ease;
+  transform: translateX(-50%);
+
 }
 
-.tab-item:last-child {
-  border-right: none;
+.menutab-item:hover::after,
+.menutab-item.active::after {
+  width: 100%;
+  z-index: 3;
 }
 
-.tab-item:hover {
-  color: #f38f15;
-}
-
-.menutab .actived {
-  background-color: rgb(171, 156, 139);
-  color: #fff;
-  font-family: var(--fontB);
-}
-
-.menutab .actived a {
-  color: #fff;
-}
-
-.tab-bar {
-  /* background: #e1e1e1; */
-}
 
 .tab-title {
   margin: 0px;
@@ -769,9 +745,7 @@ a img {
   color: #414042;
 }
 
-.tab-content {
-  padding: 10px 20px;
-}
+
 
 /*Modal*/
 .modal-overlay {
@@ -1063,6 +1037,11 @@ a.close:hover {
 .tab-content {
   display: none;
 }
+
+.tab-content.active{
+  display: block;
+}
+
 
 .thumb-next,
 .thumb-prev {
@@ -1377,7 +1356,7 @@ a.close:hover {
   text-align: center;
 }
 
-/*============== HOME============== */
+/*==============HOME============== */
 
 .inforHot-wrapper {
   background: linear-gradient(180deg, #FAFDFF 0%, #F5FBFF 100%);
@@ -1401,7 +1380,7 @@ a.close:hover {
 }
 
 .homecat-intro {
-  font-family: var(--fontQick);
+  font-family: var(--fontmain);
 }
 
 .product-wrapper {
@@ -1429,13 +1408,62 @@ a.close:hover {
 }
 
 
-.chungnhan-item{
+.chungnhan-item {
   display: flex;
   padding: 20px;
   border: 1px solid #ccc;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.email-input {
+  flex: 1;
+  padding: 14px 20px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-right: none;
+  outline: none;
+  background-color: #fff;
+}
+
+.email-input:focus {
+  border-color: #0a2f6b;
+}
+
+.email-input::placeholder {
+  color: #ccc;
+}
+
+.submit-button {
+  padding: 14px 32px;
+  background-color: #0a2f6b;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  white-space: nowrap;
+}
+
+.submit-button:hover {
+  background-color: #082855;
+}
+
+.submit-button:active {
+  background-color: #061d3d;
 }
 
 /*============== END HOME ==============*/
@@ -1469,7 +1497,7 @@ a.close:hover {
 
 .footer-desc {
   color: #fff;
-} 
+}
 
 
 .footer-list {
@@ -1648,138 +1676,8 @@ a.close:hover {
 }
 
 /* ========================TRANG GIOI THIEU======================== */
-
-.infoleader-item {
-  background: #935a27;
-  color: #fff;
-  padding: 36px 32px;
-  border-radius: 18px;
-  height: 100%;
-  transition: all 0.3s ease;
-}
-
-.infoleader-item:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
-}
-
-.infoleader-icon {
-  width: 48px;
-  height: 48px;
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 18px;
-}
-
-.infoleader-icon img {
-  max-width: 22px;
-  max-height: 22px;
-  filter: brightness(0) invert(1);
-  /* ép icon thành trắng */
-}
-
-.infoleader-title {
-  font-size: 22px;
-  font-family: var(--fontSemiBold);
-  text-transform: uppercase;
-  margin-bottom: 12px;
-  letter-spacing: 0.6px;
-}
-
-.infoleader-desc {
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.92);
-  font-family: var(--fontQick);
-}
-
-.infoleader-head {
-  display: flex;
-  gap: 15px;
-  align-items: center;
-}
-
-/* ===== ITEM ===== */
-.duan-item {
-  background: #fff;
-  border-radius: 22px;
-  padding: 36px 28px;
-  text-align: center;
-  height: 100%;
-  transition: all 0.35s ease;
-}
-
-.duan-item:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
-}
-
-/* icon */
-.duan-icon {
-  width: 64px;
-  height: 64px;
-  margin: 0 auto 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* title */
-.duan-title {
-  font-size: 22px;
-  font-family: var(--fontB);
-  margin-bottom: 12px;
-  color: #333;
-}
-
-/* desc */
-.duan-desc {
-  line-height: 1.65;
-  font-family: var(--fontQick);
-  color: #666;
-}
-
-.duan-wrapper {
-  background: url(/uploaded/pic-cat/dichvu.png);
-  color: #fff;
-}
-
-/* item */
-.cert-item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px 10px;
-  height: 100%;
-  transition: all 0.3s ease;
-}
-
-/* image */
-.cert-item img {
-  /* max-width: 150px;
-  max-height: 80px; */
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  opacity: 0.85;
-  transition: all 0.3s ease;
-}
-
-/* hover */
-.cert-item:hover img {
-  opacity: 1;
-  transform: scale(1.05);
-}
-
-.albumSwiper .swiper-slide {
-  display: flex;
-  align-items: center;
-  /* căn giữa dọc */
-  justify-content: center;
-  /* căn giữa ngang */
-  height: auto;
+.info-info{
+  margin: 10px 0;
 }
 
 /* ============ END TRANG Giới thiệu +============= */
@@ -2277,10 +2175,11 @@ a.close:hover {
   width: 100%;
   height: 100%;
 }
-.inhome-item{
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-margin-bottom: 20px;
+
+.inhome-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
 }

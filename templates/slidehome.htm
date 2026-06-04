@@ -3,24 +3,24 @@
 <div class="swiper-container" id="slide_home">
     <div class="homeslide-next">  </div>
     <div class="homeslide-prev">  </div>
-    <div class="swiper-wrapper"> 
+    <div class="swiper-wrapper">
         <!-- START BLOCK : slide_home_item -->
         <div class="swiper-slide" style="position:relative; overflow: hidden;">
             {image}
         </div>
-        <!-- END BLOCK : slide_home_item -->      
-		
+        <!-- END BLOCK : slide_home_item -->
+
         <!-- START BLOCK : slide_home_mob -->
         <div class="swiper-slide" style="position:relative; overflow: hidden;">
             {image}
         </div>
-        <!-- END BLOCK : slide_home_mob -->      		
-		
+        <!-- END BLOCK : slide_home_mob -->
+
     </div>
-    <div class="c"></div> 
-	
+    <div class="c"></div>
+
 	<div class="swiper-pagination"></div>
-	
+
 </div>
 
 
@@ -43,7 +43,7 @@
 				el: '.swiper-pagination',
 				type: 'bullets',
 				clickable: true,
-			},	
+			},
             speed: 500,
             spaceBetween: 0,
         });
@@ -64,20 +64,20 @@
 
     <!-- START BLOCK : nopic111 -->
     <div><img src="/uploaded/default.png" width="100%" style="display:block" /></div>
-    <!-- END BLOCK : nopic111 --> 
+    <!-- END BLOCK : nopic111 -->
 
 
     <!-- START BLOCK : piccat -->
-    <a class="hide-on-tab" href="{name}">
+    <a class="hide-on-tab" href="{link}">
         {image}
     </a>
-    <!-- END BLOCK : piccat --> 
+    <!-- END BLOCK : piccat -->
 
     <!-- START BLOCK : pic_mobile -->
-    <a  class="hide-on-pc hide-on-pad" href="{name}">
+    <a  class="hide-on-pc hide-on-pad" href="{link}">
         {image}
     </a>
-    <!-- END BLOCK : pic_mobile --> 
+    <!-- END BLOCK : pic_mobile -->
 
 
 
@@ -86,13 +86,13 @@
         <div class="swiper-container" id="slide_cat">
             <div class="homeslide-next">  </div>
             <div class="homeslide-prev">  </div>
-            <div class="swiper-wrapper"> 
+            <div class="swiper-wrapper">
                 <!-- START BLOCK : list_slide -->
                 <div class="swiper-slide" style="position:relative">
 
                     <a href="{link}" target="{target}">{image}</a>
                 </div>
-                <!-- END BLOCK : list_slide -->      
+                <!-- END BLOCK : list_slide -->
             </div>
         </div>
     </div>
@@ -120,7 +120,7 @@
         $('#slide_cat').on('mouseout', function () {
             swiper_slide_cat.autoplay.start();
         });
-    </script>    
-    <!-- END BLOCK : slidecat --> 
+    </script>
+    <!-- END BLOCK : slidecat -->
 </div>
-<!-- END BLOCK : slidechild --> 
+<!-- END BLOCK : slidechild -->

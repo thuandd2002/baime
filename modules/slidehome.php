@@ -47,10 +47,10 @@ function slidechild() {
     $tpl1 = new TemplatePower("templates/slidehome.htm");
     $tpl1->prepare();
     $tpl1->assignGlobal("dir_path", $dir_path);
-    
+
     $tpl1->newBlock("slidechild");
     $tpl1->assignGlobal("catname", $catname);
-    $sql = "SELECT * FROM sys_image WHERE id_category = $idc";
+    $sql = "SELECT * FROM category WHERE id_category = $idc";
     $db_img = $DBi->query($sql);
     $i = 0;
     while ($rslg = $DBi->fetch_array($db_img)) {
@@ -63,7 +63,7 @@ function slidechild() {
             $srcimg = str_replace("//", "/", $dir_path . '/' . $rslg['image']);
             $tpl1->assign("image", '<img src="' . $srcimg . '" alt="' . $rslg['name'] . '" width="100%"/>');
             $tpl1->assign("name", $rslg['name']);
-            $tpl1->assign("link", $rslg['link']);
+            // $tpl1->assign("link", $rslg['link']);
             $tpl1->assign("target", $rslg['target']);
         }
 

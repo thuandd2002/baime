@@ -27,238 +27,343 @@ $info = new Info();
 
 $tpl->printToScreen();
 
-class Info {
+class Info
+{
 
-    public function __construct() {
-        global $DBi, $tpl, $dir_path, $idc, $id, $cache_image_path, $rs_cat, $root_idc;
+  public function __construct()
+  {
+    global $DBi, $tpl, $dir_path, $idc, $id, $cache_image_path, $rs_cat, $root_idc;
 
+    include_once("modules/partner_logo.php");
+    $tpl->assignGlobal("s_partner", partner_logo());
 
-        if ($id > 0) {
-            $this->infoItemDetail($id);
-        } else if (Category::checkChildCat($idc)) {
+    if ($id > 0) {
+      $this->infoItemDetail($id);
+    } else if (Category::checkChildCat($idc)) {
 
-            $tpl->newBlock("infoCatList");
-            $db = Category::getChildCat($root_idc);
+      $tpl->newBlock("infoCatList");
+      $db = Category::getChildCat($root_idc);
 
-            foreach ($db as $rs) {
-
-                if ($rs['id_category'] > 0) {
-
-                    if ($rs['data_type'] == 'info') {
-                        $tpl->newBlock("info");
-                        $tpl->assign("catname", html_entity_decode($rs['subname']));
-                        $this->infoItem($rs['id_category']);
-                    }
-
-                    if ($rs['data_type'] == 'news') {
-                        $tpl->newBlock("infoNews");
-                        $tpl->assign("catname", html_entity_decode($rs['subname']));
-                        $tpl->assign("catintro", $rs['intro']);
-                        $this->infoNews($rs['id_category']);
-                    }
-
-                    if ($rs['data_type'] == 'info_donvi') {
-                        $tpl->newBlock("info_donvi");
-                        $tpl->assign("catname", html_entity_decode($rs['subname']));
-                        $tpl->assign("catintro", $rs['intro']);
-                        $this->info_donvi($rs['id_category']);
-                    }
-
-                    if ($rs['data_type'] == 'album') {
-                        $tpl->newBlock("albumInfo");
-                        $tpl->assign("catname", html_entity_decode($rs['subname']));
-                        $tpl->assign("link", $dir_path . '/' . $rs['url']);
-                        $tpl->assign("catintro", $rs['intro']);
-                        $tpl->assign("catimage", '<img  src="' . $rs['image'] . '" alt="' . $rs['name'] . '"  />');
-                        $this->albumInfo($rs['id_category']);
-                    }
-                }
-            }
-        } else {
-
-            $tpl->newBlock("catDetail");
-
-            $tpl->assign("catname", $rs_cat['name']);
-            $tpl->assign("subname", $rs_cat['subname']);
-            $tpl->assign("catintro", $rs_cat['intro']);
-            $tpl->assign("catcontent", $rs_cat['content']);
-            
-            $this->infoItemList($idc);
-            
+      foreach ($db as $rs) {
+        if ($rs['id_category'] > 0) {
+          $tpl->newBlock("tab");
+          $tpl->assign("catid", $rs['id_category']);
+          $tpl->assign("catname", html_entity_decode($rs['subname']));
         }
+      }
+      foreach ($db as $rs) {
+        if ($rs['id_category'] > 0) {
+          if ($rs['data_type'] == 'info') {
+            $tpl->newBlock("info");
+            $tpl->assign("catid", $rs['id_category']);
+            $tpl->assign("catname", html_entity_decode($rs['subname']));
+            $tpl->assign("catintro", html_entity_decode($rs['intro']));
+            $tpl->assign("catcontent", html_entity_decode($rs['content']));
+            $tpl->assign("catimage", '<img src="' . $rs['image'] . '" width="100%"  alt="' . $rs['name'] . '"  style="display:block"  >');
+            $this->infoItem($rs['id_category']);
+          }
+
+
+
+          if ($rs['data_type'] == 'info_donvi') {
+            $tpl->newBlock("info_donvi");
+            $tpl->assign("catid", $rs['id_category']);
+            $tpl->assign("catname", html_entity_decode($rs['subname']));
+            $tpl->assign("catintro", $rs['intro']);
+            $tpl->assign("catimage", '<img src="' . $rs['image'] . '" width="100%"  alt="' . $rs['name'] . '"  style="display:block"  >');
+            $this->info_donvi($rs['id_category']);
+          }
+
+
+          if ($rs['data_type'] == 'album') {
+            $tpl->newBlock("album");
+            $tpl->assign("catid", $rs['id_category']);
+            $tpl->assign("catname", html_entity_decode($rs['subname']));
+            $tpl->assign("catintro", $rs['intro']);
+            $this->albumInfo($rs['id_category']);
+          }
+        }
+      }
+    } else {
+
+      $tpl->newBlock("catDetail");
+
+      $tpl->assign("catname", $rs_cat['name']);
+      $tpl->assign("subname", $rs_cat['subname']);
+      $tpl->assign("catintro", $rs_cat['intro']);
+      $tpl->assign("catcontent", $rs_cat['content']);
+
+      $this->infoItemList($idc);
     }
+  }
 
-    function info_donvi($idc) {
-        global $DBi, $tpl, $dir_path, $cache_image_path, $lang, $SETTING;
-        $idc = intval($idc);
-        $sql = "SELECT * FROM info_donvi WHERE active=1 AND id_category = $idc ORDER BY thu_tu ";
-        $db = $DBi->query($sql);
+  function info_donvi($idc)
+  {
+    global $DBi, $tpl, $dir_path, $cache_image_path, $lang, $SETTING, $mobile_temp;
+    $idc = intval($idc);
+    $sql = "SELECT * FROM info_donvi WHERE active=1 AND id_category = $idc ORDER BY thu_tu ";
+    $db = $DBi->query($sql);
+    while ($rs = $DBi->fetch_array($db)) {
+      if ($mobile_temp) {
+        $tpl->newBlock('info_donvi_item_mb');
+      } else {
+        $tpl->newBlock("info_donvi_item");
+      }
 
-        while ($rs = $DBi->fetch_array($db)) {
-            $tpl->newBlock("info_donvi_item");
-            if ($rs['image'])
-                $tpl->assign("image", '<img src="'.$cache_image_path.resizeimage1(80, 80, $rs['image']).'" width="80" alt="' . $rs['name']. '">');
-            
-            $tpl->assign("name", $rs['name']);
-            $tpl->assign("intro", $rs['intro']);
-            $tpl->assign("content", $rs['content']);
+      $tpl->assign(
+        array(
+          name => $rs['name'],
+          intro => $rs['intro']
+        )
+      );
 
-            $tpl->assign("link_detail", $rs['url']);
-        }
+      if ($rs['image']) {
+        $tpl->assign("image", '<img src="' . $rs['image'] . '"  alt="' . $rs['name'] . '"  style="display:inline-block" class="image-info-home" >');
+        $tpl->assign("image_url", $rs['image']);
+      }
+      $tpl->assign("link_detail", $dir_path . '/' . url_process::getUrlCategory($rs['id_category']) . $rs['url']);
     }
+  }
 
-    function infoItem($idc) {
-        global $DBi, $tpl, $dir_path, $cache_image_path, $lang, $SETTING;
-        $idc = intval($idc);
-        $sql = "SELECT * FROM info WHERE active=1 AND id_category = $idc ORDER BY thu_tu DESC ,id_info";
-        $db = $DBi->query($sql);
+  function infoItem($idc)
+  {
+    global $DBi, $tpl, $dir_path, $cache_image_path, $lang, $SETTING;
+    $idc = intval($idc);
+    $sql = "SELECT * FROM info WHERE active=1 AND id_category = $idc ORDER BY thu_tu DESC ,id_info";
+    $db = $DBi->query($sql);
 
-        while ($rs = $DBi->fetch_array($db)) {
+    while ($rs = $DBi->fetch_array($db)) {
 
-            $tpl->newBlock("subInfoItem");
+      $tpl->newBlock("subInfoItem");
 
-            $tpl->assign("name", $rs['name']);
-            $tpl->assign("intro", $rs['intro']);
-            $tpl->assign("content", $rs['content']);
-            $tpl->assign("videocode", parseVideoUrl($rs['videourl']));
+      $tpl->assign("name", $rs['name']);
+      $tpl->assign("intro", $rs['intro']);
+      $tpl->assign("content", $rs['content']);
+      $tpl->assign("videocode", parseVideoUrl($rs['videourl']));
 
-            if ($rs['image'])
-                
-                $tpl->assign("background", 'background-image: url('.$rs['image'].');');
-        }
+      if ($rs['image'])
+
+        $tpl->assign("image", '<img src="' . $rs['image'] . '" alt="' . $rs['name'] . '" width="100%"/>');
     }
-    
-    
-    function infoNews($idc) {
-        global $DBi, $tpl, $dir_path, $cache_image_path, $lang, $SETTING;
-        $idc = intval($idc);
-        $sql = "SELECT * FROM news WHERE active=1 AND id_category = $idc ORDER BY thu_tu DESC ,id_news";
-        $db = $DBi->query($sql);
+  }
 
-        while ($rs = $DBi->fetch_array($db)) {
 
-            $tpl->newBlock("infoNewsItem");
+  function infoNews($idc)
+  {
+    global $DBi, $tpl, $dir_path, $cache_image_path, $lang, $SETTING;
+    $idc = intval($idc);
+    $sql = "SELECT * FROM news WHERE active=1 AND id_category = $idc ORDER BY thu_tu DESC ,id_news";
+    $db = $DBi->query($sql);
 
-            $tpl->assign("name", $rs['name']);
-            $tpl->assign("intro", $rs['intro']);
-            $tpl->assign("content", $rs['content']);
+    while ($rs = $DBi->fetch_array($db)) {
 
-            if ($rs['image'])
-                $tpl->assign("image", '<img  src="' . $rs['image'] . '" alt="' . $rs['name'] . '"  />');
-        }
-    }    
+      $tpl->newBlock("infoNewsItem");
 
-    function infoLeader($idc) {
-        global $DBi, $tpl, $dir_path, $cache_image_path, $lang, $SETTING;
-        $idc = intval($idc);
+      $tpl->assign("name", $rs['name']);
+      $tpl->assign("intro", $rs['intro']);
+      $tpl->assign("content", $rs['content']);
 
-        $sql = "SELECT * FROM info_leader WHERE active=1 AND id_category = $idc ORDER BY thu_tu DESC";
-        $db = $DBi->query($sql);
-        $i = 0;
-        while ($rs = $DBi->fetch_array($db)) {
-            $i++;
-            $tpl->newBlock("info_leader_item");
-
-            $tpl->assign("name", $rs['name']);
-            $tpl->assign("position", $rs['position']);
-
-            $tpl->assign("intro", $rs['intro']);
-
-            if ($rs['image'])
-                $tpl->assign("image", '<img src="' . $cache_image_path . cropimage(300, 450, $dir_path . '/' . $rs['image']) . '"  width="100%" alt="' . $rs['name'] . '">');
-            $tpl->assign("image_url", $rs['image']);
-        }
+      if ($rs['image'])
+        $tpl->assign("image", '<img  src="' . $rs['image'] . '" alt="' . $rs['name'] . '"  />');
     }
+  }
 
-    public function infoItemList($idcat) {
-        global $DBi, $tpl, $cache_image_path, $dir_path, $id;
+  function infoLeader($idc)
+  {
+    global $DBi, $tpl, $dir_path, $cache_image_path, $lang, $SETTING;
+    $idc = intval($idc);
 
-        $sql = "SELECT * FROM info WHERE active=1 AND id_category = $idcat ORDER BY thu_tu DESC ,id_info";
-        $db = $DBi->query($sql);
-
-        while ($rs = $DBi->fetch_array($db)) {
-
-            $tpl->newBlock("infoItemList");
-
-            $tpl->assign("name", $rs['name']);
-            $tpl->assign("intro", $rs['intro']);
-            $tpl->assign("content", $rs['content']);
-
-            if ($rs['image'])
-                $tpl->assign("image", '<img  src="' . $rs['image'] . '" alt="' . $rs['name'] . '" width="100%"/>');
-            //$tpl->assign("image", '<img  src="' . $cache_image_path . cropimage(600, 350, $dir_path . '/' . $rs['image'], false) . '" alt="' . $rs['name'] . '" width="100%"/>');
-
-            $tpl->assign("fileurl", $rs['fileurl']);
-            $tpl->assign("videocode", parseVideoUrl($rs['videourl']));
-
-
-            if (substr($rs['url'], 0, 4) == "http")
-                $tpl->assign("link_detail", $rs['url']);
-            else
-                $tpl->assign("link_detail", $dir_path . '/' . url_process::getUrlCategory($rs['id_category']) . $rs['url']);
-        }
+    $sql = "SELECT * FROM info_leader WHERE active=1 AND id_category = $idc ORDER BY thu_tu DESC";
+    $db = $DBi->query($sql);
+    while ($rs = $DBi->fetch_array($db)) {
+      $tpl->newBlock("info_leader_item");
+      $tpl->assign("name", $rs['name']);
+      $tpl->assign("intro", $rs['intro']);
+      if ($rs['image'])
+        $tpl->assign("image", '<img src="' . $cache_image_path . cropimage(50, 50, $dir_path . '/' . $rs['image']) . '"  width="100%" alt="' . $rs['name'] . '">');
     }
+  }
 
-    function albumInfo($idc) {
-        global $DBi, $tpl, $dir_path, $cache_image_path, $lang, $SETTING;
-        $idc = intval($idc);
+  public function infoItemList($idcat)
+  {
+    global $DBi, $tpl, $cache_image_path, $dir_path, $id;
 
-        $sql = "SELECT * FROM album WHERE active=1 AND (id_category IN(" . Category::getParentId($idc) . ") OR groupcat LIKE '%:" . $idc . ":%') ORDER BY thu_tu DESC, id_album DESC LIMIT 10";
+    $sql = "SELECT * FROM info WHERE active=1 AND id_category = $idcat ORDER BY thu_tu DESC ,id_info";
+    $db = $DBi->query($sql);
 
-        $db = $DBi->query($sql);
+    while ($rs = $DBi->fetch_array($db)) {
 
-        while ($rs = $DBi->fetch_array($db)) {
-            $tpl->newBlock("album_item");
-            if ($rs['image']) {
-                $tpl->assign("image", '<img src="' . $rs['image'] . '"  width="100%" alt="' . $rs['name'] . '">');
-                $tpl->assign("image_url", $rs['image']);
-            }
+      $tpl->newBlock("infoItemList");
+
+      $tpl->assign("name", $rs['name']);
+      $tpl->assign("intro", $rs['intro']);
+      $tpl->assign("content", $rs['content']);
+
+      if ($rs['image'])
+        $tpl->assign("image", '<img  src="' . $rs['image'] . '" alt="' . $rs['name'] . '" width="100%"/>');
+      //$tpl->assign("image", '<img  src="' . $cache_image_path . cropimage(600, 350, $dir_path . '/' . $rs['image'], false) . '" alt="' . $rs['name'] . '" width="100%"/>');
+
+      $tpl->assign("fileurl", $rs['fileurl']);
+      $tpl->assign("videocode", parseVideoUrl($rs['videourl']));
 
 
-
-            $tpl->assign("name", $rs['name']);
-            $tpl->assign("intro", strip_tags($rs['intro']));
-            $tpl->assign("link_detail", $dir_path . '/' . url_process::getUrlCategory($rs['id_category']) . $rs['url']);
-
-            $images = json_decode($rs['image_list']);
-            usort($images, function($a, $b) {
-                return $a->image_thu_tu > $b->image_thu_tu ? 1 : -1;
-            });
-
-            foreach ($images as $rs) {
-                $tpl->newBlock("slider_info_image");
-                $tpl->assign(array(
-                    name => $rs->image_name,
-                    thu_tu => $rs->image_thu_tu,
-                    image_desc => $rs->image_desc
-                ));
-
-                $image_path = str_replace("//", "/", "/" . $rs->image_path);
-
-                $tpl->assign("image", '<img src="' . $cache_image_path . cropimage(400, 250, $image_path) . '"  width="100%" alt="' . $rs->image_name . '">');
-
-                $tpl->assign("bigimage", $image_path);
-            }
-        }
+      if (substr($rs['url'], 0, 4) == "http")
+        $tpl->assign("link_detail", $rs['url']);
+      else
+        $tpl->assign("link_detail", $dir_path . '/' . url_process::getUrlCategory($rs['id_category']) . $rs['url']);
     }
+  }
 
-    public function infoItemDetail($id) {
-        global $DBi, $tpl, $cache_image_path, $dir_path;
+  function albumInfo($idc)
+  {
+    global $DBi, $tpl, $dir_path, $cache_image_path, $lang, $SETTING, $mobile_temp;
 
-        $id = intval($id);
-        $sql = "SELECT * FROM info WHERE active=1 AND id_info = $id";
-        $db = $DBi->query($sql);
-        while ($rs = $DBi->fetch_array($db)) {
-            $tpl->newBlock("infoItemDetail");
-            $tpl->assign("name", $rs['name']);
-            $tpl->assign("intro", $rs['intro']);
-            $tpl->assign("content", $rs['content']);
-            $tpl->assign("fileurl", $rs['fileurl']);
-            $tpl->assign("videocode", parseVideoUrl($rs['videourl']));
-            $tpl->assign("link_detail", $dir_path . '/' . url_process::getUrlCategory($rs['id_category']) . $rs['url']);
-        }
+    $idc = intval($idc);
+    $sql = "SELECT * FROM album WHERE active = 1 AND id_category = $idc ORDER BY thu_tu ASC ,id_album";
+
+    $db = $DBi->query($sql);
+    while ($rs = $DBi->fetch_array($db)) {
+
+      if ($mobile_temp) {
+        $tpl->newBlock("albumItem_mb");
+      } else {
+        $tpl->newBlock("albumItem");
+      }
+
+      $tpl->assign("name", $rs['name']);
+      $tpl->assign("intro", $rs['intro']);
+      $tpl->assign("content", $rs['content']);
+
+      if ($rs['image'])
+
+        $tpl->assign("image", '<img src="' . $rs['image'] . '" alt="' . $rs['name'] . '" width="100%"/>');
     }
+    // $sql = "SELECT * FROM album WHERE active=1 AND (id_category IN(" . Category::getParentId($idc) . ") OR groupcat LIKE '%:" . $idc . ":%') ORDER BY thu_tu DESC, id_album DESC LIMIT 10";
 
+    // $db = $DBi->query($sql);
+
+    // while ($rs = $DBi->fetch_array($db)) {
+    //   $tpl->newBlock("album_item");
+    //   if ($rs['image']) {
+    //     $tpl->assign("image", '<img src="' . $rs['image'] . '"  width="100%" alt="' . $rs['name'] . '">');
+    //     $tpl->assign("image_url", $rs['image']);
+    //   }
+    //   $tpl->assign("name", $rs['name']);
+    //   $tpl->assign("intro", strip_tags($rs['intro']));
+    //   $tpl->assign("link_detail", $dir_path . '/' . url_process::getUrlCategory($rs['id_category']) . $rs['url']);
+
+    //   $images = json_decode($rs['image_list']);
+    //   usort($images, function ($a, $b) {
+    //     return $a->image_thu_tu > $b->image_thu_tu ? 1 : -1;
+    //   });
+
+    //   foreach ($images as $rs) {
+    //     $tpl->newBlock("slider_info_image");
+    //     $tpl->assign(array(
+    //       name => $rs->image_name,
+    //       thu_tu => $rs->image_thu_tu,
+    //       image_desc => $rs->image_desc
+    //     ));
+
+    //     $image_path = str_replace("//", "/", "/" . $rs->image_path);
+
+    //     $tpl->assign("image", '<img src="' . $cache_image_path . cropimage(400, 250, $image_path) . '"  width="100%" alt="' . $rs->image_name . '">');
+
+    //     $tpl->assign("bigimage", $image_path);
+    //   }
+    // }
+  }
+
+  public function infoItemDetail($id)
+  {
+    global $DBi, $tpl, $cache_image_path, $dir_path;
+
+    $id = intval($id);
+    $sql = "SELECT * FROM info WHERE active=1 AND id_info = $id";
+    $db = $DBi->query($sql);
+    while ($rs = $DBi->fetch_array($db)) {
+      $tpl->newBlock("infoItemDetail");
+      $tpl->assign("name", $rs['name']);
+      $tpl->assign("intro", $rs['intro']);
+      $tpl->assign("content", $rs['content']);
+      $tpl->assign("fileurl", $rs['fileurl']);
+      $tpl->assign("videocode", parseVideoUrl($rs['videourl']));
+      $tpl->assign("link_detail", $dir_path . '/' . url_process::getUrlCategory($rs['id_category']) . $rs['url']);
+    }
+  }
+
+  function infoService($idcat)
+  {
+    global $DBi, $tpl, $dir_path, $cache_image_path, $lang, $SETTING;
+    $idc = intval($idcat);
+
+    $sql = "SELECT * FROM service WHERE active=1 AND id_category = $idc ORDER BY thu_tu ASC ,id_service";
+    $db = $DBi->query($sql);
+    while ($rs = $DBi->fetch_array($db)) {
+
+      $tpl->newBlock("infoServiceItem");
+
+      $tpl->assign("name", $rs['name']);
+      $tpl->assign("intro", $rs['intro']);
+      $tpl->assign("content", $rs['content']);
+
+      if ($rs['image'])
+
+        $tpl->assign("image", '<img src="' . $rs['image'] . '" alt="' . $rs['name'] . '" width="100%"/>');
+    }
+  }
+
+
+  function infoArticle($idcat)
+  {
+    global $DBi, $tpl, $dir_path, $cache_image_path, $lang, $SETTING;
+    $idc = intval($idcat);
+
+    $sql = "SELECT * FROM article WHERE active=1 AND id_category = $idc ORDER BY thu_tu ASC ,id_article";
+    $db = $DBi->query($sql);
+    while ($rs = $DBi->fetch_array($db)) {
+
+      $tpl->newBlock("infoArticleItem");
+
+      $tpl->assign("name", $rs['name']);
+      $tpl->assign("intro", $rs['intro']);
+      $tpl->assign("content", $rs['content']);
+
+      // if ($rs['image'])
+
+      //   $tpl->assign("image", '<img src="' . $rs['image'] . '" alt="' . $rs['name'] . '" width="100%"/>');
+    }
+  }
+
+
+  function info_duan($idc)
+  {
+    global $DBi, $tpl, $dir_path, $cache_image_path, $lang, $SETTING;
+    $idc = intval($idc);
+    $sql = "SELECT * FROM du_an WHERE active=1 AND id_category = $idc ORDER BY thu_tu ASC ,id_duan";
+    $db = $DBi->query($sql);
+    while ($rs = $DBi->fetch_array($db)) {
+
+      $tpl->newBlock("infoDuanItem");
+
+      $tpl->assign("name", $rs['name']);
+      $tpl->assign("intro", $rs['tienich']);
+      $tpl->assign("content", $rs['content']);
+
+      if ($rs['image'])
+        $tpl->assign("image", '<img src="' . $rs['image'] . '" alt="' . $rs['name'] . '" width="100%"/>');
+    }
+  }
+
+  // function logoInfo($idc)
+  // {
+  //   global $DBi, $tpl, $dir_path, $cache_image_path, $lang, $SETTING;
+  //   $sql = "SELECT * FROM logo WHERE active=1 AND id_category = $idc ORDER BY thu_tu ASC ,id_duan";
+  //   $db = $DBi->query($sql);
+  //   while ($rs = $DBi->fetch_array($db)) {
+  //     $tpl->newBlock("logoItem");
+
+  //     $tpl->assign("image", '<img src="' . $rs['image'] . '" alt="' . $rs['name'] . '" width="100%"/>');
+  //   }
+  // }
 }
-
-?>
