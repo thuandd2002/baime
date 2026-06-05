@@ -41,7 +41,11 @@ class clsHome
           $this->proHome($rs['id_category']);
         }
         if ($rs['data_type'] == 'news') {
-
+          $tpl->newBlock("news");
+          $tpl->assign("catname", html_entity_decode($rs['subname']));
+          $tpl->assign("link", $dir_path . '/' . $rs['url']);
+          $tpl->assign("catintro", $rs['intro']);
+          $this->newsHome($rs['id_category']);
         }
 
         if ($rs['data_type'] == 'info') {

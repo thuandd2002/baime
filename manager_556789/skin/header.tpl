@@ -29,7 +29,7 @@
         <script src="mrm_fi/ckfinder.js"></script>
         <script src="mrm_ed/ckeditor.js"></script>
 
-        
+
 
         <script>
 
@@ -52,7 +52,7 @@
                                     <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
                                         <li role="presentation"><a role="menuitem" tabindex="-1" href="?page=setting"><i class=" icon-asterisk"></i>&nbsp;Cấu hình hệ thống</a></li>
 
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="?page=static_lang"><i class=" icon-asterisk"></i>&nbsp;Cấu hình ngôn ngữ</a></li>            
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="?page=static_lang"><i class=" icon-asterisk"></i>&nbsp;Cấu hình ngôn ngữ</a></li>
 
                                         <li role="presentation"><a role="menuitem" tabindex="-1" href="?page=settingshow"><i class="icon-th"></i>&nbsp;Cấu hình hiển thị</a></li>
                                         <li role="presentation"><a role="menuitem" tabindex="-1" href="?page=users"><i class="icon-user"></i>&nbsp;Quản lý người sử dụng</a></li>
@@ -66,10 +66,10 @@
                             </ul>
 
                             <ul class="nav pull-right">
-                                
+
 								<li class="dropdown"> <a id="drop3" href="#" role="button" class="dropdown-toggle" data-bs-toggle="dropdown"><i class="icon-cog icon-white"></i>&nbsp;Thông tin cá nhân <b class="caret"></b></a>
-								
-								
+
+
                                     <ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
                                         <li role="presentation"><a role="menuitem" tabindex="-1" href="?page=profile"><i class="icon-user"></i>&nbsp;Thông tin cá nhân</a></li>
                                         <li role="presentation" class="divider"></li>
@@ -97,7 +97,7 @@
                                         <option value="default" {lang}>Tiếng Việt</option>
                                         <option value="en" {langen}>English</option>
                                     </select>
-                                </form>    
+                                </form>
                                 <script>
                                     $(function () {
                                         $('#changelang').change(function () {
@@ -105,7 +105,7 @@
                                         });
                                     });
                                 </script>
-                            </div>      
+                            </div>
 
                             <ul class="menuleft">
                                 <li ><a href="?page=category" {category}><i class="icon-folder-open"></i>Quản lý chuyên mục</a></li>
@@ -115,36 +115,36 @@
                                 <li><a href="?page=static" {static} ><i class="icon-list"></i>Nội dung tĩnh</a></li>
                                 <li><a href="?page=video" {video} ><i class="icon-list"></i>Video</a></li>
                                 <li><a href="?page=album" {album} ><i class="icon-envelope"></i>Hình ảnh</a></li>
-                                <li><a href="?page=contactInfo" {contactInfo}><i class="icon-list"></i>Trang liên hệ</a></li>
+                                <!-- <li><a href="?page=contactInfo" {contactInfo}><i class="icon-list"></i>Trang liên hệ</a></li> -->
                             </ul>
                             <div class="divider1"><span></span></div>
                             <ul class="menuleft">
 
                                 <li><a href="?page=news" {news} ><i class="icon-list-alt"></i>Trang Tin tức</a></li>
-                                <li><a href="?page=info" {info} ><i class="icon-list-alt"></i>Trang Giới thiệu</a></li>
+                                <!-- <li><a href="?page=info" {info} ><i class="icon-list-alt"></i>Trang Giới thiệu</a></li>
                                 <li><a href="?page=du_an" {du_an} ><i class="icon-file"></i>Trang Dự án</a></li>
-                                <li><a href="?page=service" {service}><i class="icon-list-alt"></i>Trang Dịch vụ</a></li>
-                            </ul>	
+                                <li><a href="?page=service" {service}><i class="icon-list-alt"></i>Trang Dịch vụ</a></li> -->
+                            </ul>
 
                             <div class="divider1"><span></span></div>
 
                             <ul class="menuleft">
-                                <li><a href="?page=product_manufacture" {manufacture} ><i class="icon-file"></i>Hãng sản xuất</a></li>
+                                <!-- <li><a href="?page=product_manufacture" {manufacture} ><i class="icon-file"></i>Hãng sản xuất</a></li>
                                 <li><a href="?page=product_material" {product_material} ><i class="icon-file"></i>Xuất xứ</a></li>
                                 <li><a href="?page=product" {product} ><i class="icon-file"></i>Sản phẩm</a></li>
 
-                                <li><a href="?page=price_range" {price_range}><i class="icon-file"></i>Quản lý khoảng giá</a></li>
+                                <li><a href="?page=price_range" {price_range}><i class="icon-file"></i>Quản lý khoảng giá</a></li> -->
 
-                                <!-- 
+                                <!--
                                 <li><a href="?page=attributePro" {attributePro}><i class="icon-file"></i>Thuộc tính Sản phẩm</a></li>
 
-                                <li><a href="?page=import_list" {import_list}><i class="icon-file"></i>List bảo hành</a></li>   
+                                <li><a href="?page=import_list" {import_list}><i class="icon-file"></i>List bảo hành</a></li>
                                 <li><a href="?page=faq" {faq}><i class="icon-list-alt"></i>Trang Hỏi đáp </a></li>
-                                
-                                
-                                
-                                
-                                                                 
+
+
+
+
+
                                 -->
                             </ul>
                             <div class="divider1"><span></span></div>
@@ -152,13 +152,13 @@
                             <ul class="menuleft">
 
                                 <li><a href="?page=daily" {daily} ><i class="icon-list-alt"></i>Hệ thống phân phối</a></li>
-                                <li><a href="?page=article" {article} ><i class="icon-list-alt"></i>Ý kiến khách hàng </a></li>
-                                <li><a href="?page=download" {download}><i class="icon-list-alt"></i>Tài liệu - Báo cáo</a></li>
+                                <!-- <li><a href="?page=article" {article} ><i class="icon-list-alt"></i>Ý kiến khách hàng </a></li>
+                                <li><a href="?page=download" {download}><i class="icon-list-alt"></i>Tài liệu - Báo cáo</a></li> -->
                                 <li><a href="?page=tuyendung" {tuyendung}><i class="icon-list-alt"></i>Trang tuyển dụng</a></li>
                                 <!--
-                                
+
                                 <li><a href="?page=tuyendung_request" {tuyendung_request}><i class="icon-envelope"></i>Nhận tin tuyển dụng</a></li>
-                                <li><a href="?page=support" {support}><i class="icon-list"></i>Hỗ trợ trực tuyến</a></li>                         
+                                <li><a href="?page=support" {support}><i class="icon-list"></i>Hỗ trợ trực tuyến</a></li>
                                 <li><a href="?page=vn_province" {vn_province}><i class="icon-file"></i>Danh mục tỉnh thành</a></li>
                                 -->
 

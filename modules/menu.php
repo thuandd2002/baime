@@ -74,7 +74,7 @@ function menubar()
         } else {
           $tpl1->newBlock("has_sub_menu");
           foreach ($submenu as $rs1) {
-            if ($rs1['id_category'] > 0) {
+            if ($rs1['id_category'] > 0 && $rs['data_type'] != 'info') {
 
               $tpl1->newBlock("submenudrop");
 

@@ -46,6 +46,7 @@ $leftcol = left_right_col();
 $tpl->assignGlobal("leftcol", $leftcol);
 
 
+
 if ($id == 0)
   $tpl->assignGlobal("slideshow", slidechild());
 
