@@ -27,15 +27,15 @@
           <a href="{link_detail}" class="newsimg">
             {image}
           </a>
-          <h3 class="newsname text-line-3 m-text-line-2">
-            <a href="{link_detail}">
+          <h3 class="newsname ">
+            <a class="text-line-3 m-text-line-2" href="{link_detail}">
               {name}
             </a>
           </h3>
           <div class="newscat-info">
             <span>{createdate}</span>
           </div>
-          <div class="newscat-intro text-line-2 m-text-line-2">
+          <div style="padding: 0px 20px;" class="homecat-intro text-line-2 m-text-line-2">
             {intro}
           </div>
         </div>
@@ -54,113 +54,78 @@
 
   <!-- END BLOCK : itemList -->
 
-
-
-
-
-
-
   <!-- START BLOCK : itemDetail  -->
-
-
-
-  <!-- Tin tức -->
-
-
   <div class="news-container">
     <div class="grid">
       <div class="flex-container flex-reverse--mb">
-        <div class="cell-1-4-sp tab-cell-1-1">
-          {leftcol}
-        </div>
-        <div class="cell-3-4 tab-cell-1-1">
-          <div class="newsdetail">
-            <h1 class="newsdetail-name">
-              {name}
-            </h1>
-            <div class="newsdetail-intro">
-              {intro}
-            </div>
 
-            <div class="tocWrap">
-              <div class="longPageTOC TOCShowHide">
-                Xem nhanh
-              </div>
-              <div class="longPageNavigation"></div>
+
+        <div class="newsdetail">
+          <h1 class="newsdetail-name">
+            {name}
+          </h1>
+          <div class="newsdetail-intro">
+            {intro}
+          </div>
+
+          <div class="tocWrap">
+            <div class="longPageTOC TOCShowHide">
+              Xem nhanh
             </div>
-            <script>
-              $(function () {
-                $(".tocContent").LongPageNavigation({ longPageNavigationPosition: "longPageNavigation" });
-                $(".TOCShowHide").click(function () {
-                  $(this).toggleClass('collapsed');
-                  $(".longPageNavigation").slideToggle();
-                });
+            <div class="longPageNavigation"></div>
+          </div>
+          <script>
+            $(function () {
+              $(".tocContent").LongPageNavigation({ longPageNavigationPosition: "longPageNavigation" });
+              $(".TOCShowHide").click(function () {
+                $(this).toggleClass('collapsed');
+                $(".longPageNavigation").slideToggle();
               });
+            });
 
-            </script>
+          </script>
 
-            <div class="tocContent">
-              {content}
-            </div>
+          <div class="tocContent">
+            {content}
+          </div>
 
-            <div class="c10"></div>
+          <div class="c10"></div>
 
-            <div class="sharethis-inline-share-buttons"></div>
+          <div class="sharethis-inline-share-buttons"></div>
 
-            <!--
+          <!--
 					<meta property="fb:admins" content="100000441129325"/>
 					-->
-            <div class="c20"></div>
-            <div id="fb-root"></div>
-            <script async defer crossorigin="anonymous"
-              src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v14.0" nonce="PpCC7XAT"></script>
-            <div class="fb-like" data-href="{link_detail}" data-width="" data-layout="button" data-action="like"
-              data-size="small" data-share="true"></div>
-
-            <div class="c30"> </div>
-            <div class="fb-comments" data-href="{link_detail}" data-width="800" data-numposts="8"></div>
-            <div class="c30"> </div>
-
-
-          </div>
-
-
-          <div class="newsothers">
-            <h4 class="titlehnc-left">Bài viết liên quan</h4>
-            <div class="flex-container">
-              <!-- START BLOCK : lstOther -->
-              <div class="cell-1-4 tab-cell-1-1">
-                <div class="newsother-item">
-                  <a href="{link_detail}" class="newsother-img">
-                    {image}
-                  </a>
-                  <a href="{link_detail}" class="newsother-name text-line-2">
-                    {name}
-                  </a>
-                </div>
-              </div>
-              <!-- END BLOCK : lstOther -->
-
-              <div class="cell-1-4"></div>
-              <div class="cell-1-4"></div>
-              <div class="cell-1-4"></div>
-
-            </div>
-          </div>
-
-
         </div>
+
+
+        <div class="newsothers">
+          <h4 class="titlehnc-left">Bài viết liên quan</h4>
+          <div class="flex-container">
+            <!-- START BLOCK : lstOther -->
+            <div class="cell-1-4 tab-cell-1-1">
+              <div class="newsother-item">
+                <a href="{link_detail}" class="newsother-img">
+                  {image}
+                </a>
+                <a href="{link_detail}" class="newsother-name text-line-2">
+                  {name}
+                </a>
+              </div>
+            </div>
+            <!-- END BLOCK : lstOther -->
+
+            <div class="cell-1-4"></div>
+            <div class="cell-1-4"></div>
+            <div class="cell-1-4"></div>
+
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
-
-
-
   <!-- end tin tức -->
-
-
-
-
 
   <script type="application/ld+json">
     {

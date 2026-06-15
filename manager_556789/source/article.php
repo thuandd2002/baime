@@ -41,7 +41,7 @@ class Article extends cat_tree {
         $tpl->assignGlobal("dir_path", $dir_path);
         $tpl->assignGlobal("imagedir", $imagedir);
         $code = $_GET['code'];
-        
+
         switch ($code) {
             case "showAddNew":
                 $this->showAddNew();
@@ -69,7 +69,7 @@ class Article extends cat_tree {
                 $this->showList();
                 break;
         }
-        
+
     }
 
     private function showAddNew() {
@@ -96,7 +96,7 @@ class Article extends cat_tree {
             }
         $info['parentid'] .= '</select>';
         $tpl->assign("parentid", $info['parentid']);
-        // in group	
+        // in group
         $str = $rs['groupcat'];
         $gr = explode(':', $str);
         $info1['parentid'] .= '<option value="0">None</option>';
@@ -146,7 +146,7 @@ class Article extends cat_tree {
                 }
             $info['parentid'] .= '</select>';
             $tpl->assign("parentid", $info['parentid']);
-            // in group	
+            // in group
             $str = $rs['groupcat'];
             $gr = explode(':', $str);
             $info1['parentid'] .= '<option value="0">None</option>';
@@ -295,6 +295,7 @@ class Article extends cat_tree {
         global $DBi, $lang, $search_obj, $clsUrl;
         $id = intval($id);
         $data = $this->getData();
+
         if ($data) {
             if ($DBi->updateTableRow($this->table, $data, $this->id_item, $id)) {
 
@@ -400,9 +401,9 @@ class Article extends cat_tree {
             $data['image'] = compile_post('imageurl');
         }
         $data['id_user'] = $my['id'];
-		
-		
-		
+
+
+
         return $data;
     }
 

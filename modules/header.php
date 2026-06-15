@@ -24,7 +24,8 @@ $tpl->assignGlobal("lang_dir", $lang_dir);
 if ($lang == 'en')
     $tpl->assignGlobal("lang_flag", '<a href="/" class="lang-flag vi"> <img src="/images/flag-vi.png"/> </a>');
 else
-    $tpl->assignGlobal("lang_flag", '<a href="/en/" class="lang-flag en"> <img src="/images/flag-en.png"/> </a>');
+    $tpl->assignGlobal("lang_flag", '<a href="/en/" class="lang-flag en"> <img src="/images/flag-en.png"/>
+  </a>');
 
 
 if ($lang == 'en') {
@@ -77,7 +78,7 @@ if ($meta['image']){
 	$tpl->assignGlobal("site_image", '<meta property="og:image" name="og:image" content="' . $site_address . $meta['image'] . '" data-app>');
 	$tpl->assignGlobal("site_image_alt", '<meta property="og:image:alt" name="og:image:alt" content="' . $site_address . $meta['image'] . '" data-app>');
 }
-    
+
 else{
 	$tpl->assignGlobal("site_image", '<meta property="og:image" name="og:image" content="' . $site_address . '/uploaded/logo/logo.png" data-app>');
 	$tpl->assignGlobal("site_image_alt", '<meta property="og:image:alt" name="og:image:alt" content="' . $site_address . '/uploaded/logo/logo.png" data-app>');
@@ -97,7 +98,7 @@ if ($page == 'product' && $idc <= 0) {
 
     $meta['title'] = $meta['title'] . ' : ' . $_GET['qr'];
 } elseif ($page == 'cart') {
-    
+
 }
 
 
@@ -154,7 +155,7 @@ if ($page == 'home' || $page == '') {
 
     if ($meta['header_tag'])
         $tpl->assignGlobal("header_tag", html_entity_decode($meta['header_tag']));
-	
+
 }
 /*
   if ($page == 'staticview') {
@@ -234,7 +235,7 @@ $tpl->assignGlobal("site_url", $site_address . $_SERVER['REQUEST_URI']);
 if (intval($_GET['p']) > 1) {
 	$tpl->assignGlobal("canonical_url",'<link rel="canonical" href="'. $site_address . "/" . $rs_cat['url'] .'" />');
 }else{
-	$tpl->assignGlobal("canonical_url", '<link rel="canonical" href="'.  $site_address .  parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH) .'" />'  );	
+	$tpl->assignGlobal("canonical_url", '<link rel="canonical" href="'.  $site_address .  parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH) .'" />'  );
 }
 
 
@@ -245,7 +246,7 @@ if ($page == 'cart') {
 
 /*
 if (strpos($_SERVER['REQUEST_URI'], "?") !== false){
-	$tpl->assignGlobal("canonical_url", '<link rel="canonical" href="'.  $site_address .  parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH) .'" />'  );	
+	$tpl->assignGlobal("canonical_url", '<link rel="canonical" href="'.  $site_address .  parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH) .'" />'  );
 }
 */
 

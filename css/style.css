@@ -318,12 +318,17 @@ a img {
 
 .nav>li>a {
   text-decoration: none;
-  padding: 10px 10px;
+  padding: 0px 15px;
   color: #2b2b2b;
   font-family: var(--fontSemiBold);
   font-size: 20px;
+  text-transform: uppercase;
+  border-left: 1px solid #ccc;
 }
 
+.nav > li:first-child > a {
+  border-left: none;
+}
 .nav>li:hover>a {
   background: var(--maincolor);
   color: #fff;
@@ -370,6 +375,7 @@ a img {
   padding: 8px 10px;
   border-top: solid 1px #ccc;
 }
+
 /* .nav li ul > li:first-child > a {
   border-top: none;
 } */
@@ -1044,7 +1050,7 @@ a.close:hover {
   display: none;
 }
 
-.tab-content.active{
+.tab-content.active {
   display: block;
 }
 
@@ -1580,29 +1586,104 @@ a.close:hover {
 }
 
 .toppage {
-  padding: 5px 0px;
   background: var(--maincolor);
+  color: #fff;
+  font-size: 14px;
+  padding: 8px 0;
+}
+
+.toppage .flex-container {
+  align-items: center;
 }
 
 .company-name {
-  padding: 3px 0px;
-  float: left;
-  margin-right: 10px;
-  font-family: var(--fontB);
-  color: #fff;
+  font-family: var(--fontSemiBold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 18px;
+}
+
+.top-contact {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 18px;
+}
+
+.top-contact span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 16px;
+  white-space: nowrap;
+}
+
+.top-contact i {
+  color: var(--colormain);
   font-size: 13px;
 }
 
-.company-info {
-  padding: 3px 0px;
-  float: left;
-  font-family: var(--fontmain);
+
+
+/* Search */
+
+.top-search {
+  display: flex;
+  align-items: center;
+  height: 34px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 30px;
+  overflow: hidden;
+  transition: .3s;
+}
+
+.top-search:hover {
+  background: rgba(255,255,255,.12);
+}
+
+.top-search input {
+  width: 200px;
+  height: 34px;
+  border: 0;
+  outline: none;
+  background: #FFF;
   color: #fff;
+  padding: 0 12px;
   font-size: 13px;
 }
 
-.company-info span {
-  font-family: var(--fontB);
+.top-search input::placeholder {
+  color: rgba(77, 77, 77, 0.6);
+}
+
+.top-search button {
+  width: 38px;
+  height: 34px;
+  border: 0;
+  background: #FFF;
+  cursor: pointer;
+}
+
+.top-search button i {
+  color: #000;
+  transition: .3s;
+}
+
+.top-search button:hover i {
+  color: var(--colormain);
+}
+
+/* Language flag */
+
+.top-contact img {
+  display: block;
+  border-radius: 3px;
+  transition: .3s;
+}
+
+.top-contact img:hover {
+  opacity: .8;
 }
 
 .menu-top {
@@ -1613,11 +1694,8 @@ a.close:hover {
   color: #eee;
 }
 
-.toppage-item {}
 
-.toppage-item a {
-  color: #fff;
-}
+
 
 .sub-cat-home {
   text-transform: uppercase;
@@ -1682,7 +1760,7 @@ a.close:hover {
 }
 
 /* ========================TRANG GIOI THIEU======================== */
-.info-info{
+.info-info {
   margin: 10px 0;
 }
 
@@ -1855,70 +1933,193 @@ a.close:hover {
 
 /* ===========Trang  tin tức ================== */
 .newslist {
-  list-style: none;
+  gap: 30px 0;
 }
 
-.news-item {
-  margin-bottom: 30px;
+.newslist .cell-1-3 {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all .3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
 }
 
-.news-img {
+.newslist .cell-1-3:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .12);
+}
+
+.newsimg {
   display: block;
-  border-radius: 8px;
   overflow: hidden;
 }
 
-.news-img img {
+.newsimg img {
   width: 100%;
-  height: auto;
   display: block;
+  aspect-ratio: 16/10;
+  object-fit: cover;
+  transition: transform .5s ease;
 }
 
-.news-content {
-  padding-top: 14px;
+.newslist .cell-1-3:hover .newsimg img {
+  transform: scale(1.08);
 }
 
-.news-title {
-  font-size: 18px;
+.newsname {
+  padding: 15px 20px 10px;
+  margin: 0;
+  font-size: 20px;
   line-height: 1.4;
-  font-weight: 600;
-  margin: 0 0 6px;
 }
 
-.news-title a {
-  color: #1f1f1f;
+.newsname a {
+  color: #222;
   text-decoration: none;
+  transition: color .3s;
 }
 
-.news-title a:hover {
-  text-decoration: underline;
+.newsname a:hover {
+  color: var(--maincolor);
 }
 
-.news-meta {
+.newscat-info {
+  padding: 0 20px;
   font-size: 13px;
-  color: #777;
-  margin-bottom: 8px;
+  color: #999;
 }
 
-.news-meta a {
-  color: #777;
+.newscat-intro {
+  padding: 10px 20px 20px;
+  color: #666;
+  line-height: 1.7;
+}
+
+.newsothers {
+  margin-top: 50px;
+}
+
+.newsothers .flex-container {
+  gap: 25px 0;
+}
+
+.newsother-item {
+  height: 100%;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all .3s ease;
+  border: 1px solid #eee;
+}
+
+.newsother-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+}
+
+.newsother-img {
+  display: block;
+  overflow: hidden;
+}
+
+.newsother-img img {
+  width: 100%;
+  aspect-ratio: 16/10;
+  object-fit: cover;
+  display: block;
+  transition: transform .5s ease;
+}
+
+.newsother-item:hover .newsother-img img {
+  transform: scale(1.08);
+}
+
+.newsother-name {
+  display: block;
+  padding: 15px;
+  color: #222;
+  line-height: 1.5;
   text-decoration: none;
-  font-weight: 500;
+  font-family: var(--fontSemiBold);
+  transition: color .3s;
 }
 
-.news-meta a:hover {
-  text-decoration: underline;
+.newsother-name:hover {
+  color: var(--maincolor);
 }
 
-.news-meta span {
-  margin-left: 10px;
+.titlehnc-left {
+  font-size: 28px;
+  font-family: var(--fontB);
+  margin-bottom: 25px;
+  position: relative;
+  padding-bottom: 12px;
 }
 
-/* .news-intro {
-  font-size: 14px;
-  line-height: 1.6;
-  color: #444;
-} */
+.titlehnc-left::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60px;
+  height: 3px;
+  background: var(--maincolor);
+}
+
+/* ============Tuyen dung========= */
+.tuyendung-table {
+  overflow-x: auto;
+}
+
+.table-list {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, .05);
+}
+
+.table-list th {
+  background: var(--maincolor);
+  color: #fff;
+  padding: 16px;
+  text-align: center;
+  font-family: var(--fontSemi);
+  font-size: 15px;
+  text-transform: uppercase;
+}
+
+.table-list td {
+  padding: 16px;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+  vertical-align: middle;
+  transition: .3s;
+}
+
+.table-list tr:last-child td {
+  border-bottom: none;
+}
+
+.table-list tbody tr:hover {
+  background: #f8fbff;
+}
+
+.table-list tbody tr:hover td {
+  color: var(--maincolor);
+}
+
+.news-name {
+  color: #222;
+  text-decoration: none;
+  font-family: var(--fontSemi);
+  transition: .3s;
+}
+
+.news-name:hover {
+  color: var(--maincolor);
+}
 
 /* ===========TRANG FAQ============= */
 
@@ -2128,7 +2329,7 @@ a.close:hover {
   margin-top: -6px;
 }
 
-/* custom css for video swiper===================== */
+/* ============custom css for video swiper===================== */
 .videoHot-wrapper .videoSwiper .swiper-slide {
   position: relative;
   overflow: hidden;
@@ -2188,4 +2389,140 @@ a.close:hover {
   justify-content: center;
   align-items: center;
   margin-bottom: 20px;
+}
+
+/* =============He Thong dai li===== */
+.hethong-wrapper {
+  padding: 50px 0;
+}
+
+.hethong-wrapper .flex-container {
+  gap: 30px 0;
+}
+
+.hethong-card {
+  height: 100%;
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, .06);
+  transition: all .3s ease;
+}
+
+.hethong-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, .12);
+}
+
+.hethong-card>img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+}
+
+.hethong-item {
+  padding: 20px 20px 10px;
+}
+
+.hethong-name {
+  margin: 0;
+  font-size: 22px;
+  line-height: 1.4;
+  font-family: var(--fontB);
+  color: #222;
+}
+
+.view-map-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 20px 20px;
+  padding: 12px 22px;
+  background: var(--maincolor);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 30px;
+  font-family: var(--fontSemi);
+  transition: all .3s ease;
+}
+
+.view-map-btn:hover {
+  background: #222;
+  color: #fff;
+}
+
+.viewmap-btn-icon {
+  transition: transform .3s ease;
+}
+
+.view-map-btn:hover .viewmap-btn-icon {
+  transform: translateX(4px);
+}
+.hethong-card .hethong-box{
+  padding: 0 20px;
+}
+/* =============Trang ung dung bai viet========= */
+.article-list {
+  gap: 30px 0;
+}
+
+.article-card {
+  padding: 20px;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  background: #fff;
+  height: 100%;
+  transition: all .3s ease;
+  box-shadow: 0 3px 10px rgba(0,0,0,.04);
+}
+
+.article-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,.1);
+}
+
+.article-item-img {
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.article-item-img img {
+  width: 100%;
+  display: block;
+  transition: .5s;
+}
+
+.article-card:hover .article-item-img img {
+  transform: scale(1.05);
+}
+
+.article-name {
+  text-align: center;
+  margin: 12px 0 8px;
+  line-height: 1.4;
+}
+
+.article-name a {
+  color: #222;
+  font-size: 18px;
+  font-family: var(--fontSemiBold);
+  transition: .3s;
+}
+
+.article-name a:hover {
+  color: var(--color-main);
+}
+
+.article-author {
+  text-align: center;
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 12px;
+}
+
+.article-intro {
+  color: #666;
+  line-height: 1.7;
+  text-align: center;
 }

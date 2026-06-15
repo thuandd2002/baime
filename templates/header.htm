@@ -62,16 +62,39 @@
 
       <div class="toppage hide-on-tab hide-on-mobile">
         <div class="grid">
+          <div class="flex-container">
 
-          <div class="company-name">{companyname}</div>
+            <div class="cell-1-2">
+              <div class="company-name">{companyname}</div>
+            </div>
 
-          <span style="color: #fff;"><i class="fa-solid fa-phone" style="color: rgb(255, 255, 255);"></i> {hotline}
-          </span>
+            <div class="cell-1-2">
+              <div class="top-contact">
 
-          <span><i class="fa-solid fa-envelope" style="color: rgb(255, 255, 255);"></i>{companyemail}</span>
-          {lang_flag}
+                <span>
+                  <i class="fa-solid fa-phone"></i>
+                  {hotline}
+                </span>
+
+                <span>
+                  <i class="fa-solid fa-envelope"></i>
+                  {companyemail}
+                </span>
+                <form action="/search/" method="get" class="top-search">
+                  <input type="text" name="keyword" placeholder="Search...">
+                  <button type="submit">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                  </button>
+                </form>
+                <span>
+                  {lang_flag}
+                </span>
+
+              </div>
+            </div>
+
+          </div>
         </div>
-
       </div>
     </div>
 

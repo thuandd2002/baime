@@ -102,7 +102,7 @@ class clsHome
               $tpl->assign("sub_link", $dir_path . '/' . $rs_sub['url']);
               // $tpl->assign("sub_image", '<img src="' . $cache_image_path . cropimage(300, 250, $dir_path . '/' . $rs_sub['image']) . '"  width="100%">');
 
-              $tpl->assign('image_src', $rs_sub['image']);
+              $tpl->assign('image_src', $rs_sub['imageadv']);
               // $this->proHome($rs_sub['id_category']);
             }
           }

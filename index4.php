@@ -9,7 +9,7 @@ header("X-Robots-Tag: noindex, nofollow", true);
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-	
+
 	// ===== ORIGIN CHECK =====
     //$allowed_origin = 'https://idemitsuq8.com.vn';
 	$allowed_origin = 'https://'.$_SERVER['HTTP_HOST'];
@@ -64,15 +64,14 @@ $page_arr = array(
     23 => "tuyendung_submit",
 );
 $page_idx = intval($_GET['page']);
-
 if ($page_idx > 0) {
-    
+
     $page_name = $page_arr[$page_idx];
     $pagePath = "modules/$page_name.php";
     if (file_exists($pagePath)) {
         include($pagePath);
     }
-    
+
 }
 
 

@@ -73,19 +73,21 @@ class Daily {
         $db = $DBi->query($sql);
 
         $tpl->assign("record_count", $DBi->num_rows($db));
-        
+
         $tpl->newBlock("itemList");
-        
+
         while ($rs = $DBi->fetch_array($db)) {
+
             $tpl->newBlock("lstDaily");
             $tpl->assign("dailyname", $rs['name']);
             $tpl->assign("address", $rs['address']);
+            $tpl->assign("img_url", $rs['image']);
 
             $tpl->assign("phone", $rs['phone']);
             $tpl->assign("email", $rs['email']);
-            
+
             $tpl->assign("fax", $rs['fax']);
-            
+
             $tpl->assign("linkmap", $rs['linkmap']);
 
             $tpl->assign("latitude", $rs['latitude']);

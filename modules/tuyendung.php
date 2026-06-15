@@ -97,12 +97,12 @@ if ($_POST['code'] == 'save') {
 
     $tpl->assignGlobal("slideshow", slidechild());
 
-    
+
     $tpl->assignGlobal("pathpage", '<div class="crumb"><div class="grid"><a href="/' . $lang_dir . '">Trang chủ</a> <i class="fa fa-angle-right"></i> ' . Get_Main_Cat_Name_path($idc) . '</div><div class="c5"></div></div>');
 
     $tpl->assignGlobal("catname", $rs_cat['name']);
     $tpl->assignGlobal("catlink", $dir_path . '/' . $rs_cat['url']);
-    
+
     $tpl->assignGlobal("catcontent", $rs_cat['content']);
 
     include_once("modules/db.provider/db.tuyendung.php");
@@ -125,7 +125,7 @@ function tdCatList() {
 
     $db = $td->newsList($idc, 20);
 
-    
+
     $tpl->newBlock("itemList");
     $tpl->assignGlobal("cat_name", $rs_cat['name']);
     if ($rs_cat['image'])
@@ -154,7 +154,7 @@ function tdCatList() {
             ));
 
             $tpl->assign("intro", strstrim(strip_tags($rs['intro']), 30));
-            
+
             if ($rs['image'])
                 $tpl->assign("image", '<img  src="' . $cache_image_path . cropimage(420, 270, $dir_path . '/' . $rs['image'], true) . '" alt="' . $rs['name'] . '" width="100%" />');
 

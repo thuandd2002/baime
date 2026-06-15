@@ -1,0 +1,2118 @@
+-- MySQL dump 10.13  Distrib 8.0.46, for Linux (x86_64)
+--
+-- Host: 127.0.0.1    Database: baime
+-- ------------------------------------------------------
+-- Server version	8.0.46-0ubuntu0.24.04.2
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `album`
+--
+
+DROP TABLE IF EXISTS `album`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `album` (
+  `id_album` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `id_category` bigint unsigned NOT NULL DEFAULT '0',
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `title` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `intro` mediumtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `content` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `description` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `keywords` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `image` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `ngay_dang` bigint unsigned DEFAULT '0',
+  `thu_tu` bigint DEFAULT '0',
+  `active` tinyint DEFAULT '1',
+  `id_user` bigint DEFAULT '0',
+  `hot` tinyint DEFAULT '0',
+  `groupcat` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '0',
+  `tags` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `url` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `id_tacgia` int DEFAULT NULL,
+  `image_list` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `last_modify` bigint DEFAULT NULL,
+  PRIMARY KEY (`id_album`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `album`
+--
+
+LOCK TABLES `album` WRITE;
+/*!40000 ALTER TABLE `album` DISABLE KEYS */;
+INSERT INTO `album` VALUES (1,0,'Lorem ipsum dolor sit amet, consectetur adipiscing elit','Lorem ipsum dolor sit amet, consectetur adipiscing elit','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis euismod ut nisl id sodales. Etiam consectetur nulla vel ornare aliquam. Phasellus non velit eget massa consectetur lobortis. Integer tempus consequat augue, vitae rutrum sem tempor id.','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis euismod ut nisl id sodales. Etiam consectetur nulla vel ornare aliquam. Phasellus non velit eget massa consectetur lobortis. Integer tempus consequat augue, vitae rutrum sem tempor id.<br />\r\n<br />\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Duis euismod ut nisl id sodales. Etiam consectetur nulla vel ornare aliquam. Phasellus non velit eget massa consectetur lobortis. Integer tempus consequat augue, vitae rutrum sem tempor id.','','','/uploaded/tin-tuc/hinh-nen-thien-nhien-cho-may-tinh-1.jpg',1688010180,1,1,8,0,':',NULL,'lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit.html',55,'[{\"image_path\":\"\\/uploaded\\/tin-tuc\\/item1.png\",\"image_name\":\"\",\"image_desc\":\"\",\"image_thu_tu\":\"\"},{\"image_path\":\"\\/uploaded\\/tin-tuc\\/item6.png\",\"image_name\":\"\",\"image_desc\":\"\",\"image_thu_tu\":\"\"},{\"image_path\":\"\\/uploaded\\/tin-tuc\\/item3.png\",\"image_name\":\"\",\"image_desc\":\"\",\"image_thu_tu\":\"\"},{\"image_path\":\"\\/uploaded\\/tin-tuc\\/item7.png\",\"image_name\":\"\",\"image_desc\":\"\",\"image_thu_tu\":\"\"}]',1688010227),(2,30,'Lorem ipsum dolor sit amet, consectetur adipiscing elit','1','','','','','/uploaded/album/kiem-tra-2.jpg',1780559460,2,1,8,0,':',NULL,'1.html',0,'[]',1780559564),(3,30,'Lorem ipsum dolor sit amet, consectetur adipiscing elit','','','','','','/uploaded/album/kiem-tra-3.jpg',1780559520,3,1,8,0,':',NULL,'.html',0,'[]',1780559569),(4,30,'Lorem ipsum dolor sit amet, consectetur adipiscing elit','','','','','','/uploaded/album/kiem-tra-sp-5.jpg',1780559520,4,1,8,0,':',NULL,'.html',0,'[]',1780559573),(5,30,'Lorem ipsum dolor sit amet, consectetur adipiscing elit','','','','','','/uploaded/album/kiem-tra-2.jpg',1780559520,5,1,8,0,':',NULL,'.html',0,'[]',1780559578),(6,30,'Lorem ipsum dolor sit amet, consectetur adipiscing elit','','','','','','/uploaded/album/kiem-tra-3.jpg',1780559520,6,1,8,0,':',NULL,'.html',0,'[]',1780559582),(7,30,'Lorem ipsum dolor sit amet, consectetur adipiscing elit','','','','','','/uploaded/album/kiem-tra-sp-5.jpg',1780559580,7,1,8,0,':',NULL,'.html',0,'[]',1780559586),(8,30,'Lorem ipsum dolor sit amet, consectetur adipiscing elit','','','','','','/uploaded/album/kiem-tra-2.jpg',1780559580,8,1,8,0,':',NULL,'.html',0,'[]',1780559603);
+/*!40000 ALTER TABLE `album` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `article`
+--
+
+DROP TABLE IF EXISTS `article`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `article` (
+  `id_article` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `id_category` bigint unsigned NOT NULL DEFAULT '0',
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `title` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `id_service` varchar(128) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '0',
+  `description` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `keywords` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `image` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `intro` mediumtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `content` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `ngay_dang` bigint unsigned DEFAULT '0',
+  `thu_tu` bigint DEFAULT '0',
+  `active` tinyint DEFAULT '1',
+  `id_user` bigint DEFAULT '0',
+  `file` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `hot` tinyint DEFAULT '0',
+  `groupcat` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '0',
+  `tags` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `url` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `author_id` int DEFAULT NULL,
+  `author_name` varchar(1024) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `author_email` varchar(512) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `author_info` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `last_modify` bigint DEFAULT NULL,
+  PRIMARY KEY (`id_article`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `article`
+--
+
+LOCK TABLES `article` WRITE;
+/*!40000 ALTER TABLE `article` DISABLE KEYS */;
+INSERT INTO `article` VALUES (1,10,'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout','It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout','0','','','/uploaded/tin-tuc/hinh-nen-thien-nhien-cho-may-tinh-1.jpg','It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout','It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout',1781147220,1,1,8,NULL,0,':',NULL,'it-is-a-long-established-fact-that-a-reader-will-be-distracted-by-the-readable-content-of-a-page-when-looking-at-its-layout.html',NULL,'','','',NULL),(2,10,'The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.','The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.','0','','','/uploaded/tin-tuc/item2.png','The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.','The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.',1781147700,2,1,8,NULL,0,':',NULL,'the-standard-chunk-of-lorem-ipsum-used-since-1966-is-reproduced-below-for-those-interested.html',NULL,'','','',NULL),(3,10,'The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.','The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.','0','','','/uploaded/tin-tuc/item2.png','The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.','The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.',1781147700,2,1,8,NULL,0,':',NULL,'the-standard-chunk-of-lorem-ipsum-used-since-1966-is-reproduced-below-for-those-interested.html',NULL,'','','',NULL),(4,10,'The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.','The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.','0','','','/uploaded/san-pham/item3.png','The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.','The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.',1781147700,2,1,8,NULL,0,':',NULL,'the-standard-chunk-of-lorem-ipsum-used-since-1966-is-reproduced-below-for-those-interested.html',NULL,'','','',NULL),(5,10,'The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.','The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.','0','','','/uploaded/san-pham/f93045dc62665ee52f9a7e07bf4c7af409dd26dd.png','The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.','The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.',1781147700,2,1,8,NULL,0,':',NULL,'the-standard-chunk-of-lorem-ipsum-used-since-1966-is-reproduced-below-for-those-interested.html',NULL,'','','',NULL),(6,10,'The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.','The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.','0','','','/uploaded/san-pham/item4.png','The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.','The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.',1781147700,2,1,8,NULL,0,':',NULL,'the-standard-chunk-of-lorem-ipsum-used-since-1966-is-reproduced-below-for-those-interested.html',NULL,'','','',NULL),(7,10,'The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.','The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.','0','','','/uploaded/du-an/du-an12.png','The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.','The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.',1781147700,2,1,8,NULL,0,':',NULL,'the-standard-chunk-of-lorem-ipsum-used-since-1966-is-reproduced-below-for-those-interested.html',NULL,'','','',NULL),(8,10,'The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.','The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.','0','','','/uploaded/tin-tuc/item2.png','The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.ab2cde','The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.',1781147700,2,1,8,NULL,0,':',NULL,'the-standard-chunk-of-lorem-ipsum-used-since-1966-is-reproduced-below-for-those-interested.html',NULL,'','','',NULL);
+/*!40000 ALTER TABLE `article` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `baohanh`
+--
+
+DROP TABLE IF EXISTS `baohanh`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `baohanh` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `ngay_nhap` varchar(32) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
+  `ma_hang` varchar(128) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
+  `imei` varchar(256) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
+  `ngay_ban` varchar(32) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
+  `ngay_bh` varchar(32) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
+  `thoigianbaohanh` int DEFAULT '12',
+  `so_phieu_ban` varchar(64) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
+  `makh` varchar(64) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `tenkh` varchar(256) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `dia_chi` varchar(512) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `dien_thoai` varchar(64) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
+  `mobile` varchar(64) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
+  `thong_tin_khac` varchar(512) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `create_date` bigint DEFAULT NULL,
+  `id_user` int DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `baohanh`
+--
+
+LOCK TABLES `baohanh` WRITE;
+/*!40000 ALTER TABLE `baohanh` DISABLE KEYS */;
+/*!40000 ALTER TABLE `baohanh` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `category`
+--
+
+DROP TABLE IF EXISTS `category`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `category` (
+  `id_category` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `subname` varchar(512) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '',
+  `title` varchar(512) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `parentid` bigint unsigned DEFAULT '0',
+  `thu_tu` bigint DEFAULT '0',
+  `active` tinyint DEFAULT '1',
+  `image` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `content` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `keywords` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `description` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `url` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `target` varchar(256) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `vitri` varchar(600) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `data_type` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `inpage` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '0',
+  `template_name` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `home_layout` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `tags` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `header_tag` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `rss` int DEFAULT '0',
+  `lang` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `stypeshow` int DEFAULT NULL,
+  `id_attr` bigint DEFAULT NULL,
+  `shortinhome` tinyint DEFAULT NULL,
+  `footercol` int DEFAULT NULL,
+  `homescroll` int DEFAULT '0',
+  `localnews` int DEFAULT '0',
+  `col` int DEFAULT NULL,
+  `vtcolsub` int DEFAULT '0',
+  `iconmenu` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `menucolor` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `home_zone` int DEFAULT '1',
+  `imageadv` varchar(600) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `styleshow` int DEFAULT '0',
+  `left_right_layout` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `mega_menu` int DEFAULT '0',
+  `intro` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `content_text` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `last_modify` bigint DEFAULT NULL,
+  PRIMARY KEY (`id_category`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `category`
+--
+
+LOCK TABLES `category` WRITE;
+/*!40000 ALTER TABLE `category` DISABLE KEYS */;
+INSERT INTO `category` VALUES (1,'Trang chủ','Trang chủ','Công ty TNHH Vật liệu mới BaiMe Việt Nam',0,1,1,'','','','','','',':menubar:','home','0','','',NULL,'',0,'',NULL,21,0,0,0,0,0,0,'',NULL,0,'',0,'',0,'','',1780460825),(2,'Logo','Logo','Logo',0,2,1,'',' ','','','logo/','',':logosite:','logo','0','','',NULL,'',0,'',NULL,21,0,0,0,0,0,0,'',NULL,0,'',0,'',0,' ','',1608698050),(3,'SlideHome','SlideHome','SlideHome',0,3,1,'','','','','slidehome/','',':slideshow:','logo','0','','',NULL,'',0,'',NULL,21,0,0,0,0,0,0,'',NULL,0,'',0,'',0,'','',1608698090),(4,'SlideHomeMobile','SlideHomeMobile','SlideHomeMobile',0,4,1,'','','','','slidehomemobile/','',':slidemobile:','logo','0','','',NULL,'',0,'',NULL,21,0,0,0,0,0,0,'',NULL,0,'',0,'',0,'','',1608698103),(5,'Giới thiệu','Giới thiệu','Giới thiệu',0,5,1,'/uploaded/slideshow/banner-gt.jpg','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis euismod ut nisl id sodales. Etiam consectetur nulla vel ornare aliquam. Phasellus non velit eget massa consectetur lobortis. Integer tempus consequat augue, vitae rutrum sem tempor id. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent ornare tellus non ornare molestie. Maecenas convallis leo justo, eget lobortis dui fringilla vitae. Proin ac volutpat leo. Aliquam id fermentum tortor.\r\n<div style=\"text-align: center;\"><img alt=\"\" src=\"/uploaded/san-pham/item4.png\" style=\"width: 50%;\" /></div>\r\n<br />\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Duis euismod ut nisl id sodales. Etiam consectetur nulla vel ornare aliquam. Phasellus non velit eget massa consectetur lobortis. Integer tempus consequat augue, vitae rutrum sem tempor id. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent ornare tellus non ornare molestie. Maecenas convallis leo justo, eget lobortis dui fringilla vitae. Proin ac volutpat leo. Aliquam id fermentum tortor.\r\n<div style=\"text-align: center;\"><img alt=\"\" src=\"/uploaded/san-pham/it-dt.png\" style=\"width: 50%;\" /></div>\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Duis euismod ut nisl id sodales. Etiam consectetur nulla vel ornare aliquam. Phasellus non velit eget massa consectetur lobortis. Integer tempus consequat augue, vitae rutrum sem tempor id. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent ornare tellus non ornare molestie. Maecenas convallis leo justo, eget lobortis dui fringilla vitae. Proin ac volutpat leo. Aliquam id fermentum tortor.<br />\r\n&nbsp;','','','gioi-thieu/','',':menubar:','info','0','','',NULL,'',0,'',NULL,21,0,0,0,0,0,0,'',NULL,0,'',0,'',0,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis euismod ut nisl id sodales. Etiam consectetur nulla vel ornare aliquam. Phasellus non velit eget massa consectetur lobortis. Integer tempus consequat augue, vitae rutrum sem tempor id. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent ornare tellus non ornare molestie. Maecenas convallis leo justo, eget lobortis dui fringilla vitae. Proin ac volutpat leo. Aliquam id fermentum tortor.<br />\r\n<br />\r\n<img alt=\"\" src=\"/uploaded/slideshow/baner.jpg\" style=\"width: 100%;\" />\r\n<div style=\"text-align: center;\">&nbsp;</div>\r\n','',1780478850),(9,'Sản phẩm ','Sản phẩm','Sản phẩm',0,6,1,'/uploaded/slideshow/baner.jpg','','','','san-pham/','',':menubar:menuleft:','product','0','','',NULL,'',0,'',NULL,21,0,0,0,0,0,0,'',NULL,0,'',0,'',0,'','',1780561402),(10,'Ứng dụng','Ứng dụng','Ứng dụng',0,7,1,'','','','','ung-dung/','',':menubar:','article','0','','',NULL,'',0,'',NULL,21,0,0,0,0,0,0,'',NULL,0,'',0,'',0,'','',1780311210),(11,'Hệ thống phân phối','Hệ thống phân phối','Hệ thống phân phối',0,8,1,'','','','','he-thong-phan-phoi/','',':menubar:','daily','0','','',NULL,'',0,'',NULL,21,0,0,0,0,0,0,'',NULL,0,'',0,'',0,'','',1780311233),(12,'Tin tức','Tin tức','Tin tức',0,9,1,'','','','','tin-tuc/','',':menubar:cathome:','news','0','','',NULL,'',0,'',NULL,21,0,0,0,0,0,0,'',NULL,0,'',0,'',0,'','',1780657162),(13,'Tuyển dụng','Tuyển dụng','Tuyển dụng',0,10,1,'','<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using &#39;Content here, content here&#39;, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for &#39;lorem ipsum&#39; will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>\r\n','','','tuyen-dung/','',':menubar:','tuyendung','0','','',NULL,'',0,'',NULL,21,0,0,0,0,0,0,'',NULL,0,'',0,'',0,'<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using &#39;Content here, content here&#39;, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for &#39;lorem ipsum&#39; will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>\r\n','',1780992046),(14,'Liên hệ','Liên hệ','Liên hệ',0,11,1,'','','','','lien-he/','',':menubar:','contact','0','','',NULL,'',0,'',NULL,21,0,0,0,0,0,0,'',NULL,0,'',0,'',0,'','',1781149306),(15,'Giới thiêu trang chủ','Công ty TNHH Vật liệu mới BaiMe Việt Nam','Giới thiêu trang chủ',0,12,1,'/uploaded/gioi-thieu/gioithieu.jpg','','','','gioi-thieu-trang-chu/','',':hothome:','info','0','','',NULL,'',0,'',NULL,21,0,0,0,0,0,0,'',NULL,0,'',0,'',0,'C&ocirc;ng ty TNHH C&ocirc;ng nghệ Vật liệu mới B&aacute;ch Mỹ Nam Kinh được th&agrave; nh lập năm 2002 tại quận Cao Thuần, th&agrave;nh phố Nam Kinh. T&ecirc;n cũ của c&ocirc;ng ty l&agrave; &ldquo;C&ocirc;ng ty TNHH Titan Tương B ảo Nam Kinh&rdquo; v&agrave; &ldquo;C&ocirc;ng ty TNHH Nhựa B&aacute;ch Mỹ Nam Kinh&rdquo;. Hiện nay, c&ocirc;ng ty c&oacute; 4 chi nh&aacute;nh gồm: Chi nh&aacute;nh Quảng T&acirc;y, Chi nh&aacute;nh Quảng Đ&ocirc;ng, Chi nh&aacute;nh Thường Ch&acirc;u v&agrave; Chi nh&aacute;nh Thượng Hải, c&ugrave;ng với nhiều sản phẩm đa dạng.<br />\r\n<br />\r\nTrải qua 20 năm kh&ocirc;ng ngừng học hỏi v&agrave; ph&aacute;t triển, hiện tại t rụ sở ch&iacute;nh Nam Kinh c&oacute; 9 d&acirc;y chuyền sản xuất nhựa Amin, 4 d&acirc;y chuyền sản xuất chất ổn định Canxi-Kẽm tổng hợp....','',1780387701),(16,'Sản phẩm nổi bật','Sản phẩm nổi bật','Sản phẩm nổi bật',0,13,1,'','','','','san-pham-noi-bat/','',':hothome:','product','0','','',NULL,'',0,'',NULL,21,0,0,0,0,0,0,'',NULL,0,'',0,'',0,'','',1780389794),(17,'Sản phẩm cung cấp','Sản phẩm cung cấp','Sản phẩm cung cấp',9,14,1,'','','','','san-pham-cung-cap/','',':cathome:','product','0','','',NULL,'',0,'',NULL,21,0,0,0,0,0,0,'',NULL,0,'',0,'',0,'','',1780561395),(18,'Chất ổn định','Chất ổn định','Chất ổn định',17,15,1,'','','','','chat-on-dinh/','',':','product','0','','',NULL,'',0,'',NULL,21,0,0,0,0,0,0,'',NULL,0,'/uploaded/san-pham/it-dt.png',0,'',0,'','',1781065407),(19,'Chất ổn định dạng lỏng','Chất ổn định dạng lỏng','Chất ổn định dạng lỏng',17,16,1,'','','','','chat-on-dinh-dang-long/','',':','product','0','','',NULL,'',0,'',NULL,21,0,0,0,0,0,0,'',NULL,0,'/uploaded/san-pham/item1.png',0,'',0,'','',1781065412),(20,'SÁP PE','SÁP PE','SÁP PE',17,17,1,'','','','','sap-pe/','',':','product','0','','',NULL,'',0,'',NULL,21,0,0,0,0,0,0,'',NULL,0,'/uploaded/san-pham/item3.png',0,'',0,'','',1781065567),(21,'SÁP PP','SÁP PP','SÁP PP',17,18,1,'','','','','sap-pp/','',':','product','0','','',NULL,'',0,'',NULL,21,0,0,0,0,0,0,'',NULL,0,'/uploaded/san-pham/item4.png',0,'',0,'','',1781065570),(22,'Barium Sulfate','Barium Sulfate','Barium Sulfate',17,19,1,'','','','','barium-sulfate/','',':','product','0','','',NULL,'',0,'',NULL,21,0,0,0,0,0,0,'',NULL,0,'/uploaded/san-pham/it-dt.png',0,'',0,'','',1781065575),(23,'Titanium Dioxide','Titanium Dioxide','Titanium Dioxide',17,20,1,'','','','','titanium-dioxide/','',':','product','0','','',NULL,'',0,'',NULL,21,0,0,0,0,0,0,'',NULL,0,'/uploaded/san-pham/item3.png',0,'',0,'','',1781065580),(24,'BaiMe Việt Nam','BaiMe Việt Nam','BaiMe Việt Nam',0,21,1,'/uploaded/gioi-thieu/gt-big.png','','','','baime-viet-nam/','',':inhome:','info','0','','',NULL,'',0,'',NULL,21,0,0,0,0,0,0,'',NULL,0,'',0,'',0,'Cung cấp c&aacute;c d&ograve;ng sản phẩm chất lượng cao đ&atilde; gi&uacute;p ch&uacute;ng t&ocirc;i trở th&agrave;nh một trong những nh&agrave; cung cấp phụ gia uy t&iacute;n, đ&aacute;ng tin cậy v&agrave; h&agrave;ng đầu tr&ecirc;n thị trường trong nước v&agrave; quốc tế.<br />\r\n<br />\r\n Với phương ch&acirc;m &ldquo; SẢN PHẨM TẬN T&Acirc;M &ndash; VƯƠN TẦM S&Aacute;NG TẠO&rdquo;, ch&uacute;ng t&ocirc;i cam kết mang đến cho kh&aacute;ch h&agrave;ng những sản phẩm chất lượng tốt nhất, gi&aacute; cả cạnh tranh nhất, thời gian giao h&agrave;ng nhanh nhất v&agrave; dịch vụ tốt nhất.<br />\r\n&nbsp;','',1780400147),(26,'Chứng nhận ','Chứng nhận ','Chứng nhận ',0,22,1,'','','','','chung-nhan/','',':cathome:','logo','0','','',NULL,'',0,'',NULL,21,0,0,0,0,0,0,'',NULL,0,'',0,'',0,'','',1780401709),(27,'Đối tác - khách hàng','Đối tác - khách hàng','Đối tác - khách hàng',0,23,1,'','','','','doi-tac-khach-hang/','',':cathome:','partner','0','','',NULL,'',0,'',NULL,21,0,0,0,0,0,0,'',NULL,0,'',0,'',0,'','',1780401727),(28,'Tầm nhìn sứ mệnh','Tầm nhìn sứ mệnh','Tầm nhìn sứ mệnh',5,24,1,'/uploaded/gioi-thieu/gioithieu.jpg','','','','tam-nhin-su-menh/','',':','info_donvi','0','','',NULL,'',0,'',NULL,21,0,0,0,0,0,0,'',NULL,0,'',0,'',0,'','',1780559087),(29,'Giới thiệu','Giới thiệu','Giới thiệu',5,23,1,'','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis euismod ut nisl id sodales. Etiam consectetur nulla vel ornare aliquam. Phasellus non velit eget massa consectetur lobortis. Integer tempus consequat augue, vitae rutrum sem tempor id. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent ornare tellus non ornare molestie. Maecenas convallis leo justo, eget lobortis dui fringilla vitae. Proin ac volutpat leo. Aliquam id fermentum tortor.\r\n<div style=\"text-align: center;\"><img alt=\"\" src=\"/uploaded/san-pham/item4.png\" style=\"width: 50%;\" /></div>\r\n<br />\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Duis euismod ut nisl id sodales. Etiam consectetur nulla vel ornare aliquam. Phasellus non velit eget massa consectetur lobortis. Integer tempus consequat augue, vitae rutrum sem tempor id. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent ornare tellus non ornare molestie. Maecenas convallis leo justo, eget lobortis dui fringilla vitae. Proin ac volutpat leo. Aliquam id fermentum tortor.\r\n<div style=\"text-align: center;\"><img alt=\"\" src=\"/uploaded/san-pham/it-dt.png\" style=\"width: 50%;\" /></div>\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Duis euismod ut nisl id sodales. Etiam consectetur nulla vel ornare aliquam. Phasellus non velit eget massa consectetur lobortis. Integer tempus consequat augue, vitae rutrum sem tempor id. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent ornare tellus non ornare molestie. Maecenas convallis leo justo, eget lobortis dui fringilla vitae. Proin ac volutpat leo. Aliquam id fermentum tortor.<br />\r\n&nbsp;','','','gioi-thieu/','',':','info','0','','',NULL,'',0,'',NULL,21,0,0,0,0,0,0,'',NULL,0,'',0,'',0,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis euismod ut nisl id sodales. Etiam consectetur nulla vel ornare aliquam. Phasellus non velit eget massa consectetur lobortis. Integer tempus consequat augue, vitae rutrum sem tempor id. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent ornare tellus non ornare molestie. Maecenas convallis leo justo, eget lobortis dui fringilla vitae. Proin ac volutpat leo. Aliquam id fermentum tortor.<br />\r\n<br />\r\n<img alt=\"\" src=\"/uploaded/slideshow/baner.jpg\" style=\"width: 100%;\" />\r\n<div style=\"text-align: center;\">&nbsp;</div>\r\n','',1780557982),(30,'Thư viện ảnh','Thư viện ảnh','Thư viện ảnh',5,25,1,'','','','','thu-vien-anh/','',':','album','0','','',NULL,'',0,'',NULL,21,0,0,0,0,0,0,'',NULL,0,'',0,'',0,'','',1780548195);
+/*!40000 ALTER TABLE `category` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `comments`
+--
+
+DROP TABLE IF EXISTS `comments`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `comments` (
+  `id_comment` bigint NOT NULL AUTO_INCREMENT,
+  `comment` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `createdate` bigint NOT NULL,
+  `active` tinyint NOT NULL DEFAULT '0',
+  `thu_tu` bigint NOT NULL DEFAULT '0',
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `phone` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `parentid` bigint DEFAULT NULL,
+  `table_name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `id_item` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `id_value` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `user_like` bigint DEFAULT '0',
+  `star_rate` int DEFAULT '3',
+  `id_admin` bigint DEFAULT NULL,
+  PRIMARY KEY (`id_comment`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `comments`
+--
+
+LOCK TABLES `comments` WRITE;
+/*!40000 ALTER TABLE `comments` DISABLE KEYS */;
+/*!40000 ALTER TABLE `comments` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `contact`
+--
+
+DROP TABLE IF EXISTS `contact`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `contact` (
+  `id_contact` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `content` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `xem` tinyint DEFAULT '0',
+  `email` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `phone` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `address` varchar(512) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `createdate` bigint DEFAULT NULL,
+  `note` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  PRIMARY KEY (`id_contact`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `contact`
+--
+
+LOCK TABLES `contact` WRITE;
+/*!40000 ALTER TABLE `contact` DISABLE KEYS */;
+INSERT INTO `contact` VALUES (1,'Thông tin liên hệ: Minh Nguyễn - Test','\n<table width=\"100%\" border=\"1\" cellspacing=\"0\" cellpadding=\"0\">\n     <tr>\n               <td height=\"30\" colspan=\"2\" align=\"left\" valign=\"middle\"><strong> Thông tin liên hệ:  </strong></td>\n    </tr>\n             <tr>\n               <td height=\"30\" align=\"left\" style=\"width:200px;\" valign=\"middle\">Họ tên:</td>\n               <td height=\"30\" align=\"left\" valign=\"middle\"><strong>Minh Nguyễn - Test</strong></td>\n      </tr>\n        <tr>\n          <td height=\"30\" align=\"left\" valign=\"middle\">E-mail:</td>\n          <td height=\"30\" align=\"left\" valign=\"middle\"><strong>minhns@company.vn</strong></td>\n      </tr>\n      \n    <tr>\n          <td height=\"30\" align=\"left\" valign=\"middle\">Điện thoại:</td>\n          <td height=\"30\" align=\"left\" valign=\"middle\"><strong>0968675568</strong></td>\n      </tr>\n        <tr>\n          <td height=\"30\" align=\"left\" valign=\"middle\"> Địa chỉ:</td>\n          <td height=\"30\" align=\"left\" valign=\"middle\"><strong>Test chức nang</strong></td>\n      </tr>\n      <tr>\n               <td height=\"30\" align=\"left\" valign=\"middle\"><strong>Nội dung liên hệ</strong>: </td>\n               <td height=\"30\" align=\"left\" valign=\"middle\"><i>abc - </i></td>\n      </tr>\n</table>',1,'minhns@company.vn',NULL,NULL,1681469105,NULL);
+/*!40000 ALTER TABLE `contact` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `contactinfo`
+--
+
+DROP TABLE IF EXISTS `contactinfo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `contactinfo` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `content` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `thu_tu` bigint DEFAULT '0',
+  `id_catstatic` bigint NOT NULL DEFAULT '0',
+  `id_user` bigint NOT NULL DEFAULT '0',
+  `active` tinyint NOT NULL DEFAULT '0',
+  `ngay_dang` bigint NOT NULL DEFAULT '0',
+  `image` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `inwhere` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `title` varchar(400) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `address` varchar(600) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `latitude` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `longitude` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `lang` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `contactinfo`
+--
+
+LOCK TABLES `contactinfo` WRITE;
+/*!40000 ALTER TABLE `contactinfo` DISABLE KEYS */;
+INSERT INTO `contactinfo` VALUES (1,'Your company name here','',0,0,0,1,0,'','','Your company name here','Lê Văn Lương, KĐT Trung Hòa Nhân Chính, Thanh Xuân, Hà Nội','20.99204228956073','105.79976062485356',' '),(2,'Company info en','<iframe allowfullscreen=\"\" frameborder=\"0\" height=\"450\" src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1862.4140140010604!2d105.80155335798705!3d20.99952959650355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6ed93396d4180e5b!2zMTA5IE5ndXnhu4VuIFR1w6JuLCBUaGFuaCBYdcOibg!5e0!3m2!1svi!2s!4v1535516982544\" style=\"border:0\" width=\"100%\"></iframe>',0,0,0,1,0,'','','','','','','en'),(3,'Company info cn','<iframe allowfullscreen=\"\" frameborder=\"0\" height=\"450\" src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1862.4140140010604!2d105.80155335798705!3d20.99952959650355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6ed93396d4180e5b!2zMTA5IE5ndXnhu4VuIFR1w6JuLCBUaGFuaCBYdcOibg!5e0!3m2!1svi!2s!4v1535516982544\" style=\"border:0\" width=\"100%\"></iframe>',0,0,0,1,0,'','','','','21.042324102802453','105.77579302215577','cn'),(4,'Company info kr','<iframe allowfullscreen=\"\" frameborder=\"0\" height=\"450\" src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1862.4140140010604!2d105.80155335798705!3d20.99952959650355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6ed93396d4180e5b!2zMTA5IE5ndXnhu4VuIFR1w6JuLCBUaGFuaCBYdcOibg!5e0!3m2!1svi!2s!4v1535516982544\" style=\"border:0\" width=\"100%\"></iframe>',0,0,0,1,0,'','','','','','','kr');
+/*!40000 ALTER TABLE `contactinfo` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `country`
+--
+
+DROP TABLE IF EXISTS `country`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `country` (
+  `id_country` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `currency` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `code` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  PRIMARY KEY (`id_country`) USING BTREE,
+  UNIQUE KEY `countryID` (`id_country`) USING BTREE,
+  KEY `countryID_2` (`id_country`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=214 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `country`
+--
+
+LOCK TABLES `country` WRITE;
+/*!40000 ALTER TABLE `country` DISABLE KEYS */;
+/*!40000 ALTER TABLE `country` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `daily`
+--
+
+DROP TABLE IF EXISTS `daily`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `daily` (
+  `id_daily` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL DEFAULT '',
+  `content` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `thu_tu` bigint DEFAULT '0',
+  `id_category` bigint DEFAULT '0',
+  `id_user` bigint DEFAULT '0',
+  `active` tinyint DEFAULT '0',
+  `ngay_dang` bigint DEFAULT '0',
+  `image` varchar(600) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `intro` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `url` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `keywords` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `description` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `title` varchar(400) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `groupcat` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `latitude` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `longitude` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `address` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `fax` varchar(128) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '',
+  `phone` varchar(128) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `email` varchar(256) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `website` varchar(256) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `linkmap` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `maptitle` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '',
+  `provinceid` int DEFAULT NULL,
+  `districtid` int DEFAULT NULL,
+  `phanphoi` int DEFAULT '1',
+  `baohanh` int DEFAULT '0',
+  PRIMARY KEY (`id_daily`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `daily`
+--
+
+LOCK TABLES `daily` WRITE;
+/*!40000 ALTER TABLE `daily` DISABLE KEYS */;
+INSERT INTO `daily` VALUES (1,'Cơ sở Hà Nội','',1,11,8,1,1780993200,'/uploaded/logo/baner.jpg','<p>&quot;But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?&quot;</p>\r\n','co-so-ha-noi.html','','','Cơ sở Hà Nội',':','','','Cau Giay - Ha Noi','','+1 (677) 867-9078','dinhducthuan2002@gmail.com','','','',0,0,0,0),(2,'Cơ sở Hà Nội','',1,11,8,1,1780993200,'/uploaded/logo/baner.jpg','<p>&quot;But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?&quot;</p>\r\n','co-so-ha-noi.html','','','Cơ sở Hà Nội',':','','','Cau Giay - Ha Noi','','+1 (677) 867-9078','dinhducthuan2002@gmail.com','','','',0,0,0,0),(3,'Cơ sở Hà Nội','',1,11,8,1,1780993200,'/uploaded/logo/baner.jpg','<p>&quot;But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?&quot;</p>\r\n','co-so-ha-noi.html','','','Cơ sở Hà Nội',':','','','Cau Giay - Ha Noi','','+1 (677) 867-9078','dinhducthuan2002@gmail.com','','','',0,0,0,0),(4,'Cơ sở Hà Nội','',1,11,8,1,1780993200,'/uploaded/logo/baner.jpg','<p>&quot;But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?&quot;</p>\r\n','co-so-ha-noi.html','','','Cơ sở Hà Nội',':','','','Cau Giay - Ha Noi','','+1 (677) 867-9078','dinhducthuan2002@gmail.com','','','',0,0,0,0),(5,'Cơ sở Hà Nội','',1,11,8,1,1780993200,'/uploaded/logo/baner.jpg','<p>&quot;But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?&quot;</p>\r\n','co-so-ha-noi.html','','','Cơ sở Hà Nội',':','','','Cau Giay - Ha Noi','','+1 (677) 867-9078','dinhducthuan2002@gmail.com','','','',0,0,0,0),(6,'Cơ sở Hà Nội','',1,11,8,1,1780993200,'/uploaded/logo/baner.jpg','<p>&quot;But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?&quot;</p>\r\n','co-so-ha-noi.html','','','Cơ sở Hà Nội',':','','','Cau Giay - Ha Noi','','+1 (677) 867-9078','dinhducthuan2002@gmail.com','','','',0,0,0,0),(7,'Cơ sở Hà Nội','',1,11,8,1,1780993200,'/uploaded/logo/baner.jpg','<p>&quot;But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?&quot;</p>\r\n','co-so-ha-noi.html','','','Cơ sở Hà Nội',':','','','Cau Giay - Ha Noi','','+1 (677) 867-9078','dinhducthuan2002@gmail.com','','','',0,0,0,0),(8,'Cơ sở Hà Nội','',1,11,8,1,1780993200,'/uploaded/logo/baner.jpg','<p>&quot;But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?&quot;</p>\r\n','co-so-ha-noi.html','','','Cơ sở Hà Nội',':','','','Cau Giay - Ha Noi','','+1 (677) 867-9078','dinhducthuan2002@gmail.com','','','',0,0,0,0),(9,'Cơ sở Hà Nội','',1,11,8,1,1780993200,'/uploaded/slideshow/banner-gt.jpg','<p>&quot;But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?&quot;</p>\r\n','co-so-ha-noi.html','','','Cơ sở Hà Nội',':','','','Cau Giay - Ha Noi','','+1 (677) 867-9078','dinhducthuan2002@gmail.com','','','',0,0,0,0),(10,'Cơ sở Đà Nẵng','',1,11,8,1,1780993200,'/uploaded/du-an/du-an5.png','<p>&quot;But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?&quot;</p>\r\n','co-so-ha-noi.html','','','Cơ sở Hà Nội',':','','','Cau Giay - Ha Noi','','+1 (677) 867-9078','dinhducthuan2002@gmail.com','','','',0,0,0,0);
+/*!40000 ALTER TABLE `daily` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `direct`
+--
+
+DROP TABLE IF EXISTS `direct`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `direct` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `url_old` varchar(600) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `url_new` varchar(600) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `id_user` bigint DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `direct`
+--
+
+LOCK TABLES `direct` WRITE;
+/*!40000 ALTER TABLE `direct` DISABLE KEYS */;
+/*!40000 ALTER TABLE `direct` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `download`
+--
+
+DROP TABLE IF EXISTS `download`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `download` (
+  `id_download` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `id_category` bigint NOT NULL DEFAULT '0',
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL DEFAULT '',
+  `title` varchar(400) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `intro` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `content` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `thu_tu` bigint DEFAULT '0',
+  `id_user` bigint DEFAULT '0',
+  `active` tinyint DEFAULT '0',
+  `ngay_dang` bigint DEFAULT '0',
+  `image` varchar(600) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `url` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `files` varchar(3000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `keywords` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `description` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `groupcat` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `last_modify` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  PRIMARY KEY (`id_download`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `download`
+--
+
+LOCK TABLES `download` WRITE;
+/*!40000 ALTER TABLE `download` DISABLE KEYS */;
+/*!40000 ALTER TABLE `download` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `du_an`
+--
+
+DROP TABLE IF EXISTS `du_an`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `du_an` (
+  `id_duan` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `id_category` bigint unsigned NOT NULL DEFAULT '0',
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `title` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `intro` mediumtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `content` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `tienich` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `description` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `keywords` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `image` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `imageadv` varchar(512) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `image_list` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `ngay_dang` bigint unsigned DEFAULT '0',
+  `thu_tu` bigint DEFAULT '0',
+  `active` tinyint DEFAULT NULL,
+  `id_user` bigint DEFAULT '0',
+  `fileurl` varchar(512) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `hot` tinyint DEFAULT '0',
+  `groupcat` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '0',
+  `tags` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `url` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `provinceid` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `dientich` bigint DEFAULT NULL,
+  `header_tag` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `related_product` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `videourl` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `last_modify` bigint DEFAULT NULL,
+  PRIMARY KEY (`id_duan`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `du_an`
+--
+
+LOCK TABLES `du_an` WRITE;
+/*!40000 ALTER TABLE `du_an` DISABLE KEYS */;
+/*!40000 ALTER TABLE `du_an` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `event`
+--
+
+DROP TABLE IF EXISTS `event`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `event` (
+  `id_event` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `id_category` bigint unsigned NOT NULL DEFAULT '0',
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `title` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `intro` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `content` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `event_location` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `event_duration` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '',
+  `event_date` bigint DEFAULT '0',
+  `event_info` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `description` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `keywords` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `image` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `ngay_dang` bigint unsigned DEFAULT '0',
+  `thu_tu` bigint DEFAULT '0',
+  `active` tinyint DEFAULT '1',
+  `id_user` bigint DEFAULT '0',
+  `file` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `hot` tinyint DEFAULT '0',
+  `groupcat` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '0',
+  `tags` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `url` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `last_modify` bigint DEFAULT NULL,
+  PRIMARY KEY (`id_event`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `event`
+--
+
+LOCK TABLES `event` WRITE;
+/*!40000 ALTER TABLE `event` DISABLE KEYS */;
+/*!40000 ALTER TABLE `event` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `faq`
+--
+
+DROP TABLE IF EXISTS `faq`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `faq` (
+  `id_faq` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `name` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `title` varchar(400) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `intro` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `content` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `thu_tu` bigint DEFAULT '0',
+  `id_category` bigint DEFAULT '0',
+  `id_user` bigint DEFAULT '0',
+  `active` tinyint DEFAULT '0',
+  `ngay_dang` bigint DEFAULT '0',
+  `image` varchar(600) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `url` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `keywords` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `description` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `groupcat` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `lang` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '',
+  `customer_name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `customer_phone` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `customer_email` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `products` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `last_modify` bigint DEFAULT NULL,
+  PRIMARY KEY (`id_faq`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `faq`
+--
+
+LOCK TABLES `faq` WRITE;
+/*!40000 ALTER TABLE `faq` DISABLE KEYS */;
+/*!40000 ALTER TABLE `faq` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `group_attr`
+--
+
+DROP TABLE IF EXISTS `group_attr`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `group_attr` (
+  `id_group` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `thu_tu` bigint NOT NULL DEFAULT '0',
+  `active` tinyint NOT NULL DEFAULT '1',
+  `setdefault` tinyint NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id_group`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `group_attr`
+--
+
+LOCK TABLES `group_attr` WRITE;
+/*!40000 ALTER TABLE `group_attr` DISABLE KEYS */;
+INSERT INTO `group_attr` VALUES (21,'Khác',0,1,1);
+/*!40000 ALTER TABLE `group_attr` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `group_attribute`
+--
+
+DROP TABLE IF EXISTS `group_attribute`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `group_attribute` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `id_group` bigint NOT NULL,
+  `id_attr` bigint NOT NULL,
+  `thu_tu` bigint NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=418 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `group_attribute`
+--
+
+LOCK TABLES `group_attribute` WRITE;
+/*!40000 ALTER TABLE `group_attribute` DISABLE KEYS */;
+INSERT INTO `group_attribute` VALUES (415,21,46,0),(416,21,45,0),(417,21,43,0);
+/*!40000 ALTER TABLE `group_attribute` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `info`
+--
+
+DROP TABLE IF EXISTS `info`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `info` (
+  `id_info` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL DEFAULT '',
+  `content` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `thu_tu` bigint DEFAULT '0',
+  `id_category` bigint DEFAULT '0',
+  `id_user` bigint DEFAULT '0',
+  `active` tinyint DEFAULT '0',
+  `ngay_dang` bigint DEFAULT '0',
+  `image` varchar(600) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `videourl` varchar(512) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '',
+  `fileurl` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '',
+  `intro` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `url` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `keywords` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `description` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `title` varchar(400) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `groupcat` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `image_list` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `show_type` varchar(128) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '',
+  `last_modify` bigint DEFAULT NULL,
+  PRIMARY KEY (`id_info`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `info`
+--
+
+LOCK TABLES `info` WRITE;
+/*!40000 ALTER TABLE `info` DISABLE KEYS */;
+INSERT INTO `info` VALUES (1,'Diện tích sản xuất','',1,15,8,1,1780387920,'/uploaded/ico/Group%20605.png','','','15.000m2+','dien-tich-san-xuat.html','','','Diện tích sản xuất',':','[]','',1780388068),(2,'Công suất sản xuất','',2,15,8,1,1780388100,'/uploaded/ico/industrial-2%201.png','','','1.500tấn+','cong-suat-san-xuat.html','','','Công suất sản xuất',':','[]','',1780388130),(3,'Khách hàng hài lòng','',3,15,8,1,1780388100,'/uploaded/ico/Group%20604.png','','','98%','khach-hang-hai-long.html','','','Khách hàng hài lòng',':','[]','',1780388142),(4,'Quốc gia xuất khẩu','',4,15,8,1,1780388100,'/uploaded/ico/Vector.png','','','30+','quoc-gia-xuat-khau.html','','','Quốc gia xuất khẩu',':','[]','',1780388152),(5,'Chất lượng đảm bảo','',5,24,8,1,1780400880,'/uploaded/ico/tuvan.png','','','','chat-luong-dam-bao.html','','','Chất lượng đảm bảo',':','[]','',1780400931),(6,'Tư vấn tận tâm','',6,24,8,1,1780400880,'/uploaded/ico/partner-certification%201.png','','','','tu-van-tan-tam.html','','','Tư vấn tận tâm',':','[]','',1780400944),(7,'Sản phẩm đa dạng','',7,24,8,1,1780400940,'/uploaded/ico/sp-da-dang.png','','','','san-pham-da-dang.html','','','Sản phẩm đa dạng',':','[]','',1780400953),(8,'Giá thành hợp lý','',8,24,8,1,1780400940,'/uploaded/ico/gia-hop-ly.png','','','','gia-thanh-hop-ly.html','','','Giá thành hợp lý',':','[]','',1780400965),(9,'Thân thiện với môi trường','',9,24,8,1,1780400940,'/uploaded/ico/earth_3039893%201.png','','','','than-thien-voi-moi-truong.html','','','Thân thiện với môi trường',':','[]','',1780400979),(10,'Ứng dụng cao','',10,24,8,1,1780400940,'/uploaded/ico/clipboard_1962592%201.png','','','','ung-dung-cao.html','','','Ứng dụng cao',':','[]','',1780401001);
+/*!40000 ALTER TABLE `info` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `info_donvi`
+--
+
+DROP TABLE IF EXISTS `info_donvi`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `info_donvi` (
+  `id_info` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL DEFAULT '',
+  `content` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `thu_tu` bigint DEFAULT '0',
+  `id_category` bigint DEFAULT '0',
+  `id_user` bigint DEFAULT '0',
+  `active` tinyint DEFAULT '0',
+  `ngay_dang` bigint DEFAULT '0',
+  `image` varchar(600) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `intro` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `url` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `keywords` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `description` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `title` varchar(400) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `groupcat` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `image_list` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `last_modify` bigint DEFAULT NULL,
+  PRIMARY KEY (`id_info`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `info_donvi`
+--
+
+LOCK TABLES `info_donvi` WRITE;
+/*!40000 ALTER TABLE `info_donvi` DISABLE KEYS */;
+INSERT INTO `info_donvi` VALUES (2,'Tầm nhìn','',1,28,8,1,1780559160,'','<strong>BaiMe</strong>&nbsp;đang trở th&agrave;nh một trong những nh&agrave; cung cấp phụ gia uy t&iacute;n, đ&aacute;ng tin cậy v&agrave; h&agrave;ng đầu tr&ecirc;n thị trường trong nước v&agrave; quốc tế, kh&ocirc;ng ngừng nỗ lực để đ&aacute;p ứng mọi nhu cầu của Qu&yacute; kh&aacute;ch h&agrave;ng.','tam-nhin.html','','','Tầm nhìn',':','[]',1780559220),(3,'Sứ mệnh','',2,28,8,1,1780559220,'','Với phương ch&acirc;m &ldquo;<strong>SẢN PHẨM TẬN T&Acirc;M &ndash; VƯƠN TẦM S&Aacute;NG TẠO&rdquo;</strong>, ch&uacute;ng t&ocirc;i cam kết mang đến cho kh&aacute;ch h&agrave;ng những sản phẩm chất lượng tốt nhất, gi&aacute; cả cạnh tranh nhất, thời gian giao h&agrave;ng nhanh nhất v&agrave; dịch vụ tốt nhất.','su-menh.html','','','Sứ mệnh',':','[]',1780559238);
+/*!40000 ALTER TABLE `info_donvi` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `info_leader`
+--
+
+DROP TABLE IF EXISTS `info_leader`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `info_leader` (
+  `id_info` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL DEFAULT '',
+  `content` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `thu_tu` bigint DEFAULT '0',
+  `id_category` bigint DEFAULT '0',
+  `id_user` bigint DEFAULT '0',
+  `active` tinyint DEFAULT '0',
+  `ngay_dang` bigint DEFAULT '0',
+  `image` varchar(600) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `intro` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `url` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `keywords` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `description` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `title` varchar(400) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `groupcat` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `level` int DEFAULT '0',
+  `position` varchar(512) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `branch` varchar(1024) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `dob` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `last_modify` bigint DEFAULT NULL,
+  PRIMARY KEY (`id_info`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `info_leader`
+--
+
+LOCK TABLES `info_leader` WRITE;
+/*!40000 ALTER TABLE `info_leader` DISABLE KEYS */;
+/*!40000 ALTER TABLE `info_leader` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `info_lichsu`
+--
+
+DROP TABLE IF EXISTS `info_lichsu`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `info_lichsu` (
+  `id_info` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL DEFAULT '',
+  `content` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `thu_tu` bigint DEFAULT '0',
+  `id_category` bigint DEFAULT '0',
+  `id_user` bigint DEFAULT '0',
+  `active` tinyint DEFAULT '0',
+  `ngay_dang` bigint DEFAULT '0',
+  `image` varchar(600) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `intro` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `url` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `keywords` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `description` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `title` varchar(400) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `groupcat` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `last_modify` bigint DEFAULT NULL,
+  PRIMARY KEY (`id_info`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `info_lichsu`
+--
+
+LOCK TABLES `info_lichsu` WRITE;
+/*!40000 ALTER TABLE `info_lichsu` DISABLE KEYS */;
+/*!40000 ALTER TABLE `info_lichsu` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `lang`
+--
+
+DROP TABLE IF EXISTS `lang`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `lang` (
+  `id` int NOT NULL DEFAULT '1',
+  `lang` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `lang`
+--
+
+LOCK TABLES `lang` WRITE;
+/*!40000 ALTER TABLE `lang` DISABLE KEYS */;
+INSERT INTO `lang` VALUES (1,'{\"_othernews\":{\"default\":\"C\\u00e1c tin kh\\u00e1c\",\"en\":\"Other articles\",\"cn\":\"a\",\"kr\":\"b\"},\"_home\":{\"default\":\"Trang ch\\u1ee7\",\"en\":\"Home\",\"cn\":\"\",\"kr\":\"\"},\"_detail\":{\"default\":\"Chi ti\\u1ebft\",\"en\":\"Detail\",\"cn\":\"\",\"kr\":\"\"},\"_page\":{\"default\":\"Trang\",\"en\":\"Pages\",\"cn\":\"\",\"kr\":\"\"},\"_fullname\":{\"default\":\"H\\u1ecd t\\u00ean\",\"en\":\"Full name\",\"cn\":\"\",\"kr\":\"\"},\"_email\":{\"default\":\"Email\",\"en\":\"E-Mail\",\"cn\":\"\",\"kr\":\"\"},\"_phone\":{\"default\":\"\\u0110i\\u1ec7n tho\\u1ea1i\",\"en\":\"Telephone\",\"cn\":\"\",\"kr\":\"\"},\"_address\":{\"default\":\"\\u0110\\u1ecba ch\\u1ec9\",\"en\":\"Address\",\"cn\":\"\",\"kr\":\"\"},\"_content\":{\"default\":\"N\\u1ed9i dung\",\"en\":\"Message\",\"cn\":\"\",\"kr\":\"\"},\"_send\":{\"default\":\"G\\u1eedi li\\u00ean h\\u1ec7\",\"en\":\"Send\",\"cn\":\"\",\"kr\":\"\"},\"_continue\":{\"default\":\"Ti\\u1ebfp t\\u1ee5c\",\"en\":\"Continue\",\"cn\":\"\",\"kr\":\"\"},\"_reset\":{\"default\":\"Nh\\u1eadp l\\u1ea1i\",\"en\":\"Reset\",\"cn\":\"\",\"kr\":\"\"},\"_searchsite\":{\"default\":\"T\\u00ecm ki\\u1ebfm\",\"en\":\"Search\",\"cn\":\"\",\"kr\":\"\"},\"_keywords\":{\"default\":\"T\\u00ecm ki\\u1ebfm \",\"en\":\"keywords\",\"cn\":\"\",\"kr\":\"\"},\"_viewall\":{\"default\":\"Xem t\\u1ea5t c\\u1ea3\",\"en\":\"View all\",\"cn\":\"\",\"kr\":\"\"},\"_search_enter_keyword\":{\"default\":\"Nh\\u1eadp n\\u1ed9i dung c\\u1ea7n t\\u00ecm, s\\u1ea3n ph\\u1ea9m, b\\u00e0i vi\\u1ebft...\",\"en\":\"Enter your keyword...\",\"cn\":\"\",\"kr\":\"\"},\"_viewmore\":{\"default\":\"Xem chi ti\\u1ebft\",\"en\":\"View more\",\"cn\":\"\",\"kr\":\"\"},\"_search_result\":{\"default\":\"K\\u1ebft qu\\u1ea3 t\\u00ecm ki\\u1ebfm\",\"en\":\"Search Result\",\"cn\":\"\",\"kr\":\"\"},\"_online_support\":{\"default\":\"H\\u1ed7 tr\\u1ee3 tr\\u1ef1c tuy\\u1ebfn\",\"en\":\"Online Support\",\"cn\":\"\",\"kr\":\"\"},\"_product_detail\":{\"default\":\"Chi ti\\u1ebft s\\u1ea3n ph\\u1ea9m\",\"en\":\"Product infomation\",\"cn\":\"\",\"kr\":\"\"},\"_comment_alert\":{\"default\":\"Nh\\u1eefng tr\\u01b0\\u1eddng c\\u00f3 d\\u1ea5u * l\\u00e0 tr\\u01b0\\u1eddng b\\u1eaft bu\\u1ed9c ph\\u1ea3i nh\\u1eadp th\\u00f4ng tin\",\"en\":\"You must enter all information in the (*) field\",\"cn\":\"\",\"kr\":\"\"},\"_your_email\":{\"default\":\"Nh\\u1eadp email c\\u1ee7a b\\u1ea1n\",\"en\":\"Your email\",\"cn\":\"\",\"kr\":\"\"},\"_captcha_code\":{\"default\":\"M\\u00e3 b\\u1ea3o m\\u1eadt\",\"en\":\"Captcha Code\",\"cn\":\"\",\"kr\":\"\"},\"_comment_send_msg\":{\"default\":\"B\\u00ecnh lu\\u1eadn c\\u1ee7a b\\u1ea1n \\u0111\\u00e3 g\\u1eedi th\\u00e0nh c\\u00f4ng\",\"en\":\"Your comment sent successfully\",\"cn\":\"\",\"kr\":\"\"},\"_captcha_invalid\":{\"default\":\"M\\u00e3 captcha kh\\u00f4ng \\u0111\\u00fang\",\"en\":\"Wrong captcha code\",\"cn\":\"\",\"kr\":\"\"},\"_customer_support\":{\"default\":\"H\\u1ed7 tr\\u1ee3 kh\\u00e1ch h\\u00e0ng\",\"en\":\"Customer support\",\"cn\":\"\",\"kr\":\"\"},\"_title\":{\"default\":\"Ti\\u00eau \\u0111\\u1ec1\",\"en\":\"Title\",\"cn\":\"\",\"kr\":\"\"},\"_view_more_about_home\":{\"default\":\"Xem ti\\u1ebfp\",\"en\":\"View more\",\"cn\":\"\",\"kr\":\"\"},\"_otherservice\":{\"default\":\"D\\u1ecbch v\\u1ee5 kh\\u00e1c\",\"en\":\"Other services\",\"cn\":\"\",\"kr\":\"\"},\"_tieudetecongty\":{\"default\":\"T\\u00ean c\\u00f4ng ty t\\u1ea1i \\u0111\\u00e2y\",\"en\":\"T\\u00ean c\\u00f4ng ty t\\u1ea1i \\u0111\\u00e2y\",\"cn\":\"\",\"kr\":\"\"},\"_hotrokhachhang\":{\"default\":\"H\\u1ed7 tr\\u1ee3 kh\\u00e1ch h\\u00e0ng\",\"en\":\"Customer care\",\"cn\":\"\",\"kr\":\"\"},\"_ngay\":{\"default\":\"Ng\\u00e0y\",\"en\":\"Date\",\"cn\":\"\",\"kr\":\"\"},\"_tentailieu\":{\"default\":\"T\\u00ean t\\u00e0i li\\u1ec7u\",\"en\":\"Document name\",\"cn\":\"\",\"kr\":\"\"},\"_taitailieu\":{\"default\":\"T\\u1ea3i t\\u00e0i li\\u1ec7u\",\"en\":\"Download document\",\"cn\":\"\",\"kr\":\"\"},\"_contactinfo\":{\"default\":\"\\u0110\\u1eb7t h\\u00e0ng\",\"en\":\"Contact info\",\"cn\":\"\",\"kr\":\"\"},\"_apply_your_cv\":{\"default\":\"\\u0110\\u0103ng k\\u00fd\",\"en\":\"Apply\",\"cn\":\"\",\"kr\":\"\"},\"_product_categories\":{\"default\":\"S\\u1ea3n ph\\u1ea9m c\\u00f9ng lo\\u1ea1i\",\"en\":\"Orther products\",\"cn\":\"\",\"kr\":\"\"},\"_giakm\":{\"default\":\"Gi\\u00e1 KM:\",\"en\":\"Seles off:\",\"cn\":\"\",\"kr\":\"\"},\"_giasp\":{\"default\":\"Gi\\u00e1:\",\"en\":\"Price:\",\"cn\":\"\",\"kr\":\"\"},\"_btnorder\":{\"default\":\"\\u0110\\u1eb7t h\\u00e0ng\",\"en\":\"Add to cart\",\"cn\":\"\",\"kr\":\"\"},\"_huongdanmuahang\":{\"default\":\"H\\u01b0\\u1edbng d\\u1eabn mua h\\u00e0ng\",\"en\":\"Shopping guide\",\"cn\":\"\",\"kr\":\"\"},\"_thanhtien\":{\"default\":\"Th\\u00e0nh ti\\u1ec1n\",\"en\":\"Total\",\"cn\":\"\",\"kr\":\"\"},\"_tongthanhtoan\":{\"default\":\"T\\u1ed5ng thanh to\\u00e1n\",\"en\":\"Total\",\"cn\":\"\",\"kr\":\"\"},\"_update_cart\":{\"default\":\"C\\u1eadp nh\\u1eadt s\\u1ed1 l\\u01b0\\u1ee3ng\",\"en\":\"Update\",\"cn\":\"\",\"kr\":\"\"},\"_order\":{\"default\":\"\\u0110\\u1eb7t h\\u00e0ng\",\"en\":\"Order\",\"cn\":\"\",\"kr\":\"\"},\"_send_order\":{\"default\":\"G\\u1eedi \\u0111\\u01a1n h\\u00e0ng\",\"en\":\"Send\",\"cn\":\"\",\"kr\":\"\"},\"_your_order_has_been_sent\":{\"default\":\"\\u0110\\u01a1n h\\u00e0ng \\u0111\\u00e3 \\u0111\\u01b0\\u1ee3c g\\u1eedi th\\u00e0nh c\\u00f4ng\",\"en\":\"Order success\",\"cn\":\"\",\"kr\":\"\"},\"_shoping_cart\":{\"default\":\"Gi\\u1ecf h\\u00e0ng\",\"en\":\"Cart\",\"cn\":\"\",\"kr\":\"\"},\"_codepr\":{\"default\":\"MSP\",\"en\":\"Code\",\"cn\":\"\",\"kr\":\"\"},\"_newsletter\":{\"default\":\"Nh\\u1eadn tin m\\u1edbi\",\"en\":\"News Letter\",\"cn\":\"\",\"kr\":\"\"},\"_enter_email\":{\"default\":\"Nh\\u1eadp E-mail\",\"en\":\"Enter E-mail\",\"cn\":\"\",\"kr\":\"\"},\"_addresscontact\":{\"default\":\"\\u0110\\u1ecba ch\\u1ec9\",\"en\":\"Address\",\"cn\":\"\",\"kr\":\"\"},\"_contact\":{\"default\":\"Li\\u00ean h\\u1ec7\",\"en\":\"Contact\",\"cn\":\"\",\"kr\":\"\"},\"_soluong\":{\"default\":\"S\\u1ed1 l\\u01b0\\u1ee3ng\",\"en\":\"Quantity\",\"cn\":\"\",\"kr\":\"\"},\"_huong_dan_su_dung\":{\"default\":\"H\\u01b0\\u1edbng d\\u1eabn s\\u1eed d\\u1ee5ng\",\"en\":\"User Guide\",\"cn\":\"\",\"kr\":\"\"},\"_relate_product\":{\"default\":\"S\\u1ea3n ph\\u1ea9m li\\u00ean quan\",\"en\":\"Relate Products\",\"cn\":\"\",\"kr\":\"\"},\"_hotline\":{\"default\":\"\\u0110\\u01b0\\u1eddng d\\u00e2y n\\u00f3ng\",\"en\":\"Hotline\",\"cn\":\"\",\"kr\":\"\"},\"_download_profile\":{\"default\":\"Download Profile\",\"en\":\"Download Profile\",\"cn\":\"\",\"kr\":\"\"},\"_regiter_successful\":{\"default\":\"\\u0110\\u0103ng k\\u00fd th\\u00e0nh c\\u00f4ng\",\"en\":\"\\u0110\\u0103ng k\\u00fd th\\u00e0nh c\\u00f4ng\",\"cn\":\"\",\"kr\":\"\"},\"_linh_vuc_hoat_dong\":{\"default\":\"L\\u0129nh v\\u1ef1c ho\\u1ea1t \\u0111\\u1ed9ng\",\"en\":\"Business\",\"cn\":\"\",\"kr\":\"\"},\"_othervideo\":{\"default\":\"C\\u00e1c video kh\\u00e1c\",\"en\":\"Other videos\",\"cn\":\"\",\"kr\":\"\"},\"_other_album\":{\"default\":\"C\\u00e1c album kh\\u00e1c\",\"en\":\"Other albums\",\"cn\":\"\",\"kr\":\"\"},\"_news\":{\"default\":\"Tin t\\u1ee9c\",\"en\":\"Hot news\",\"cn\":\"\",\"kr\":\"\"},\"_view_less\":{\"default\":\"\\u1ea8n b\\u1edbt\",\"en\":\"Hide\",\"cn\":\"\",\"kr\":\"\"},\"_frm_contact_title\":{\"default\":\"Form li\\u00ean h\\u1ec7\",\"en\":\"Conact Form\",\"cn\":\"\",\"kr\":\"\"},\"_ban_can_nhap_thong_tin\":{\"default\":\"B\\u1ea1n c\\u1ea7n nh\\u1eadp \\u0111\\u1ee7 th\\u00f4ng tin v\\u00e0o nh\\u1eefng tr\\u01b0\\u1eddng m\\u00e0u \\u0111\\u1ecf\",\"en\":\"B\\u1ea1n c\\u1ea7n nh\\u1eadp \\u0111\\u1ee7 th\\u00f4ng tin v\\u00e0o nh\\u1eefng tr\\u01b0\\u1eddng m\\u00e0u \\u0111\\u1ecf\",\"cn\":\"B\\u1ea1n c\\u1ea7n nh\\u1eadp \\u0111\\u1ee7 th\\u00f4ng tin v\\u00e0o nh\\u1eefng tr\\u01b0\\u1eddng m\\u00e0u \\u0111\\u1ecf\",\"kr\":\"B\\u1ea1n c\\u1ea7n nh\\u1eadp \\u0111\\u1ee7 th\\u00f4ng tin v\\u00e0o nh\\u1eefng tr\\u01b0\\u1eddng m\\u00e0u \\u0111\\u1ecf\"},\"_thong_tin_lien_he\":{\"default\":\"Th\\u00f4ng tin li\\u00ean h\\u1ec7 \\u0111\\u00e3 \\u0111\\u01b0\\u1ee3c g\\u1eedi th\\u00e0nh c\\u00f4ng !\",\"en\":\"Th\\u00f4ng tin li\\u00ean h\\u1ec7 \\u0111\\u00e3 \\u0111\\u01b0\\u1ee3c g\\u1eedi th\\u00e0nh c\\u00f4ng !\",\"cn\":\"Th\\u00f4ng tin li\\u00ean h\\u1ec7 \\u0111\\u00e3 \\u0111\\u01b0\\u1ee3c g\\u1eedi th\\u00e0nh c\\u00f4ng !\",\"kr\":\"Th\\u00f4ng tin li\\u00ean h\\u1ec7 \\u0111\\u00e3 \\u0111\\u01b0\\u1ee3c g\\u1eedi th\\u00e0nh c\\u00f4ng !\"},\"_ghi_chu\":{\"default\":\"Ghi ch\\u00fa\",\"en\":\"Ghi ch\\u00fa\",\"cn\":\"Ghi ch\\u00fa\",\"kr\":\"Ghi ch\\u00fa\"},\"_xem_chi_tiet\":{\"default\":\"Xem chi ti\\u1ebft \",\"en\":\"Xem chi ti\\u1ebft \",\"cn\":\"Xem chi ti\\u1ebft \",\"kr\":\"Xem chi ti\\u1ebft \"},\"_vui_long_dien_thong_tin\":{\"default\":\"Vui l\\u00f2ng \\u0111i\\u1ec1n v\\u00e0o th\\u00f4ng tin sau\",\"en\":\"Please enter field below\",\"cn\":\"Please enter field below\",\"kr\":\"Please enter field below\"},\"_we_will_contact_you_soon\":{\"default\":\"Nh\\u00e2n vi\\u00ean c\\u1ee7a ch\\u00fang t\\u00f4i s\\u1ebd li\\u00ean h\\u1ec7 v\\u1edbi b\\u1ea1n\",\"en\":\"We will contact you soon\",\"cn\":\"We will contact you soon\",\"kr\":\"We will contact you soon\"},\"_trong_thoi_gian_som\":{\"default\":\"trong th\\u1eddi gian s\\u1edbm nh\\u1ea5t\",\"en\":\"Thank you\",\"cn\":\"Thank you\",\"kr\":\"Thank you\"},\"_chon_dich_vu\":{\"default\":\"Ch\\u1ecdn d\\u1ecbch v\\u1ee5\",\"en\":\"Services\",\"cn\":\"Services\",\"kr\":\"Services\"},\"_our_partner\":{\"default\":\"Th\\u01b0\\u01a1ng hi\\u1ec7u \\u0111\\u1ed1i t\\u00e1c\",\"en\":\"Our partner\",\"cn\":\"Our partner\",\"kr\":\"Our partner\"},\"_check_field\":{\"default\":\"Vui l\\u00f2ng ki\\u1ec3m tra d\\u1eef li\\u1ec7u nh\\u1eadp v\\u00e0o\",\"en\":\"Please check input field\",\"cn\":\"Please check input field\",\"kr\":\"Please check input field\"},\"_form_title\":{\"default\":\"\\u0110\\u0102NG K\\u00dd T\\u01af V\\u1ea4N\",\"en\":\"Form name\",\"cn\":\"Form name\",\"kr\":\"Form name\"},\"_form_request\":{\"default\":\"N\\u1ed9i dung\",\"en\":\"Request\",\"cn\":\"Request\",\"kr\":\"Request\"},\"_newsletter_text\":{\"default\":\"Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus vero unde omnis obcaecati magni\",\"en\":\"Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus vero unde omnis obcaecati magni\",\"cn\":\"Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus vero unde omnis obcaecati magni\",\"kr\":\"Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus vero unde omnis obcaecati magni\"}}');
+/*!40000 ALTER TABLE `lang` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `log_visited`
+--
+
+DROP TABLE IF EXISTS `log_visited`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `log_visited` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `createdate` bigint DEFAULT '0',
+  `url` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `id_user` bigint DEFAULT '0',
+  `ip` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=7533 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `log_visited`
+--
+
+LOCK TABLES `log_visited` WRITE;
+/*!40000 ALTER TABLE `log_visited` DISABLE KEYS */;
+INSERT INTO `log_visited` VALUES (1,1634813443,'http://nhavietphongthuy.24h.co/manager/main.php?page=log_visited',31,'118.70.118.178');
+/*!40000 ALTER TABLE `log_visited` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `logo`
+--
+
+DROP TABLE IF EXISTS `logo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `logo` (
+  `id_logo` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `id_category` bigint unsigned NOT NULL DEFAULT '0',
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL DEFAULT '',
+  `image` varchar(255) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL DEFAULT '',
+  `link` varchar(255) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL DEFAULT '',
+  `ngay_dang` bigint unsigned NOT NULL DEFAULT '0',
+  `thu_tu` bigint NOT NULL DEFAULT '0',
+  `active` tinyint NOT NULL DEFAULT '1',
+  `small_image` varchar(255) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL DEFAULT '',
+  `normal_image` varchar(255) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL DEFAULT '',
+  `target` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `comment` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `hit` bigint NOT NULL DEFAULT '0',
+  `ajaxload` int NOT NULL DEFAULT '0',
+  `id_user` bigint DEFAULT NULL,
+  `groupcat` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  PRIMARY KEY (`id_logo`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `logo`
+--
+
+LOCK TABLES `logo` WRITE;
+/*!40000 ALTER TABLE `logo` DISABLE KEYS */;
+INSERT INTO `logo` VALUES (1,2,'LogoSite','/uploaded/logo/baime-logo1.png','',1610585460,1,1,'','','','',0,0,8,':'),(2,3,'Lorem ipsum dolor sit amet','/uploaded/slideshow/baner.jpg','',1610585460,2,1,'','','','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis euismod ut nisl id sodales.',0,0,8,':'),(3,4,'SlideMobile01','/uploaded/slideshow/item1.jpg','',1610585460,3,1,'','','','',0,0,8,':'),(4,26,'1','/uploaded/chung-nhan/iso.png','',1780401720,4,1,'','','','',0,0,8,':'),(5,26,'2','/uploaded/chung-nhan/iaf.png','',1780401720,5,1,'','','','',0,0,8,':'),(6,26,'3','/uploaded/chung-nhan/kna.png','',1780401720,6,1,'','','','',0,0,8,':'),(7,26,'4','/uploaded/chung-nhan/Q1.png','',1780401720,7,1,'','','','',0,0,8,':'),(8,26,'5','/uploaded/chung-nhan/r1.png','',1780401720,8,1,'','','','',0,0,8,':'),(9,26,'6','/uploaded/chung-nhan/rosh.png','',1780401720,9,1,'','','','',0,0,8,':'),(10,26,'11','/uploaded/chung-nhan/iaf.png','',1780460940,10,1,'','','','',0,0,8,':'),(11,26,'12','/uploaded/chung-nhan/iso.png','',1780461000,11,1,'','','','',0,0,8,':'),(12,26,'13','/uploaded/chung-nhan/kna.png','',1780461000,12,1,'','','','',0,0,8,':'),(13,26,'14','/uploaded/chung-nhan/Q1.png','',1780461000,13,1,'','','','',0,0,8,':'),(14,26,'15','/uploaded/chung-nhan/r1.png','',1780461000,14,1,'','','','',0,0,8,':'),(15,26,'16','/uploaded/chung-nhan/rosh.png','',1780461000,15,1,'','','','',0,0,8,':');
+/*!40000 ALTER TABLE `logo` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `member`
+--
+
+DROP TABLE IF EXISTS `member`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `member` (
+  `id_member` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `telephone` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `lastvisit` bigint NOT NULL DEFAULT '0',
+  `active` tinyint NOT NULL DEFAULT '0',
+  `super` tinyint NOT NULL DEFAULT '0',
+  `registtime` bigint NOT NULL DEFAULT '0',
+  `canhbao` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `yahoo` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `address` varchar(600) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `website` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `chucvu` varchar(600) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `vip` tinyint NOT NULL DEFAULT '0',
+  `otherinfo` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `quocgia` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  PRIMARY KEY (`id_member`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `member`
+--
+
+LOCK TABLES `member` WRITE;
+/*!40000 ALTER TABLE `member` DISABLE KEYS */;
+/*!40000 ALTER TABLE `member` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `module`
+--
+
+DROP TABLE IF EXISTS `module`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `module` (
+  `id_module` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `gia_tri` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `thu_tu` bigint unsigned NOT NULL DEFAULT '0',
+  `active` tinyint NOT NULL DEFAULT '0',
+  `filefontend` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  PRIMARY KEY (`id_module`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=186 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `module`
+--
+
+LOCK TABLES `module` WRITE;
+/*!40000 ALTER TABLE `module` DISABLE KEYS */;
+INSERT INTO `module` VALUES (5,'Module manager','module.php',0,0,NULL),(9,'Cấu hình hệ thống','setting.php',0,1,''),(26,'Danh sách liên hệ','contact.php',20,1,''),(74,'Header','header.php',20,0,NULL),(48,'Trang Tin tức','news.php',8,1,''),(53,'Hỗ trợ trực tuyến','support.php',20,0,''),(52,'Trang Giới thiệu','info.php',6,1,''),(43,'Thông tin cá nhân','profile.php',0,1,''),(89,'Qu&#7843;n l&#253; link - logo','logo.php',5,1,NULL),(77,'Trang ch&#7911;','home.php',2,0,NULL),(94,'Quản lý người dùng','user.php',0,1,''),(98,'Nội dung tĩnh','static.php',16,1,''),(154,'Trang download','download.php',12,0,''),(143,'Chính sách mua hàng','static_text.php',15,0,''),(119,'Cấu hình hiển thị','settingshow.php',0,1,''),(158,'Danh mục hãng sản xuất','product_manufacture.php',11,1,''),(124,'Quản lý Chuyên mục - Category','category.php',0,1,''),(132,'Cấu hình ngôn ngữ','static_lang.php',2,0,''),(135,'Đối tác - Khách hàng','partner.php',12,1,''),(144,'Trang Videos','video.php',12,1,''),(155,'Trang Sản phẩm','product.php',10,1,''),(150,'Danh sách đơn hàng','order.php',11,1,''),(153,'System tools','tool_system_tools.php',0,1,''),(156,'Thuộc tính sản phẩm','attributePro.php',11,0,''),(157,'Liên hệ','contactinfo.php',18,1,''),(159,'Thông tin trên trang liên hệ','contactInfo.php',18,1,''),(160,'Trang Dự Án','du_an.php',12,1,''),(161,'Danh mục tỉnh thành','vn_province.php',15,0,''),(162,'Direct page','direct.php',20,1,''),(163,'Mức giá','price_range.php',11,1,''),(164,'Duyệt bình luận','comment.php',20,0,''),(165,'Ý kiến khách hàng','article.php',12,1,''),(168,'Trang Dịch vụ','service.php',9,1,''),(169,'Hỏi đáp','faq.php',16,0,''),(170,'Hệ thống đại lý','daily.php',13,0,''),(171,'Tuyển dụng','tuyendung.php',12,1,''),(172,'Xem thông tin ứng tuyển','tuyendung_request.php',12,1,''),(174,'Dịch vụ chi tiết','service_detail.php',9,0,''),(176,'Thư viện hình ảnh','album.php',12,1,''),(177,'Import danh sách bảo hành','import_list.php',20,0,''),(179,'News Letter','newsletter.php',20,1,''),(180,'Đội ngũ nhân sự','info_leader.php',7,1,''),(181,'Đơn vị thành viên','info_donvi.php',7,1,''),(182,'Lịch sự kiện - lịch khai giảng','event_calendar.php',13,0,''),(183,'Danh mục xuất xứ','product_material.php',11,1,''),(184,'Tác giả bài viết','tacgia.php',8,1,''),(185,'Lịch sử hình thành','info_lichsu.php',7,1,'');
+/*!40000 ALTER TABLE `module` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `news`
+--
+
+DROP TABLE IF EXISTS `news`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `news` (
+  `id_news` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `id_category` bigint unsigned NOT NULL DEFAULT '0',
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `title` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `description` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `keywords` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `image` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `imageadv` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '0',
+  `intro` mediumtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `content` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `ngay_dang` bigint unsigned DEFAULT '0',
+  `thu_tu` bigint DEFAULT '0',
+  `active` tinyint DEFAULT '1',
+  `id_user` bigint DEFAULT '0',
+  `file` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `hit` int DEFAULT NULL,
+  `hot` tinyint DEFAULT '0',
+  `inhome` tinyint DEFAULT '0',
+  `groupcat` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '0',
+  `tags` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `header_tag` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `url` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `form_name` varchar(32) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `linkto` varchar(512) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `id_tacgia` int DEFAULT NULL,
+  `last_modify` bigint DEFAULT NULL,
+  PRIMARY KEY (`id_news`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `news`
+--
+
+LOCK TABLES `news` WRITE;
+/*!40000 ALTER TABLE `news` DISABLE KEYS */;
+INSERT INTO `news` VALUES (22,12,'Dịch vụ gia công cắt laser chất lượng, uy tín và tiết kiệm chi phí','Tầm quan trọng và ứng dụng của Canxi Stearate là gì?','','','/uploaded/tin-tuc/ung-dung-nganh-son.png','0','Canxi stearat&nbsp;c&oacute; thể được định nghĩa l&agrave; một hợp chất h&oacute;a học được tạo th&agrave;nh từ axit stearic v&agrave; canxi. Đối với canxi stearate, c&ocirc;ng thức h&oacute;a học l&agrave; Ca(C18H35O2)2, điều n&agrave;y cho thấy th&ecirc;m rằng n&oacute; được tạo th&agrave;nh từ hai ion axit Stearic (C18H35O2-) hợp nhất với một ion canxi (Ca2+).','<p>Axit stearic l&agrave; một axit b&eacute;o b&atilde;o h&ograve;a c&oacute; nguồn gốc từ thực vật hoặc động vật. Khi axit stearic phản ứng với canxi hydroxit, n&oacute; tạo ra &ldquo;canxi stearate&rdquo;. N&oacute; l&agrave; một hợp chất c&oacute; bề ngo&agrave;i m&agrave;u trắng v&agrave; như s&aacute;p. N&oacute; thường c&oacute; thể được t&igrave;m thấy ở dạng bột hoặc dạng mảnh v&agrave; hạt cực mịn.</p>\r\n\r\n<p>Canxi stearate thường được sử dụng l&agrave;m chất ổn định, chất b&ocirc;i trơn v&agrave; chất giải ph&oacute;ng trong nhiều ng&agrave;nh c&ocirc;ng nghiệp như nhựa, mỹ phẩm, thực phẩm v&agrave; dược phẩm m&agrave; ch&uacute;ng t&ocirc;i sẽ đề cập trong b&agrave;i viết n&agrave;y! Nhưng trước ti&ecirc;n, h&atilde;y bắt đầu bằng việc biết tầm quan trọng của canxi stearate trong c&aacute;c ứng dụng kh&aacute;c nhau.</p>\r\n',1780650300,13,1,8,'null',NULL,0,0,':','','','tam-quan-trong-va-ung-dung-cua-canxi-stearate-la-gi.html','0','',0,1780650350),(29,12,'Dịch vụ gia công cắt laser chất lượng, uy tín và tiết kiệm chi phí','Tầm quan trọng và ứng dụng của Canxi Stearate là gì?','','','/uploaded/tin-tuc/ung-dung-nganh-son.png','0','Canxi stearat&nbsp;c&oacute; thể được định nghĩa l&agrave; một hợp chất h&oacute;a học được tạo th&agrave;nh từ axit stearic v&agrave; canxi. Đối với canxi stearate, c&ocirc;ng thức h&oacute;a học l&agrave; Ca(C18H35O2)2, điều n&agrave;y cho thấy th&ecirc;m rằng n&oacute; được tạo th&agrave;nh từ hai ion axit Stearic (C18H35O2-) hợp nhất với một ion canxi (Ca2+).','<p>Axit stearic l&agrave; một axit b&eacute;o b&atilde;o h&ograve;a c&oacute; nguồn gốc từ thực vật hoặc động vật. Khi axit stearic phản ứng với canxi hydroxit, n&oacute; tạo ra &ldquo;canxi stearate&rdquo;. N&oacute; l&agrave; một hợp chất c&oacute; bề ngo&agrave;i m&agrave;u trắng v&agrave; như s&aacute;p. N&oacute; thường c&oacute; thể được t&igrave;m thấy ở dạng bột hoặc dạng mảnh v&agrave; hạt cực mịn.</p>\r\n\r\n<p>Canxi stearate thường được sử dụng l&agrave;m chất ổn định, chất b&ocirc;i trơn v&agrave; chất giải ph&oacute;ng trong nhiều ng&agrave;nh c&ocirc;ng nghiệp như nhựa, mỹ phẩm, thực phẩm v&agrave; dược phẩm m&agrave; ch&uacute;ng t&ocirc;i sẽ đề cập trong b&agrave;i viết n&agrave;y! Nhưng trước ti&ecirc;n, h&atilde;y bắt đầu bằng việc biết tầm quan trọng của canxi stearate trong c&aacute;c ứng dụng kh&aacute;c nhau.</p>\r\n',1780650300,13,1,8,'null',NULL,0,0,':','','','tam-quan-trong-va-ung-dung-cua-canxi-stearate-la-gi.html','0','',0,1780650350),(21,12,'Tầm quan trọng và ứng dụng của Canxi Stearate là gì?','Tầm quan trọng và ứng dụng của Canxi Stearate là gì?','','','/uploaded/tin-tuc/item2.png','0','Canxi stearat&nbsp;c&oacute; thể được định nghĩa l&agrave; một hợp chất h&oacute;a học được tạo th&agrave;nh từ axit stearic v&agrave; canxi. Đối với canxi stearate, c&ocirc;ng thức h&oacute;a học l&agrave; Ca(C18H35O2)2, điều n&agrave;y cho thấy th&ecirc;m rằng n&oacute; được tạo th&agrave;nh từ hai ion axit Stearic (C18H35O2-) hợp nhất với một ion canxi (Ca2+).','<p>Axit stearic l&agrave; một axit b&eacute;o b&atilde;o h&ograve;a c&oacute; nguồn gốc từ thực vật hoặc động vật. Khi axit stearic phản ứng với canxi hydroxit, n&oacute; tạo ra &ldquo;canxi stearate&rdquo;. N&oacute; l&agrave; một hợp chất c&oacute; bề ngo&agrave;i m&agrave;u trắng v&agrave; như s&aacute;p. N&oacute; thường c&oacute; thể được t&igrave;m thấy ở dạng bột hoặc dạng mảnh v&agrave; hạt cực mịn.</p>\r\n\r\n<p>Canxi stearate thường được sử dụng l&agrave;m chất ổn định, chất b&ocirc;i trơn v&agrave; chất giải ph&oacute;ng trong nhiều ng&agrave;nh c&ocirc;ng nghiệp như nhựa, mỹ phẩm, thực phẩm v&agrave; dược phẩm m&agrave; ch&uacute;ng t&ocirc;i sẽ đề cập trong b&agrave;i viết n&agrave;y! Nhưng trước ti&ecirc;n, h&atilde;y bắt đầu bằng việc biết tầm quan trọng của canxi stearate trong c&aacute;c ứng dụng kh&aacute;c nhau.</p>\r\n',1780650300,13,1,8,'null',NULL,0,0,':','','','tam-quan-trong-va-ung-dung-cua-canxi-stearate-la-gi.html','0','',0,1780650350),(19,12,'Tầm quan trọng và ứng dụng của Canxi Stearate là gì?','Tầm quan trọng và ứng dụng của Canxi Stearate là gì?','','','/uploaded/tin-tuc/ung-dung-nganh-son.png','0','Canxi stearat&nbsp;c&oacute; thể được định nghĩa l&agrave; một hợp chất h&oacute;a học được tạo th&agrave;nh từ axit stearic v&agrave; canxi. Đối với canxi stearate, c&ocirc;ng thức h&oacute;a học l&agrave; Ca(C18H35O2)2, điều n&agrave;y cho thấy th&ecirc;m rằng n&oacute; được tạo th&agrave;nh từ hai ion axit Stearic (C18H35O2-) hợp nhất với một ion canxi (Ca2+).','<p>Axit stearic l&agrave; một axit b&eacute;o b&atilde;o h&ograve;a c&oacute; nguồn gốc từ thực vật hoặc động vật. Khi axit stearic phản ứng với canxi hydroxit, n&oacute; tạo ra &ldquo;canxi stearate&rdquo;. N&oacute; l&agrave; một hợp chất c&oacute; bề ngo&agrave;i m&agrave;u trắng v&agrave; như s&aacute;p. N&oacute; thường c&oacute; thể được t&igrave;m thấy ở dạng bột hoặc dạng mảnh v&agrave; hạt cực mịn.</p>\r\n\r\n<p>Canxi stearate thường được sử dụng l&agrave;m chất ổn định, chất b&ocirc;i trơn v&agrave; chất giải ph&oacute;ng trong nhiều ng&agrave;nh c&ocirc;ng nghiệp như nhựa, mỹ phẩm, thực phẩm v&agrave; dược phẩm m&agrave; ch&uacute;ng t&ocirc;i sẽ đề cập trong b&agrave;i viết n&agrave;y! Nhưng trước ti&ecirc;n, h&atilde;y bắt đầu bằng việc biết tầm quan trọng của canxi stearate trong c&aacute;c ứng dụng kh&aacute;c nhau.</p>\r\n',1780650300,13,1,8,'null',NULL,0,0,':','','','tam-quan-trong-va-ung-dung-cua-canxi-stearate-la-gi.html','0','',0,1780650350),(18,12,'Giải pháp sử dụng sơn phủ cho chung cư xanh','Tầm quan trọng và ứng dụng của Canxi Stearate là gì?','','','/uploaded/tin-tuc/item2.png','0','Canxi stearat&nbsp;c&oacute; thể được định nghĩa l&agrave; một hợp chất h&oacute;a học được tạo th&agrave;nh từ axit stearic v&agrave; canxi. Đối với canxi stearate, c&ocirc;ng thức h&oacute;a học l&agrave; Ca(C18H35O2)2, điều n&agrave;y cho thấy th&ecirc;m rằng n&oacute; được tạo th&agrave;nh từ hai ion axit Stearic (C18H35O2-) hợp nhất với một ion canxi (Ca2+).','<p>Axit stearic l&agrave; một axit b&eacute;o b&atilde;o h&ograve;a c&oacute; nguồn gốc từ thực vật hoặc động vật. Khi axit stearic phản ứng với canxi hydroxit, n&oacute; tạo ra &ldquo;canxi stearate&rdquo;. N&oacute; l&agrave; một hợp chất c&oacute; bề ngo&agrave;i m&agrave;u trắng v&agrave; như s&aacute;p. N&oacute; thường c&oacute; thể được t&igrave;m thấy ở dạng bột hoặc dạng mảnh v&agrave; hạt cực mịn.</p>\r\n\r\n<p>Canxi stearate thường được sử dụng l&agrave;m chất ổn định, chất b&ocirc;i trơn v&agrave; chất giải ph&oacute;ng trong nhiều ng&agrave;nh c&ocirc;ng nghiệp như nhựa, mỹ phẩm, thực phẩm v&agrave; dược phẩm m&agrave; ch&uacute;ng t&ocirc;i sẽ đề cập trong b&agrave;i viết n&agrave;y! Nhưng trước ti&ecirc;n, h&atilde;y bắt đầu bằng việc biết tầm quan trọng của canxi stearate trong c&aacute;c ứng dụng kh&aacute;c nhau.</p>\r\n',1780650300,13,1,8,'null',NULL,0,0,':','','','tam-quan-trong-va-ung-dung-cua-canxi-stearate-la-gi.html','0','',0,1780650350),(17,12,'Tầm quan trọng và ứng dụng của Canxi Stearate là gì?','Tầm quan trọng và ứng dụng của Canxi Stearate là gì?','','','/uploaded/tin-tuc/item1.png','0','Canxi stearat&nbsp;c&oacute; thể được định nghĩa l&agrave; một hợp chất h&oacute;a học được tạo th&agrave;nh từ axit stearic v&agrave; canxi. Đối với canxi stearate, c&ocirc;ng thức h&oacute;a học l&agrave; Ca(C18H35O2)2, điều n&agrave;y cho thấy th&ecirc;m rằng n&oacute; được tạo th&agrave;nh từ hai ion axit Stearic (C18H35O2-) hợp nhất với một ion canxi (Ca2+).','<p>Axit stearic l&agrave; một axit b&eacute;o b&atilde;o h&ograve;a c&oacute; nguồn gốc từ thực vật hoặc động vật. Khi axit stearic phản ứng với canxi hydroxit, n&oacute; tạo ra &ldquo;canxi stearate&rdquo;. N&oacute; l&agrave; một hợp chất c&oacute; bề ngo&agrave;i m&agrave;u trắng v&agrave; như s&aacute;p. N&oacute; thường c&oacute; thể được t&igrave;m thấy ở dạng bột hoặc dạng mảnh v&agrave; hạt cực mịn.</p>\r\n\r\n<p>Canxi stearate thường được sử dụng l&agrave;m chất ổn định, chất b&ocirc;i trơn v&agrave; chất giải ph&oacute;ng trong nhiều ng&agrave;nh c&ocirc;ng nghiệp như nhựa, mỹ phẩm, thực phẩm v&agrave; dược phẩm m&agrave; ch&uacute;ng t&ocirc;i sẽ đề cập trong b&agrave;i viết n&agrave;y! Nhưng trước ti&ecirc;n, h&atilde;y bắt đầu bằng việc biết tầm quan trọng của canxi stearate trong c&aacute;c ứng dụng kh&aacute;c nhau.</p>\r\n',1780650300,13,1,8,'null',NULL,0,0,':','','','tam-quan-trong-va-ung-dung-cua-canxi-stearate-la-gi.html','0','',0,1780650350),(15,12,'Tầm quan trọng và ứng dụng của Canxi Stearate là gì?','Tầm quan trọng và ứng dụng của Canxi Stearate là gì?','','','/uploaded/tin-tuc/item1.png','0','Canxi stearat&nbsp;c&oacute; thể được định nghĩa l&agrave; một hợp chất h&oacute;a học được tạo th&agrave;nh từ axit stearic v&agrave; canxi. Đối với canxi stearate, c&ocirc;ng thức h&oacute;a học l&agrave; Ca(C18H35O2)2, điều n&agrave;y cho thấy th&ecirc;m rằng n&oacute; được tạo th&agrave;nh từ hai ion axit Stearic (C18H35O2-) hợp nhất với một ion canxi (Ca2+).','<p>Axit stearic l&agrave; một axit b&eacute;o b&atilde;o h&ograve;a c&oacute; nguồn gốc từ thực vật hoặc động vật. Khi axit stearic phản ứng với canxi hydroxit, n&oacute; tạo ra &ldquo;canxi stearate&rdquo;. N&oacute; l&agrave; một hợp chất c&oacute; bề ngo&agrave;i m&agrave;u trắng v&agrave; như s&aacute;p. N&oacute; thường c&oacute; thể được t&igrave;m thấy ở dạng bột hoặc dạng mảnh v&agrave; hạt cực mịn.</p>\r\n\r\n<p>Canxi stearate thường được sử dụng l&agrave;m chất ổn định, chất b&ocirc;i trơn v&agrave; chất giải ph&oacute;ng trong nhiều ng&agrave;nh c&ocirc;ng nghiệp như nhựa, mỹ phẩm, thực phẩm v&agrave; dược phẩm m&agrave; ch&uacute;ng t&ocirc;i sẽ đề cập trong b&agrave;i viết n&agrave;y! Nhưng trước ti&ecirc;n, h&atilde;y bắt đầu bằng việc biết tầm quan trọng của canxi stearate trong c&aacute;c ứng dụng kh&aacute;c nhau.</p>\r\n',1780650300,13,1,8,'null',NULL,0,0,':','','','tam-quan-trong-va-ung-dung-cua-canxi-stearate-la-gi.html','0','',0,1780650350),(16,12,'Giải pháp sử dụng sơn phủ cho chung cư xanh','Tầm quan trọng và ứng dụng của Canxi Stearate là gì?','','','/uploaded/tin-tuc/ung-dung-nganh-son.png','0','Canxi stearat&nbsp;c&oacute; thể được định nghĩa l&agrave; một hợp chất h&oacute;a học được tạo th&agrave;nh từ axit stearic v&agrave; canxi. Đối với canxi stearate, c&ocirc;ng thức h&oacute;a học l&agrave; Ca(C18H35O2)2, điều n&agrave;y cho thấy th&ecirc;m rằng n&oacute; được tạo th&agrave;nh từ hai ion axit Stearic (C18H35O2-) hợp nhất với một ion canxi (Ca2+).','<p>Axit stearic l&agrave; một axit b&eacute;o b&atilde;o h&ograve;a c&oacute; nguồn gốc từ thực vật hoặc động vật. Khi axit stearic phản ứng với canxi hydroxit, n&oacute; tạo ra &ldquo;canxi stearate&rdquo;. N&oacute; l&agrave; một hợp chất c&oacute; bề ngo&agrave;i m&agrave;u trắng v&agrave; như s&aacute;p. N&oacute; thường c&oacute; thể được t&igrave;m thấy ở dạng bột hoặc dạng mảnh v&agrave; hạt cực mịn.</p>\r\n\r\n<p>Canxi stearate thường được sử dụng l&agrave;m chất ổn định, chất b&ocirc;i trơn v&agrave; chất giải ph&oacute;ng trong nhiều ng&agrave;nh c&ocirc;ng nghiệp như nhựa, mỹ phẩm, thực phẩm v&agrave; dược phẩm m&agrave; ch&uacute;ng t&ocirc;i sẽ đề cập trong b&agrave;i viết n&agrave;y! Nhưng trước ti&ecirc;n, h&atilde;y bắt đầu bằng việc biết tầm quan trọng của canxi stearate trong c&aacute;c ứng dụng kh&aacute;c nhau.</p>\r\n',1780650300,13,1,8,'null',NULL,0,0,':','','','tam-quan-trong-va-ung-dung-cua-canxi-stearate-la-gi.html','0','',0,1780650350),(12,12,'Dịch vụ gia công cắt laser chất lượng, uy tín và tiết kiệm chi phí','Dịch vụ gia công cắt laser chất lượng, uy tín và tiết kiệm chi phí','','','/uploaded/tin-tuc/item1.png','0','<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don&#39;t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn&#39;t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>\r\n','<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don&#39;t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn&#39;t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>\r\n',1780650120,11,1,8,'null',NULL,0,0,':','','','dich-vu-gia-cong-cat-laser-chat-luong-uy-tin-va-tiet-kiem-chi-phi.html','0','',0,1780650258),(13,12,'Giải pháp sử dụng sơn phủ cho chung cư xanh','Giải pháp sử dụng sơn phủ cho chung cư xanh','','','/uploaded/tin-tuc/item2.png','0','<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don&#39;t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn&#39;t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>\r\n','<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don&#39;t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn&#39;t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.<br />\r\n&nbsp;</p>\r\n\r\n<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don&#39;t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn&#39;t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>\r\n',1780650240,12,1,8,'null',NULL,0,0,':','','','giai-phap-su-dung-son-phu-cho-chung-cu-xanh.html','0','',0,1780650281),(14,12,'Tầm quan trọng và ứng dụng của Canxi Stearate là gì?','Tầm quan trọng và ứng dụng của Canxi Stearate là gì?','','','/uploaded/tin-tuc/ung-dung-nganh-son.png','0','Canxi stearat&nbsp;c&oacute; thể được định nghĩa l&agrave; một hợp chất h&oacute;a học được tạo th&agrave;nh từ axit stearic v&agrave; canxi. Đối với canxi stearate, c&ocirc;ng thức h&oacute;a học l&agrave; Ca(C18H35O2)2, điều n&agrave;y cho thấy th&ecirc;m rằng n&oacute; được tạo th&agrave;nh từ hai ion axit Stearic (C18H35O2-) hợp nhất với một ion canxi (Ca2+).','<p>Axit stearic l&agrave; một axit b&eacute;o b&atilde;o h&ograve;a c&oacute; nguồn gốc từ thực vật hoặc động vật. Khi axit stearic phản ứng với canxi hydroxit, n&oacute; tạo ra &ldquo;canxi stearate&rdquo;. N&oacute; l&agrave; một hợp chất c&oacute; bề ngo&agrave;i m&agrave;u trắng v&agrave; như s&aacute;p. N&oacute; thường c&oacute; thể được t&igrave;m thấy ở dạng bột hoặc dạng mảnh v&agrave; hạt cực mịn.</p>\r\n\r\n<p>Canxi stearate thường được sử dụng l&agrave;m chất ổn định, chất b&ocirc;i trơn v&agrave; chất giải ph&oacute;ng trong nhiều ng&agrave;nh c&ocirc;ng nghiệp như nhựa, mỹ phẩm, thực phẩm v&agrave; dược phẩm m&agrave; ch&uacute;ng t&ocirc;i sẽ đề cập trong b&agrave;i viết n&agrave;y! Nhưng trước ti&ecirc;n, h&atilde;y bắt đầu bằng việc biết tầm quan trọng của canxi stearate trong c&aacute;c ứng dụng kh&aacute;c nhau.</p>\r\n',1780650300,13,1,8,'null',NULL,0,0,':','','','tam-quan-trong-va-ung-dung-cua-canxi-stearate-la-gi.html','0','',0,1780650350);
+/*!40000 ALTER TABLE `news` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `newsletter`
+--
+
+DROP TABLE IF EXISTS `newsletter`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `newsletter` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `phone` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `address` varchar(600) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `message` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `thu_tu` bigint NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `newsletter`
+--
+
+LOCK TABLES `newsletter` WRITE;
+/*!40000 ALTER TABLE `newsletter` DISABLE KEYS */;
+/*!40000 ALTER TABLE `newsletter` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `orders`
+--
+
+DROP TABLE IF EXISTS `orders`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `orders` (
+  `id_order` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `session` tinytext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `createdate` bigint unsigned DEFAULT '0',
+  `username` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '',
+  `name` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '',
+  `content` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `phone` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `email` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '',
+  `address` varchar(512) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '',
+  `addinfo` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `xem` tinyint DEFAULT '0',
+  `code` bigint DEFAULT '0',
+  `status` tinyint DEFAULT '0',
+  `total` decimal(10,0) DEFAULT '0',
+  `customer_ip` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `customer_loc` varchar(128) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `payment_type` varchar(256) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `transStatus` varchar(256) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `TransactionNo` varchar(256) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `ResponseCode` varchar(16) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `BankCode` varchar(128) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `PayDate` varchar(64) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `OrderInfo` varchar(512) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `pay_status` int DEFAULT '0',
+  `last_update` bigint DEFAULT NULL,
+  PRIMARY KEY (`id_order`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `orders`
+--
+
+LOCK TABLES `orders` WRITE;
+/*!40000 ALTER TABLE `orders` DISABLE KEYS */;
+/*!40000 ALTER TABLE `orders` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `partner`
+--
+
+DROP TABLE IF EXISTS `partner`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `partner` (
+  `id_partner` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `id_category` bigint unsigned NOT NULL DEFAULT '0',
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `title` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `description` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `keywords` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `image` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `intro` mediumtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `content` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `ngay_dang` bigint unsigned DEFAULT '0',
+  `thu_tu` bigint DEFAULT '0',
+  `active` tinyint DEFAULT '1',
+  `id_user` bigint DEFAULT '0',
+  `groupcat` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '0',
+  `tags` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `header_tag` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `url` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `company` varchar(512) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `address` varchar(512) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `phone` varchar(128) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `last_modify` bigint DEFAULT NULL,
+  PRIMARY KEY (`id_partner`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `partner`
+--
+
+LOCK TABLES `partner` WRITE;
+/*!40000 ALTER TABLE `partner` DISABLE KEYS */;
+INSERT INTO `partner` VALUES (1,27,'item1','item1','','','/uploaded/doitac/ss.png','','',1780401780,1,1,8,':',NULL,NULL,'item1.html','','','',1780401804),(2,27,'2','2','','','/uploaded/doitac/tot.png','','',1780401780,2,1,8,':',NULL,NULL,'2.html','','','',1780401811),(3,27,'3','3','','','/uploaded/doitac/vin.png','','',1780401780,3,1,8,':',NULL,NULL,'3.html','','','',1780401821),(4,27,'4','4','','','/uploaded/doitac/nito.png','','',1780401780,4,1,8,':',NULL,NULL,'4.html','','','',1780401829),(5,27,'5','5','','','/uploaded/doitac/lg.png','','',1780401780,5,1,8,':',NULL,NULL,'5.html','','','',1780401839),(6,27,'6','6','','','/uploaded/doitac/huyndai.png','','',1780401840,6,1,8,':',NULL,NULL,'6.html','','','',1780401846),(7,27,'7','7','','','/uploaded/doitac/lg.png','','',1780401840,7,1,8,':',NULL,NULL,'7.html','','','',1780401863),(8,27,'8','8','','','/uploaded/doitac/nito.png','','',1780401840,8,1,8,':',NULL,NULL,'8.html','','','',1780401876),(9,27,'11','11','','','/uploaded/doitac/tot.png','','',1780401840,9,1,8,':',NULL,NULL,'11.html','','','',1780401885);
+/*!40000 ALTER TABLE `partner` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `payment`
+--
+
+DROP TABLE IF EXISTS `payment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `payment` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `payment_type` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '0',
+  `createdate` bigint unsigned DEFAULT '0',
+  `transStatus` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '',
+  `merchantID` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '0',
+  `merchTxnRef` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '',
+  `orderInfo` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `amount` bigint DEFAULT NULL,
+  `txnResponseCode` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '',
+  `txnResponseText` varchar(512) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '',
+  `message` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `transactionNo` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '0',
+  `status` tinyint DEFAULT '0',
+  `last_update` bigint DEFAULT NULL,
+  `client_ip` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `payment`
+--
+
+LOCK TABLES `payment` WRITE;
+/*!40000 ALTER TABLE `payment` DISABLE KEYS */;
+/*!40000 ALTER TABLE `payment` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `price_range`
+--
+
+DROP TABLE IF EXISTS `price_range`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `price_range` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `min_value` bigint DEFAULT '0',
+  `max_value` bigint DEFAULT '0',
+  `content` varchar(1024) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `thu_tu` int DEFAULT '0',
+  `lang` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '',
+  `active` int DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `price_range`
+--
+
+LOCK TABLES `price_range` WRITE;
+/*!40000 ALTER TABLE `price_range` DISABLE KEYS */;
+INSERT INTO `price_range` VALUES (1,'< 1.000.000',0,1000000,NULL,0,'',1),(2,'1.000.000 - 2.000.000',1000000,2000000,NULL,0,'',1),(4,'2.000.000 - 3.000.000',2000000,3000000,NULL,0,'',1),(5,'3.000.000 - 4.000.000',3000000,4000000,NULL,0,'',1),(7,'Trên 200',4000000,400000000,NULL,0,'',1);
+/*!40000 ALTER TABLE `price_range` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pro_attribute`
+--
+
+DROP TABLE IF EXISTS `pro_attribute`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `pro_attribute` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `type` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `default_value` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `style` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `alias_name` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pro_attribute`
+--
+
+LOCK TABLES `pro_attribute` WRITE;
+/*!40000 ALTER TABLE `pro_attribute` DISABLE KEYS */;
+INSERT INTO `pro_attribute` VALUES (43,'Kích thước','','','','kich-thuoc'),(44,'Trọng lượng','','','','trong-luong'),(45,'Chất liệu','','','','chat-lieu'),(46,'Thời gian ST','','','','thoi-gian-st'),(47,'Cao','','','','cao'),(48,'Dài','','','','dai'),(49,'Rộng','','','','rong'),(50,'Xuất Xứ','','','','xuat-xu');
+/*!40000 ALTER TABLE `pro_attribute` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `product`
+--
+
+DROP TABLE IF EXISTS `product`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `product` (
+  `id_product` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `id_category` bigint unsigned NOT NULL DEFAULT '0',
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `image` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `price` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `km` double DEFAULT '0',
+  `pricekm` varchar(90) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `giaphukien` bigint DEFAULT '0',
+  `don_vi` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `intro` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `content` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `ngay_dang` bigint unsigned DEFAULT '0',
+  `active` tinyint DEFAULT '1',
+  `id_user` tinyint unsigned DEFAULT '0',
+  `thu_tu` int DEFAULT '0',
+  `hit` bigint DEFAULT '0',
+  `status` tinyint DEFAULT '1',
+  `ma` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `groupcat` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `fileurl` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `moi` int DEFAULT '0',
+  `title` varchar(600) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `keywords` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `description` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `tags` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `header_tag` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `size` varchar(512) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `color` varchar(512) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `product_ver` varchar(512) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `ttkhuyenmai` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `url` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `chatlieu` varchar(500) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `kichthuoc` varchar(600) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `xuatxu` varchar(600) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `related_ids` varbinary(256) DEFAULT NULL,
+  `phukien` varchar(600) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '0',
+  `attr` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `icon` varchar(10) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT 'none',
+  `videourl` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `texticon` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `contenttab0` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `contenttab1` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `contenttab2` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `spcungloai` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `id_manufacture` bigint DEFAULT NULL,
+  `image_list` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `last_modify` bigint DEFAULT NULL,
+  `id_material` int DEFAULT NULL,
+  PRIMARY KEY (`id_product`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `product`
+--
+
+LOCK TABLES `product` WRITE;
+/*!40000 ALTER TABLE `product` DISABLE KEYS */;
+INSERT INTO `product` VALUES (1,16,'PVC Leather Series','/uploaded/san-pham/f93045dc62665ee52f9a7e07bf4c7af409dd26dd.png','',0,'',0,NULL,'Được sản xuất th&ocirc;ng qua quy tr&igrave;nh tổng hợp cải tiến sử dụng axit stearic chất lượng cao v&agrave; thể hiện c&aacute;c đặc t&iacute;nh sau: Khả năng b&ocirc;i trơn, ph&acirc;n t&aacute;n tốt, khả năng chống thấm nước tuyệt vời, độ trong suốt v&agrave; ổn định thời tiết tốt, kh&ocirc;ng độc hại, kh&ocirc;ng nhuộm m&agrave;u sunfua, &iacute;t h&igrave;nh th&agrave;nh m&agrave;u ban đầu','',1780392060,1,8,1,0,1,'',':0:','',0,'PVC Leather Series','','','','','','',NULL,'','pvc-leather-series.html',NULL,NULL,NULL,0x302C30,'0','{\"45\":\"\",\"43\":\"\",\"46\":\"\"}','','',NULL,'<p><strong>T&ecirc;n h&oacute;a chất</strong>: ZINC STEARATE</p>\r\n\r\n<p><strong>M&atilde; sản phẩm</strong>: ZTLC ( 145 &hellip;161 )</p>\r\n\r\n<p><strong>C&ocirc;ng thức h&oacute;a học</strong>: Zn(C17H35COO)2</p>\r\n\r\n<p><strong>Cas No</strong>: 558-05-1</p>\r\n\r\n<h2>M&ocirc; tả sản phẩm:</h2>\r\n\r\n<p><strong>ZTLC ( 145,148,155,160,161 ):&nbsp;</strong>Được sản xuất th&ocirc;ng qua quy tr&igrave;nh tổng hợp cải tiến sử dụng axit stearic chất lượng cao v&agrave; thể hiện c&aacute;c đặc t&iacute;nh sau: Khả năng b&ocirc;i trơn, ph&acirc;n t&aacute;n tốt, khả năng chống thấm nước tuyệt vời, độ trong suốt v&agrave; ổn định thời tiết tốt, kh&ocirc;ng độc hại, kh&ocirc;ng nhuộm m&agrave;u sunfua, &iacute;t h&igrave;nh th&agrave;nh m&agrave;u ban đầu<br />\r\n<br />\r\n<img alt=\"\" src=\"/uploaded/san-pham/thong-so.jpg\" style=\"width: 100%;\" /> Đ&oacute;ng bao: 20kg/bao<br />\r\n<br />\r\nĐộ ổn định lưu trữ: 2 năm trong điều kiện bảo quản kh&ocirc; r&aacute;o, tho&aacute;ng m&aacute;t trong bao b&igrave; gốc<br />\r\n&nbsp;</p>\r\n\r\n<h2>Ứng dụng:</h2>\r\n\r\n<ul>\r\n	<li>Tấm cao su v&agrave; EVA d&ugrave;ng l&agrave;m chất b&ocirc;i trơn, chất ph&acirc;n t&aacute;n b&ecirc;n trong v&agrave; để phủi bụi</li>\r\n	<li>D&ugrave;ng cho sơn, lớp phủ ho&aacute; chất, v để chống chảy tự do v&agrave; chống ẩm</li>\r\n	<li>Cho nhựa : EPS, PE, PP, PVC, hạt m&agrave;u Masterbach, Taical, Ống nhựa&hellip;.</li>\r\n	<li>Vật liệu Composite polymer đặc biệt.</li>\r\n</ul>\r\n','',NULL,'',0,'[{\"image_path\":\"\\/uploaded\\/san-pham\\/it-dt.png\",\"image_name\":\"\",\"image_desc\":\"\",\"image_thu_tu\":\"\"},{\"image_path\":\"\\/uploaded\\/san-pham\\/item3.png\",\"image_name\":\"\",\"image_desc\":\"\",\"image_thu_tu\":\"\"},{\"image_path\":\"\\/uploaded\\/san-pham\\/item2.png\",\"image_name\":\"\",\"image_desc\":\"\",\"image_thu_tu\":\"\"}]',1780392388,0),(2,16,'PVC Leather Series','/uploaded/san-pham/it-dt.png','',0,'',0,NULL,'Được sản xuất th&ocirc;ng qua quy tr&igrave;nh tổng hợp cải tiến sử dụng axit stearic chất lượng cao v&agrave; thể hiện c&aacute;c đặc t&iacute;nh sau: Khả năng b&ocirc;i trơn, ph&acirc;n t&aacute;n tốt, khả năng chống thấm nước tuyệt vời, độ trong suốt v&agrave; ổn định thời tiết tốt, kh&ocirc;ng độc hại, kh&ocirc;ng nhuộm m&agrave;u sunfua, &iacute;t h&igrave;nh th&agrave;nh m&agrave;u ban đầu','',1780392060,1,8,2,0,1,'',':','',0,'PVC Leather Series','','','','','','',NULL,'','pvc-leather-series.html',NULL,NULL,NULL,0x302C30,'0','{\"45\":\"\",\"43\":\"\",\"46\":\"\"}','','',NULL,'<p><strong>T&ecirc;n h&oacute;a chất</strong>: ZINC STEARATE</p>\r\n\r\n<p><strong>M&atilde; sản phẩm</strong>: ZTLC ( 145 &hellip;161 )</p>\r\n\r\n<p><strong>C&ocirc;ng thức h&oacute;a học</strong>: Zn(C17H35COO)2</p>\r\n\r\n<p><strong>Cas No</strong>: 558-05-1</p>\r\n\r\n<h2>M&ocirc; tả sản phẩm:</h2>\r\n\r\n<p><strong>ZTLC ( 145,148,155,160,161 ):&nbsp;</strong>Được sản xuất th&ocirc;ng qua quy tr&igrave;nh tổng hợp cải tiến sử dụng axit stearic chất lượng cao v&agrave; thể hiện c&aacute;c đặc t&iacute;nh sau: Khả năng b&ocirc;i trơn, ph&acirc;n t&aacute;n tốt, khả năng chống thấm nước tuyệt vời, độ trong suốt v&agrave; ổn định thời tiết tốt, kh&ocirc;ng độc hại, kh&ocirc;ng nhuộm m&agrave;u sunfua, &iacute;t h&igrave;nh th&agrave;nh m&agrave;u ban đầu<br />\r\n<br />\r\n<img alt=\"\" src=\"/uploaded/san-pham/thong-so.jpg\" style=\"width: 100%;\" /> Đ&oacute;ng bao: 20kg/bao<br />\r\n<br />\r\nĐộ ổn định lưu trữ: 2 năm trong điều kiện bảo quản kh&ocirc; r&aacute;o, tho&aacute;ng m&aacute;t trong bao b&igrave; gốc<br />\r\n&nbsp;</p>\r\n\r\n<h2>Ứng dụng:</h2>\r\n\r\n<ul>\r\n	<li>Tấm cao su v&agrave; EVA d&ugrave;ng l&agrave;m chất b&ocirc;i trơn, chất ph&acirc;n t&aacute;n b&ecirc;n trong v&agrave; để phủi bụi</li>\r\n	<li>D&ugrave;ng cho sơn, lớp phủ ho&aacute; chất, v để chống chảy tự do v&agrave; chống ẩm</li>\r\n	<li>Cho nhựa : EPS, PE, PP, PVC, hạt m&agrave;u Masterbach, Taical, Ống nhựa&hellip;.</li>\r\n	<li>Vật liệu Composite polymer đặc biệt.</li>\r\n</ul>\r\n','',NULL,'',0,'[{\"image_path\":\"uploaded\\/san-pham\\/it-dt.png\",\"image_name\":\"\",\"image_desc\":\"\",\"image_thu_tu\":\"\"},{\"image_path\":\"uploaded\\/san-pham\\/item3.png\",\"image_name\":\"\",\"image_desc\":\"\",\"image_thu_tu\":\"\"},{\"image_path\":\"uploaded\\/san-pham\\/item2.png\",\"image_name\":\"\",\"image_desc\":\"\",\"image_thu_tu\":\"\"}]',1780392513,0),(3,16,'PVC Leather Series','/uploaded/san-pham/item1.png','',0,'',0,NULL,'Được sản xuất th&ocirc;ng qua quy tr&igrave;nh tổng hợp cải tiến sử dụng axit stearic chất lượng cao v&agrave; thể hiện c&aacute;c đặc t&iacute;nh sau: Khả năng b&ocirc;i trơn, ph&acirc;n t&aacute;n tốt, khả năng chống thấm nước tuyệt vời, độ trong suốt v&agrave; ổn định thời tiết tốt, kh&ocirc;ng độc hại, kh&ocirc;ng nhuộm m&agrave;u sunfua, &iacute;t h&igrave;nh th&agrave;nh m&agrave;u ban đầu','',1780392060,1,8,3,0,1,'',':','',0,'PVC Leather Series','','','','','','',NULL,'','pvc-leather-series.html',NULL,NULL,NULL,0x302C30,'0','{\"45\":\"\",\"43\":\"\",\"46\":\"\"}','','',NULL,'<p><strong>T&ecirc;n h&oacute;a chất</strong>: ZINC STEARATE</p>\r\n\r\n<p><strong>M&atilde; sản phẩm</strong>: ZTLC ( 145 &hellip;161 )</p>\r\n\r\n<p><strong>C&ocirc;ng thức h&oacute;a học</strong>: Zn(C17H35COO)2</p>\r\n\r\n<p><strong>Cas No</strong>: 558-05-1</p>\r\n\r\n<h2>M&ocirc; tả sản phẩm:</h2>\r\n\r\n<p><strong>ZTLC ( 145,148,155,160,161 ):&nbsp;</strong>Được sản xuất th&ocirc;ng qua quy tr&igrave;nh tổng hợp cải tiến sử dụng axit stearic chất lượng cao v&agrave; thể hiện c&aacute;c đặc t&iacute;nh sau: Khả năng b&ocirc;i trơn, ph&acirc;n t&aacute;n tốt, khả năng chống thấm nước tuyệt vời, độ trong suốt v&agrave; ổn định thời tiết tốt, kh&ocirc;ng độc hại, kh&ocirc;ng nhuộm m&agrave;u sunfua, &iacute;t h&igrave;nh th&agrave;nh m&agrave;u ban đầu<br />\r\n<br />\r\n<img alt=\"\" src=\"/uploaded/san-pham/thong-so.jpg\" style=\"width: 100%;\" /> Đ&oacute;ng bao: 20kg/bao<br />\r\n<br />\r\nĐộ ổn định lưu trữ: 2 năm trong điều kiện bảo quản kh&ocirc; r&aacute;o, tho&aacute;ng m&aacute;t trong bao b&igrave; gốc<br />\r\n&nbsp;</p>\r\n\r\n<h2>Ứng dụng:</h2>\r\n\r\n<ul>\r\n	<li>Tấm cao su v&agrave; EVA d&ugrave;ng l&agrave;m chất b&ocirc;i trơn, chất ph&acirc;n t&aacute;n b&ecirc;n trong v&agrave; để phủi bụi</li>\r\n	<li>D&ugrave;ng cho sơn, lớp phủ ho&aacute; chất, v để chống chảy tự do v&agrave; chống ẩm</li>\r\n	<li>Cho nhựa : EPS, PE, PP, PVC, hạt m&agrave;u Masterbach, Taical, Ống nhựa&hellip;.</li>\r\n	<li>Vật liệu Composite polymer đặc biệt.</li>\r\n</ul>\r\n','',NULL,'',0,'[{\"image_path\":\"uploaded\\/san-pham\\/it-dt.png\",\"image_name\":\"\",\"image_desc\":\"\",\"image_thu_tu\":\"\"},{\"image_path\":\"uploaded\\/san-pham\\/item3.png\",\"image_name\":\"\",\"image_desc\":\"\",\"image_thu_tu\":\"\"},{\"image_path\":\"uploaded\\/san-pham\\/item2.png\",\"image_name\":\"\",\"image_desc\":\"\",\"image_thu_tu\":\"\"}]',1780392520,0),(4,16,'PVC Leather Series','/uploaded/san-pham/item3.png','',0,'',0,NULL,'Được sản xuất th&ocirc;ng qua quy tr&igrave;nh tổng hợp cải tiến sử dụng axit stearic chất lượng cao v&agrave; thể hiện c&aacute;c đặc t&iacute;nh sau: Khả năng b&ocirc;i trơn, ph&acirc;n t&aacute;n tốt, khả năng chống thấm nước tuyệt vời, độ trong suốt v&agrave; ổn định thời tiết tốt, kh&ocirc;ng độc hại, kh&ocirc;ng nhuộm m&agrave;u sunfua, &iacute;t h&igrave;nh th&agrave;nh m&agrave;u ban đầu','',1780392060,1,8,5,0,1,'',':','',0,'PVC Leather Series','','','','','','',NULL,'','pvc-leather-series.html',NULL,NULL,NULL,0x302C30,'0','{\"45\":\"\",\"43\":\"\",\"46\":\"\"}','','',NULL,'<p><strong>T&ecirc;n h&oacute;a chất</strong>: ZINC STEARATE</p>\r\n\r\n<p><strong>M&atilde; sản phẩm</strong>: ZTLC ( 145 &hellip;161 )</p>\r\n\r\n<p><strong>C&ocirc;ng thức h&oacute;a học</strong>: Zn(C17H35COO)2</p>\r\n\r\n<p><strong>Cas No</strong>: 558-05-1</p>\r\n\r\n<h2>M&ocirc; tả sản phẩm:</h2>\r\n\r\n<p><strong>ZTLC ( 145,148,155,160,161 ):&nbsp;</strong>Được sản xuất th&ocirc;ng qua quy tr&igrave;nh tổng hợp cải tiến sử dụng axit stearic chất lượng cao v&agrave; thể hiện c&aacute;c đặc t&iacute;nh sau: Khả năng b&ocirc;i trơn, ph&acirc;n t&aacute;n tốt, khả năng chống thấm nước tuyệt vời, độ trong suốt v&agrave; ổn định thời tiết tốt, kh&ocirc;ng độc hại, kh&ocirc;ng nhuộm m&agrave;u sunfua, &iacute;t h&igrave;nh th&agrave;nh m&agrave;u ban đầu<br />\r\n<br />\r\n<img alt=\"\" src=\"/uploaded/san-pham/thong-so.jpg\" style=\"width: 100%;\" /> Đ&oacute;ng bao: 20kg/bao<br />\r\n<br />\r\nĐộ ổn định lưu trữ: 2 năm trong điều kiện bảo quản kh&ocirc; r&aacute;o, tho&aacute;ng m&aacute;t trong bao b&igrave; gốc<br />\r\n&nbsp;</p>\r\n\r\n<h2>Ứng dụng:</h2>\r\n\r\n<ul>\r\n	<li>Tấm cao su v&agrave; EVA d&ugrave;ng l&agrave;m chất b&ocirc;i trơn, chất ph&acirc;n t&aacute;n b&ecirc;n trong v&agrave; để phủi bụi</li>\r\n	<li>D&ugrave;ng cho sơn, lớp phủ ho&aacute; chất, v để chống chảy tự do v&agrave; chống ẩm</li>\r\n	<li>Cho nhựa : EPS, PE, PP, PVC, hạt m&agrave;u Masterbach, Taical, Ống nhựa&hellip;.</li>\r\n	<li>Vật liệu Composite polymer đặc biệt.</li>\r\n</ul>\r\n','',NULL,'',0,'[{\"image_path\":\"uploaded\\/san-pham\\/it-dt.png\",\"image_name\":\"\",\"image_desc\":\"\",\"image_thu_tu\":\"\"},{\"image_path\":\"uploaded\\/san-pham\\/item3.png\",\"image_name\":\"\",\"image_desc\":\"\",\"image_thu_tu\":\"\"},{\"image_path\":\"uploaded\\/san-pham\\/item2.png\",\"image_name\":\"\",\"image_desc\":\"\",\"image_thu_tu\":\"\"}]',1780392537,0),(5,16,'PVC Leather Series','/uploaded/san-pham/item2.png','',0,'',0,NULL,'Được sản xuất th&ocirc;ng qua quy tr&igrave;nh tổng hợp cải tiến sử dụng axit stearic chất lượng cao v&agrave; thể hiện c&aacute;c đặc t&iacute;nh sau: Khả năng b&ocirc;i trơn, ph&acirc;n t&aacute;n tốt, khả năng chống thấm nước tuyệt vời, độ trong suốt v&agrave; ổn định thời tiết tốt, kh&ocirc;ng độc hại, kh&ocirc;ng nhuộm m&agrave;u sunfua, &iacute;t h&igrave;nh th&agrave;nh m&agrave;u ban đầu','',1780392060,1,8,4,0,1,'',':','',0,'PVC Leather Series','','','','','','',NULL,'','pvc-leather-series.html',NULL,NULL,NULL,0x302C30,'0','{\"45\":\"\",\"43\":\"\",\"46\":\"\"}','','',NULL,'<p><strong>T&ecirc;n h&oacute;a chất</strong>: ZINC STEARATE</p>\r\n\r\n<p><strong>M&atilde; sản phẩm</strong>: ZTLC ( 145 &hellip;161 )</p>\r\n\r\n<p><strong>C&ocirc;ng thức h&oacute;a học</strong>: Zn(C17H35COO)2</p>\r\n\r\n<p><strong>Cas No</strong>: 558-05-1</p>\r\n\r\n<h2>M&ocirc; tả sản phẩm:</h2>\r\n\r\n<p><strong>ZTLC ( 145,148,155,160,161 ):&nbsp;</strong>Được sản xuất th&ocirc;ng qua quy tr&igrave;nh tổng hợp cải tiến sử dụng axit stearic chất lượng cao v&agrave; thể hiện c&aacute;c đặc t&iacute;nh sau: Khả năng b&ocirc;i trơn, ph&acirc;n t&aacute;n tốt, khả năng chống thấm nước tuyệt vời, độ trong suốt v&agrave; ổn định thời tiết tốt, kh&ocirc;ng độc hại, kh&ocirc;ng nhuộm m&agrave;u sunfua, &iacute;t h&igrave;nh th&agrave;nh m&agrave;u ban đầu<br />\r\n<br />\r\n<img alt=\"\" src=\"/uploaded/san-pham/thong-so.jpg\" style=\"width: 100%;\" /> Đ&oacute;ng bao: 20kg/bao<br />\r\n<br />\r\nĐộ ổn định lưu trữ: 2 năm trong điều kiện bảo quản kh&ocirc; r&aacute;o, tho&aacute;ng m&aacute;t trong bao b&igrave; gốc<br />\r\n&nbsp;</p>\r\n\r\n<h2>Ứng dụng:</h2>\r\n\r\n<ul>\r\n	<li>Tấm cao su v&agrave; EVA d&ugrave;ng l&agrave;m chất b&ocirc;i trơn, chất ph&acirc;n t&aacute;n b&ecirc;n trong v&agrave; để phủi bụi</li>\r\n	<li>D&ugrave;ng cho sơn, lớp phủ ho&aacute; chất, v để chống chảy tự do v&agrave; chống ẩm</li>\r\n	<li>Cho nhựa : EPS, PE, PP, PVC, hạt m&agrave;u Masterbach, Taical, Ống nhựa&hellip;.</li>\r\n	<li>Vật liệu Composite polymer đặc biệt.</li>\r\n</ul>\r\n','',NULL,'',0,'[{\"image_path\":\"uploaded\\/san-pham\\/it-dt.png\",\"image_name\":\"\",\"image_desc\":\"\",\"image_thu_tu\":\"\"},{\"image_path\":\"uploaded\\/san-pham\\/item3.png\",\"image_name\":\"\",\"image_desc\":\"\",\"image_thu_tu\":\"\"},{\"image_path\":\"uploaded\\/san-pham\\/item2.png\",\"image_name\":\"\",\"image_desc\":\"\",\"image_thu_tu\":\"\"}]',1780392529,0),(6,16,'PVC Leather Series','/uploaded/san-pham/item4.png','',0,'',0,NULL,'Được sản xuất th&ocirc;ng qua quy tr&igrave;nh tổng hợp cải tiến sử dụng axit stearic chất lượng cao v&agrave; thể hiện c&aacute;c đặc t&iacute;nh sau: Khả năng b&ocirc;i trơn, ph&acirc;n t&aacute;n tốt, khả năng chống thấm nước tuyệt vời, độ trong suốt v&agrave; ổn định thời tiết tốt, kh&ocirc;ng độc hại, kh&ocirc;ng nhuộm m&agrave;u sunfua, &iacute;t h&igrave;nh th&agrave;nh m&agrave;u ban đầu','',1780392060,1,8,7,0,1,'',':9:17:18:19:20:21:22:23:','',0,'PVC Leather Series','','','','','','',NULL,'','pvc-leather-series.html',NULL,NULL,NULL,0x302C30,'0','{\"45\":\"\",\"43\":\"\",\"46\":\"\"}','','',NULL,'<p><strong>T&ecirc;n h&oacute;a chất</strong>: ZINC STEARATE</p>\r\n\r\n<p><strong>M&atilde; sản phẩm</strong>: ZTLC ( 145 &hellip;161 )</p>\r\n\r\n<p><strong>C&ocirc;ng thức h&oacute;a học</strong>: Zn(C17H35COO)2</p>\r\n\r\n<p><strong>Cas No</strong>: 558-05-1</p>\r\n\r\n<h2>M&ocirc; tả sản phẩm:</h2>\r\n\r\n<p><strong>ZTLC ( 145,148,155,160,161 ):&nbsp;</strong>Được sản xuất th&ocirc;ng qua quy tr&igrave;nh tổng hợp cải tiến sử dụng axit stearic chất lượng cao v&agrave; thể hiện c&aacute;c đặc t&iacute;nh sau: Khả năng b&ocirc;i trơn, ph&acirc;n t&aacute;n tốt, khả năng chống thấm nước tuyệt vời, độ trong suốt v&agrave; ổn định thời tiết tốt, kh&ocirc;ng độc hại, kh&ocirc;ng nhuộm m&agrave;u sunfua, &iacute;t h&igrave;nh th&agrave;nh m&agrave;u ban đầu<br />\r\n<br />\r\n<img alt=\"\" src=\"/uploaded/san-pham/thong-so.jpg\" style=\"width: 100%;\" /> Đ&oacute;ng bao: 20kg/bao<br />\r\n<br />\r\nĐộ ổn định lưu trữ: 2 năm trong điều kiện bảo quản kh&ocirc; r&aacute;o, tho&aacute;ng m&aacute;t trong bao b&igrave; gốc<br />\r\n&nbsp;</p>\r\n\r\n<h2>Ứng dụng:</h2>\r\n\r\n<ul>\r\n	<li>Tấm cao su v&agrave; EVA d&ugrave;ng l&agrave;m chất b&ocirc;i trơn, chất ph&acirc;n t&aacute;n b&ecirc;n trong v&agrave; để phủi bụi</li>\r\n	<li>D&ugrave;ng cho sơn, lớp phủ ho&aacute; chất, v để chống chảy tự do v&agrave; chống ẩm</li>\r\n	<li>Cho nhựa : EPS, PE, PP, PVC, hạt m&agrave;u Masterbach, Taical, Ống nhựa&hellip;.</li>\r\n	<li>Vật liệu Composite polymer đặc biệt.</li>\r\n</ul>\r\n','',NULL,'',0,'[{\"image_path\":\"uploaded\\/san-pham\\/it-dt.png\",\"image_name\":\"\",\"image_desc\":\"\",\"image_thu_tu\":\"\"},{\"image_path\":\"uploaded\\/san-pham\\/item3.png\",\"image_name\":\"\",\"image_desc\":\"\",\"image_thu_tu\":\"\"},{\"image_path\":\"uploaded\\/san-pham\\/item2.png\",\"image_name\":\"\",\"image_desc\":\"\",\"image_thu_tu\":\"\"}]',1780563037,0),(7,16,'PVC Leather Series','/uploaded/san-pham/item1.png','',0,'',0,NULL,'Được sản xuất th&ocirc;ng qua quy tr&igrave;nh tổng hợp cải tiến sử dụng axit stearic chất lượng cao v&agrave; thể hiện c&aacute;c đặc t&iacute;nh sau: Khả năng b&ocirc;i trơn, ph&acirc;n t&aacute;n tốt, khả năng chống thấm nước tuyệt vời, độ trong suốt v&agrave; ổn định thời tiết tốt, kh&ocirc;ng độc hại, kh&ocirc;ng nhuộm m&agrave;u sunfua, &iacute;t h&igrave;nh th&agrave;nh m&agrave;u ban đầu','',1780392060,1,8,8,0,1,'',':9:17:18:19:20:21:22:23:','',0,'PVC Leather Series','','','','','','',NULL,'','pvc-leather-series.html',NULL,NULL,NULL,0x302C30,'0','{\"45\":\"\",\"43\":\"\",\"46\":\"\"}','','',NULL,'<p><strong>T&ecirc;n h&oacute;a chất</strong>: ZINC STEARATE</p>\r\n\r\n<p><strong>M&atilde; sản phẩm</strong>: ZTLC ( 145 &hellip;161 )</p>\r\n\r\n<p><strong>C&ocirc;ng thức h&oacute;a học</strong>: Zn(C17H35COO)2</p>\r\n\r\n<p><strong>Cas No</strong>: 558-05-1</p>\r\n\r\n<h2>M&ocirc; tả sản phẩm:</h2>\r\n\r\n<p><strong>ZTLC ( 145,148,155,160,161 ):&nbsp;</strong>Được sản xuất th&ocirc;ng qua quy tr&igrave;nh tổng hợp cải tiến sử dụng axit stearic chất lượng cao v&agrave; thể hiện c&aacute;c đặc t&iacute;nh sau: Khả năng b&ocirc;i trơn, ph&acirc;n t&aacute;n tốt, khả năng chống thấm nước tuyệt vời, độ trong suốt v&agrave; ổn định thời tiết tốt, kh&ocirc;ng độc hại, kh&ocirc;ng nhuộm m&agrave;u sunfua, &iacute;t h&igrave;nh th&agrave;nh m&agrave;u ban đầu<br />\r\n<br />\r\n<img alt=\"\" src=\"/uploaded/san-pham/thong-so.jpg\" style=\"width: 100%;\" /> Đ&oacute;ng bao: 20kg/bao<br />\r\n<br />\r\nĐộ ổn định lưu trữ: 2 năm trong điều kiện bảo quản kh&ocirc; r&aacute;o, tho&aacute;ng m&aacute;t trong bao b&igrave; gốc<br />\r\n&nbsp;</p>\r\n\r\n<h2>Ứng dụng:</h2>\r\n\r\n<ul>\r\n	<li>Tấm cao su v&agrave; EVA d&ugrave;ng l&agrave;m chất b&ocirc;i trơn, chất ph&acirc;n t&aacute;n b&ecirc;n trong v&agrave; để phủi bụi</li>\r\n	<li>D&ugrave;ng cho sơn, lớp phủ ho&aacute; chất, v để chống chảy tự do v&agrave; chống ẩm</li>\r\n	<li>Cho nhựa : EPS, PE, PP, PVC, hạt m&agrave;u Masterbach, Taical, Ống nhựa&hellip;.</li>\r\n	<li>Vật liệu Composite polymer đặc biệt.</li>\r\n</ul>\r\n','',NULL,'',0,'[{\"image_path\":\"uploaded\\/san-pham\\/it-dt.png\",\"image_name\":\"\",\"image_desc\":\"\",\"image_thu_tu\":\"\"},{\"image_path\":\"uploaded\\/san-pham\\/item3.png\",\"image_name\":\"\",\"image_desc\":\"\",\"image_thu_tu\":\"\"},{\"image_path\":\"uploaded\\/san-pham\\/item2.png\",\"image_name\":\"\",\"image_desc\":\"\",\"image_thu_tu\":\"\"}]',1780563031,0),(8,16,'PVC Leather Series','/uploaded/san-pham/item2.png','',0,'',0,NULL,'Được sản xuất th&ocirc;ng qua quy tr&igrave;nh tổng hợp cải tiến sử dụng axit stearic chất lượng cao v&agrave; thể hiện c&aacute;c đặc t&iacute;nh sau: Khả năng b&ocirc;i trơn, ph&acirc;n t&aacute;n tốt, khả năng chống thấm nước tuyệt vời, độ trong suốt v&agrave; ổn định thời tiết tốt, kh&ocirc;ng độc hại, kh&ocirc;ng nhuộm m&agrave;u sunfua, &iacute;t h&igrave;nh th&agrave;nh m&agrave;u ban đầu','',1780392060,1,8,9,0,1,'',':9:17:18:19:20:21:22:23:','',0,'PVC Leather Series','','','','','','',NULL,'','pvc-leather-series.html',NULL,NULL,NULL,0x302C30,'0','{\"45\":\"\",\"43\":\"\",\"46\":\"\"}','','',NULL,'<p><strong>T&ecirc;n h&oacute;a chất</strong>: ZINC STEARATE</p>\r\n\r\n<p><strong>M&atilde; sản phẩm</strong>: ZTLC ( 145 &hellip;161 )</p>\r\n\r\n<p><strong>C&ocirc;ng thức h&oacute;a học</strong>: Zn(C17H35COO)2</p>\r\n\r\n<p><strong>Cas No</strong>: 558-05-1</p>\r\n\r\n<h2>M&ocirc; tả sản phẩm:</h2>\r\n\r\n<p><strong>ZTLC ( 145,148,155,160,161 ):&nbsp;</strong>Được sản xuất th&ocirc;ng qua quy tr&igrave;nh tổng hợp cải tiến sử dụng axit stearic chất lượng cao v&agrave; thể hiện c&aacute;c đặc t&iacute;nh sau: Khả năng b&ocirc;i trơn, ph&acirc;n t&aacute;n tốt, khả năng chống thấm nước tuyệt vời, độ trong suốt v&agrave; ổn định thời tiết tốt, kh&ocirc;ng độc hại, kh&ocirc;ng nhuộm m&agrave;u sunfua, &iacute;t h&igrave;nh th&agrave;nh m&agrave;u ban đầu<br />\r\n<br />\r\n<img alt=\"\" src=\"/uploaded/san-pham/thong-so.jpg\" style=\"width: 100%;\" /> Đ&oacute;ng bao: 20kg/bao<br />\r\n<br />\r\nĐộ ổn định lưu trữ: 2 năm trong điều kiện bảo quản kh&ocirc; r&aacute;o, tho&aacute;ng m&aacute;t trong bao b&igrave; gốc<br />\r\n&nbsp;</p>\r\n\r\n<h2>Ứng dụng:</h2>\r\n\r\n<ul>\r\n	<li>Tấm cao su v&agrave; EVA d&ugrave;ng l&agrave;m chất b&ocirc;i trơn, chất ph&acirc;n t&aacute;n b&ecirc;n trong v&agrave; để phủi bụi</li>\r\n	<li>D&ugrave;ng cho sơn, lớp phủ ho&aacute; chất, v để chống chảy tự do v&agrave; chống ẩm</li>\r\n	<li>Cho nhựa : EPS, PE, PP, PVC, hạt m&agrave;u Masterbach, Taical, Ống nhựa&hellip;.</li>\r\n	<li>Vật liệu Composite polymer đặc biệt.</li>\r\n</ul>\r\n','',NULL,'',0,'[{\"image_path\":\"uploaded\\/san-pham\\/it-dt.png\",\"image_name\":\"\",\"image_desc\":\"\",\"image_thu_tu\":\"\"},{\"image_path\":\"uploaded\\/san-pham\\/item3.png\",\"image_name\":\"\",\"image_desc\":\"\",\"image_thu_tu\":\"\"},{\"image_path\":\"uploaded\\/san-pham\\/item2.png\",\"image_name\":\"\",\"image_desc\":\"\",\"image_thu_tu\":\"\"}]',1780563025,0),(9,16,'PVC Leather Series','/uploaded/san-pham/item3.png','',0,'',0,NULL,'Được sản xuất th&ocirc;ng qua quy tr&igrave;nh tổng hợp cải tiến sử dụng axit stearic chất lượng cao v&agrave; thể hiện c&aacute;c đặc t&iacute;nh sau: Khả năng b&ocirc;i trơn, ph&acirc;n t&aacute;n tốt, khả năng chống thấm nước tuyệt vời, độ trong suốt v&agrave; ổn định thời tiết tốt, kh&ocirc;ng độc hại, kh&ocirc;ng nhuộm m&agrave;u sunfua, &iacute;t h&igrave;nh th&agrave;nh m&agrave;u ban đầu','',1780392060,1,8,10,0,1,'',':9:17:18:19:20:21:22:23:','',0,'PVC Leather Series','','','','','','',NULL,'','pvc-leather-series.html',NULL,NULL,NULL,0x302C30,'0','{\"45\":\"\",\"43\":\"\",\"46\":\"\"}','','',NULL,'<p><strong>T&ecirc;n h&oacute;a chất</strong>: ZINC STEARATE</p>\r\n\r\n<p><strong>M&atilde; sản phẩm</strong>: ZTLC ( 145 &hellip;161 )</p>\r\n\r\n<p><strong>C&ocirc;ng thức h&oacute;a học</strong>: Zn(C17H35COO)2</p>\r\n\r\n<p><strong>Cas No</strong>: 558-05-1</p>\r\n\r\n<h2>M&ocirc; tả sản phẩm:</h2>\r\n\r\n<p><strong>ZTLC ( 145,148,155,160,161 ):&nbsp;</strong>Được sản xuất th&ocirc;ng qua quy tr&igrave;nh tổng hợp cải tiến sử dụng axit stearic chất lượng cao v&agrave; thể hiện c&aacute;c đặc t&iacute;nh sau: Khả năng b&ocirc;i trơn, ph&acirc;n t&aacute;n tốt, khả năng chống thấm nước tuyệt vời, độ trong suốt v&agrave; ổn định thời tiết tốt, kh&ocirc;ng độc hại, kh&ocirc;ng nhuộm m&agrave;u sunfua, &iacute;t h&igrave;nh th&agrave;nh m&agrave;u ban đầu<br />\r\n<br />\r\n<img alt=\"\" src=\"/uploaded/san-pham/thong-so.jpg\" style=\"width: 100%;\" /> Đ&oacute;ng bao: 20kg/bao<br />\r\n<br />\r\nĐộ ổn định lưu trữ: 2 năm trong điều kiện bảo quản kh&ocirc; r&aacute;o, tho&aacute;ng m&aacute;t trong bao b&igrave; gốc<br />\r\n&nbsp;</p>\r\n\r\n<h2>Ứng dụng:</h2>\r\n\r\n<ul>\r\n	<li>Tấm cao su v&agrave; EVA d&ugrave;ng l&agrave;m chất b&ocirc;i trơn, chất ph&acirc;n t&aacute;n b&ecirc;n trong v&agrave; để phủi bụi</li>\r\n	<li>D&ugrave;ng cho sơn, lớp phủ ho&aacute; chất, v để chống chảy tự do v&agrave; chống ẩm</li>\r\n	<li>Cho nhựa : EPS, PE, PP, PVC, hạt m&agrave;u Masterbach, Taical, Ống nhựa&hellip;.</li>\r\n	<li>Vật liệu Composite polymer đặc biệt.</li>\r\n</ul>\r\n','',NULL,'',0,'[{\"image_path\":\"uploaded\\/san-pham\\/it-dt.png\",\"image_name\":\"\",\"image_desc\":\"\",\"image_thu_tu\":\"\"},{\"image_path\":\"uploaded\\/san-pham\\/item3.png\",\"image_name\":\"\",\"image_desc\":\"\",\"image_thu_tu\":\"\"},{\"image_path\":\"uploaded\\/san-pham\\/item2.png\",\"image_name\":\"\",\"image_desc\":\"\",\"image_thu_tu\":\"\"}]',1780563018,0),(10,16,'PVC Leather Series','/uploaded/san-pham/item1.png','',0,'',0,NULL,'Được sản xuất th&ocirc;ng qua quy tr&igrave;nh tổng hợp cải tiến sử dụng axit stearic chất lượng cao v&agrave; thể hiện c&aacute;c đặc t&iacute;nh sau: Khả năng b&ocirc;i trơn, ph&acirc;n t&aacute;n tốt, khả năng chống thấm nước tuyệt vời, độ trong suốt v&agrave; ổn định thời tiết tốt, kh&ocirc;ng độc hại, kh&ocirc;ng nhuộm m&agrave;u sunfua, &iacute;t h&igrave;nh th&agrave;nh m&agrave;u ban đầu','',1780392060,1,8,11,0,1,'',':9:17:18:19:20:21:22:23:','',0,'PVC Leather Series','','','','','','',NULL,'','pvc-leather-series.html',NULL,NULL,NULL,0x302C30,'0','{\"45\":\"\",\"43\":\"\",\"46\":\"\"}','','',NULL,'<p><strong>T&ecirc;n h&oacute;a chất</strong>: ZINC STEARATE</p>\r\n\r\n<p><strong>M&atilde; sản phẩm</strong>: ZTLC ( 145 &hellip;161 )</p>\r\n\r\n<p><strong>C&ocirc;ng thức h&oacute;a học</strong>: Zn(C17H35COO)2</p>\r\n\r\n<p><strong>Cas No</strong>: 558-05-1</p>\r\n\r\n<h2>M&ocirc; tả sản phẩm:</h2>\r\n\r\n<p><strong>ZTLC ( 145,148,155,160,161 ):&nbsp;</strong>Được sản xuất th&ocirc;ng qua quy tr&igrave;nh tổng hợp cải tiến sử dụng axit stearic chất lượng cao v&agrave; thể hiện c&aacute;c đặc t&iacute;nh sau: Khả năng b&ocirc;i trơn, ph&acirc;n t&aacute;n tốt, khả năng chống thấm nước tuyệt vời, độ trong suốt v&agrave; ổn định thời tiết tốt, kh&ocirc;ng độc hại, kh&ocirc;ng nhuộm m&agrave;u sunfua, &iacute;t h&igrave;nh th&agrave;nh m&agrave;u ban đầu<br />\r\n<br />\r\n<img alt=\"\" src=\"/uploaded/san-pham/thong-so.jpg\" style=\"width: 100%;\" /> Đ&oacute;ng bao: 20kg/bao<br />\r\n<br />\r\nĐộ ổn định lưu trữ: 2 năm trong điều kiện bảo quản kh&ocirc; r&aacute;o, tho&aacute;ng m&aacute;t trong bao b&igrave; gốc<br />\r\n&nbsp;</p>\r\n\r\n<h2>Ứng dụng:</h2>\r\n\r\n<ul>\r\n	<li>Tấm cao su v&agrave; EVA d&ugrave;ng l&agrave;m chất b&ocirc;i trơn, chất ph&acirc;n t&aacute;n b&ecirc;n trong v&agrave; để phủi bụi</li>\r\n	<li>D&ugrave;ng cho sơn, lớp phủ ho&aacute; chất, v để chống chảy tự do v&agrave; chống ẩm</li>\r\n	<li>Cho nhựa : EPS, PE, PP, PVC, hạt m&agrave;u Masterbach, Taical, Ống nhựa&hellip;.</li>\r\n	<li>Vật liệu Composite polymer đặc biệt.</li>\r\n</ul>\r\n','',NULL,'',0,'[{\"image_path\":\"uploaded\\/san-pham\\/it-dt.png\",\"image_name\":\"\",\"image_desc\":\"\",\"image_thu_tu\":\"\"},{\"image_path\":\"uploaded\\/san-pham\\/item3.png\",\"image_name\":\"\",\"image_desc\":\"\",\"image_thu_tu\":\"\"},{\"image_path\":\"uploaded\\/san-pham\\/item2.png\",\"image_name\":\"\",\"image_desc\":\"\",\"image_thu_tu\":\"\"}]',1780563012,0),(11,16,'PVC Leather Series','/uploaded/san-pham/item2.png','',0,'',0,NULL,'Được sản xuất th&ocirc;ng qua quy tr&igrave;nh tổng hợp cải tiến sử dụng axit stearic chất lượng cao v&agrave; thể hiện c&aacute;c đặc t&iacute;nh sau: Khả năng b&ocirc;i trơn, ph&acirc;n t&aacute;n tốt, khả năng chống thấm nước tuyệt vời, độ trong suốt v&agrave; ổn định thời tiết tốt, kh&ocirc;ng độc hại, kh&ocirc;ng nhuộm m&agrave;u sunfua, &iacute;t h&igrave;nh th&agrave;nh m&agrave;u ban đầu','Được sản xuất th&ocirc;ng qua quy tr&igrave;nh tổng hợp cải tiến sử dụng axit stearic chất lượng cao v&agrave; thể hiện c&aacute;c đặc t&iacute;nh sau: Khả năng b&ocirc;i trơn, ph&acirc;n t&aacute;n tốt, khả năng chống thấm nước tuyệt vời, độ trong suốt v&agrave; ổn định thời tiết tốt, kh&ocirc;ng độc hại, kh&ocirc;ng nhuộm m&agrave;u sunfua, &iacute;t h&igrave;nh th&agrave;nh m&agrave;u ban đầuĐược sản xuất th&ocirc;ng qua quy tr&igrave;nh tổng hợp cải tiến sử dụng axit stearic chất lượng cao v&agrave; thể hiện c&aacute;c đặc t&iacute;nh sau: Khả năng b&ocirc;i trơn, ph&acirc;n t&aacute;n tốt, khả năng chống thấm nước tuyệt vời, độ trong suốt v&agrave; ổn định thời tiết tốt, kh&ocirc;ng độc hại, kh&ocirc;ng nhuộm m&agrave;u sunfua, &iacute;t h&igrave;nh th&agrave;nh m&agrave;u ban đầuĐược sản xuất th&ocirc;ng qua quy tr&igrave;nh tổng hợp cải tiến sử dụng axit stearic chất lượng cao v&agrave; thể hiện c&aacute;c đặc t&iacute;nh sau: Khả năng b&ocirc;i trơn, ph&acirc;n t&aacute;n tốt, khả năng chống thấm nước tuyệt vời, độ trong suốt v&agrave; ổn định thời tiết tốt, kh&ocirc;ng độc hại, kh&ocirc;ng nhuộm m&agrave;u sunfua, &iacute;t h&igrave;nh th&agrave;nh m&agrave;u ban đầuĐược sản xuất th&ocirc;ng qua quy tr&igrave;nh tổng hợp cải tiến sử dụng axit stearic chất lượng cao v&agrave; thể hiện c&aacute;c đặc t&iacute;nh sau: Khả năng b&ocirc;i trơn, ph&acirc;n t&aacute;n tốt, khả năng chống thấm nước tuyệt vời, độ trong suốt v&agrave; ổn định thời tiết tốt, kh&ocirc;ng độc hại, kh&ocirc;ng nhuộm m&agrave;u sunfua, &iacute;t h&igrave;nh th&agrave;nh m&agrave;u ban đầu',1780392060,1,8,12,0,1,'',':9:17:18:19:20:21:22:23:','',0,'PVC Leather Series','','','','','','',NULL,'','pvc-leather-series.html',NULL,NULL,NULL,0x302C30,'0','{\"45\":\"\",\"43\":\"\",\"46\":\"\"}','','',NULL,'<p>T&ecirc;n h&oacute;a chất: ZINC STEARATE</p>\r\n\r\n<p>M&atilde; sản phẩm: ZTLC ( 145 &hellip;161 )</p>\r\n\r\n<p>C&ocirc;ng thức h&oacute;a học: Zn(C17H35COO)2</p>\r\n\r\n<p>Cas No: 558-05-1</p>\r\n\r\n<h2>M&ocirc; tả sản phẩm:</h2>\r\n\r\n<p>ZTLC ( 145,148,155,160,161 ):&nbsp;Được sản xuất th&ocirc;ng qua quy tr&igrave;nh tổng hợp cải tiến sử dụng axit stearic chất lượng cao v&agrave; thể hiện c&aacute;c đặc t&iacute;nh sau: Khả năng b&ocirc;i trơn, ph&acirc;n t&aacute;n tốt, khả năng chống thấm nước tuyệt vời, độ trong suốt v&agrave; ổn định thời tiết tốt, kh&ocirc;ng độc hại, kh&ocirc;ng nhuộm m&agrave;u sunfua, &iacute;t h&igrave;nh th&agrave;nh m&agrave;u ban đầu<br />\r\n<br />\r\n<img alt=\"\" src=\"/uploaded/san-pham/thong-so.jpg\" /> Đ&oacute;ng bao: 20kg/bao<br />\r\n<br />\r\nĐộ ổn định lưu trữ: 2 năm trong điều kiện bảo quản kh&ocirc; r&aacute;o, tho&aacute;ng m&aacute;t trong bao b&igrave; gốc<br />\r\n&nbsp;</p>\r\n\r\n<h2>Ứng dụng:</h2>\r\n\r\n<ul>\r\n	<li>Tấm cao su v&agrave; EVA d&ugrave;ng l&agrave;m chất b&ocirc;i trơn, chất ph&acirc;n t&aacute;n b&ecirc;n trong v&agrave; để phủi bụi</li>\r\n	<li>D&ugrave;ng cho sơn, lớp phủ ho&aacute; chất, v để chống chảy tự do v&agrave; chống ẩm</li>\r\n	<li>Cho nhựa : EPS, PE, PP, PVC, hạt m&agrave;u Masterbach, Taical, Ống nhựa&hellip;.</li>\r\n	<li>Vật liệu Composite polymer đặc biệt.</li>\r\n</ul>\r\n','',NULL,'',0,'[{\"image_path\":\"uploaded\\/san-pham\\/it-dt.png\",\"image_name\":\"\",\"image_desc\":\"\",\"image_thu_tu\":\"\"},{\"image_path\":\"uploaded\\/san-pham\\/item3.png\",\"image_name\":\"\",\"image_desc\":\"\",\"image_thu_tu\":\"\"},{\"image_path\":\"uploaded\\/san-pham\\/item2.png\",\"image_name\":\"\",\"image_desc\":\"\",\"image_thu_tu\":\"\"}]',1780634676,0);
+/*!40000 ALTER TABLE `product` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `product_attribute`
+--
+
+DROP TABLE IF EXISTS `product_attribute`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `product_attribute` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `id_product` bigint NOT NULL,
+  `id_attr` bigint NOT NULL,
+  `attr_value` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `product_attribute`
+--
+
+LOCK TABLES `product_attribute` WRITE;
+/*!40000 ALTER TABLE `product_attribute` DISABLE KEYS */;
+/*!40000 ALTER TABLE `product_attribute` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `product_manufacture`
+--
+
+DROP TABLE IF EXISTS `product_manufacture`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `product_manufacture` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `id_category` int DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `image` varchar(600) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `content` text CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci,
+  `intro` text CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci,
+  `lang` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `thu_tu` bigint DEFAULT NULL,
+  `active` tinyint DEFAULT '1',
+  `alias_name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `hot` int DEFAULT '0',
+  `url` varchar(512) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `product_manufacture`
+--
+
+LOCK TABLES `product_manufacture` WRITE;
+/*!40000 ALTER TABLE `product_manufacture` DISABLE KEYS */;
+INSERT INTO `product_manufacture` VALUES (2,0,'Tên hãng SX 03','','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut malesuada malesuada nibh, nec dictum tortor posuere a. Nam dignissim, ante eu placerat interdum, lectus massa efficitur quam, et fermentum libero ligula vitae purus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla in risus et urna hendrerit tincidunt. Sed et nulla vitae metus fringilla lobortis ut nec massa. Donec posuere erat eget condimentum semper. Cras cursus augue id posuere ultricies. Integer vel lacinia lacus, sit amet lacinia turpis. In hac habitasse platea dictumst. In in velit magna. Donec ornare sapien id magna porttitor faucibus.<br />\r\n<br />\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Ut malesuada malesuada nibh, nec dictum tortor posuere a. Nam dignissim, ante eu placerat interdum, lectus massa efficitur quam, et fermentum libero ligula vitae purus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla in risus et urna hendrerit tincidunt. Sed et nulla vitae metus fringilla lobortis ut nec massa. Donec posuere erat eget condimentum semper. Cras cursus augue id posuere ultricies. Integer vel lacinia lacus, sit amet lacinia turpis. In hac habitasse platea dictumst. In in velit magna. Donec ornare sapien id magna porttitor faucibus.<br />\r\n<br />\r\n<br />\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Ut malesuada malesuada nibh, nec dictum tortor posuere a. Nam dignissim, ante eu placerat interdum, lectus massa efficitur quam, et fermentum libero ligula vitae purus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla in risus et urna hendrerit tincidunt. Sed et nulla vitae metus fringilla lobortis ut nec massa. Donec posuere erat eget condimentum semper. Cras cursus augue id posuere ultricies. Integer vel lacinia lacus, sit amet lacinia turpis. In hac habitasse platea dictumst. In in velit magna. Donec ornare sapien id magna porttitor faucibus.','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut malesuada malesuada nibh, nec dictum tortor posuere a. Nam dignissim, ante eu placerat interdum, lectus massa efficitur quam','',1,1,'ten-hang-sx-03/',0,'ten-hang-sx-03.html'),(3,0,'Tên hãng SX 02','/uploaded/y-kien-khach-hang/man.png','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut malesuada malesuada nibh, nec dictum tortor posuere a. Nam dignissim, ante eu placerat interdum, lectus massa efficitur quam, et fermentum libero ligula vitae purus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla in risus et urna hendrerit tincidunt. Sed et nulla vitae metus fringilla lobortis ut nec massa. Donec posuere erat eget condimentum semper. Cras cursus augue id posuere ultricies. Integer vel lacinia lacus, sit amet lacinia turpis. In hac habitasse platea dictumst. In in velit magna. Donec ornare sapien id magna porttitor faucibus.<br />\r\n<br />\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Ut malesuada malesuada nibh, nec dictum tortor posuere a. Nam dignissim, ante eu placerat interdum, lectus massa efficitur quam, et fermentum libero ligula vitae purus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla in risus et urna hendrerit tincidunt. Sed et nulla vitae metus fringilla lobortis ut nec massa. Donec posuere erat eget condimentum semper. Cras cursus augue id posuere ultricies. Integer vel lacinia lacus, sit amet lacinia turpis. In hac habitasse platea dictumst. In in velit magna. Donec ornare sapien id magna porttitor faucibus.<br />\r\n<br />\r\n<br />\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Ut malesuada malesuada nibh, nec dictum tortor posuere a. Nam dignissim, ante eu placerat interdum, lectus massa efficitur quam, et fermentum libero ligula vitae purus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla in risus et urna hendrerit tincidunt. Sed et nulla vitae metus fringilla lobortis ut nec massa. Donec posuere erat eget condimentum semper. Cras cursus augue id posuere ultricies. Integer vel lacinia lacus, sit amet lacinia turpis. In hac habitasse platea dictumst. In in velit magna. Donec ornare sapien id magna porttitor faucibus.','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut malesuada malesuada nibh, nec dictum tortor posuere a. Nam dignissim, ante eu placerat interdum, lectus massa efficitur quam','',1,1,'ten-hang-sx-02/',0,'ten-hang-sx-02.html');
+/*!40000 ALTER TABLE `product_manufacture` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `product_material`
+--
+
+DROP TABLE IF EXISTS `product_material`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `product_material` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `id_category` int DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `image` varchar(600) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `content` text CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci,
+  `intro` text CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci,
+  `lang` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `thu_tu` bigint DEFAULT NULL,
+  `active` tinyint DEFAULT '1',
+  `alias_name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `hot` int DEFAULT '0',
+  `url` varchar(512) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `product_material`
+--
+
+LOCK TABLES `product_material` WRITE;
+/*!40000 ALTER TABLE `product_material` DISABLE KEYS */;
+INSERT INTO `product_material` VALUES (6,0,'Hàn quốc','','','','',1,1,'han-quoc/',0,'han-quoc.html'),(7,0,'Thailand','','','','',1,1,'thailand/',0,'thailand.html'),(5,0,'Nhật Bản','','','','',1,1,'nhat-ban/',0,'nhat-ban.html');
+/*!40000 ALTER TABLE `product_material` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `rating`
+--
+
+DROP TABLE IF EXISTS `rating`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `rating` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `table_name` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `id_table` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `id_value` bigint DEFAULT NULL,
+  `rate` int DEFAULT NULL,
+  `ip` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `createdate` bigint DEFAULT NULL,
+  `note` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `rating`
+--
+
+LOCK TABLES `rating` WRITE;
+/*!40000 ALTER TABLE `rating` DISABLE KEYS */;
+/*!40000 ALTER TABLE `rating` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `search_content`
+--
+
+DROP TABLE IF EXISTS `search_content`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `search_content` (
+  `id_search` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `name` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `name_unsign` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `intro` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `intro_unsign` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `content` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `content_unsign` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `ngay_dang` bigint unsigned DEFAULT '0',
+  `keywords` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `lang` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '0',
+  `active` tinyint DEFAULT '1',
+  `tags` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `search_type` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `url` varchar(1024) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `id_category` int DEFAULT '0',
+  `id_item` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `id_item_value` bigint DEFAULT NULL,
+  `table_name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `image` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  PRIMARY KEY (`id_search`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=79 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `search_content`
+--
+
+LOCK TABLES `search_content` WRITE;
+/*!40000 ALTER TABLE `search_content` DISABLE KEYS */;
+INSERT INTO `search_content` VALUES (1,'Giới thiệu','gioi thieu','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis euismod ut nisl id sodales. Etiam consectetur nulla vel ornare aliquam. Phasellus non velit eget massa consectetur lobortis. Integer tempus consequat augue, vitae rutrum sem tempor id. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent ornare tellus non ornare molestie. Maecenas convallis leo justo, eget lobortis dui fringilla vitae. Proin ac volutpat leo. Aliquam id fermentum tortor.<br />\r\n&nbsp;','lorem ipsum dolor sit amet, consectetur adipiscing elit. duis euismod ut nisl id sodales. etiam consectetur nulla vel ornare aliquam. phasellus non velit eget massa consectetur lobortis. integer tempus consequat augue, vitae rutrum sem tempor id. class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. praesent ornare tellus non ornare molestie. maecenas convallis leo justo, eget lobortis dui fringilla vitae. proin ac volutpat leo. aliquam id fermentum tortor.\r\n??','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis euismod ut nisl id sodales. Etiam consectetur nulla vel ornare aliquam. Phasellus non velit eget massa consectetur lobortis. Integer tempus consequat augue, vitae rutrum sem tempor id. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent ornare tellus non ornare molestie. Maecenas convallis leo justo, eget lobortis dui fringilla vitae. Proin ac volutpat leo. Aliquam id fermentum tortor.<br />\r\n<br />\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Duis euismod ut nisl id sodales. Etiam consectetur nulla vel ornare aliquam. Phasellus non velit eget massa consectetur lobortis. Integer tempus consequat augue, vitae rutrum sem tempor id. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent ornare tellus non ornare molestie. Maecenas convallis leo justo, eget lobortis dui fringilla vitae. Proin ac volutpat leo. Aliquam id fermentum tortor.<br />\r\n<br />\r\n<br />\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Duis euismod ut nisl id sodales. Etiam consectetur nulla vel ornare aliquam. Phasellus non velit eget massa consectetur lobortis. Integer tempus consequat augue, vitae rutrum sem tempor id. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent ornare tellus non ornare molestie. Maecenas convallis leo justo, eget lobortis dui fringilla vitae. Proin ac volutpat leo. Aliquam id fermentum tortor.<br />\r\n&nbsp;','lorem ipsum dolor sit amet, consectetur adipiscing elit. duis euismod ut nisl id sodales. etiam consectetur nulla vel ornare aliquam. phasellus non velit eget massa consectetur lobortis. integer tempus consequat augue, vitae rutrum sem tempor id. class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. praesent ornare tellus non ornare molestie. maecenas convallis leo justo, eget lobortis dui fringilla vitae. proin ac volutpat leo. aliquam id fermentum tortor.\r\n\r\nlorem ipsum dolor sit amet, consectetur adipiscing elit. duis euismod ut nisl id sodales. etiam consectetur nulla vel ornare aliquam. phasellus non velit eget massa consectetur lobortis. integer tempus consequat augue, vitae rutrum sem tempor id. class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. praesent ornare tellus non ornare molestie. maecenas convallis leo justo, eget lobortis dui fringilla vitae. proin ac volutpat leo. aliquam id fermentum tortor.\r\n\r\n\r\nlorem ipsum dolor sit amet, consectetur adipiscing elit. duis euismod ut nisl id sodales. etiam consectetur nulla vel ornare aliquam. phasellus non velit eget massa consectetur lobortis. integer tempus consequat augue, vitae rutrum sem tempor id. class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. praesent ornare tellus non ornare molestie. maecenas convallis leo justo, eget lobortis dui fringilla vitae. proin ac volutpat leo. aliquam id fermentum tortor.\r\n??',1688007930,NULL,'',1,'',NULL,'gioi-thieu/',NULL,'id_category',5,'category','/uploaded/tin-tuc/hinh-nen-thien-nhien-cho-may-tinh-1.jpg'),(2,'Tác giả','tac gia','','','','',1688008562,NULL,'',1,'',NULL,'tac-gia/',NULL,'id_category',8,'category',''),(3,'Lorem ipsum dolor sit amet, consectetur adipiscing elit','lorem ipsum dolor sit amet, consectetur adipiscing elit','','','','',1688009638,NULL,'',1,'',NULL,'lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit.html',8,'id_tacgia',55,'tacgia',''),(4,'Lorem ipsum dolor sit amet, consectetur adipiscing elit 001','lorem ipsum dolor sit amet, consectetur adipiscing elit 001','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis euismod ut nisl id sodales. Etiam consectetur nulla vel ornare aliquam. Phasellus non velit eget massa consectetur lobortis. Integer tempus consequat augue, vitae rutrum sem tempor id.','lorem ipsum dolor sit amet, consectetur adipiscing elit. duis euismod ut nisl id sodales. etiam consectetur nulla vel ornare aliquam. phasellus non velit eget massa consectetur lobortis. integer tempus consequat augue, vitae rutrum sem tempor id.','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis euismod ut nisl id sodales. Etiam consectetur nulla vel ornare aliquam. Phasellus non velit eget massa consectetur lobortis. Integer tempus consequat augue, vitae rutrum sem tempor id. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent ornare tellus non ornare molestie. Maecenas convallis leo justo, eget lobortis dui fringilla vitae. Proin ac volutpat leo. Aliquam id fermentum tortor.<br />\r\n<br />\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Duis euismod ut nisl id sodales. Etiam consectetur nulla vel ornare aliquam. Phasellus non velit eget massa consectetur lobortis. Integer tempus consequat augue, vitae rutrum sem tempor id. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent ornare tellus non ornare molestie. Maecenas convallis leo justo, eget lobortis dui fringilla vitae. Proin ac volutpat leo. Aliquam id fermentum tortor.<br />\r\n<br />\r\n<br />\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Duis euismod ut nisl id sodales. Etiam consectetur nulla vel ornare aliquam. Phasellus non velit eget massa consectetur lobortis. Integer tempus consequat augue, vitae rutrum sem tempor id. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent ornare tellus non ornare molestie. Maecenas convallis leo justo, eget lobortis dui fringilla vitae. Proin ac volutpat leo. Aliquam id fermentum tortor.<br />\r\n&nbsp;','lorem ipsum dolor sit amet, consectetur adipiscing elit. duis euismod ut nisl id sodales. etiam consectetur nulla vel ornare aliquam. phasellus non velit eget massa consectetur lobortis. integer tempus consequat augue, vitae rutrum sem tempor id. class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. praesent ornare tellus non ornare molestie. maecenas convallis leo justo, eget lobortis dui fringilla vitae. proin ac volutpat leo. aliquam id fermentum tortor.\r\n\r\nlorem ipsum dolor sit amet, consectetur adipiscing elit. duis euismod ut nisl id sodales. etiam consectetur nulla vel ornare aliquam. phasellus non velit eget massa consectetur lobortis. integer tempus consequat augue, vitae rutrum sem tempor id. class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. praesent ornare tellus non ornare molestie. maecenas convallis leo justo, eget lobortis dui fringilla vitae. proin ac volutpat leo. aliquam id fermentum tortor.\r\n\r\n\r\nlorem ipsum dolor sit amet, consectetur adipiscing elit. duis euismod ut nisl id sodales. etiam consectetur nulla vel ornare aliquam. phasellus non velit eget massa consectetur lobortis. integer tempus consequat augue, vitae rutrum sem tempor id. class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. praesent ornare tellus non ornare molestie. maecenas convallis leo justo, eget lobortis dui fringilla vitae. proin ac volutpat leo. aliquam id fermentum tortor.\r\n??',1688009889,NULL,'',1,'',NULL,'lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit.html',6,'id_news',10,'news','/uploaded/tin-tuc/hinh-nen-thien-nhien-cho-may-tinh-1.jpg'),(6,'Lorem ipsum dolor sit amet, consectetur adipiscing elit','lorem ipsum dolor sit amet, consectetur adipiscing elit','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis euismod ut nisl id sodales. Etiam consectetur nulla vel ornare aliquam. Phasellus non velit eget massa consectetur lobortis. Integer tempus consequat augue, vitae rutrum sem tempor id.','lorem ipsum dolor sit amet, consectetur adipiscing elit. duis euismod ut nisl id sodales. etiam consectetur nulla vel ornare aliquam. phasellus non velit eget massa consectetur lobortis. integer tempus consequat augue, vitae rutrum sem tempor id.','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis euismod ut nisl id sodales. Etiam consectetur nulla vel ornare aliquam. Phasellus non velit eget massa consectetur lobortis. Integer tempus consequat augue, vitae rutrum sem tempor id.<br />\r\n<br />\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Duis euismod ut nisl id sodales. Etiam consectetur nulla vel ornare aliquam. Phasellus non velit eget massa consectetur lobortis. Integer tempus consequat augue, vitae rutrum sem tempor id.','lorem ipsum dolor sit amet, consectetur adipiscing elit. duis euismod ut nisl id sodales. etiam consectetur nulla vel ornare aliquam. phasellus non velit eget massa consectetur lobortis. integer tempus consequat augue, vitae rutrum sem tempor id.\r\n\r\nlorem ipsum dolor sit amet, consectetur adipiscing elit. duis euismod ut nisl id sodales. etiam consectetur nulla vel ornare aliquam. phasellus non velit eget massa consectetur lobortis. integer tempus consequat augue, vitae rutrum sem tempor id.',1688010227,NULL,'',1,'',NULL,'lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit.html',0,'id_album',1,'album','/uploaded/tin-tuc/hinh-nen-thien-nhien-cho-may-tinh-1.jpg'),(7,'Sản phẩm','san pham','','','','',1780310983,NULL,'',1,'',NULL,'san-pham/',NULL,'id_category',9,'category',''),(8,'Ứng dụng','ung dung','','','','',1780311210,NULL,'',1,'',NULL,'ung-dung/',NULL,'id_category',10,'category',''),(9,'Hệ thống phân phối','he thong phan phoi','','','','',1780311233,NULL,'',1,'',NULL,'he-thong-phan-phoi/',NULL,'id_category',11,'category',''),(10,'Tin tức','tin tuc','','','','',1780311242,NULL,'',1,'',NULL,'tin-tuc/',NULL,'id_category',12,'category',''),(11,'Tuyển dụng','tuyen dung','','','','',1780311265,NULL,'',1,'',NULL,'tuyen-dung/',NULL,'id_category',13,'category',''),(12,'Liên hệ','lien he','','','','',1780311276,NULL,'',1,'',NULL,'lien-he/',NULL,'id_category',14,'category',''),(13,'Giới thiêu trang chủ','gioi thieu trang chu','C&ocirc;ng ty TNHH C&ocirc;ng nghệ Vật liệu mới B&aacute;ch Mỹ Nam Kinh được th&agrave; nh lập năm 2002 tại quận Cao Thuần, th&agrave;nh phố Nam Kinh. T&ecirc;n cũ của c&ocirc;ng ty l&agrave; &ldquo;C&ocirc;ng ty TNHH Titan Tương B ảo Nam Kinh&rdquo; v&agrave; &ldquo;C&ocirc;ng ty TNHH Nhựa B&aacute;ch Mỹ Nam Kinh&rdquo;. Hiện nay, c&ocirc;ng ty c&oacute; 4 chi nh&aacute;nh gồm: Chi nh&aacute;nh Quảng T&acirc;y, Chi nh&aacute;nh Quảng Đ&ocirc;ng, Chi nh&aacute;nh Thường Ch&acirc;u v&agrave; Chi nh&aacute;nh Thượng Hải, c&ugrave;ng với nhiều sản phẩm đa dạng.<br />\r\n<br />\r\nTrải qua 20 năm kh&ocirc;ng ngừng học hỏi v&agrave; ph&aacute;t triển, hiện tại t rụ sở ch&iacute;nh Nam Kinh c&oacute; 9 d&acirc;y chuyền sản xuất nhựa Amin, 4 d&acirc;y chuyền sản xuất chất ổn định Canxi-Kẽm tổng hợp....','cong ty tnhh cong nghe vat lieu moi bach my nam kinh duoc tha nh lap nam 2002 tai quan cao thuan, thanh pho nam kinh. ten cu cua cong ty la “cong ty tnhh titan tuong b ao nam kinh” va “cong ty tnhh nhua bach my nam kinh”. hien nay, cong ty co 4 chi nhanh gom: chi nhanh quang tay, chi nhanh quang dong, chi nhanh thuong chau va chi nhanh thuong hai, cung voi nhieu san pham da dang.\r\n\r\ntrai qua 20 nam khong ngung hoc hoi va phat trien, hien tai t ru so chinh nam kinh co 9 day chuyen san xuat nhua amin, 4 day chuyen san xuat chat on dinh canxi-kem tong hop....','','',1780387640,NULL,'',1,'',NULL,'gioi-thieu-trang-chu/',NULL,'id_category',15,'category','/uploaded/gioi-thieu/gioithieu.jpg'),(14,'Diện tích sản xuất','dien tich san xuat','15.000m2+','15.000m2+','','',1780388068,NULL,NULL,1,'',NULL,'dien-tich-san-xuat.html',15,'id_info',1,'info','/uploaded/ico/Group%20605.png'),(15,'Công suất sản xuất','cong suat san xuat','1.500tấn+','1.500tan+','','',1780388130,NULL,NULL,1,'',NULL,'cong-suat-san-xuat.html',15,'id_info',2,'info','/uploaded/ico/industrial-2%201.png'),(16,'Khách hàng hài lòng','khach hang hai long','98%','98%','','',1780388142,NULL,NULL,1,'',NULL,'khach-hang-hai-long.html',15,'id_info',3,'info','/uploaded/ico/Group%20604.png'),(17,'Quốc gia xuất khẩu','quoc gia xuat khau','30+','30+','','',1780388152,NULL,NULL,1,'',NULL,'quoc-gia-xuat-khau.html',15,'id_info',4,'info','/uploaded/ico/Vector.png'),(18,'Sản phẩm nổi bật','san pham noi bat','','','','',1780389794,NULL,'',1,'',NULL,'san-pham-noi-bat/',NULL,'id_category',16,'category',''),(19,'Sản phẩm cung cấp','san pham cung cap','','','','',1780390026,NULL,'',1,'',NULL,'san-pham-cung-cap/',NULL,'id_category',17,'category',''),(20,'Chất ổn định','chat on dinh','','','','',1780390042,NULL,'',1,'',NULL,'chat-on-dinh/',NULL,'id_category',18,'category',''),(21,'Chất ổn định dạng lỏng','chat on dinh dang long','','','','',1780390115,NULL,'',1,'',NULL,'chat-on-dinh-dang-long/',NULL,'id_category',19,'category','/uploaded/san-pham/item1.png'),(22,'SÁP PE','sap pe','','','','',1780390129,NULL,'',1,'',NULL,'sap-pe/',NULL,'id_category',20,'category','/uploaded/san-pham/item3.png'),(23,'SÁP PP','sap pp','','','','',1780390153,NULL,'',1,'',NULL,'sap-pp/',NULL,'id_category',21,'category','/uploaded/san-pham/item4.png'),(24,'Barium Sulfate','barium sulfate','','','','',1780390170,NULL,'',1,'',NULL,'barium-sulfate/',NULL,'id_category',22,'category','/uploaded/san-pham/it-dt.png'),(25,'Titanium Dioxide','titanium dioxide','','','','',1780390188,NULL,'',1,'',NULL,'titanium-dioxide/',NULL,'id_category',23,'category','/uploaded/san-pham/item3.png'),(26,'PVC Leather Series','pvc leather series','Được sản xuất th&ocirc;ng qua quy tr&igrave;nh tổng hợp cải tiến sử dụng axit stearic chất lượng cao v&agrave; thể hiện c&aacute;c đặc t&iacute;nh sau: Khả năng b&ocirc;i trơn, ph&acirc;n t&aacute;n tốt, khả năng chống thấm nước tuyệt vời, độ trong suốt v&agrave; ổn định thời tiết tốt, kh&ocirc;ng độc hại, kh&ocirc;ng nhuộm m&agrave;u sunfua, &iacute;t h&igrave;nh th&agrave;nh m&agrave;u ban đầu','duoc san xuat thong qua quy trinh tong hop cai tien su dung axit stearic chat luong cao va the hien cac dac tinh sau: kha nang boi tron, phan tan tot, kha nang chong tham nuoc tuyet voi, do trong suot va on dinh thoi tiet tot, khong doc hai, khong nhuom mau sunfua, it hinh thanh mau ban dau','','',1780392388,NULL,NULL,1,'',NULL,'pvc-leather-series.html',16,'id_product',1,'product','/uploaded/san-pham/f93045dc62665ee52f9a7e07bf4c7af409dd26dd.png'),(27,'PVC Leather Series','pvc leather series','Được sản xuất th&ocirc;ng qua quy tr&igrave;nh tổng hợp cải tiến sử dụng axit stearic chất lượng cao v&agrave; thể hiện c&aacute;c đặc t&iacute;nh sau: Khả năng b&ocirc;i trơn, ph&acirc;n t&aacute;n tốt, khả năng chống thấm nước tuyệt vời, độ trong suốt v&agrave; ổn định thời tiết tốt, kh&ocirc;ng độc hại, kh&ocirc;ng nhuộm m&agrave;u sunfua, &iacute;t h&igrave;nh th&agrave;nh m&agrave;u ban đầu','duoc san xuat thong qua quy trinh tong hop cai tien su dung axit stearic chat luong cao va the hien cac dac tinh sau: kha nang boi tron, phan tan tot, kha nang chong tham nuoc tuyet voi, do trong suot va on dinh thoi tiet tot, khong doc hai, khong nhuom mau sunfua, it hinh thanh mau ban dau','','',1780392458,NULL,NULL,1,'',NULL,'pvc-leather-series.html',16,'id_product',2,'product','/uploaded/san-pham/f93045dc62665ee52f9a7e07bf4c7af409dd26dd.png'),(28,'PVC Leather Series','pvc leather series','Được sản xuất th&ocirc;ng qua quy tr&igrave;nh tổng hợp cải tiến sử dụng axit stearic chất lượng cao v&agrave; thể hiện c&aacute;c đặc t&iacute;nh sau: Khả năng b&ocirc;i trơn, ph&acirc;n t&aacute;n tốt, khả năng chống thấm nước tuyệt vời, độ trong suốt v&agrave; ổn định thời tiết tốt, kh&ocirc;ng độc hại, kh&ocirc;ng nhuộm m&agrave;u sunfua, &iacute;t h&igrave;nh th&agrave;nh m&agrave;u ban đầu','duoc san xuat thong qua quy trinh tong hop cai tien su dung axit stearic chat luong cao va the hien cac dac tinh sau: kha nang boi tron, phan tan tot, kha nang chong tham nuoc tuyet voi, do trong suot va on dinh thoi tiet tot, khong doc hai, khong nhuom mau sunfua, it hinh thanh mau ban dau','','',1780392458,NULL,NULL,1,'',NULL,'pvc-leather-series.html',16,'id_product',3,'product','/uploaded/san-pham/f93045dc62665ee52f9a7e07bf4c7af409dd26dd.png'),(29,'PVC Leather Series','pvc leather series','Được sản xuất th&ocirc;ng qua quy tr&igrave;nh tổng hợp cải tiến sử dụng axit stearic chất lượng cao v&agrave; thể hiện c&aacute;c đặc t&iacute;nh sau: Khả năng b&ocirc;i trơn, ph&acirc;n t&aacute;n tốt, khả năng chống thấm nước tuyệt vời, độ trong suốt v&agrave; ổn định thời tiết tốt, kh&ocirc;ng độc hại, kh&ocirc;ng nhuộm m&agrave;u sunfua, &iacute;t h&igrave;nh th&agrave;nh m&agrave;u ban đầu','duoc san xuat thong qua quy trinh tong hop cai tien su dung axit stearic chat luong cao va the hien cac dac tinh sau: kha nang boi tron, phan tan tot, kha nang chong tham nuoc tuyet voi, do trong suot va on dinh thoi tiet tot, khong doc hai, khong nhuom mau sunfua, it hinh thanh mau ban dau','','',1780392459,NULL,NULL,1,'',NULL,'pvc-leather-series.html',16,'id_product',4,'product','/uploaded/san-pham/f93045dc62665ee52f9a7e07bf4c7af409dd26dd.png'),(30,'PVC Leather Series','pvc leather series','Được sản xuất th&ocirc;ng qua quy tr&igrave;nh tổng hợp cải tiến sử dụng axit stearic chất lượng cao v&agrave; thể hiện c&aacute;c đặc t&iacute;nh sau: Khả năng b&ocirc;i trơn, ph&acirc;n t&aacute;n tốt, khả năng chống thấm nước tuyệt vời, độ trong suốt v&agrave; ổn định thời tiết tốt, kh&ocirc;ng độc hại, kh&ocirc;ng nhuộm m&agrave;u sunfua, &iacute;t h&igrave;nh th&agrave;nh m&agrave;u ban đầu','duoc san xuat thong qua quy trinh tong hop cai tien su dung axit stearic chat luong cao va the hien cac dac tinh sau: kha nang boi tron, phan tan tot, kha nang chong tham nuoc tuyet voi, do trong suot va on dinh thoi tiet tot, khong doc hai, khong nhuom mau sunfua, it hinh thanh mau ban dau','','',1780392459,NULL,NULL,1,'',NULL,'pvc-leather-series.html',16,'id_product',5,'product','/uploaded/san-pham/f93045dc62665ee52f9a7e07bf4c7af409dd26dd.png'),(31,'PVC Leather Series','pvc leather series','Được sản xuất th&ocirc;ng qua quy tr&igrave;nh tổng hợp cải tiến sử dụng axit stearic chất lượng cao v&agrave; thể hiện c&aacute;c đặc t&iacute;nh sau: Khả năng b&ocirc;i trơn, ph&acirc;n t&aacute;n tốt, khả năng chống thấm nước tuyệt vời, độ trong suốt v&agrave; ổn định thời tiết tốt, kh&ocirc;ng độc hại, kh&ocirc;ng nhuộm m&agrave;u sunfua, &iacute;t h&igrave;nh th&agrave;nh m&agrave;u ban đầu','duoc san xuat thong qua quy trinh tong hop cai tien su dung axit stearic chat luong cao va the hien cac dac tinh sau: kha nang boi tron, phan tan tot, kha nang chong tham nuoc tuyet voi, do trong suot va on dinh thoi tiet tot, khong doc hai, khong nhuom mau sunfua, it hinh thanh mau ban dau','','',1780392460,NULL,NULL,1,'',NULL,'pvc-leather-series.html',16,'id_product',6,'product','/uploaded/san-pham/f93045dc62665ee52f9a7e07bf4c7af409dd26dd.png'),(32,'PVC Leather Series','pvc leather series','Được sản xuất th&ocirc;ng qua quy tr&igrave;nh tổng hợp cải tiến sử dụng axit stearic chất lượng cao v&agrave; thể hiện c&aacute;c đặc t&iacute;nh sau: Khả năng b&ocirc;i trơn, ph&acirc;n t&aacute;n tốt, khả năng chống thấm nước tuyệt vời, độ trong suốt v&agrave; ổn định thời tiết tốt, kh&ocirc;ng độc hại, kh&ocirc;ng nhuộm m&agrave;u sunfua, &iacute;t h&igrave;nh th&agrave;nh m&agrave;u ban đầu','duoc san xuat thong qua quy trinh tong hop cai tien su dung axit stearic chat luong cao va the hien cac dac tinh sau: kha nang boi tron, phan tan tot, kha nang chong tham nuoc tuyet voi, do trong suot va on dinh thoi tiet tot, khong doc hai, khong nhuom mau sunfua, it hinh thanh mau ban dau','','',1780392460,NULL,NULL,1,'',NULL,'pvc-leather-series.html',16,'id_product',7,'product','/uploaded/san-pham/f93045dc62665ee52f9a7e07bf4c7af409dd26dd.png'),(33,'PVC Leather Series','pvc leather series','Được sản xuất th&ocirc;ng qua quy tr&igrave;nh tổng hợp cải tiến sử dụng axit stearic chất lượng cao v&agrave; thể hiện c&aacute;c đặc t&iacute;nh sau: Khả năng b&ocirc;i trơn, ph&acirc;n t&aacute;n tốt, khả năng chống thấm nước tuyệt vời, độ trong suốt v&agrave; ổn định thời tiết tốt, kh&ocirc;ng độc hại, kh&ocirc;ng nhuộm m&agrave;u sunfua, &iacute;t h&igrave;nh th&agrave;nh m&agrave;u ban đầu','duoc san xuat thong qua quy trinh tong hop cai tien su dung axit stearic chat luong cao va the hien cac dac tinh sau: kha nang boi tron, phan tan tot, kha nang chong tham nuoc tuyet voi, do trong suot va on dinh thoi tiet tot, khong doc hai, khong nhuom mau sunfua, it hinh thanh mau ban dau','','',1780392460,NULL,NULL,1,'',NULL,'pvc-leather-series.html',16,'id_product',8,'product','/uploaded/san-pham/f93045dc62665ee52f9a7e07bf4c7af409dd26dd.png'),(34,'PVC Leather Series','pvc leather series','Được sản xuất th&ocirc;ng qua quy tr&igrave;nh tổng hợp cải tiến sử dụng axit stearic chất lượng cao v&agrave; thể hiện c&aacute;c đặc t&iacute;nh sau: Khả năng b&ocirc;i trơn, ph&acirc;n t&aacute;n tốt, khả năng chống thấm nước tuyệt vời, độ trong suốt v&agrave; ổn định thời tiết tốt, kh&ocirc;ng độc hại, kh&ocirc;ng nhuộm m&agrave;u sunfua, &iacute;t h&igrave;nh th&agrave;nh m&agrave;u ban đầu','duoc san xuat thong qua quy trinh tong hop cai tien su dung axit stearic chat luong cao va the hien cac dac tinh sau: kha nang boi tron, phan tan tot, kha nang chong tham nuoc tuyet voi, do trong suot va on dinh thoi tiet tot, khong doc hai, khong nhuom mau sunfua, it hinh thanh mau ban dau','','',1780392461,NULL,NULL,1,'',NULL,'pvc-leather-series.html',16,'id_product',9,'product','/uploaded/san-pham/f93045dc62665ee52f9a7e07bf4c7af409dd26dd.png'),(35,'PVC Leather Series','pvc leather series','Được sản xuất th&ocirc;ng qua quy tr&igrave;nh tổng hợp cải tiến sử dụng axit stearic chất lượng cao v&agrave; thể hiện c&aacute;c đặc t&iacute;nh sau: Khả năng b&ocirc;i trơn, ph&acirc;n t&aacute;n tốt, khả năng chống thấm nước tuyệt vời, độ trong suốt v&agrave; ổn định thời tiết tốt, kh&ocirc;ng độc hại, kh&ocirc;ng nhuộm m&agrave;u sunfua, &iacute;t h&igrave;nh th&agrave;nh m&agrave;u ban đầu','duoc san xuat thong qua quy trinh tong hop cai tien su dung axit stearic chat luong cao va the hien cac dac tinh sau: kha nang boi tron, phan tan tot, kha nang chong tham nuoc tuyet voi, do trong suot va on dinh thoi tiet tot, khong doc hai, khong nhuom mau sunfua, it hinh thanh mau ban dau','','',1780392461,NULL,NULL,1,'',NULL,'pvc-leather-series.html',16,'id_product',10,'product','/uploaded/san-pham/f93045dc62665ee52f9a7e07bf4c7af409dd26dd.png'),(36,'PVC Leather Series','pvc leather series','Được sản xuất th&ocirc;ng qua quy tr&igrave;nh tổng hợp cải tiến sử dụng axit stearic chất lượng cao v&agrave; thể hiện c&aacute;c đặc t&iacute;nh sau: Khả năng b&ocirc;i trơn, ph&acirc;n t&aacute;n tốt, khả năng chống thấm nước tuyệt vời, độ trong suốt v&agrave; ổn định thời tiết tốt, kh&ocirc;ng độc hại, kh&ocirc;ng nhuộm m&agrave;u sunfua, &iacute;t h&igrave;nh th&agrave;nh m&agrave;u ban đầu','duoc san xuat thong qua quy trinh tong hop cai tien su dung axit stearic chat luong cao va the hien cac dac tinh sau: kha nang boi tron, phan tan tot, kha nang chong tham nuoc tuyet voi, do trong suot va on dinh thoi tiet tot, khong doc hai, khong nhuom mau sunfua, it hinh thanh mau ban dau','','',1780392462,NULL,NULL,1,'',NULL,'pvc-leather-series.html',16,'id_product',11,'product','/uploaded/san-pham/f93045dc62665ee52f9a7e07bf4c7af409dd26dd.png'),(37,'BaiMe Việt Nam','baime viet nam','Cung cấp c&aacute;c d&ograve;ng sản phẩm chất lượng cao đ&atilde; gi&uacute;p ch&uacute;ng t&ocirc;i trở th&agrave;nh một trong những nh&agrave; cung cấp phụ gia uy t&iacute;n, đ&aacute;ng tin cậy v&agrave; h&agrave;ng đầu tr&ecirc;n thị trường trong nước v&agrave; quốc tế.<br />\r\n<br />\r\n Với phương ch&acirc;m &ldquo; SẢN PHẨM TẬN T&Acirc;M &ndash; VƯƠN TẦM S&Aacute;NG TẠO&rdquo;, ch&uacute;ng t&ocirc;i cam kết mang đến cho kh&aacute;ch h&agrave;ng những sản phẩm chất lượng tốt nhất, gi&aacute; cả cạnh tranh nhất, thời gian giao h&agrave;ng nhanh nhất v&agrave; dịch vụ tốt nhất.<br />\r\n&nbsp;','cung cap cac dong san pham chat luong cao da giup chung toi tro thanh mot trong nhung nha cung cap phu gia uy tin, dang tin cay va hang dau tren thi truong trong nuoc va quoc te.\r\n\r\n voi phuong cham “ san pham tan tam – vuon tam sang tao”, chung toi cam ket mang den cho khach hang nhung san pham chat luong tot nhat, gia ca canh tranh nhat, thoi gian giao hang nhanh nhat va dich vu tot nhat.\r\n ','','',1780400147,NULL,'',1,'',NULL,'baime-viet-nam/',NULL,'id_category',24,'category','/uploaded/gioi-thieu/gt-big.png'),(38,'Chất lượng đảm bảo','chat luong dam bao','','','','',1780400931,NULL,NULL,1,'',NULL,'chat-luong-dam-bao.html',24,'id_info',5,'info','/uploaded/ico/tuvan.png'),(39,'Tư vấn tận tâm','tu van tan tam','','','','',1780400944,NULL,NULL,1,'',NULL,'tu-van-tan-tam.html',24,'id_info',6,'info','/uploaded/ico/partner-certification%201.png'),(40,'Sản phẩm đa dạng','san pham da dang','','','','',1780400953,NULL,NULL,1,'',NULL,'san-pham-da-dang.html',24,'id_info',7,'info','/uploaded/ico/sp-da-dang.png'),(41,'Giá thành hợp lý','gia thanh hop ly','','','','',1780400965,NULL,NULL,1,'',NULL,'gia-thanh-hop-ly.html',24,'id_info',8,'info','/uploaded/ico/gia-hop-ly.png'),(42,'Thân thiện với môi trường','than thien voi moi truong','','','','',1780400979,NULL,NULL,1,'',NULL,'than-thien-voi-moi-truong.html',24,'id_info',9,'info','/uploaded/ico/earth_3039893%201.png'),(43,'Ứng dụng cao','ung dung cao','','','','',1780401001,NULL,NULL,1,'',NULL,'ung-dung-cao.html',24,'id_info',10,'info','/uploaded/ico/clipboard_1962592%201.png'),(44,'Chất lượng đảm bảo','chat luong dam bao','','','','',1780401096,NULL,'',1,'',NULL,'chat-luong-dam-bao/',NULL,'id_category',25,'category','/uploaded/ico/tuvan.png'),(45,'Chứng nhận ','chung nhan ','','','','',1780401709,NULL,'',1,'',NULL,'chung-nhan/',NULL,'id_category',26,'category',''),(46,'Đối tác - khách hàng','doi tac - khach hang','','','','',1780401727,NULL,'',1,'',NULL,'doi-tac-khach-hang/',NULL,'id_category',27,'category',''),(47,'Trang chủ','trang chu','','','','',1780460825,NULL,'',1,'',NULL,'',NULL,'id_category',1,'category',''),(48,'Tầm nhìn sứ mệnh','tam nhin su menh','','','','',1780479182,NULL,'',1,'',NULL,'tam-nhin-su-menh/',NULL,'id_category',28,'category',''),(49,'Giới thiệu chung','gioi thieu chung','','','','',1780548093,NULL,'',1,'',NULL,'gioi-thieu-chung/',NULL,'id_category',29,'category',''),(50,'Thư viện ảnh','thu vien anh','','','','',1780548195,NULL,'',1,'',NULL,'thu-vien-anh/',NULL,'id_category',30,'category',''),(51,'1','1','','','','',1780559564,NULL,NULL,1,'',NULL,'1.html',30,'id_album',2,'album','/uploaded/album/kiem-tra-2.jpg'),(52,'','','','','','',1780559569,NULL,NULL,1,'',NULL,'.html',30,'id_album',3,'album','/uploaded/album/kiem-tra-3.jpg'),(53,'','','','','','',1780559573,NULL,NULL,1,'',NULL,'.html',30,'id_album',4,'album','/uploaded/album/kiem-tra-sp-5.jpg'),(54,'','','','','','',1780559578,NULL,NULL,1,'',NULL,'.html',30,'id_album',5,'album','/uploaded/album/kiem-tra-2.jpg'),(55,'','','','','','',1780559582,NULL,NULL,1,'',NULL,'.html',30,'id_album',6,'album','/uploaded/album/kiem-tra-3.jpg'),(56,'','','','','','',1780559586,NULL,NULL,1,'',NULL,'.html',30,'id_album',7,'album','/uploaded/album/kiem-tra-sp-5.jpg'),(57,'','','','','','',1780559603,NULL,NULL,1,'',NULL,'.html',30,'id_album',8,'album','/uploaded/album/kiem-tra-2.jpg'),(58,'Dịch vụ gia công cắt laser chất lượng, uy tín và tiết kiệm chi phí','dich vu gia cong cat laser chat luong, uy tin va tiet kiem chi phi','<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don&#39;t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn&#39;t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>\r\n','there are many variations of passages of lorem ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don&#39;t look even slightly believable. if you are going to use a passage of lorem ipsum, you need to be sure there isn&#39;t anything embarrassing hidden in the middle of text. all the lorem ipsum generators on the internet tend to repeat predefined chunks as necessary, making this the first true generator on the internet. it uses a dictionary of over 200 latin words, combined with a handful of model sentence structures, to generate lorem ipsum which looks reasonable. the generated lorem ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.\r\n','<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don&#39;t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn&#39;t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>\r\n','there are many variations of passages of lorem ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don&#39;t look even slightly believable. if you are going to use a passage of lorem ipsum, you need to be sure there isn&#39;t anything embarrassing hidden in the middle of text. all the lorem ipsum generators on the internet tend to repeat predefined chunks as necessary, making this the first true generator on the internet. it uses a dictionary of over 200 latin words, combined with a handful of model sentence structures, to generate lorem ipsum which looks reasonable. the generated lorem ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.\r\n',1780650258,NULL,NULL,1,'',NULL,'dich-vu-gia-cong-cat-laser-chat-luong-uy-tin-va-tiet-kiem-chi-phi.html',12,'id_news',12,'news','/uploaded/tin-tuc/item1.png'),(59,'Giải pháp sử dụng sơn phủ cho chung cư xanh','giai phap su dung son phu cho chung cu xanh','','','','',1780650270,NULL,NULL,1,'',NULL,'giai-phap-su-dung-son-phu-cho-chung-cu-xanh.html',12,'id_news',13,'news','/uploaded/tin-tuc/item2.png'),(60,'Tầm quan trọng và ứng dụng của Canxi Stearate là gì?','tam quan trong va ung dung cua canxi stearate la gi?','Canxi stearat&nbsp;c&oacute; thể được định nghĩa l&agrave; một hợp chất h&oacute;a học được tạo th&agrave;nh từ axit stearic v&agrave; canxi. Đối với canxi stearate, c&ocirc;ng thức h&oacute;a học l&agrave; Ca(C18H35O2)2, điều n&agrave;y cho thấy th&ecirc;m rằng n&oacute; được tạo th&agrave;nh từ hai ion axit Stearic (C18H35O2-) hợp nhất với một ion canxi (Ca2+).','canxi stearat co the duoc dinh nghia la mot hop chat hoa hoc duoc tao thanh tu axit stearic va canxi. doi voi canxi stearate, cong thuc hoa hoc la ca(c18h35o2)2, dieu nay cho thay them rang no duoc tao thanh tu hai ion axit stearic (c18h35o2-) hop nhat voi mot ion canxi (ca2+).','<p>Axit stearic l&agrave; một axit b&eacute;o b&atilde;o h&ograve;a c&oacute; nguồn gốc từ thực vật hoặc động vật. Khi axit stearic phản ứng với canxi hydroxit, n&oacute; tạo ra &ldquo;canxi stearate&rdquo;. N&oacute; l&agrave; một hợp chất c&oacute; bề ngo&agrave;i m&agrave;u trắng v&agrave; như s&aacute;p. N&oacute; thường c&oacute; thể được t&igrave;m thấy ở dạng bột hoặc dạng mảnh v&agrave; hạt cực mịn.</p>\r\n\r\n<p>Canxi stearate thường được sử dụng l&agrave;m chất ổn định, chất b&ocirc;i trơn v&agrave; chất giải ph&oacute;ng trong nhiều ng&agrave;nh c&ocirc;ng nghiệp như nhựa, mỹ phẩm, thực phẩm v&agrave; dược phẩm m&agrave; ch&uacute;ng t&ocirc;i sẽ đề cập trong b&agrave;i viết n&agrave;y! Nhưng trước ti&ecirc;n, h&atilde;y bắt đầu bằng việc biết tầm quan trọng của canxi stearate trong c&aacute;c ứng dụng kh&aacute;c nhau.</p>\r\n','axit stearic la mot axit beo bao hoa co nguon goc tu thuc vat hoac dong vat. khi axit stearic phan ung voi canxi hydroxit, no tao ra “canxi stearate”. no la mot hop chat co be ngoai mau trang va nhu sap. no thuong co the duoc tim thay o dang bot hoac dang manh va hat cuc min.\r\n\r\ncanxi stearate thuong duoc su dung lam chat on dinh, chat boi tron va chat giai phong trong nhieu nganh cong nghiep nhu nhua, my pham, thuc pham va duoc pham ma chung toi se de cap trong bai viet nay! nhung truoc tien, hay bat dau bang viec biet tam quan trong cua canxi stearate trong cac ung dung khac nhau.\r\n',1780650350,NULL,NULL,1,'',NULL,'tam-quan-trong-va-ung-dung-cua-canxi-stearate-la-gi.html',12,'id_news',14,'news','/uploaded/tin-tuc/ung-dung-nganh-son.png'),(61,'Cơ sở Hà Nội','co so ha noi','<p>&quot;But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?&quot;</p>\r\n','\"but i must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and i will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. no one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. to take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? but who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?\"\r\n','','',1780993268,NULL,NULL,1,'',NULL,'co-so-ha-noi.html',11,'id_daily',1,'daily',''),(62,'Cơ sở Hà Nội','co so ha noi','<p>&quot;But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?&quot;</p>\r\n','\"but i must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and i will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. no one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. to take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? but who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?\"\r\n','','',1780993271,NULL,NULL,1,'',NULL,'co-so-ha-noi.html',11,'id_daily',2,'daily',''),(63,'Cơ sở Hà Nội','co so ha noi','<p>&quot;But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?&quot;</p>\r\n','\"but i must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and i will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. no one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. to take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? but who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?\"\r\n','','',1780993271,NULL,NULL,1,'',NULL,'co-so-ha-noi.html',11,'id_daily',3,'daily',''),(64,'Cơ sở Hà Nội','co so ha noi','<p>&quot;But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?&quot;</p>\r\n','\"but i must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and i will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. no one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. to take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? but who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?\"\r\n','','',1780993272,NULL,NULL,1,'',NULL,'co-so-ha-noi.html',11,'id_daily',4,'daily',''),(65,'Cơ sở Hà Nội','co so ha noi','<p>&quot;But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?&quot;</p>\r\n','\"but i must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and i will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. no one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. to take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? but who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?\"\r\n','','',1780993272,NULL,NULL,1,'',NULL,'co-so-ha-noi.html',11,'id_daily',5,'daily',''),(66,'Cơ sở Hà Nội','co so ha noi','<p>&quot;But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?&quot;</p>\r\n','\"but i must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and i will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. no one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. to take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? but who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?\"\r\n','','',1780993272,NULL,NULL,1,'',NULL,'co-so-ha-noi.html',11,'id_daily',6,'daily',''),(67,'Cơ sở Hà Nội','co so ha noi','<p>&quot;But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?&quot;</p>\r\n','\"but i must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and i will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. no one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. to take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? but who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?\"\r\n','','',1780993273,NULL,NULL,1,'',NULL,'co-so-ha-noi.html',11,'id_daily',7,'daily',''),(68,'Cơ sở Hà Nội','co so ha noi','<p>&quot;But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?&quot;</p>\r\n','\"but i must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and i will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. no one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. to take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? but who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?\"\r\n','','',1780993273,NULL,NULL,1,'',NULL,'co-so-ha-noi.html',11,'id_daily',8,'daily',''),(69,'Cơ sở Hà Nội','co so ha noi','<p>&quot;But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?&quot;</p>\r\n','\"but i must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and i will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. no one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. to take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? but who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?\"\r\n','','',1780993277,NULL,NULL,1,'',NULL,'co-so-ha-noi.html',11,'id_daily',9,'daily',''),(70,'Cơ sở Hà Nội','co so ha noi','<p>&quot;But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?&quot;</p>\r\n','\"but i must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and i will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. no one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. to take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? but who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?\"\r\n','','',1780993278,NULL,NULL,1,'',NULL,'co-so-ha-noi.html',11,'id_daily',10,'daily',''),(71,'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout','it is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout','It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout','it is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout','It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout','it is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout',1781147267,NULL,NULL,1,'',NULL,'it-is-a-long-established-fact-that-a-reader-will-be-distracted-by-the-readable-content-of-a-page-when-looking-at-its-layout.html',10,'id_article',1,'article','/uploaded/tin-tuc/hinh-nen-thien-nhien-cho-may-tinh-1.jpg'),(72,'The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.','the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.','The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.','the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.','The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.','the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.',1781147766,NULL,NULL,1,'',NULL,'the-standard-chunk-of-lorem-ipsum-used-since-1966-is-reproduced-below-for-those-interested.html',10,'id_article',2,'article','/uploaded/tin-tuc/item2.png'),(73,'The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.','the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.','The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.','the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.','The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.','the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.',1781148061,NULL,NULL,1,'',NULL,'the-standard-chunk-of-lorem-ipsum-used-since-1966-is-reproduced-below-for-those-interested.html',10,'id_article',3,'article','/uploaded/tin-tuc/item2.png'),(74,'The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.','the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.','The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.','the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.','The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.','the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.',1781148061,NULL,NULL,1,'',NULL,'the-standard-chunk-of-lorem-ipsum-used-since-1966-is-reproduced-below-for-those-interested.html',10,'id_article',4,'article','/uploaded/tin-tuc/item2.png'),(75,'The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.','the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.','The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.','the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.','The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.','the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.',1781148062,NULL,NULL,1,'',NULL,'the-standard-chunk-of-lorem-ipsum-used-since-1966-is-reproduced-below-for-those-interested.html',10,'id_article',5,'article','/uploaded/tin-tuc/item2.png'),(76,'The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.','the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.','The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.','the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.','The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.','the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.',1781148062,NULL,NULL,1,'',NULL,'the-standard-chunk-of-lorem-ipsum-used-since-1966-is-reproduced-below-for-those-interested.html',10,'id_article',6,'article','/uploaded/tin-tuc/item2.png'),(77,'The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.','the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.','The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.','the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.','The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.','the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.',1781148062,NULL,NULL,1,'',NULL,'the-standard-chunk-of-lorem-ipsum-used-since-1966-is-reproduced-below-for-those-interested.html',10,'id_article',7,'article','/uploaded/tin-tuc/item2.png'),(78,'The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.','the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.','The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.','the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.','The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested.','the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.the standard chunk of lorem ipsum used since 1966 is reproduced below for those interested.',1781148063,NULL,NULL,1,'',NULL,'the-standard-chunk-of-lorem-ipsum-used-since-1966-is-reproduced-below-for-those-interested.html',10,'id_article',8,'article','/uploaded/tin-tuc/item2.png');
+/*!40000 ALTER TABLE `search_content` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `service`
+--
+
+DROP TABLE IF EXISTS `service`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `service` (
+  `id_service` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `id_category` bigint unsigned NOT NULL DEFAULT '0',
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `title` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `description` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `keywords` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `image` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `imageadv` varchar(512) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `intro` mediumtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `content` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `ngay_dang` bigint unsigned DEFAULT '0',
+  `thu_tu` bigint DEFAULT '0',
+  `active` tinyint DEFAULT '1',
+  `id_user` bigint DEFAULT '0',
+  `fileurl` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `tieubieu` int DEFAULT '0',
+  `image_list` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `inhome` tinyint DEFAULT '0',
+  `groupcat` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '0',
+  `tags` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `url` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `id_tacgia` int DEFAULT NULL,
+  `last_modify` bigint DEFAULT '0',
+  PRIMARY KEY (`id_service`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `service`
+--
+
+LOCK TABLES `service` WRITE;
+/*!40000 ALTER TABLE `service` DISABLE KEYS */;
+/*!40000 ALTER TABLE `service` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `service_detail`
+--
+
+DROP TABLE IF EXISTS `service_detail`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `service_detail` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `id_service` bigint unsigned NOT NULL DEFAULT '0',
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `title` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `image` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '',
+  `imageadv` varchar(512) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '',
+  `intro` mediumtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `content` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `ngay_dang` bigint unsigned DEFAULT '0',
+  `thu_tu` bigint DEFAULT '0',
+  `active` tinyint DEFAULT '1',
+  `id_user` bigint DEFAULT '0',
+  `url` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '',
+  `item_type` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '',
+  `keywords` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `description` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `last_modify` bigint DEFAULT '0',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `service_detail`
+--
+
+LOCK TABLES `service_detail` WRITE;
+/*!40000 ALTER TABLE `service_detail` DISABLE KEYS */;
+/*!40000 ALTER TABLE `service_detail` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `settings`
+--
+
+DROP TABLE IF EXISTS `settings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `settings` (
+  `setting_name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `setting_value` mediumtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  PRIMARY KEY (`setting_name`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `settings`
+--
+
+LOCK TABLES `settings` WRITE;
+/*!40000 ALTER TABLE `settings` DISABLE KEYS */;
+INSERT INTO `settings` VALUES ('site_name','Công ty TNHH Vật liệu mới BaiMe Việt Nam'),('dir_path',''),('site_email','baime@baimevietnam.com'),('use_smtp','0'),('smtp_host',''),('smtp_username',''),('smtp_password',''),('template_dir','templates'),('language_dir','english'),('date_format','d/m/Y'),('time_format','H:i'),('convert_tool','gd'),('convert_tool_path',''),('gz_compress','0'),('gz_compress_level','1'),('upload_mode','1'),('allowed_mediatypes','jpg,gif,png,bmp,aif,au,avi,mid,mov,mp3,mpg,swf,wav,rar,ra,rm,zip,pdf,txt,xls,doc,swf'),('max_thumb_width','400'),('max_thumb_height','300'),('max_image_height','1024'),('max_media_size','5000'),('upload_notify','0'),('upload_emails',''),('auto_thumbnail','1'),('auto_thumbnail_dimension','180'),('auto_thumbnail_resize_type','1'),('auto_thumbnail_quality','100'),('id_country','207'),('paging_range','5'),('watermark_text',''),('upload_media_path','uploaded/files/'),('upload_image_path','uploaded/images/'),('session_timeout','15'),('max_image_width','400'),('time_offset','0'),('http_host',''),('document_root','/var/www/html/baime'),('site_keywords',''),('site_description',''),('category_item','8'),('diachi_cty',''),('guid','73ac30115450d0707a8278bd1c61fde38e576223'),('bgimage',''),('active_site','1'),('content_active_site',''),('acticle_item','8'),('watermark_image',''),('tigia','20880'),('dir_autoupload','uploaded/images/'),('toppage',''),('mailer','SMTP'),('bodypage',''),('bottompage','');
+/*!40000 ALTER TABLE `settings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `settingshow`
+--
+
+DROP TABLE IF EXISTS `settingshow`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `settingshow` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `content` longtext CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `id_user` bigint NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `settingshow`
+--
+
+LOCK TABLES `settingshow` WRITE;
+/*!40000 ALTER TABLE `settingshow` DISABLE KEYS */;
+INSERT INTO `settingshow` VALUES (1,'1','{\"newsinpage\":\"9\",\"producthome\":\"3\",\"albumpage\":\"3\",\"productinpage\":\"9\",\"photopage\":\"3\",\"hotline\":\"086 290 0156\",\"companyname\":\"C\\u00f4ng ty TNHH V\\u1eadt li\\u1ec7u m\\u1edbi BaiMe Vi\\u1ec7t Nam\",\"companyaddress\":\"K\\u0110T Trung H\\u00f2a Nh\\u00e2n Ch\\u00ednh, Thanh Xu\\u00e2n, H\\u00e0 N\\u1ed9i\",\"companyphone\":\"0968675568 \",\"companyemail\":\"baime@baimevietnam.com\",\"companywebsite\":\"http:\\/\\/yourdomainname.com\",\"facebook\":\"https:\\/\\/www.facebook.com\\/yourfanpage\\/\",\"youtube\":\"#\",\"twitter\":\"#\",\"pinterest\":\"#\",\"fanpage\":\"#\",\"apikey\":\"\"}',0);
+/*!40000 ALTER TABLE `settingshow` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `setups`
+--
+
+DROP TABLE IF EXISTS `setups`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `setups` (
+  `setup_name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `setup_value` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `setups`
+--
+
+LOCK TABLES `setups` WRITE;
+/*!40000 ALTER TABLE `setups` DISABLE KEYS */;
+/*!40000 ALTER TABLE `setups` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `static`
+--
+
+DROP TABLE IF EXISTS `static`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `static` (
+  `id_static` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `content` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `thu_tu` bigint DEFAULT '0',
+  `id_catstatic` bigint NOT NULL DEFAULT '0',
+  `id_user` bigint NOT NULL DEFAULT '0',
+  `active` tinyint NOT NULL DEFAULT '0',
+  `ngay_dang` bigint NOT NULL DEFAULT '0',
+  `image` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `inwhere` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `lang` varchar(10) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  PRIMARY KEY (`id_static`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `static`
+--
+
+LOCK TABLES `static` WRITE;
+/*!40000 ALTER TABLE `static` DISABLE KEYS */;
+INSERT INTO `static` VALUES (25,'TRỤ SỞ CHÍNH ','<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"border-collapse:collapse;width:90%;\">\r\n	<tbody>\r\n		<tr>\r\n			<td style=\"width: 26px;\"><img src=\"/uploaded/ico/icon-map.png\" /></td>\r\n			<td style=\"font-family: \'Muli-B\';\">Kho Lạnh An Việt 3, KCN Quang Minh mở rộng, M&ecirc; Linh, H&agrave; Nội</td>\r\n		</tr>\r\n		<tr>\r\n			<td><img src=\"/uploaded/ico/icon-call.png\" /></td>\r\n			<td style=\"font-family: \'Muli-B\';\">Hotline: 086 290 0156</td>\r\n		</tr>\r\n		<tr>\r\n			<td><img src=\"/uploaded/ico/icon-mail.png\" /></td>\r\n			<td style=\"font-family: \'Muli-B\';\">Email: baime@baimevietnam.com</td>\r\n		</tr>\r\n		<tr>\r\n			<td><img src=\"/uploaded/ico/icon-web.png\" /></td>\r\n			<td style=\"font-family: \'Muli-B\';\">Website: www.baimevietnam.com</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n',0,0,0,1,0,'','footer',''),(26,'Company Name','<strong>Address: </strong>Tầng 5, Khu văn ph&ograve;ng A, T&ograve;a nh&agrave; Imperia Garden, Số 203 Phố Nguyễn Huy Tưởng, Thanh Xu&acirc;n, H&agrave; Nội<br />\r\n<strong>Tel:</strong> 0966.877.869 - 0934.877.869<br />\r\n<strong>Email:</strong> thangmayplc@gmail.com',0,0,0,1,0,'','footer','en'),(30,'Copyright','&copy; Copyright by&nbsp;',0,0,0,1,0,'','copyright','en'),(31,'Trang Liên hệ','- Adress: 16th FLoor - PV Oil Holding, 148 Hoang Quoc Viet, Cau Giay, Ha Noi<br />\r\n- Tel: (04).37634666 / 37634777 / 38374999<br />\r\n- Email: info@anphatgroup.com.vn<br />\r\n- www.anphatgroup.com.vn',0,0,0,1,0,'','','en'),(32,'Footer cn','<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"table-list\" style=\"border-collapse:collapse;width:100%;\">\r\n	<tbody>\r\n		<tr>\r\n			<td height=\"25\" width=\"23\"><img alt=\"\" src=\"/uploaded/no-img/footer-icon%20(1).png\" style=\"float: left;\" /></td>\r\n			<td>Địa chỉ: Số 109 Nguyễn Tu&acirc;n, P.Nh&acirc;n Ch&iacute;nh, Thanh Xu&acirc;n, HN</td>\r\n		</tr>\r\n		<tr>\r\n			<td height=\"25\"><img alt=\"\" src=\"/uploaded/no-img/footer-icon%20(2).png\" style=\"float: left;\" /></td>\r\n			<td>Tel: 094.8866.109 - 088.884.5050</td>\r\n		</tr>\r\n		<tr>\r\n			<td height=\"25\"><img alt=\"\" src=\"/uploaded/no-img/footer-icon%20(3).png\" style=\"float: left;\" /></td>\r\n			<td>Email: thelegend@daiviet.vn</td>\r\n		</tr>\r\n		<tr>\r\n			<td height=\"25\"><img alt=\"\" src=\"/uploaded/no-img/footer-icon%20(4).png\" style=\"float: left;\" /></td>\r\n			<td>Website: www.thelegenddaiviet.vn&nbsp;</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n',0,0,0,1,0,'','footer','cn'),(33,'Footer kr','<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"table-list\" style=\"border-collapse:collapse;width:100%;\">\r\n	<tbody>\r\n		<tr>\r\n			<td height=\"25\" width=\"23\"><img alt=\"\" src=\"/uploaded/no-img/footer-icon%20(1).png\" style=\"float: left;\" /></td>\r\n			<td>Địa chỉ: Số 109 Nguyễn Tu&acirc;n, P.Nh&acirc;n Ch&iacute;nh, Thanh Xu&acirc;n, HN</td>\r\n		</tr>\r\n		<tr>\r\n			<td height=\"25\"><img alt=\"\" src=\"/uploaded/no-img/footer-icon%20(2).png\" style=\"float: left;\" /></td>\r\n			<td>Tel: 094.8866.109 - 088.884.5050</td>\r\n		</tr>\r\n		<tr>\r\n			<td height=\"25\"><img alt=\"\" src=\"/uploaded/no-img/footer-icon%20(3).png\" style=\"float: left;\" /></td>\r\n			<td>Email: thelegend@daiviet.vn</td>\r\n		</tr>\r\n		<tr>\r\n			<td height=\"25\"><img alt=\"\" src=\"/uploaded/no-img/footer-icon%20(4).png\" style=\"float: left;\" /></td>\r\n			<td>Website: www.thelegenddaiviet.vn&nbsp;</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n',0,0,0,1,0,'','footer','kr'),(34,'Điều khoản thanh toán trực tuyến','',0,0,0,1,0,'','dieukhoan','');
+/*!40000 ALTER TABLE `static` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `static_text`
+--
+
+DROP TABLE IF EXISTS `static_text`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `static_text` (
+  `id_static` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `content` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `thu_tu` bigint DEFAULT '0',
+  `id_user` bigint NOT NULL DEFAULT '0',
+  `active` tinyint NOT NULL DEFAULT '0',
+  `ngay_dang` bigint NOT NULL DEFAULT '0',
+  `image` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `code_name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `lang` varchar(10) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  PRIMARY KEY (`id_static`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `static_text`
+--
+
+LOCK TABLES `static_text` WRITE;
+/*!40000 ALTER TABLE `static_text` DISABLE KEYS */;
+/*!40000 ALTER TABLE `static_text` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `sys_image`
+--
+
+DROP TABLE IF EXISTS `sys_image`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `sys_image` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `name` varchar(500) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `image_desc` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `thu_tu` bigint DEFAULT '0',
+  `image` varchar(600) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `id_category` bigint DEFAULT NULL,
+  `table_name` varchar(128) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `id_item` varchar(128) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `id_value` bigint DEFAULT NULL,
+  `type_code` varchar(128) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `active` int DEFAULT '1',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `sys_image`
+--
+
+LOCK TABLES `sys_image` WRITE;
+/*!40000 ALTER TABLE `sys_image` DISABLE KEYS */;
+/*!40000 ALTER TABLE `sys_image` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tacgia`
+--
+
+DROP TABLE IF EXISTS `tacgia`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tacgia` (
+  `id_tacgia` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `id_category` bigint unsigned NOT NULL DEFAULT '0',
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `title` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `chucdanh` varchar(512) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `description` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `keywords` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `image` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `imageadv` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '0',
+  `intro` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `content` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `thongtinkhac` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `ngay_dang` bigint unsigned DEFAULT '0',
+  `thu_tu` bigint DEFAULT '0',
+  `active` tinyint DEFAULT '1',
+  `id_user` bigint DEFAULT '0',
+  `header_tag` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `url` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `last_modify` bigint DEFAULT NULL,
+  PRIMARY KEY (`id_tacgia`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=56 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tacgia`
+--
+
+LOCK TABLES `tacgia` WRITE;
+/*!40000 ALTER TABLE `tacgia` DISABLE KEYS */;
+INSERT INTO `tacgia` VALUES (54,58,'Hà Nguyễn','Hà Nguyễn','Founder / CEO','','','/uploaded/gioi-thieu/founder.jpg','0','<div style=\"text-align: justify;\"><span style=\"line-height:2;\">T&ocirc;i l&agrave; Founder ki&ecirc;m CEO&nbsp;của c&ocirc;ng ty thiết kế thi c&ocirc;ng nội thất Best Design. T&ocirc;i kh&ocirc;ng ngừng cố gắng để t&igrave;m ra c&aacute;c giải ph&aacute;p thiết kế nội thất, thi c&ocirc;ng nội thất đẹp, độc đ&aacute;o với nhiều phong c&aacute;ch nội thất, gi&uacute;p gia chủ tối ưu chi ph&iacute; nhất. Mỗi dự &aacute;n d&ugrave; lớn hay nhỏ th&igrave; t&ocirc;i lu&ocirc;n tập trung cao độ để mang đến cho qu&yacute; kh&aacute;ch h&agrave;ng những bản vẽ thiết kế, phương &aacute;n thi c&ocirc;ng nội thất ho&agrave;n mỹ nhất! Q&uacute;y kh&aacute;ch h&agrave;ng cần được tư vấn hỗ trợ c&oacute; thể li&ecirc;n hệ trực tiếp với t&ocirc;i nh&eacute;! Rất h&acirc;n hạnh được phục vụ v&agrave; đồng h&agrave;nh c&ugrave;ng qu&yacute; kh&aacute;ch trong h&agrave;nh tr&igrave;nh kiến tạo kh&ocirc;ng gian sống!</span></div>\r\n','<div style=\"text-align: justify;\"><span style=\"line-height:2;\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis euismod ut nisl id sodales. Etiam consectetur nulla vel ornare aliquam. Phasellus non velit eget massa consectetur lobortis. Integer tempus consequat augue, vitae rutrum sem tempor id.&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis euismod ut nisl id sodales. Etiam consectetur nulla vel ornare aliquam. Phasellus non velit eget massa consectetur lobortis. Integer tempus consequat augue, vitae rutrum sem tempor id.&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis euismod ut nisl id sodales. Etiam consectetur nulla vel ornare aliquam. Phasellus non velit eget massa consectetur lobortis. Integer tempus consequat augue, vitae rutrum sem tempor id.<br />\r\n<br />\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Duis euismod ut nisl id sodales. Etiam consectetur nulla vel ornare aliquam. Phasellus non velit eget massa consectetur lobortis. Integer tempus consequat augue, vitae rutrum sem tempor id.&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis euismod ut nisl id sodales. Etiam consectetur nulla vel ornare aliquam. Phasellus non velit eget massa consectetur lobortis. Integer tempus consequat augue, vitae rutrum sem tempor id.&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis euismod ut nisl id sodales. Etiam consectetur nulla vel ornare aliquam. Phasellus non velit eget massa consectetur lobortis. Integer tempus consequat augue, vitae rutrum sem tempor id.</span><br />\r\n&nbsp;</div>\r\n','<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\">\r\n	<tbody>\r\n		<tr>\r\n			<td width=\"55\"><a href=\"https://www.facebook.com/hanguyenbestdesign.vn\" target=\"_blank\"><img alt=\"\" src=\"/uploaded/ico/icon-face.png\" style=\"width: 50px; height: 50px;\" /></a></td>\r\n			<td width=\"55\"><a href=\"https://twitter.com/HaNguyendhv\" target=\"_blank\"><img alt=\"\" src=\"/uploaded/ico/icon-tweet.png\" style=\"width: 50px; height: 50px;\" /></a></td>\r\n			<td width=\"55\"><a href=\"https://www.instagram.com/ha_nguyen37/\" target=\"_blank\"><img alt=\"\" src=\"/uploaded/ico/icon-insta.png\" style=\"width: 50px; height: 50px;\" /></a></td>\r\n			<td width=\"55\"><a href=\"https://www.linkedin.com/in/h%C3%A0-nguy%E1%BB%85n-a7072025b/\" target=\"_blank\"><img alt=\"\" src=\"/uploaded/ico/icon-linkin.png\" style=\"width: 50px; height: 50px;\" /></a></td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n',1687509540,1,1,32,NULL,'tac-gia/ha-nguyen.html',1687512364),(55,8,'Minh Nguyễn','Minh Nguyễn','Tư vấn thiết kế website','','','/uploaded/y-kien-khach-hang/man.jpg','0','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis euismod ut nisl id sodales. Etiam consectetur nulla vel ornare aliquam. Phasellus non velit eget massa consectetur lobortis. Integer tempus consequat augue, vitae rutrum sem tempor id.','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis euismod ut nisl id sodales. Etiam consectetur nulla vel ornare aliquam. Phasellus non velit eget massa consectetur lobortis. Integer tempus consequat augue, vitae rutrum sem tempor id.<br />\r\n<br />\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Duis euismod ut nisl id sodales. Etiam consectetur nulla vel ornare aliquam. Phasellus non velit eget massa consectetur lobortis. Integer tempus consequat augue, vitae rutrum sem tempor id.<br />\r\n&nbsp;','',1688009580,2,1,8,NULL,'lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit.html',1688009692);
+/*!40000 ALTER TABLE `tacgia` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tags`
+--
+
+DROP TABLE IF EXISTS `tags`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tags` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `gia_tri` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tags`
+--
+
+LOCK TABLES `tags` WRITE;
+/*!40000 ALTER TABLE `tags` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tags` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tuyendung`
+--
+
+DROP TABLE IF EXISTS `tuyendung`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tuyendung` (
+  `id_tuyendung` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `id_category` bigint unsigned NOT NULL DEFAULT '0',
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `short_name` varchar(512) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `title` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `description` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `keywords` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `image` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `intro` mediumtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `content` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `ngay_dang` bigint unsigned DEFAULT '0',
+  `thu_tu` bigint DEFAULT '0',
+  `active` tinyint DEFAULT '1',
+  `id_user` bigint DEFAULT '0',
+  `file` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `hot` tinyint DEFAULT '0',
+  `groupcat` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '0',
+  `tags` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `url` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `soluong` bigint DEFAULT NULL,
+  `diadiem` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `thoihan` bigint DEFAULT NULL,
+  `congviec` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `last_modify` bigint DEFAULT NULL,
+  PRIMARY KEY (`id_tuyendung`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=99 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tuyendung`
+--
+
+LOCK TABLES `tuyendung` WRITE;
+/*!40000 ALTER TABLE `tuyendung` DISABLE KEYS */;
+INSERT INTO `tuyendung` VALUES (96,13,'PVC Leather Series','PVC Leather Series','PVC Leather Series','','','/uploaded/files/ve-dep-day-nui-Dolomites-701-1.jpg','','<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using &#39;Content here, content here&#39;, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for &#39;lorem ipsum&#39; will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>\r\n',1780991760,1,1,8,NULL,0,':',NULL,'pvc-leather-series.html',10,'Hà Nội',0,'',1780992240),(97,13,'Finibus Bonorum et Malorum&quot; (The Extremes of Good and Evil) ','Finibus Bonorum et Malorum&quot; (The Extremes of Good and Evil) ','Finibus Bonorum et Malorum&quot; (The Extremes of Good and Evil) ','','','','<p>Lorem Ipsum&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset&#39;s Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software including versions of Lorem Ipsum.</p>\r\n','<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset&#39;s Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software including versions of Lorem Ipsum.</p>\r\n',1780992060,2,1,8,NULL,0,':',NULL,'finibus-bonorum-et-malorumquot-the-extremes-of-good-and-evil.html',21,'TP. Hồ Chí Minh',0,'',1780992228),(98,13,'Section 1.10.32 of &quot;de Finibus Bonorum et Malorum&quot;, written by Cicero in 45 BC','Section 1.10.32 of &quot;de Finibus Bonorum et Malorum&quot;, written by Cicero in 45 BC','Section 1.10.32 of &quot;de Finibus Bonorum et Malorum&quot;, written by Cicero in 45 BC','','','','<p>&quot;But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?&quot;</p>\r\n','<p>&quot;But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?&quot;</p>\r\n',1780992120,3,1,8,NULL,0,':',NULL,'section-11032-of-quotde-finibus-bonorum-et-malorumquot-written-by-cicero-in-45-bc.html',11,'Đà Nẵng',0,'',1780992510);
+/*!40000 ALTER TABLE `tuyendung` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tuyendung_request`
+--
+
+DROP TABLE IF EXISTS `tuyendung_request`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tuyendung_request` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `name` varchar(512) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `phone` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
+  `email` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
+  `address` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
+  `message` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `subject` varchar(1024) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `createdate` bigint DEFAULT NULL,
+  `xem` int DEFAULT NULL,
+  `url` varchar(512) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
+  `file` varchar(512) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
+  `content` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tuyendung_request`
+--
+
+LOCK TABLES `tuyendung_request` WRITE;
+/*!40000 ALTER TABLE `tuyendung_request` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tuyendung_request` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `url`
+--
+
+DROP TABLE IF EXISTS `url`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `url` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `dt_table` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `id_item` bigint DEFAULT '0',
+  `data_type` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `url` varchar(2000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `real_url` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `alias_url` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `lang` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `id_category` bigint DEFAULT '0',
+  `page` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `url`
+--
+
+LOCK TABLES `url` WRITE;
+/*!40000 ALTER TABLE `url` DISABLE KEYS */;
+/*!40000 ALTER TABLE `url` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `user_module`
+--
+
+DROP TABLE IF EXISTS `user_module`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `user_module` (
+  `id_user_module` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `id_user` bigint unsigned NOT NULL DEFAULT '0',
+  `id_module` bigint unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id_user_module`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=150 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=FIXED;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user_module`
+--
+
+LOCK TABLES `user_module` WRITE;
+/*!40000 ALTER TABLE `user_module` DISABLE KEYS */;
+INSERT INTO `user_module` VALUES (27,11,53),(29,11,48),(30,11,43),(45,12,98),(46,12,119),(49,12,89),(50,12,9),(52,12,94),(54,12,53),(55,12,52),(56,12,48),(57,12,43),(58,12,26),(59,12,5),(63,11,26),(64,11,124),(65,12,124),(66,13,119),(67,13,89),(70,16,98),(71,16,119),(72,16,89),(73,16,159),(74,16,157),(75,16,156),(76,16,155),(77,16,153),(78,16,150),(79,16,144),(80,16,124),(81,16,52),(82,16,48),(83,16,43),(84,16,26),(85,18,98),(86,18,89),(87,18,9),(88,18,179),(90,18,177),(91,18,176),(93,18,174),(94,18,172),(95,18,171),(96,18,170),(97,18,169),(99,18,165),(100,18,161),(101,18,159),(102,18,157),(103,18,156),(104,18,155),(105,18,144),(106,18,52),(107,18,48),(108,18,26),(139,20,124),(138,20,171),(137,20,172),(136,20,9),(135,20,98),(140,21,172),(141,21,171),(142,21,52),(144,25,179),(149,30,179),(148,29,170);
+/*!40000 ALTER TABLE `user_module` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `users` (
+  `id_users` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `username` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `telephone` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `lastvisit` bigint unsigned NOT NULL DEFAULT '0',
+  `active` tinyint NOT NULL DEFAULT '0',
+  `super` tinyint NOT NULL DEFAULT '0',
+  `address` varchar(300) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `yahoo` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `image` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `showed` tinyint NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id_users`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (8,'admin','admin','21232f297a57a5a743894a0e4a801fc3','','',1584705747,1,1,'HÃ  Ná»™i',NULL,'',1),(14,'BM','bm','6f86eebff01efaa4a89597d46708f1a2','','',1586489145,1,1,NULL,NULL,NULL,0);
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `video`
+--
+
+DROP TABLE IF EXISTS `video`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `video` (
+  `id_video` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL DEFAULT '',
+  `content` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `thu_tu` bigint DEFAULT '0',
+  `id_category` bigint DEFAULT '0',
+  `id_user` bigint DEFAULT '0',
+  `active` tinyint DEFAULT '0',
+  `ngay_dang` bigint DEFAULT '0',
+  `image` varchar(600) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `video` varchar(600) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `url` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `keywords` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `description` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `title` varchar(400) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `groupcat` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `intro` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `showinfooter` int DEFAULT '0',
+  `last_modify` bigint DEFAULT NULL,
+  PRIMARY KEY (`id_video`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `video`
+--
+
+LOCK TABLES `video` WRITE;
+/*!40000 ALTER TABLE `video` DISABLE KEYS */;
+/*!40000 ALTER TABLE `video` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `vn_district`
+--
+
+DROP TABLE IF EXISTS `vn_district`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `vn_district` (
+  `districtid` int NOT NULL,
+  `name` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `type` varchar(30) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `provinceid` int NOT NULL,
+  `thu_tu` int DEFAULT NULL,
+  `actvie` int DEFAULT NULL,
+  PRIMARY KEY (`districtid`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `vn_district`
+--
+
+LOCK TABLES `vn_district` WRITE;
+/*!40000 ALTER TABLE `vn_district` DISABLE KEYS */;
+INSERT INTO `vn_district` VALUES (4,'Phường Ba Đình','0',1,3,1),(8,'Phường Ngọc Hà','0',1,4,1),(25,'Phường Giảng Võ','0',1,5,1),(70,'Phường Hoàn Kiếm','0',1,1,1),(73,'Phường Cửa Nam','0',1,2,1),(91,'Phường Phú Thượng','0',1,29,1),(97,'Phường Hồng Hà','0',1,14,1),(103,'Phường Tây Hồ','0',1,28,1),(127,'Phường Việt Hưng','0',1,41,1),(130,'Phường Bồ Đề','0',1,40,1),(136,'Phường Phúc Lợi','0',1,42,1),(148,'Phường Long Biên','0',1,39,1),(160,'Phường Nghĩa Đô','0',1,26,1),(167,'Phường Cầu Giấy','0',1,25,1),(175,'Phường Yên Hòa','0',1,27,1),(187,'Phường Láng','0',1,12,1),(190,'Phường Ô Chợ Dừa','0',1,13,1),(196,'Phường Văn Miếu - Quốc Tử Giám','0',1,11,1),(226,'Phường Kim Liên','0',1,10,1),(235,'Phường Đống Đa','0',1,9,1),(256,'Phường Hai Bà Trưng','0',1,6,1),(277,'Phường Bạch Mai','0',1,8,1),(283,'Phường Vĩnh Tuy','0',1,7,1),(304,'Phường Vĩnh Hưng','0',1,17,1),(313,'Phường Tương Mai','0',1,18,1),(316,'Phường Định Công','0',1,19,1),(319,'Phường Hoàng Mai','0',1,16,1),(328,'Phường Lĩnh Nam','0',1,15,1),(331,'Phường Yên Sở','0',1,21,1),(337,'Phường Hoàng Liệt','0',1,20,1),(352,'Phường Phương Liệt','0',1,24,1),(364,'Phường Khương Đình','0',1,23,1),(367,'Phường Thanh Xuân','0',1,22,1),(376,'Xã Sóc Sơn','0',1,122,1),(382,'Xã Kim Anh','0',1,126,1),(385,'Xã Trung Giã','0',1,125,1),(424,'Xã Đa Phúc','0',1,123,1),(433,'Xã Nội Bài','0',1,124,1),(454,'Xã Đông Anh','0',1,114,1),(466,'Xã Phúc Thịnh','0',1,115,1),(484,'Xã Thư Lâm','0',1,113,1),(493,'Xã Thiên Lộc','0',1,116,1),(508,'Xã Vĩnh Thanh','0',1,117,1),(541,'Xã Phù Đổng','0',1,112,1),(562,'Xã Thuận An','0',1,110,1),(565,'Xã Gia Lâm','0',1,109,1),(583,'Xã Bát Tràng','0',1,111,1),(592,'Phường Từ Liêm','0',1,35,1),(598,'Phường Thượng Cát','0',1,34,1),(602,'Phường Đông Ngạc','0',1,33,1),(611,'Phường Xuân Đỉnh','0',1,32,1),(613,'Phường Tây Tựu','0',1,30,1),(619,'Phường Phú Diễn','0',1,31,1),(622,'Phường Xuân Phương','0',1,36,1),(634,'Phường Tây Mỗ','0',1,37,1),(637,'Phường Đại Mỗ','0',1,38,1),(640,'Xã Thanh Trì','0',1,48,1),(646,'Phường Thanh Liệt','0',1,52,1),(664,'Xã Đại Thanh','0',1,49,1),(679,'Xã Ngọc Hồi','0',1,51,1),(685,'Xã Nam Phù','0',1,50,1),(691,'Phường Hà Giang 2','0',8,127,1),(694,'Phường Hà Giang 1','0',8,127,1),(700,'Xã Ngọc Đường','0',8,127,1),(706,'Xã Phú Linh','0',8,127,1),(715,'Xã Lũng Cú','0',8,127,1),(721,'Xã Đồng Văn','0',8,127,1),(733,'Xã Sà Phìn','0',8,127,1),(745,'Xã Phố Bảng','0',8,127,1),(763,'Xã Lũng Phìn','0',8,127,1),(769,'Xã Mèo Vạc','0',8,127,1),(778,'Xã Sơn Vĩ','0',8,127,1),(787,'Xã Sủng Máng','0',8,127,1),(802,'Xã Khâu Vai','0',8,127,1),(808,'Xã Tát Ngà','0',8,127,1),(817,'Xã Niêm Sơn','0',8,127,1),(820,'Xã Yên Minh ','0',8,127,1),(829,'Xã Thắng Mố','0',8,127,1),(832,'Xã Bạch Đích','0',8,127,1),(847,'Xã Mậu Duệ','0',8,127,1),(859,'Xã Ngọc Long','0',8,127,1),(865,'Xã Đường Thượng','0',8,127,1),(871,'Xã Du Già','0',8,127,1),(874,'Xã Quản Bạ','0',8,127,1),(883,'Xã Cán Tỷ','0',8,127,1),(889,'Xã Nghĩa Thuận','0',8,127,1),(892,'Xã Tùng Vài','0',8,127,1),(901,'Xã Lùng Tám','0',8,127,1),(913,'Xã Vị Xuyên ','0',8,127,1),(919,'Xã Minh Tân','0',8,127,1),(922,'Xã Thuận Hoà','0',8,127,1),(925,'Xã Tùng Bá','0',8,127,1),(928,'Xã Thanh Thuỷ','0',8,127,1),(937,'Xã Lao Chải','0',8,127,1),(952,'Xã Cao Bồ','0',8,127,1),(958,'Xã Thượng Sơn','0',8,127,1),(967,'Xã Việt Lâm','0',8,127,1),(970,'Xã Linh Hồ','0',8,127,1),(976,'Xã Bạch Ngọc','0',8,127,1),(982,'Xã Minh Sơn','0',8,127,1),(985,'Xã Giáp Trung','0',8,127,1),(991,'Xã Bắc Mê ','0',8,127,1),(994,'Xã Minh Ngọc','0',8,127,1),(1006,'Xã Yên Cường','0',8,127,1),(1012,'Xã Đường Hồng','0',8,127,1),(1021,'Xã Hoàng Su Phì ','0',8,127,1),(1024,'Xã Bản Máy','0',8,127,1),(1033,'Xã Thàng Tín','0',8,127,1),(1051,'Xã Tân Tiến','0',8,127,1),(1057,'Xã Pờ Ly Ngài','0',8,127,1),(1075,'Xã Nậm Dịch','0',8,127,1),(1084,'Xã Hồ Thầu','0',8,127,1),(1090,'Xã Thông Nguyên','0',8,127,1),(1096,'Xã Pà Vầy Sủ','0',8,127,1),(1108,'Xã Xín Mần ','0',8,127,1),(1117,'Xã Trung Thịnh','0',8,127,1),(1141,'Xã Nấm Dẩn','0',8,127,1),(1144,'Xã Quảng Nguyên','0',8,127,1),(1147,'Xã Khuôn Lùng','0',8,127,1),(1153,'Xã Bắc Quang ','0',8,127,1),(1156,'Xã Vĩnh Tuy','0',8,127,1),(1165,'Xã Đồng Tâm','0',8,127,1),(1171,'Xã Tân Quang','0',8,127,1),(1180,'Xã Bằng Hành','0',8,127,1),(1192,'Xã Liên Hiệp','0',8,127,1),(1201,'Xã Hùng An','0',8,127,1),(1216,'Xã Đồng Yên','0',8,127,1),(1225,'Xã Tiên Nguyên','0',8,127,1),(1234,'Xã Yên Thành','0',8,127,1),(1237,'Xã Quang Bình','0',8,127,1),(1243,'Xã Tân Trịnh','0',8,127,1),(1246,'Xã Bằng Lang','0',8,127,1),(1255,'Xã Xuân Giang','0',8,127,1),(1261,'Xã Tiên Yên','0',8,127,1),(1273,'Phường Thục Phán ','0',4,127,1),(1279,'Phường Nùng Trí Cao ','0',4,127,1),(1288,'Phường Tân Giang ','0',4,127,1),(1290,'Xã Bảo Lâm','0',4,127,1),(1294,'Xã Lý Bôn','0',4,127,1),(1297,'Xã Nam Quang','0',4,127,1),(1304,'Xã Quảng Lâm','0',4,127,1),(1318,'Xã Yên Thổ','0',4,127,1),(1321,'Xã Bảo Lạc','0',4,127,1),(1324,'Xã Cốc Pàng','0',4,127,1),(1327,'Xã Cô Ba','0',4,127,1),(1336,'Xã Khánh Xuân','0',4,127,1),(1339,'Xã Xuân Trường','0',4,127,1),(1351,'Xã Hưng Đạo','0',4,127,1),(1354,'Xã Huy Giáp','0',4,127,1),(1360,'Xã Sơn Lộ','0',4,127,1),(1363,'Xã Thông Nông','0',4,127,1),(1366,'Xã Cần Yên','0',4,127,1),(1387,'Xã Thanh Long','0',4,127,1),(1392,'Xã Trường Hà ','0',4,127,1),(1393,'Xã Lũng Nặm','0',4,127,1),(1414,'Xã Tổng Cọt','0',4,127,1),(1438,'Xã Hà Quảng','0',4,127,1),(1447,'Xã Trà Lĩnh','0',4,127,1),(1456,'Xã Quang Hán','0',4,127,1),(1465,'Xã Quang Trung','0',4,127,1),(1477,'Xã Trùng Khánh','0',4,127,1),(1489,'Xã Đình Phong','0',4,127,1),(1501,'Xã Đàm Thuỷ ','0',4,127,1),(1525,'Xã Đoài Dương','0',4,127,1),(1537,'Xã Vinh Quý','0',4,127,1),(1552,'Xã Quang Long','0',4,127,1),(1558,'Xã Lý Quốc ','0',4,127,1),(1561,'Xã Hạ Lang ','0',4,127,1),(1576,'Xã Quảng Uyên','0',4,127,1),(1594,'Xã Độc Lập','0',4,127,1),(1618,'Xã Hạnh Phúc','0',4,127,1),(1636,'Xã Bế Văn Đàn','0',4,127,1),(1648,'Xã Phục Hòa','0',4,127,1),(1654,'Xã Hòa An ','0',4,127,1),(1660,'Xã Nam Tuấn','0',4,127,1),(1699,'Xã Nguyễn Huệ','0',4,127,1),(1708,'Xã Bạch Đằng','0',4,127,1),(1726,'Xã Nguyên Bình','0',4,127,1),(1729,'Xã Tĩnh Túc','0',4,127,1),(1738,'Xã Ca Thành','0',4,127,1),(1747,'Xã Minh Tâm','0',4,127,1),(1768,'Xã Phan Thanh','0',4,127,1),(1774,'Xã Tam Kim','0',4,127,1),(1777,'Xã Thành Công','0',4,127,1),(1786,'Xã Đông Khê','0',4,127,1),(1789,'Xã Canh Tân','0',4,127,1),(1792,'Xã Kim Đồng','0',4,127,1),(1795,'Xã Minh Khai','0',4,127,1),(1807,'Xã Thạch An','0',4,127,1),(1822,'Xã Đức Long','0',4,127,1),(1840,'Phường Đức Xuân','0',19,127,1),(1843,'Phường Bắc Kạn','0',19,127,1),(1849,'Xã Phong Quang','0',19,127,1),(1864,'Xã Bằng Thành','0',19,127,1),(1879,'Xã Cao Minh','0',19,127,1),(1882,'Xã Nghiên Loan','0',19,127,1),(1894,'Xã Phúc Lộc','0',19,127,1),(1906,'Xã Ba Bể','0',19,127,1),(1912,'Xã Chợ Rã','0',19,127,1),(1921,'Xã Thượng Minh','0',19,127,1),(1933,'Xã Đồng Phúc','0',19,127,1),(1936,'Xã Nà Phặc','0',19,127,1),(1942,'Xã Bằng Vân','0',19,127,1),(1954,'Xã Ngân Sơn','0',19,127,1),(1957,'Xã Thượng Quan ','0',19,127,1),(1960,'Xã Hiệp Lực','0',19,127,1),(1969,'Xã Phủ Thông','0',19,127,1),(1981,'Xã Vĩnh Thông','0',19,127,1),(2008,'Xã Cẩm Giàng','0',19,127,1),(2014,'Xã Bạch Thông','0',19,127,1),(2020,'Xã Chợ Đồn','0',19,127,1),(2026,'Xã Nam Cường','0',19,127,1),(2038,'Xã Quảng Bạch','0',19,127,1),(2044,'Xã Yên Thịnh','0',19,127,1),(2071,'Xã Nghĩa Tá','0',19,127,1),(2083,'Xã Yên Phong','0',19,127,1),(2086,'Xã Chợ Mới','0',19,127,1),(2101,'Xã Thanh Mai','0',19,127,1),(2104,'Xã Tân Kỳ','0',19,127,1),(2107,'Xã Thanh Thịnh','0',19,127,1),(2116,'Xã Yên Bình','0',19,127,1),(2143,'Xã Văn Lang','0',19,127,1),(2152,'Xã Cường Lợi','0',19,127,1),(2155,'Xã Na Rì','0',19,127,1),(2176,'Xã Trần Phú','0',19,127,1),(2185,'Xã Côn Minh','0',19,127,1),(2191,'Xã Xuân Dương','0',19,127,1),(2212,'Phường Nông Tiến ','0',8,127,1),(2215,'Phường Minh Xuân ','0',8,127,1),(2221,'Xã Nà Hang','0',8,127,1),(2239,'Xã Thượng Nông ','0',8,127,1),(2245,'Xã Côn Lôn ','0',8,127,1),(2248,'Xã Yên Hoa ','0',8,127,1),(2260,'Xã Hồng Thái','0',8,127,1),(2266,'Xã Lâm Bình ','0',8,127,1),(2269,'Xã Thượng Lâm','0',8,127,1),(2287,'Xã Chiêm Hoá ','0',8,127,1),(2296,'Xã Bình An','0',8,127,1),(2302,'Xã Minh Quang ','0',8,127,1),(2305,'Xã Trung Hà','0',8,127,1),(2308,'Xã Tân Mỹ ','0',8,127,1),(2317,'Xã Yên Lập ','0',8,127,1),(2320,'Xã Tân An ','0',8,127,1),(2332,'Xã Kiên Đài ','0',8,127,1),(2350,'Xã Kim Bình ','0',8,127,1),(2353,'Xã Hoà An ','0',8,127,1),(2359,'Xã Tri Phú ','0',8,127,1),(2365,'Xã Yên Nguyên ','0',8,127,1),(2374,'Xã Hàm Yên ','0',8,127,1),(2380,'Xã Bạch Xa ','0',8,127,1),(2392,'Xã Phù Lưu ','0',8,127,1),(2398,'Xã Yên Phú ','0',8,127,1),(2404,'Xã Bình Xa ','0',8,127,1),(2407,'Xã Thái Sơn ','0',8,127,1),(2419,'Xã Thái Hoà ','0',8,127,1),(2425,'Xã Hùng Đức','0',8,127,1),(2434,'Xã Lực Hành ','0',8,127,1),(2437,'Xã Kiến Thiết','0',8,127,1),(2449,'Xã Xuân Vân ','0',8,127,1),(2455,'Xã Hùng Lợi ','0',8,127,1),(2458,'Xã Trung Sơn ','0',8,127,1),(2470,'Xã Tân Long ','0',8,127,1),(2473,'Xã Yên Sơn ','0',8,127,1),(2494,'Xã Thái Bình ','0',8,127,1),(2509,'Phường Mỹ Lâm ','0',8,127,1),(2512,'Phường An Tường ','0',8,127,1),(2524,'Phường Bình Thuận ','0',8,127,1),(2530,'Xã Nhữ Khê ','0',8,127,1),(2536,'Xã Sơn Dương ','0',8,127,1),(2545,'Xã Tân Trào ','0',8,127,1),(2548,'Xã Bình Ca','0',8,127,1),(2554,'Xã Minh Thanh ','0',8,127,1),(2572,'Xã Đông Thọ ','0',8,127,1),(2578,'Xã Tân Thanh ','0',8,127,1),(2608,'Xã Hồng Sơn ','0',8,127,1),(2611,'Xã Phú Lương ','0',8,127,1),(2620,'Xã Sơn Thuỷ','0',8,127,1),(2623,'Xã Trường Sinh ','0',8,127,1),(2647,'Phường Lào Cai ','0',15,127,1),(2674,'Phường Cam Đường','0',15,127,1),(2680,'Xã Hợp Thành ','0',15,127,1),(2683,'Xã Bát Xát','0',15,127,1),(2686,'Xã A Mú Sung','0',15,127,1),(2695,'Xã Trịnh Tường','0',15,127,1),(2701,'Xã Y Tý','0',15,127,1),(2707,'Xã Dền Sáng','0',15,127,1),(2725,'Xã Bản Xèo','0',15,127,1),(2728,'Xã Mường Hum','0',15,127,1),(2746,'Xã Cốc San','0',15,127,1),(2752,'Xã Pha Long','0',15,127,1),(2761,'Xã Mường Khương ','0',15,127,1),(2788,'Xã Bản Lầu','0',15,127,1),(2791,'Xã Cao Sơn ','0',15,127,1),(2809,'Xã Si Ma Cai','0',15,127,1),(2824,'Xã Sín Chéng ','0',15,127,1),(2839,'Xã Bắc Hà ','0',15,127,1),(2842,'Xã Tả Củ Tỷ ','0',15,127,1),(2848,'Xã Lùng Phình ','0',15,127,1),(2869,'Xã Bản Liền ','0',15,127,1),(2890,'Xã Bảo Nhai','0',15,127,1),(2896,'Xã Cốc Lầu ','0',15,127,1),(2902,'Xã Phong Hải ','0',15,127,1),(2905,'Xã Bảo Thắng ','0',15,127,1),(2908,'Xã Tằng Loỏng','0',15,127,1),(2923,'Xã Gia Phú ','0',15,127,1),(2926,'Xã Xuân Quang','0',15,127,1),(2947,'Xã Bảo Yên','0',15,127,1),(2953,'Xã Nghĩa Đô','0',15,127,1),(2962,'Xã Xuân Hòa','0',15,127,1),(2968,'Xã Thượng Hà','0',15,127,1),(2989,'Xã Bảo Hà ','0',15,127,1),(2998,'Xã Phúc Khánh ','0',15,127,1),(3004,'Xã Ngũ Chỉ Sơn','0',15,127,1),(3006,'Phường Sa Pa','0',15,127,1),(3013,'Xã Tả Phìn ','0',15,127,1),(3037,'Xã Tả Van','0',15,127,1),(3043,'Xã Mường Bo','0',15,127,1),(3046,'Xã Bản Hồ ','0',15,127,1),(3061,'Xã Võ Lao','0',15,127,1),(3076,'Xã Nậm Chày','0',15,127,1),(3082,'Xã Văn Bàn ','0',15,127,1),(3085,'Xã Nậm Xé','0',15,127,1),(3091,'Xã Chiềng Ken ','0',15,127,1),(3103,'Xã Khánh Yên','0',15,127,1),(3106,'Xã Dương Quỳ','0',15,127,1),(3121,'Xã Minh Lương','0',15,127,1),(3127,'Phường Điện Biên Phủ','0',11,127,1),(3151,'Phường Mường Lay','0',11,127,1),(3158,'Xã Sín Thầu','0',11,127,1),(3160,'Xã Mường Nhé','0',11,127,1),(3162,'Xã Nậm Kè','0',11,127,1),(3163,'Xã Mường Toong','0',11,127,1),(3164,'Xã Quảng Lâm','0',11,127,1),(3166,'Xã Mường Chà','0',11,127,1),(3169,'Xã Nà Hỳ','0',11,127,1),(3172,'Xã Na Sang','0',11,127,1),(3175,'Xã Chà Tở','0',11,127,1),(3176,'Xã Nà Bủng','0',11,127,1),(3181,'Xã Mường Tùng','0',11,127,1),(3193,'Xã Pa Ham','0',11,127,1),(3194,' Xã Nậm Nèn','0',11,127,1),(3199,'Xã Si Pa Phìn','0',11,127,1),(3202,'Xã Mường Pồn','0',11,127,1),(3203,'Xã Na Son','0',11,127,1),(3208,'Xã Xa Dung','0',11,127,1),(3214,'Xã Mường Luân','0',11,127,1),(3217,'Xã Tủa Chùa','0',11,127,1),(3220,'Xã Tủa Thàng','0',11,127,1),(3226,'Xã Sín Chải','0',11,127,1),(3241,'Xã Sính Phình','0',11,127,1),(3244,'Xã Sáng Nhè','0',11,127,1),(3253,'Xã Tuần Giáo','0',11,127,1),(3256,'Xã Mường Ảng','0',11,127,1),(3260,'Xã Pú Nhung','0',11,127,1),(3268,'Xã Mường Mùn','0',11,127,1),(3283,'Xã Chiềng Sinh','0',11,127,1),(3295,'Xã Quài Tở','0',11,127,1),(3301,'Xã Búng Lao','0',11,127,1),(3313,'Xã Mường Lạn','0',11,127,1),(3316,'Xã Nà Tấu','0',11,127,1),(3325,'Xã Mường Phăng','0',11,127,1),(3328,'Xã Thanh Nưa','0',11,127,1),(3334,'Phường Mường Thanh','0',11,127,1),(3349,'Xã Thanh Yên','0',11,127,1),(3352,'Xã Thanh An','0',11,127,1),(3356,'Xã Sam Mứn','0',11,127,1),(3358,'Xã Núa Ngam','0',11,127,1),(3368,'Xã Mường Nhà','0',11,127,1),(3370,'Xã Pu Nhi','0',11,127,1),(3382,'Xã Phình Giàng','0',11,127,1),(3385,'Xã Tìa Dình','0',11,127,1),(3388,'Phường Đoàn Kết','0',12,127,1),(3390,'Xã Bình Lư','0',12,127,1),(3394,'Xã Sin Suối Hồ','0',12,127,1),(3405,'Xã Tả Lèng','0',12,127,1),(3408,'Phường Tân Phong','0',12,127,1),(3424,'Xã Bản Bo','0',12,127,1),(3430,'Xã Khun Há','0',12,127,1),(3433,'Xã Bum Tở','0',12,127,1),(3434,'Xã Nậm Hàng','0',12,127,1),(3439,'Xã Thu Lũm','0',12,127,1),(3442,'Xã Pa Ủ','0',12,127,1),(3445,'Xã Mường Tè','0',12,127,1),(3451,'Xã Mù Cả','0',12,127,1),(3460,'Xã Hua Bum','0',12,127,1),(3463,'Xã Tà Tổng','0',12,127,1),(3466,'Xã Bum Nưa','0',12,127,1),(3472,'Xã Mường Mô','0',12,127,1),(3478,'Xã Sìn Hồ','0',12,127,1),(3487,'Xã Lê Lợi','0',12,127,1),(3503,'Xã Pa Tần','0',12,127,1),(3508,'Xã Hồng Thu','0',12,127,1),(3517,'Xã Nậm Tăm','0',12,127,1),(3529,'Xã Tủa Sín Chải','0',12,127,1),(3532,'Xã Pu Sam Cáp','0',12,127,1),(3538,'Xã Nậm Mạ','0',12,127,1),(3544,'Xã Nậm Cuổi','0',12,127,1),(3549,'Xã Phong Thổ','0',12,127,1),(3562,'Xã Sì Lở Lầu','0',12,127,1),(3571,'Xã Dào San','0',12,127,1),(3583,'Xã Khổng Lào','0',12,127,1),(3595,'Xã Than Uyên','0',12,127,1),(3598,'Xã Tân Uyên','0',12,127,1),(3601,'Xã Mường Khoa','0',12,127,1),(3613,'Xã Nậm Sỏ','0',12,127,1),(3616,'Xã Pắc Ta','0',12,127,1),(3618,'Xã Mường Than','0',12,127,1),(3637,'Xã Mường Kim','0',12,127,1),(3640,'Xã Khoen On','0',12,127,1),(3646,'Phường Tô Hiệu ','0',14,127,1),(3667,'Phường Chiềng An ','0',14,127,1),(3670,'Phường Chiềng Cơi ','0',14,127,1),(3679,'Phường Chiềng Sinh ','0',14,127,1),(3688,'Xã Mường Chiên','0',14,127,1),(3694,'Xã Mường Giôn','0',14,127,1),(3703,'Xã Quỳnh Nhai','0',14,127,1),(3712,'Xã Mường Sại','0',14,127,1),(3721,'Xã Thuận Châu','0',14,127,1),(3724,'Xã Bình Thuận','0',14,127,1),(3727,'Xã Mường É','0',14,127,1),(3754,'Xã Chiềng La','0',14,127,1),(3757,'Xã Mường Khiêng','0',14,127,1),(3760,'Xã Mường Bám','0',14,127,1),(3763,'Xã Long Hẹ','0',14,127,1),(3781,'Xã Co Mạ','0',14,127,1),(3784,'Xã Nậm Lầu','0',14,127,1),(3799,'Xã Muổi Nọi ','0',14,127,1),(3808,'Xã Mường La','0',14,127,1),(3814,'Xã Chiềng Lao','0',14,127,1),(3820,'Xã Ngọc Chiến','0',14,127,1),(3847,'Xã Mường Bú','0',14,127,1),(3850,'Xã Chiềng Hoa','0',14,127,1),(3856,'Xã Bắc Yên','0',14,127,1),(3862,'Xã Xím Vàng','0',14,127,1),(3868,'Xã Tà Xùa','0',14,127,1),(3871,'Xã Pắc Ngà','0',14,127,1),(3880,'Xã Tạ Khoa','0',14,127,1),(3892,'Xã Chiềng Sại','0',14,127,1),(3901,'Xã Suối Tọ','0',14,127,1),(3907,'Xã Mường Cơi','0',14,127,1),(3910,'Xã Phù Yên','0',14,127,1),(3922,'Xã Gia Phù','0',14,127,1),(3943,'Xã Mường Bang','0',14,127,1),(3958,'Xã Tường Hạ','0',14,127,1),(3961,'Xã Kim Bon','0',14,127,1),(3970,'Xã Tân Phong','0',14,127,1),(3979,'Phường Mộc Sơn','0',14,127,1),(3980,'Phường Mộc Châu','0',14,127,1),(3982,'Phường Thảo Nguyên','0',14,127,1),(3985,'Xã Chiềng Sơn','0',14,127,1),(3997,'Xã Tân Yên','0',14,127,1),(4000,'Xã Đoàn Kết','0',14,127,1),(4006,'Xã Song Khủa','0',14,127,1),(4018,'Xã Tô Múa','0',14,127,1),(4033,'Phường Vân Sơn','0',14,127,1),(4045,'Xã Lóng Sập','0',14,127,1),(4048,'Xã Vân Hồ','0',14,127,1),(4057,'Xã Xuân Nha','0',14,127,1),(4075,'Xã Yên Châu','0',14,127,1),(4078,'Xã Chiềng Hặc','0',14,127,1),(4087,'Xã Yên Sơn','0',14,127,1),(4096,'Xã Lóng Phiêng','0',14,127,1),(4099,'Xã Phiêng Khoài','0',14,127,1),(4105,'Xã Mai Sơn','0',14,127,1),(4108,'Xã Chiềng Sung','0',14,127,1),(4117,'Xã Mường Chanh','0',14,127,1),(4123,'Xã Chiềng Mung','0',14,127,1),(4132,'Xã Chiềng Mai','0',14,127,1),(4136,'Xã Tà Hộc','0',14,127,1),(4144,'Xã Phiêng Cằm','0',14,127,1),(4159,'Xã Phiêng Pằn','0',14,127,1),(4168,'Xã Sông Mã','0',14,127,1),(4171,'Xã Bó Sinh','0',14,127,1),(4183,'Xã Mường Lầm','0',14,127,1),(4186,'Xã Nậm Ty','0',14,127,1),(4195,'Xã Chiềng Sơ','0',14,127,1),(4204,'Xã Chiềng Khoong','0',14,127,1),(4210,'Xã Huổi Một','0',14,127,1),(4219,'Xã Mường Hung','0',14,127,1),(4222,'Xã Chiềng Khương','0',14,127,1),(4228,'Xã Púng Bánh','0',14,127,1),(4231,'Xã Sốp Cộp','0',14,127,1),(4240,'Xã Mường Lèo','0',14,127,1),(4246,'Xã Mường Lạn','0',14,127,1),(4252,'Phường Yên Bái','0',15,127,1),(4273,'Phường Nam Cường','0',15,127,1),(4279,'Phường Văn Phú','0',15,127,1),(4288,'Phường Nghĩa Lộ','0',15,127,1),(4303,'Xã Lục Yên','0',15,127,1),(4318,'Xã Lâm Thượng','0',15,127,1),(4333,'Xã Khánh Hòa','0',15,127,1),(4336,'Xã Tân Lĩnh','0',15,127,1),(4345,'Xã Mường Lai','0',15,127,1),(4363,'Xã Phúc Lợi','0',15,127,1),(4375,'Xã Mậu A','0',15,127,1),(4381,'Xã Lâm Giang','0',15,127,1),(4387,'Xã Châu Quế','0',15,127,1),(4399,'Xã Đông Cuông','0',15,127,1),(4402,'Xã Phong Dụ Hạ','0',15,127,1),(4423,'Xã Phong Dụ Thượng','0',15,127,1),(4429,'Xã Tân Hợp','0',15,127,1),(4441,'Xã Xuân Ái','0',15,127,1),(4450,'Xã Mỏ Vàng','0',15,127,1),(4456,'Xã Mù Cang Chải','0',15,127,1),(4462,'Xã Nậm Có','0',15,127,1),(4465,'Xã Khao Mang','0',15,127,1),(4474,'Xã Lao Chải','0',15,127,1),(4489,'Xã Chế Tạo','0',15,127,1),(4492,'Xã Púng Luông','0',15,127,1),(4498,'Xã Trấn Yên','0',15,127,1),(4531,'Xã Quy Mông','0',15,127,1),(4537,'Xã Lương Thịnh','0',15,127,1),(4543,'Phường Âu Lâu','0',15,127,1),(4564,'Xã Việt Hồng','0',15,127,1),(4576,'Xã Hưng Khánh','0',15,127,1),(4585,'Xã Hạnh Phúc','0',15,127,1),(4591,'Xã Trạm Tấu','0',15,127,1),(4603,'Xã Tà Xi Láng','0',15,127,1),(4609,'Xã Phình Hồ','0',15,127,1),(4630,'Xã Tú Lệ','0',15,127,1),(4636,'Xã Gia Hội','0',15,127,1),(4651,'Xã Sơn Lương','0',15,127,1),(4660,'Xã Liên Sơn','0',15,127,1),(4663,'Phường Trung Tâm','0',15,127,1),(4672,'Xã Văn Chấn','0',15,127,1),(4678,'Phường Cầu Thia','0',15,127,1),(4693,'Xã Cát Thịnh','0',15,127,1),(4699,'Xã Chấn Thịnh','0',15,127,1),(4705,'Xã Thượng Bằng La','0',15,127,1),(4711,'Xã Nghĩa Tâm','0',15,127,1),(4714,'Xã Yên Bình','0',15,127,1),(4717,'Xã Thác Bà','0',15,127,1),(4726,'Xã Cảm Nhân','0',15,127,1),(4744,'Xã Yên Thành','0',15,127,1),(4750,'Xã Bảo Ái','0',15,127,1),(4792,'Phường Tân Hòa','0',25,127,1),(4795,'Phường Hòa Bình ','0',25,127,1),(4828,'Phường Thống Nhất','0',25,127,1),(4831,'Xã Đà Bắc','0',25,127,1),(4846,'Xã Đức Nhàn','0',25,127,1),(4849,'Xã Tân Pheo','0',25,127,1),(4873,'Xã Quy Đức','0',25,127,1),(4876,'Xã Cao Sơn','0',25,127,1),(4891,'Xã Tiền Phong','0',25,127,1),(4894,'Phường Kỳ Sơn','0',25,127,1),(4897,'Xã Thịnh Minh','0',25,127,1),(4924,'Xã Lương Sơn','0',25,127,1),(4936,'Xã Yên Xuân','0',1,97,1),(4960,'Xã Liên Sơn','0',25,127,1),(4978,'Xã Kim Bôi','0',25,127,1),(4990,'Xã Nật Sơn','0',25,127,1),(5014,'Xã Mường Động','0',25,127,1),(5047,'Xã Cao Dương','0',25,127,1),(5068,'Xã Hợp Kim','0',25,127,1),(5086,'Xã Dũng Tiến','0',25,127,1),(5089,'Xã Cao Phong','0',25,127,1),(5098,'Xã Thung Nai','0',25,127,1),(5116,'Xã Mường Thàng','0',25,127,1),(5128,'Xã Tân Lạc','0',25,127,1),(5134,'Xã Mường Hoa','0',25,127,1),(5152,'Xã Vân Sơn','0',25,127,1),(5158,'Xã Mường Bi','0',25,127,1),(5191,'Xã Toàn Thắng','0',25,127,1),(5200,'Xã Mai Châu','0',25,127,1),(5206,'Xã Tân Mai','0',25,127,1),(5212,'Xã Pà Cò','0',25,127,1),(5245,'Xã Bao La','0',25,127,1),(5251,'Xã Mai Hạ','0',25,127,1),(5266,'Xã Lạc Sơn','0',25,127,1),(5287,'Xã Mường Vang','0',25,127,1),(5290,'Xã Nhân Nghĩa','0',25,127,1),(5293,'Xã Thượng Cốc','0',25,127,1),(5305,'Xã Yên Phú','0',25,127,1),(5323,'Xã Quyết Thắng','0',25,127,1),(5329,'Xã Ngọc Sơn','0',25,127,1),(5347,'Xã Đại Đồng','0',25,127,1),(5353,'Xã Yên Thủy','0',25,127,1),(5362,'Xã Lạc Lương','0',25,127,1),(5386,'Xã Yên Trị','0',25,127,1),(5392,'Xã Lạc Thủy','0',25,127,1),(5395,'Xã An Nghĩa','0',25,127,1),(5425,'Xã An Bình','0',25,127,1),(5443,'Phường Phan Đình Phùng ','0',19,127,1),(5455,'Phường Quyết Thắng','0',19,127,1),(5467,'Phường Gia Sàng','0',19,127,1),(5482,'Phường Quan Triều','0',19,127,1),(5488,'Xã Đại Phúc','0',19,127,1),(5500,'Phường Tích Lương','0',19,127,1),(5503,'Xã Tân Cương','0',19,127,1),(5518,'Phường Sông Công','0',19,127,1),(5528,'Phường Bách Quang','0',19,127,1),(5533,'Phường Bá Xuyên','0',19,127,1),(5542,'Xã Lam Vỹ','0',19,127,1),(5551,'Xã Kim Phượng','0',19,127,1),(5563,'Xã Phượng Tiến','0',19,127,1),(5569,'Xã Định Hóa','0',19,127,1),(5581,'Xã Trung Hội','0',19,127,1),(5587,'Xã Bình Yên','0',19,127,1),(5602,'Xã Phú Đình','0',19,127,1),(5605,'Xã Bình Thành','0',19,127,1),(5611,'Xã Phú Lương','0',19,127,1),(5620,'Xã Yên Trạch','0',19,127,1),(5632,'Xã Hợp Thành','0',19,127,1),(5641,'Xã Vô Tranh','0',19,127,1),(5662,'Xã Trại Cau','0',19,127,1),(5665,'Xã Văn Lăng','0',19,127,1),(5674,'Xã Quang Sơn','0',19,127,1),(5680,'Xã Văn Hán','0',19,127,1),(5692,'Xã Đồng Hỷ','0',19,127,1),(5707,'Xã Nam Hòa','0',19,127,1),(5710,'Phường Linh Sơn ','0',19,127,1),(5716,'Xã Võ Nhai','0',19,127,1),(5719,'Xã Sảng Mộc ','0',19,127,1),(5722,'Xã Nghinh Tường','0',19,127,1),(5725,'Xã Thần Sa','0',19,127,1),(5740,'Xã La Hiên','0',19,127,1),(5746,'Xã Tràng Xá','0',19,127,1),(5755,'Xã Dân Tiến','0',19,127,1),(5773,'Xã Phú Xuyên','0',19,127,1),(5776,'Xã Đức Lương','0',19,127,1),(5794,'Xã Phú Lạc','0',19,127,1),(5800,'Xã Phú Thịnh','0',19,127,1),(5809,'Xã An Khánh','0',19,127,1),(5818,'Xã La Bằng','0',19,127,1),(5830,'Xã Đại Từ','0',19,127,1),(5845,'Xã Vạn Phú','0',19,127,1),(5851,'Xã Quân Chu','0',19,127,1),(5857,'Phường Phúc Thuận','0',19,127,1),(5860,'Phường Phổ Yên','0',19,127,1),(5881,'Xã Thành Công','0',19,127,1),(5890,'Phường Vạn Xuân','0',19,127,1),(5899,'Phường Trung Thành','0',19,127,1),(5908,'Xã Phú Bình','0',19,127,1),(5917,'Xã Tân Khánh','0',19,127,1),(5923,'Xã Tân Thành','0',19,127,1),(5941,'Xã Điềm Thụy','0',19,127,1),(5953,'Xã Kha Sơn','0',19,127,1),(5977,'Phường Đông Kinh','0',20,127,1),(5983,'Phường Lương Văn Tri','0',20,127,1),(5986,'Phường Tam Thanh','0',20,127,1),(6001,'Xã Đoàn Kết','0',20,127,1),(6016,'Xã Quốc Khánh ','0',20,127,1),(6019,'Xã Tân Tiến','0',20,127,1),(6037,'Xã Kháng Chiến','0',20,127,1),(6040,'Xã Thất Khê','0',20,127,1),(6046,'Xã Tràng Định','0',20,127,1),(6058,'Xã Quốc Việt','0',20,127,1),(6073,'Xã Hoa Thám','0',20,127,1),(6076,'Xã Quý Hòa','0',20,127,1),(6079,'Xã Hồng Phong','0',20,127,1),(6085,'Xã Thiện Hòa','0',20,127,1),(6091,'Xã Thiện Thuật ','0',20,127,1),(6103,'Xã Thiện Long','0',20,127,1),(6112,'Xã Bình Gia','0',20,127,1),(6115,'Xã Tân Văn ','0',20,127,1),(6148,'Xã Thụy Hùng','0',20,127,1),(6151,'Xã Hội Hoan','0',20,127,1),(6154,'Xã Văn Lãng','0',20,127,1),(6172,'Xã Tân Thanh','0',20,127,1),(6184,'Xã Đồng Đăng','0',20,127,1),(6187,'Phường Hoàng Văn Thụ','0',20,127,1),(6193,'Xã Cao Lộc','0',20,127,1),(6202,'Xã Ba Sơn','0',20,127,1),(6214,'Xã Na Sầm','0',20,127,1),(6220,'Xã Công Sơn','0',20,127,1),(6253,'Xã Văn Quan','0',20,127,1),(6280,'Xã Điềm He','0',20,127,1),(6286,'Xã Khánh Khê','0',20,127,1),(6298,'Xã Yên Phúc','0',20,127,1),(6313,'Xã Tri Lễ','0',20,127,1),(6316,'Xã Tân Đoàn','0',20,127,1),(6325,'Xã Bắc Sơn','0',20,127,1),(6337,'Xã Tân Tri','0',20,127,1),(6349,'Xã Hưng Vũ','0',20,127,1),(6364,'Xã Vũ Lễ','0',20,127,1),(6367,'Xã Vũ Lăng','0',20,127,1),(6376,'Xã Nhất Hòa','0',20,127,1),(6385,'Xã Hữu Lũng','0',20,127,1),(6391,'Xã Yên Bình','0',20,127,1),(6400,'Xã Hữu Liên','0',20,127,1),(6415,'Xã Vân Nham','0',20,127,1),(6421,'Xã Thiện Tân','0',20,127,1),(6427,'Xã Cai Kinh','0',20,127,1),(6445,'Xã Tân Thành','0',20,127,1),(6457,'Xã Tuấn Sơn','0',20,127,1),(6463,'Xã Chi Lăng','0',20,127,1),(6475,'Xã Bằng Mạc','0',20,127,1),(6481,'Xã Chiến Thắng','0',20,127,1),(6496,'Xã Nhân Lý','0',20,127,1),(6505,'Xã Vạn Linh','0',20,127,1),(6517,'Xã Quan Sơn','0',20,127,1),(6526,'Xã Na Dương','0',20,127,1),(6529,'Xã Lộc Bình','0',20,127,1),(6541,'Xã Mẫu Sơn','0',20,127,1),(6565,'Xã Khuất Xá','0',20,127,1),(6577,'Xã Thống Nhất','0',20,127,1),(6601,'Xã Lợi Bác','0',20,127,1),(6607,'Xã Xuân Dương','0',20,127,1),(6613,'Xã Đình Lập','0',20,127,1),(6616,'Xã Thái Bình','0',20,127,1),(6625,'Xã Kiên Mộc','0',20,127,1),(6637,'Xã Châu Sơn ','0',20,127,1),(6652,'Phường Hà Tu','0',22,127,1),(6658,'Phường Cao Xanh','0',22,127,1),(6661,'Phường Việt Hưng','0',22,127,1),(6673,'Phường Bãi Cháy','0',22,127,1),(6676,'Phường Hà Lầm','0',22,127,1),(6685,'Phường Hồng Gai','0',22,127,1),(6688,'Phường Hạ Long','0',22,127,1),(6706,'Phường Tuần Châu','0',22,127,1),(6709,'Phường Móng Cái 2','0',22,127,1),(6712,'Phường Móng Cái 1','0',22,127,1),(6724,'Xã Hải Sơn','0',22,127,1),(6733,'Xã Hải Ninh','0',22,127,1),(6736,'Phường Móng Cái 3','0',22,127,1),(6757,'Xã Vĩnh Thực','0',22,127,1),(6760,'Phường Mông Dương','0',22,127,1),(6778,'Phường Quang Hanh','0',22,127,1),(6781,'Phường Cửa Ông','0',22,127,1),(6793,'Phường Cẩm Phả','0',22,127,1),(6799,'Xã Hải Hòa','0',22,127,1),(6811,'Phường Uông Bí','0',22,127,1),(6820,'Phường Vàng Danh','0',22,127,1),(6832,'Phường Yên Tử','0',22,127,1),(6838,'Xã Bình Liêu','0',22,127,1),(6841,'Xã Hoành Mô','0',22,127,1),(6856,'Xã Lục Hồn','0',22,127,1),(6862,'Xã Tiên Yên','0',22,127,1),(6874,'Xã Điền Xá','0',22,127,1),(6877,'Xã Đông Ngũ','0',22,127,1),(6886,'Xã Hải Lạng','0',22,127,1),(6895,'Xã Đầm Hà','0',22,127,1),(6913,'Xã Quảng Tân','0',22,127,1),(6922,'Xã Quảng Hà','0',22,127,1),(6931,'Xã Quảng Đức','0',22,127,1),(6946,'Xã Đường Hoa','0',22,127,1),(6967,'Xã Cái Chiên','0',22,127,1),(6970,'Xã Ba Chẽ','0',22,127,1),(6979,'Xã Kỳ Thượng','0',22,127,1),(6985,'Xã Lương Minh','0',22,127,1),(6994,' Đặc khu Vân Đồn','0',22,127,1),(7030,'Phường Hoành Bồ','0',22,127,1),(7054,'Xã Quảng La','0',22,127,1),(7060,'Xã Thống Nhất','0',22,127,1),(7069,'Phường Mạo Khê','0',22,127,1),(7081,'Phường Bình Khê','0',22,127,1),(7090,'Phường An Sinh','0',22,127,1),(7093,'Phường Đông Triều','0',22,127,1),(7114,'Phường Hoàng Quế','0',22,127,1),(7132,'Phường Quảng Yên','0',22,127,1),(7135,'Phường Đông Mai','0',22,127,1),(7147,'Phường Hiệp Hòa','0',22,127,1),(7168,'Phường Hà An','0',22,127,1),(7180,'Phường Liên Hòa','0',22,127,1),(7183,'Phường Phong Cốc','0',22,127,1),(7192,' Đặc khu Cô Tô','0',22,127,1),(7210,'Phường Bắc Giang','0',24,127,1),(7228,'Phường Đa Mai','0',24,127,1),(7246,'Xã Xuân Lương','0',24,127,1),(7264,'Xã Tam Tiến','0',24,127,1),(7282,'Xã Đồng Kỳ','0',24,127,1),(7288,'Xã Yên Thế','0',24,127,1),(7294,'Xã Bố Hạ','0',24,127,1),(7306,'Xã Nhã Nam','0',24,127,1),(7330,'Xã Phúc Hòa','0',24,127,1),(7333,'Xã Quang Trung','0',24,127,1),(7339,'Xã Tân Yên','0',24,127,1),(7351,'Xã Ngọc Thiện','0',24,127,1),(7375,'Xã Lạng Giang','0',24,127,1),(7381,'Xã Tiên Lục','0',24,127,1),(7399,'Xã Kép','0',24,127,1),(7420,'Xã Mỹ Thái','0',24,127,1),(7432,'Xã Tân Dĩnh','0',24,127,1),(7444,'Xã Lục Nam','0',24,127,1),(7450,'Xã Đông Phú','0',24,127,1),(7462,'Xã Bảo Đài','0',24,127,1),(7486,'Xã Nghĩa Phương','0',24,127,1),(7489,'Xã Trường Sơn','0',24,127,1),(7492,'Xã Lục Sơn','0',24,127,1),(7498,'Xã Bắc Lũng','0',24,127,1),(7519,'Xã Cẩm Lý','0',24,127,1),(7525,'Phường Chũ','0',24,127,1),(7531,'Xã Tân Sơn','0',24,127,1),(7534,'Xã Sa Lý','0',24,127,1),(7537,'Xã Biên Sơn','0',24,127,1),(7543,'Xã Sơn Hải','0',24,127,1),(7552,'Xã Kiên Lao','0',24,127,1),(7573,'Xã Biển Động','0',24,127,1),(7582,'Xã Lục Ngạn','0',24,127,1),(7594,'Xã Đèo Gia','0',24,127,1),(7603,'Xã Nam Dương','0',24,127,1),(7612,'Phường Phượng Sơn','0',24,127,1),(7615,'Xã Sơn Động','0',24,127,1),(7616,'Xã Tây Yên Tử','0',24,127,1),(7621,'Xã Vân Sơn','0',24,127,1),(7627,'Xã Đại Sơn','0',24,127,1),(7642,'Xã Yên Định','0',24,127,1),(7654,'Xã An Lạc','0',24,127,1),(7663,'Xã Tuấn Đạo ','0',24,127,1),(7672,'Xã Dương Hưu','0',24,127,1),(7681,'Phường Yên Dũng','0',24,127,1),(7682,'Phường Tân An','0',24,127,1),(7696,'Phường Tiền Phong','0',24,127,1),(7699,'Phường Tân Tiến','0',24,127,1),(7735,'Xã Đồng Việt','0',24,127,1),(7738,'Phường Cảnh Thụy','0',24,127,1),(7774,'Phường Tự Lạn','0',24,127,1),(7777,'Phường Việt Yên','0',24,127,1),(7795,'Phường Nếnh','0',24,127,1),(7798,'Phường Vân Hà','0',24,127,1),(7822,'Xã Hoàng Vân','0',24,127,1),(7840,'Xã Hiệp Hoà','0',24,127,1),(7864,'Xã Hợp Thịnh','0',24,127,1),(7870,'Xã Xuân Cẩm','0',24,127,1),(7894,'Phường Nông Trang','0',25,127,1),(7900,'Phường Việt Trì','0',25,127,1),(7909,'Phường Thanh Miếu','0',25,127,1),(7918,'Phường Vân Phú','0',25,127,1),(7942,'Phường Phú Thọ','0',25,127,1),(7948,'Phường Âu Cơ','0',25,127,1),(7954,'Phường Phong Châu','0',25,127,1),(7969,'Xã Đoan Hùng','0',25,127,1),(7996,'Xã Bằng Luân','0',25,127,1),(7999,'Xã Chí Đám','0',25,127,1),(8023,'Xã Tây Cốc','0',25,127,1),(8035,'Xã Chân Mộng','0',25,127,1),(8053,'Xã Hạ Hòa','0',25,127,1),(8071,'Xã Đan Thượng','0',25,127,1),(8110,'Xã Hiền Lương','0',25,127,1),(8113,'Xã Yên Kỳ','0',25,127,1),(8134,'Xã Văn Lang','0',25,127,1),(8143,'Xã Vĩnh Chân','0',25,127,1),(8152,'Xã Thanh Ba','0',25,127,1),(8161,'Xã Quảng Yên','0',25,127,1),(8203,'Xã Hoàng Cương','0',25,127,1),(8209,'Xã Đông Thành','0',25,127,1),(8215,'Xã Chí Tiên','0',25,127,1),(8227,'Xã Liên Minh','0',25,127,1),(8230,'Xã Phù Ninh ','0',25,127,1),(8236,'Xã Phú Mỹ ','0',25,127,1),(8245,'Xã Trạm Thản','0',25,127,1),(8254,'Xã Dân Chủ','0',25,127,1),(8275,'Xã Bình Phú','0',25,127,1),(8290,'Xã Yên Lập','0',25,127,1),(8296,'Xã Sơn Lương ','0',25,127,1),(8305,'Xã Xuân Viên','0',25,127,1),(8311,'Xã Trung Sơn','0',25,127,1),(8323,'Xã Thượng Long','0',25,127,1),(8338,'Xã Minh Hòa  ','0',25,127,1),(8341,'Xã Cẩm Khê','0',25,127,1),(8344,'Xã Tiên Lương','0',25,127,1),(8380,'Xã Vân Bán','0',25,127,1),(8398,'Xã Phú Khê','0',25,127,1),(8416,'Xã Hùng Việt','0',25,127,1),(8431,'Xã Đồng Lương','0',25,127,1),(8434,'Xã Tam Nông','0',25,127,1),(8443,'Xã Hiền Quan','0',25,127,1),(8461,'Xã Vạn Xuân ','0',25,127,1),(8479,'Xã Thọ Văn','0',25,127,1),(8494,'Xã Lâm Thao','0',25,127,1),(8497,'Xã Xuân Lũng','0',25,127,1),(8515,'Xã Hy Cương','0',25,127,1),(8521,'Xã Phùng Nguyên','0',25,127,1),(8527,'Xã Bản Nguyên','0',25,127,1),(8542,'Xã Thanh Sơn','0',25,127,1),(8545,'Xã Thu Cúc','0',25,127,1),(8560,'Xã Lai Đồng','0',25,127,1),(8566,'Xã Tân Sơn','0',25,127,1),(8584,'Xã Võ Miếu','0',25,127,1),(8590,'Xã Xuân Đài','0',25,127,1),(8593,'Xã Minh Đài','0',25,127,1),(8611,'Xã Văn Miếu','0',25,127,1),(8614,'Xã Cự Đồng','0',25,127,1),(8620,'Xã Long Cốc','0',25,127,1),(8632,'Xã Hương Cần','0',25,127,1),(8635,'Xã Khả Cửu','0',25,127,1),(8656,'Xã Yên Sơn','0',25,127,1),(8662,'Xã Đào Xá','0',25,127,1),(8674,'Xã Thanh Thuỷ','0',25,127,1),(8686,'Xã Tu Vũ','0',25,127,1),(8707,'Phường Vĩnh Yên','0',25,127,1),(8716,'Phường Vĩnh Phúc','0',25,127,1),(8740,'Phường Phúc Yên','0',25,127,1),(8749,'Phường Xuân Hòa','0',25,127,1),(8761,'Xã Lập Thạch','0',25,127,1),(8770,'Xã Hợp Lý','0',25,127,1),(8773,'Xã Yên Lãng','0',25,127,1),(8782,'Xã Hải Lựu','0',25,127,1),(8788,'Xã Thái Hòa','0',25,127,1),(8812,'Xã Liên Hòa','0',25,127,1),(8824,'Xã Tam Sơn','0',25,127,1),(8842,'Xã Tiên Lữ','0',25,127,1),(8848,'Xã Sông Lô ','0',25,127,1),(8866,'Xã Sơn Đông ','0',25,127,1),(8869,'Xã Tam Dương','0',25,127,1),(8872,'Xã Tam Dương Bắc','0',25,127,1),(8896,'Xã Hoàng An','0',25,127,1),(8905,'Xã Hội Thịnh','0',25,127,1),(8911,'Xã Tam Đảo','0',25,127,1),(8914,'Xã Đạo Trù','0',25,127,1),(8923,'Xã Đại Đình','0',25,127,1),(8935,'Xã Bình Nguyên ','0',25,127,1),(8944,'Xã Bình Tuyền','0',25,127,1),(8950,'Xã Bình Xuyên','0',25,127,1),(8971,'Xã Xuân Lãng','0',25,127,1),(8974,'Xã Quang Minh','0',1,121,1),(8980,'Xã Yên Lãng','0',1,119,1),(8995,'Xã Tiến Thắng','0',1,120,1),(9022,'Xã Mê Linh','0',1,118,1),(9025,'Xã Yên Lạc ','0',25,127,1),(9040,'Xã Tề Lỗ ','0',25,127,1),(9043,'Xã Tam Hồng','0',25,127,1),(9052,'Xã Nguyệt Đức','0',25,127,1),(9064,'Xã Liên Châu','0',25,127,1),(9076,'Xã Vĩnh Tường ','0',25,127,1),(9079,'Xã Vĩnh An','0',25,127,1),(9100,'Xã Vĩnh Hưng','0',25,127,1),(9106,'Xã Vĩnh Thành','0',25,127,1),(9112,'Xã Thổ Tang ','0',25,127,1),(9154,'Xã Vĩnh Phú','0',25,127,1),(9169,'Phường Vũ Ninh','0',24,127,1),(9187,'Phường Kinh Bắc','0',24,127,1),(9190,'Phường Võ Cường','0',24,127,1),(9193,'Xã Yên Phong','0',24,127,1),(9202,'Xã Tam Giang','0',24,127,1),(9205,'Xã Yên Trung','0',24,127,1),(9208,'Xã Tam Đa','0',24,127,1),(9238,'Xã Văn Môn','0',24,127,1),(9247,'Phường Quế Võ','0',24,127,1),(9253,'Phường Nhân Hòa','0',24,127,1),(9265,'Phường Phương Liễu','0',24,127,1),(9286,'Phường Nam Sơn','0',24,127,1),(9292,'Xã Phù Lãng','0',24,127,1),(9295,'Phường Bồng Lai','0',24,127,1),(9301,'Phường Đào Viên','0',24,127,1),(9313,'Xã Chi Lăng','0',24,127,1),(9319,'Xã Tiên Du','0',24,127,1),(9325,'Phường Hạp Lĩnh','0',24,127,1),(9334,'Xã Liên Bão','0',24,127,1),(9340,'Xã Đại Đồng','0',24,127,1),(9343,'Xã Tân Chi','0',24,127,1),(9349,'Xã Phật Tích','0',24,127,1),(9367,'Phường Từ Sơn','0',24,127,1),(9373,'Phường Phù Khê','0',24,127,1),(9376,'Phường Tam Sơn','0',24,127,1),(9382,'Phường Đồng Nguyên','0',24,127,1),(9400,'Phường Thuận Thành','0',24,127,1),(9409,'Phường Mão Điền','0',24,127,1),(9427,'Phường Trí Quả','0',24,127,1),(9430,'Phường Trạm Lộ','0',24,127,1),(9433,'Phường Song Liễu','0',24,127,1),(9445,'Phường Ninh Xá','0',24,127,1),(9454,'Xã Gia Bình','0',24,127,1),(9466,'Xã Cao Đức','0',24,127,1),(9469,'Xã Đại Lai','0',24,127,1),(9475,'Xã Nhân Thắng','0',24,127,1),(9487,'Xã Đông Cứu','0',24,127,1),(9496,'Xã Lương Tài','0',24,127,1),(9499,'Xã Trung Kênh','0',24,127,1),(9523,'Xã Trung Chính','0',24,127,1),(9529,'Xã Lâm Thao','0',24,127,1),(9552,'Phường Kiến Hưng','0',1,47,1),(9556,'Phường Hà Đông','0',1,43,1),(9562,'Phường Yên Nghĩa','0',1,45,1),(9568,'Phường Phú Lương','0',1,46,1),(9574,'Phường Sơn Tây','0',1,87,1),(9604,'Phường Tùng Thiện','0',1,88,1),(9616,'Xã Đoài Phương','0',1,89,1),(9619,'Xã Quảng Oai','0',1,80,1),(9634,'Xã Cổ Đô','0',1,82,1),(9661,'Xã Minh Châu','0',1,79,1),(9664,'Xã Vật Lại','0',1,81,1),(9676,'Xã Bất Bạt','0',1,83,1),(9694,'Xã Suối Hai','0',1,84,1),(9700,'Xã Ba Vì','0',1,85,1),(9706,'Xã Yên Bài','0',1,86,1),(9715,'Xã Phúc Thọ','0',1,90,1),(9739,'Xã Phúc Lộc','0',1,91,1),(9772,'Xã Hát Môn','0',1,92,1),(9784,'Xã Đan Phượng','0',1,106,1),(9793,'Xã Liên Minh','0',1,108,1),(9817,'Xã Ô Diên','0',1,107,1),(9832,'Xã Hoài Đức','0',1,102,1),(9838,'Xã Dương Hòa','0',1,103,1),(9859,'Xã Sơn Đồng','0',1,104,1),(9877,'Xã An Khánh','0',1,105,1),(9886,'Phường Dương Nội','0',1,44,1),(9895,'Xã Quốc Oai','0',1,98,1),(9922,'Xã Phú Cát','0',1,101,1),(9928,'Xã Kiều Phú','0',1,100,1),(9931,'Xã Hưng Đạo','0',1,99,1),(9955,'Xã Thạch Thất','0',1,93,1),(9988,'Xã Hòa Lạc','0',1,96,1),(10006,'Xã Tây Phương','0',1,95,1),(10009,'Xã Hạ Bằng','0',1,94,1),(10015,'Phường Chương Mỹ','0',1,73,1),(10018,'Xã Xuân Mai','0',1,75,1),(10030,'Xã Phú Nghĩa','0',1,74,1),(10081,'Xã Trần Phú','0',1,76,1),(10084,'Xã Quảng Bị','0',1,78,1),(10108,'Xã Hòa Phú','0',1,77,NULL),(10114,'Xã Thanh Oai','0',1,61,NULL),(10141,'Xã Bình Minh','0',1,62,NULL),(10144,'Xã Tam Hưng','0',1,63,NULL),(10180,'Xã Dân Hòa','0',1,64,NULL),(10183,'Xã Thường Tín','0',1,54,NULL),(10210,'Xã Hồng Vân','0',1,56,NULL),(10231,'Xã Thượng Phúc','0',1,53,NULL),(10237,'Xã Chương Dương','0',1,55,NULL),(10273,'Xã Phú Xuyên','0',1,57,NULL),(10279,'Xã Phượng Dực','0',1,58,NULL),(10330,'Xã Chuyên Mỹ','0',1,59,NULL),(10333,'Xã Đại Xuyên','0',1,60,NULL),(10354,'Xã Vân Đình','0',1,65,NULL),(10369,'Xã Ứng Thiên','0',1,66,NULL),(10402,'Xã Ứng Hòa','0',1,68,NULL),(10417,'Xã Hòa Xá','0',1,67,NULL),(10441,'Xã Mỹ Đức','0',1,69,NULL),(10459,'Xã Phúc Sơn','0',1,71,NULL),(10465,'Xã Hồng Sơn','0',1,70,NULL),(10489,'Xã Hương Sơn','0',1,72,NULL),(10510,'Phường Thành Đông','0',31,127,NULL),(10525,'Phường Hải Dương','0',31,127,NULL),(10532,'Phường Lê Thanh Nghị','0',31,127,NULL),(10537,'Phường Tân Hưng','0',31,127,NULL),(10540,'Phường Tứ Minh','0',31,127,NULL),(10543,'Phường Việt Hòa','0',31,127,NULL),(10546,'Phường Chí Linh ','0',31,127,NULL),(10549,'Phường Chu Văn An','0',31,127,NULL),(10552,'Phường Nguyễn Trãi','0',31,127,NULL),(10570,'Phường Trần Hưng Đạo','0',31,127,NULL),(10573,'Phường Trần Nhân Tông','0',31,127,NULL),(10603,'Phường Lê Đại Hành','0',31,127,NULL),(10606,'Xã Nam Sách','0',31,127,NULL),(10615,'Xã Hợp Tiến','0',31,127,NULL),(10633,'Xã Trần Phú','0',31,127,NULL),(10642,'Xã Thái Tân','0',31,127,NULL),(10645,'Xã An Phú','0',31,127,NULL),(10660,'Phường Ái Quốc','0',31,127,NULL),(10672,'Phường Nam Đồng','0',31,127,NULL),(10675,'Phường Kinh Môn                      ','0',31,127,NULL),(10678,'Phường Bắc An Phụ','0',31,127,NULL),(10705,'Xã Nam An Phụ','0',31,127,NULL),(10714,'Phường Nhị Chiểu','0',31,127,NULL),(10726,'Phường Phạm Sư Mạnh','0',31,127,NULL),(10729,'Phường Trần Liễu','0',31,127,NULL),(10744,'Phường Nguyễn Đại Năng','0',31,127,NULL),(10750,'Xã Phú Thái','0',31,127,NULL),(10756,'Xã Lai Khê','0',31,127,NULL),(10777,'Xã An Thành','0',31,127,NULL),(10804,'Xã Kim Thành','0',31,127,NULL),(10813,'Xã Thanh Hà ','0',31,127,NULL),(10816,'Xã Hà Bắc','0',31,127,NULL),(10843,'Xã Hà Nam','0',31,127,NULL),(10846,'Xã Hà Tây','0',31,127,NULL),(10882,'Xã Hà Đông','0',31,127,NULL),(10888,'Xã Cẩm Giang','0',31,127,NULL),(10903,'Xã Cẩm Giàng ','0',31,127,NULL),(10909,'Xã Tuệ Tĩnh','0',31,127,NULL),(10930,'Xã Mao Điền','0',31,127,NULL),(10945,'Xã Kẻ Sặt','0',31,127,NULL),(10966,'Xã Bình Giang ','0',31,127,NULL),(10972,'Xã Đường An','0',31,127,NULL),(10993,'Xã Thượng Hồng','0',31,127,NULL),(10999,'Xã Gia Lộc','0',31,127,NULL),(11002,'Phường Thạch Khôi','0',31,127,NULL),(11020,'Xã Yết Kiêu','0',31,127,NULL),(11050,'Xã Gia Phúc','0',31,127,NULL),(11065,'Xã Trường Tân','0',31,127,NULL),(11074,'Xã Tứ Kỳ ','0',31,127,NULL),(11086,'Xã Đại Sơn','0',31,127,NULL),(11113,'Xã Tân Kỳ','0',31,127,NULL),(11131,'Xã Chí Minh','0',31,127,NULL),(11140,'Xã Lạc Phượng','0',31,127,NULL),(11146,'Xã Nguyên Giáp','0',31,127,NULL),(11164,'Xã Vĩnh Lại','0',31,127,NULL),(11167,'Xã Tân An','0',31,127,NULL),(11203,'Xã Ninh Giang ','0',31,127,NULL),(11218,'Xã Hồng Châu','0',31,127,NULL),(11224,'Xã Khúc Thừa Dụ','0',31,127,NULL),(11239,'Xã Thanh Miện ','0',31,127,NULL),(11242,'Xã Nguyễn Lương Bằng','0',31,127,NULL),(11254,'Xã Bắc Thanh Miện','0',31,127,NULL),(11257,'Xã Hải Hưng','0',31,127,NULL),(11284,'Xã Nam Thanh Miện','0',31,127,NULL),(11311,'Phường Hồng Bàng','0',31,127,NULL),(11341,'Phường Ngô Quyền','0',31,127,NULL),(11359,'Phường Gia Viên','0',31,127,NULL),(11383,'Phường Lê Chân','0',31,127,NULL),(11407,'Phường An Biên','0',31,127,NULL),(11411,'Phường Đông Hải','0',31,127,NULL),(11413,'Phường Hải An','0',31,127,NULL),(11443,'Phường Kiến An','0',31,127,NULL),(11446,'Phường Phù Liễn','0',31,127,NULL),(11455,'Phường Đồ Sơn','0',31,127,NULL),(11473,'Phường Bạch Đằng','0',31,127,NULL),(11488,'Phường Lưu Kiếm','0',31,127,NULL),(11503,'Xã Việt Khê','0',31,127,NULL),(11506,'Phường Lê Ích Mộc','0',31,127,NULL),(11533,'Phường Hoà Bình','0',31,127,NULL),(11542,'Phường Nam Triệu','0',31,127,NULL),(11557,'Phường Thiên Hương','0',31,127,NULL),(11560,'Phường Thuỷ Nguyên','0',31,127,NULL),(11581,'Phường An Dương','0',31,127,NULL),(11593,'Phường An Phong','0',31,127,NULL),(11602,'Phường Hồng An','0',31,127,NULL),(11617,'Phường An Hải','0',31,127,NULL),(11629,'Xã An Lão','0',31,127,NULL),(11635,'Xã An Trường ','0',31,127,NULL),(11647,'Xã An Quang ','0',31,127,NULL),(11668,'Xã An Khánh','0',31,127,NULL),(11674,'Xã An Hưng','0',31,127,NULL),(11680,'Xã Kiến Thụy','0',31,127,NULL),(11689,'Phường Hưng Đạo','0',31,127,NULL),(11692,'Phường Dương Kinh','0',31,127,NULL),(11713,'Xã Nghi Dương','0',31,127,NULL),(11725,'Xã Kiến Minh','0',31,127,NULL),(11728,'Xã Kiến Hưng','0',31,127,NULL),(11737,'Phường Nam Đồ Sơn ','0',31,127,NULL),(11749,'Xã Kiến Hải','0',31,127,NULL),(11755,'Xã Tiên Lãng','0',31,127,NULL),(11761,'Xã Quyết Thắng','0',31,127,NULL),(11779,'Xã Tân Minh','0',31,127,NULL),(11791,'Xã Tiên Minh','0',31,127,NULL),(11806,'Xã Chấn Hưng','0',31,127,NULL),(11809,'Xã Hùng Thắng','0',31,127,NULL),(11824,'Xã Vĩnh Bảo','0',31,127,NULL),(11836,'Xã Vĩnh Thịnh','0',31,127,NULL),(11842,'Xã Vĩnh Thuận','0',31,127,NULL),(11848,'Xã Vĩnh Hòa','0',31,127,NULL),(11875,'Xã Vĩnh Hải','0',31,127,NULL),(11887,'Xã Vĩnh Am','0',31,127,NULL),(11911,'Xã Nguyễn Bỉnh Khiêm','0',31,127,NULL),(11914,' Đặc khu Cát Hải','0',31,127,NULL),(11948,' Đặc khu Bạch Long Vĩ','0',31,127,NULL),(11953,'Phường Phố Hiến','0',33,127,NULL),(11977,'Xã Tân Hưng','0',33,127,NULL),(11980,'Phường Hồng Châu','0',33,127,NULL),(11983,'Phường Sơn Nam','0',33,127,NULL),(11986,'Xã Như Quỳnh','0',33,127,NULL),(11992,'Xã Lạc Đạo','0',33,127,NULL),(11995,'Xã Đại Đồng','0',33,127,NULL),(12019,'Xã Văn Giang','0',33,127,NULL),(12025,'Xã Phụng Công','0',33,127,NULL),(12031,'Xã Nghĩa Trụ','0',33,127,NULL),(12049,'Xã Mễ Sở','0',33,127,NULL),(12052,'Xã Yên Mỹ','0',33,127,NULL),(12064,'Xã Nguyễn Văn Linh','0',33,127,NULL),(12070,'Xã Hoàn Long','0',33,127,NULL),(12091,'Xã Việt Yên','0',33,127,NULL),(12103,'Phường Mỹ Hào ','0',33,127,NULL),(12127,'Phường Thượng Hồng','0',33,127,NULL),(12133,'Phường Đường Hào','0',33,127,NULL),(12142,'Xã Ân Thi','0',33,127,NULL),(12148,'Xã Phạm Ngũ Lão','0',33,127,NULL),(12166,'Xã Xuân Trúc','0',33,127,NULL),(12184,'Xã Nguyễn Trãi','0',33,127,NULL),(12196,'Xã Hồng Quang ','0',33,127,NULL),(12205,'Xã Khoái Châu ','0',33,127,NULL),(12220,'Xã Triệu Việt Vương','0',33,127,NULL),(12238,'Xã Việt Tiến','0',33,127,NULL),(12247,'Xã Châu Ninh','0',33,127,NULL),(12271,'Xã Chí Minh','0',33,127,NULL),(12280,'Xã Lương Bằng','0',33,127,NULL),(12286,'Xã Nghĩa Dân','0',33,127,NULL),(12313,'Xã Đức Hợp','0',33,127,NULL),(12322,'Xã Hiệp Cường','0',33,127,NULL),(12337,'Xã Hoàng Hoa Thám','0',33,127,NULL),(12361,'Xã Tiên Hoa','0',33,127,NULL),(12364,'Xã Tiên Lữ','0',33,127,NULL),(12391,'Xã Quang Hưng','0',33,127,NULL),(12406,'Xã Đoàn Đào','0',33,127,NULL),(12424,'Xã Tiên Tiến','0',33,127,NULL),(12427,'Xã Tống Trân','0',33,127,NULL),(12452,'Phường Trần Hưng Đạo','0',33,127,NULL),(12454,'Phường Trần Lãm','0',33,127,NULL),(12466,'Phường Vũ Phúc','0',33,127,NULL),(12472,'Xã Quỳnh Phụ','0',33,127,NULL),(12478,'Xã Tân Tiến','0',33,127,NULL),(12499,'Xã A Sào','0',33,127,NULL),(12511,'Xã Minh Thọ','0',33,127,NULL),(12517,'Xã Ngọc Lâm','0',33,127,NULL),(12523,'Xã Phụ Dực','0',33,127,NULL),(12526,'Xã Đồng Bằng','0',33,127,NULL),(12532,'Xã Nguyễn Du','0',33,127,NULL),(12577,'Xã Quỳnh An','0',33,127,NULL),(12586,'Xã Hưng Hà','0',33,127,NULL),(12595,'Xã Ngự Thiên','0',33,127,NULL),(12613,'Xã Long Hưng','0',33,127,NULL),(12619,'Xã Diên Hà','0',33,127,NULL),(12631,'Xã Thần Khê','0',33,127,NULL),(12634,'Xã Tiên La','0',33,127,NULL),(12676,'Xã Lê Quý Đôn','0',33,127,NULL),(12685,'Xã Hồng Minh','0',33,127,NULL),(12688,'Xã Đông Hưng','0',33,127,NULL),(12694,'Xã Bắc Đông Hưng','0',33,127,NULL),(12700,'Xã Bắc Tiên Hưng','0',33,127,NULL),(12736,'Xã Đông Tiên Hưng','0',33,127,NULL),(12745,'Xã Bắc Đông Quan','0',33,127,NULL),(12754,'Xã Tiên Hưng','0',33,127,NULL),(12763,'Xã Nam Tiên Hưng','0',33,127,NULL),(12775,'Xã Nam Đông Hưng','0',33,127,NULL),(12793,'Xã Đông Quan','0',33,127,NULL),(12817,'Phường Trà Lý','0',33,127,NULL),(12826,'Xã Thái Thụy','0',33,127,NULL),(12841,'Xã Bắc Thái Ninh','0',33,127,NULL),(12850,'Xã Tây Thụy Anh','0',33,127,NULL),(12859,'Xã Bắc Thụy Anh','0',33,127,NULL),(12862,'Xã Đông Thụy Anh','0',33,127,NULL),(12865,'Xã Thụy Anh','0',33,127,NULL),(12904,'Xã Nam Thụy Anh','0',33,127,NULL),(12919,'Xã Tây Thái Ninh','0',33,127,NULL),(12922,'Xã Thái Ninh','0',33,127,NULL),(12943,'Xã Đông Thái Ninh','0',33,127,NULL),(12961,'Xã Nam Thái Ninh','0',33,127,NULL),(12970,'Xã Tiền Hải','0',33,127,NULL),(12988,'Xã Đông Tiền Hải','0',33,127,NULL),(13003,'Xã Đồng Châu','0',33,127,NULL),(13021,'Xã Ái Quốc','0',33,127,NULL),(13039,'Xã Tây Tiền Hải','0',33,127,NULL),(13057,'Xã Nam Cường','0',33,127,NULL),(13063,'Xã Nam Tiền Hải','0',33,127,NULL),(13066,'Xã Hưng Phú','0',33,127,NULL),(13075,'Xã Kiến Xương','0',33,127,NULL),(13093,'Xã Trà Giang','0',33,127,NULL),(13096,'Xã Bình Nguyên','0',33,127,NULL),(13120,'Xã Lê Lợi','0',33,127,NULL),(13132,'Xã Quang Lịch','0',33,127,NULL),(13141,'Xã Vũ Quý','0',33,127,NULL),(13159,'Xã Hồng Vũ','0',33,127,NULL),(13183,'Xã Bình Thanh','0',33,127,NULL),(13186,'Xã Bình Định','0',33,127,NULL),(13192,'Xã Vũ Thư','0',33,127,NULL),(13219,'Xã Vạn Xuân','0',33,127,NULL),(13222,'Xã Thư Trì','0',33,127,NULL),(13225,'Phường Thái Bình','0',33,127,NULL),(13246,'Xã Tân Thuận','0',33,127,NULL),(13264,'Xã Thư Vũ','0',33,127,NULL),(13279,'Xã Vũ Tiên','0',33,127,NULL),(13285,'Phường Châu Sơn','0',37,127,NULL),(13291,'Phường Phủ Lý','0',37,127,NULL),(13318,'Phường Phù Vân','0',37,127,NULL),(13324,'Phường Duy Tiên ','0',37,127,NULL),(13330,'Phường Duy Tân','0',37,127,NULL),(13336,'Phường Duy Hà','0',37,127,NULL),(13348,'Phường Đồng Văn','0',37,127,NULL),(13363,'Phường Tiên Sơn','0',37,127,NULL),(13366,'Phường Hà Nam ','0',37,127,NULL),(13384,'Phường Kim Bảng ','0',37,127,NULL),(13393,'Phường Lê Hồ','0',37,127,NULL),(13396,'Phường Nguyễn Uý','0',37,127,NULL),(13402,'Phường Kim Thanh','0',37,127,NULL),(13420,'Phường Tam Chúc','0',37,127,NULL),(13435,'Phường Lý Thường Kiệt','0',37,127,NULL),(13444,'Phường Liêm Tuyền','0',37,127,NULL),(13456,'Xã Liêm Hà','0',37,127,NULL),(13474,'Xã Tân Thanh','0',37,127,NULL),(13483,'Xã Thanh Bình','0',37,127,NULL),(13489,'Xã Thanh Lâm','0',37,127,NULL),(13495,'Xã Thanh Liêm','0',37,127,NULL),(13501,'Xã Bình Mỹ','0',37,127,NULL),(13504,'Xã Bình Lục','0',37,127,NULL),(13531,'Xã Bình Giang','0',37,127,NULL),(13540,'Xã Bình An','0',37,127,NULL),(13558,'Xã Bình Sơn','0',37,127,NULL),(13573,'Xã Lý Nhân','0',37,127,NULL),(13579,'Xã Bắc Lý','0',37,127,NULL),(13591,'Xã Nam Xang','0',37,127,NULL),(13594,'Xã Trần Thương','0',37,127,NULL),(13597,'Xã Vĩnh Trụ','0',37,127,NULL),(13609,'Xã Nhân Hà','0',37,127,NULL),(13627,'Xã Nam Lý','0',37,127,NULL),(13666,'Phường Nam Định','0',37,127,NULL),(13684,'Phường Thiên Trường','0',37,127,NULL),(13693,'Phường Đông A','0',37,127,NULL),(13699,'Phường Thành Nam','0',37,127,NULL),(13735,'Phường Mỹ Lộc','0',37,127,NULL),(13741,'Xã Vụ Bản  ','0',37,127,NULL),(13750,'Xã Minh Tân','0',37,127,NULL),(13753,'Xã Hiển Khánh','0',37,127,NULL),(13777,'Phường Trường Thi','0',37,127,NULL),(13786,'Xã Liên Minh','0',37,127,NULL),(13795,'Xã Ý Yên','0',37,127,NULL),(13807,'Xã Tân Minh','0',37,127,NULL),(13822,'Xã Phong Doanh','0',37,127,NULL),(13834,'Xã Vũ Dương','0',37,127,NULL),(13864,'Xã Vạn Thắng','0',37,127,NULL),(13870,'Xã Yên Cường','0',37,127,NULL),(13879,'Xã Yên Đồng','0',37,127,NULL),(13891,'Xã Nghĩa Hưng','0',37,127,NULL),(13894,'Xã Rạng Đông','0',37,127,NULL),(13900,'Xã Đồng Thịnh','0',37,127,NULL),(13918,'Xã Nghĩa Sơn','0',37,127,NULL),(13927,'Xã Hồng Phong','0',37,127,NULL),(13939,'Xã Quỹ Nhất','0',37,127,NULL),(13957,'Xã Nghĩa Lâm','0',37,127,NULL),(13966,'Xã Nam Trực','0',37,127,NULL),(13972,'Phường Vị Khê','0',37,127,NULL),(13984,'Phường Hồng Quang','0',37,127,NULL),(13987,'Xã Nam Hồng','0',37,127,NULL),(14005,'Xã Nam Ninh','0',37,127,NULL),(14011,'Xã Nam Minh','0',37,127,NULL),(14014,'Xã Nam Đồng','0',37,127,NULL),(14026,'Xã Cổ Lễ','0',37,127,NULL),(14038,'Xã Ninh Giang','0',37,127,NULL),(14053,'Xã Trực Ninh','0',37,127,NULL),(14056,'Xã Cát Thành','0',37,127,NULL),(14062,'Xã Quang Hưng','0',37,127,NULL),(14071,'Xã Minh Thái','0',37,127,NULL),(14077,'Xã Ninh Cường','0',37,127,NULL),(14089,'Xã Xuân Trường ','0',37,127,NULL),(14095,'Xã Xuân Hồng','0',37,127,NULL),(14104,'Xã Xuân Giang','0',37,127,NULL),(14122,'Xã Xuân Hưng','0',37,127,NULL),(14161,'Xã Giao Minh','0',37,127,NULL),(14167,'Xã Giao Thuỷ','0',37,127,NULL),(14179,'Xã Giao Hưng','0',37,127,NULL),(14182,'Xã Giao Hoà','0',37,127,NULL),(14194,'Xã Giao Bình','0',37,127,NULL),(14203,'Xã Giao Phúc','0',37,127,NULL),(14212,'Xã Giao Ninh','0',37,127,NULL),(14215,'Xã Hải Hậu ','0',37,127,NULL),(14218,'Xã Hải Tiến','0',37,127,NULL),(14221,'Xã Hải Thịnh','0',37,127,NULL),(14236,'Xã Hải Anh','0',37,127,NULL),(14248,'Xã Hải Hưng','0',37,127,NULL),(14281,'Xã Hải An','0',37,127,NULL),(14287,'Xã Hải Quang','0',37,127,NULL),(14308,'Xã Hải Xuân','0',37,127,NULL),(14329,'Phường Hoa Lư','0',37,127,NULL),(14359,'Phường Nam Hoa Lư','0',37,127,NULL),(14362,'Phường Tam Điệp','0',37,127,NULL),(14365,'Phường Trung Sơn','0',37,127,NULL),(14371,'Phường Yên Sơn','0',37,127,NULL),(14389,'Xã Gia Lâm','0',37,127,NULL),(14401,'Xã Gia Tường','0',37,127,NULL),(14404,'Xã Cúc Phương','0',37,127,NULL),(14407,'Xã Phú Sơn','0',37,127,NULL),(14428,'Xã Nho Quan','0',37,127,NULL),(14434,'Xã Thanh Sơn','0',37,127,NULL),(14452,'Xã Quỳnh Lưu','0',37,127,NULL),(14458,'Xã Phú Long','0',37,127,NULL),(14464,'Xã Gia Viễn','0',37,127,NULL),(14482,'Xã Gia Hưng','0',37,127,NULL),(14488,'Xã Gia Vân','0',37,127,NULL),(14494,'Xã Gia Trấn','0',37,127,NULL),(14500,'Xã Đại Hoàng','0',37,127,NULL),(14524,'Xã Gia Phong','0',37,127,NULL),(14533,'Phường Tây Hoa Lư','0',37,127,NULL),(14560,'Xã Yên Khánh','0',37,127,NULL),(14563,'Xã Khánh Thiện','0',37,127,NULL),(14566,'Phường Đông Hoa Lư','0',37,127,NULL),(14599,'Xã Khánh Hội','0',37,127,NULL),(14608,'Xã Khánh Trung','0',37,127,NULL),(14611,'Xã Khánh Nhạc','0',37,127,NULL),(14620,'Xã Phát Diệm','0',37,127,NULL),(14623,'Xã Bình Minh','0',37,127,NULL),(14638,'Xã Kim Sơn','0',37,127,NULL),(14647,'Xã Quang Thiện','0',37,127,NULL),(14653,'Xã Chất Bình','0',37,127,NULL),(14674,'Xã Lai Thành','0',37,127,NULL),(14677,'Xã Định Hóa','0',37,127,NULL),(14698,'Xã Kim Đông','0',37,127,NULL),(14701,'Xã Yên Mô ','0',37,127,NULL),(14725,'Phường Yên Thắng','0',37,127,NULL),(14728,'Xã Yên Từ','0',37,127,NULL),(14743,'Xã Yên Mạc','0',37,127,NULL),(14746,'Xã Đồng Thái','0',37,127,NULL),(14758,'Phường Hàm Rồng ','0',38,127,NULL),(14797,'Phường Hạc Thành ','0',38,127,NULL),(14812,'Phường Bỉm Sơn ','0',38,127,NULL),(14818,'Phường Quang Trung','0',38,127,NULL),(14845,'Xã Mường Lát','0',38,127,NULL),(14848,'Xã Tam Chung','0',38,127,NULL),(14854,'Xã Mường Lý','0',38,127,NULL),(14857,'Xã Trung Lý','0',38,127,NULL),(14860,'Xã Quang Chiểu','0',38,127,NULL),(14863,'Xã Pù Nhi','0',38,127,NULL),(14864,'Xã Nhi Sơn','0',38,127,NULL),(14866,'Xã Mường Chanh','0',38,127,NULL),(14869,'Xã Hồi Xuân','0',38,127,NULL),(14872,'Xã Trung Thành','0',38,127,NULL),(14875,'Xã Trung Sơn','0',38,127,NULL),(14878,'Xã Phú Lệ','0',38,127,NULL),(14890,'Xã Phú Xuân','0',38,127,NULL),(14896,'Xã Hiền Kiệt','0',38,127,NULL),(14902,'Xã Nam Xuân','0',38,127,NULL),(14908,'Xã Thiên Phủ','0',38,127,NULL),(14923,'Xã Bá Thước','0',38,127,NULL),(14932,'Xã Điền Quang','0',38,127,NULL),(14950,'Xã Điền Lư','0',38,127,NULL),(14953,'Xã Quý Lương','0',38,127,NULL),(14956,'Xã Pù Luông','0',38,127,NULL),(14959,'Xã Cổ Lũng','0',38,127,NULL),(14974,'Xã Văn Nho','0',38,127,NULL),(14980,'Xã Thiết Ống','0',38,127,NULL),(15001,'Xã Trung Hạ','0',38,127,NULL),(15007,'Xã Tam Thanh','0',38,127,NULL),(15010,'Xã Sơn Thủy','0',38,127,NULL),(15013,'Xã Na Mèo','0',38,127,NULL),(15016,'Xã Quan Sơn','0',38,127,NULL),(15019,'Xã Tam Lư','0',38,127,NULL),(15022,'Xã Sơn Điện','0',38,127,NULL),(15025,'Xã Mường Mìn','0',38,127,NULL),(15031,'Xã Yên Khương','0',38,127,NULL),(15034,'Xã Yên Thắng','0',38,127,NULL),(15043,'Xã Giao An','0',38,127,NULL),(15049,'Xã Văn Phú','0',38,127,NULL),(15055,'Xã Linh Sơn','0',38,127,NULL),(15058,'Xã Đồng Lương','0',38,127,NULL),(15061,'Xã Ngọc Lặc','0',38,127,NULL),(15085,'Xã Thạch Lập','0',38,127,NULL),(15091,'Xã Ngọc Liên','0',38,127,NULL),(15115,'Xã Nguyệt Ấn','0',38,127,NULL),(15118,'Xã Kiên Thọ','0',38,127,NULL),(15124,'Xã Minh Sơn','0',38,127,NULL),(15127,'Xã Cẩm Thủy','0',38,127,NULL),(15142,'Xã Cẩm Thạch','0',38,127,NULL),(15148,'Xã Cẩm Tú','0',38,127,NULL),(15163,'Xã Cẩm Vân','0',38,127,NULL),(15178,'Xã Cẩm Tân','0',38,127,NULL),(15187,'Xã Kim Tân','0',38,127,NULL),(15190,'Xã Vân Du','0',38,127,NULL),(15199,'Xã Thạch Quảng','0',38,127,NULL),(15211,'Xã Thạch Bình','0',38,127,NULL),(15229,'Xã Thành Vinh','0',38,127,NULL),(15250,'Xã Ngọc Trạo','0',38,127,NULL),(15271,'Xã Hà Trung','0',38,127,NULL),(15274,'Xã Hà Long','0',38,127,NULL),(15286,'Xã Hoạt Giang','0',38,127,NULL),(15298,'Xã Lĩnh Toại','0',38,127,NULL),(15316,'Xã Tống Sơn','0',38,127,NULL),(15349,'Xã Vĩnh Lộc','0',38,127,NULL),(15361,'Xã Tây Đô','0',38,127,NULL),(15382,'Xã Biện Thượng','0',38,127,NULL),(15409,'Xã Yên Phú','0',38,127,NULL),(15412,'Xã Quý Lộc','0',38,127,NULL),(15421,'Xã Yên Trường','0',38,127,NULL),(15442,'Xã Yên Ninh','0',38,127,NULL),(15448,'Xã Định Hòa','0',38,127,NULL),(15457,'Xã Định Tân','0',38,127,NULL),(15469,'Xã Yên Định','0',38,127,NULL),(15499,'Xã Thọ Xuân ','0',38,127,NULL),(15505,'Xã Thọ Long','0',38,127,NULL),(15520,'Xã Xuân Hòa','0',38,127,NULL),(15544,'Xã Lam Sơn','0',38,127,NULL),(15553,'Xã Sao Vàng','0',38,127,NULL),(15568,'Xã Thọ Lập','0',38,127,NULL),(15574,'Xã Xuân Tín','0',38,127,NULL),(15592,'Xã Xuân Lập','0',38,127,NULL),(15607,'Xã Bát Mọt','0',38,127,NULL),(15610,'Xã Yên Nhân','0',38,127,NULL),(15622,'Xã Vạn Xuân','0',38,127,NULL),(15628,'Xã Lương Sơn','0',38,127,NULL),(15634,'Xã Luận Thành','0',38,127,NULL),(15643,'Xã Thắng Lộc','0',38,127,NULL),(15646,'Xã Thường Xuân','0',38,127,NULL),(15658,'Xã Xuân Chinh','0',38,127,NULL),(15661,'Xã Tân Thành','0',38,127,NULL),(15664,'Xã Triệu Sơn ','0',38,127,NULL),(15667,'Xã Thọ Bình','0',38,127,NULL),(15682,'Xã Hợp Tiến','0',38,127,NULL),(15718,'Xã Tân Ninh','0',38,127,NULL),(15724,'Xã Đồng Tiến','0',38,127,NULL),(15754,'Xã Thọ Ngọc','0',38,127,NULL),(15763,'Xã Thọ Phú','0',38,127,NULL),(15766,'Xã An Nông','0',38,127,NULL),(15772,'Xã Thiệu Hóa ','0',38,127,NULL),(15778,'Xã Thiệu Tiến ','0',38,127,NULL),(15796,'Xã Thiệu Quang ','0',38,127,NULL),(15820,'Xã Thiệu Toán ','0',38,127,NULL),(15835,'Xã Thiệu Trung','0',38,127,NULL),(15853,'Phường Đông Tiến ','0',38,127,NULL),(15865,'Xã Hoằng Hóa','0',38,127,NULL),(15880,'Xã Hoằng Giang','0',38,127,NULL),(15889,'Xã Hoằng Phú','0',38,127,NULL),(15910,'Xã Hoằng Sơn','0',38,127,NULL),(15925,'Phường Nguyệt Viên ','0',38,127,NULL),(15961,'Xã Hoằng Lộc','0',38,127,NULL),(15976,'Xã Hoằng Châu','0',38,127,NULL),(15991,'Xã Hoằng Tiến','0',38,127,NULL),(16000,'Xã Hoằng Thanh','0',38,127,NULL),(16012,'Xã Hậu Lộc','0',38,127,NULL),(16021,'Xã Triệu Lộc','0',38,127,NULL),(16033,'Xã Đông Thành ','0',38,127,NULL),(16063,'Xã Hoa Lộc ','0',38,127,NULL),(16078,'Xã Vạn Lộc ','0',38,127,NULL),(16093,'Xã Nga Sơn ','0',38,127,NULL),(16108,'Xã Tân Tiến','0',38,127,NULL),(16114,'Xã Nga Thắng','0',38,127,NULL),(16138,'Xã Hồ Vương','0',38,127,NULL),(16144,'Xã Nga An','0',38,127,NULL),(16171,'Xã Ba Đình','0',38,127,NULL),(16174,'Xã Như Xuân','0',38,127,NULL),(16177,'Xã Xuân Bình','0',38,127,NULL),(16186,'Xã Hóa Quỳ','0',38,127,NULL),(16207,'Xã Thanh Quân','0',38,127,NULL),(16219,'Xã Thanh Phong','0',38,127,NULL),(16225,'Xã Thượng Ninh','0',38,127,NULL),(16228,'Xã Như Thanh','0',38,127,NULL),(16234,'Xã Xuân Du','0',38,127,NULL),(16249,'Xã Mậu Lâm','0',38,127,NULL),(16258,'Xã Xuân Thái','0',38,127,NULL),(16264,'Xã Yên Thọ','0',38,127,NULL),(16273,'Xã Thanh Kỳ','0',38,127,NULL),(16279,'Xã Nông Cống','0',38,127,NULL),(16297,'Xã Trung Chính','0',38,127,NULL),(16309,'Xã Thắng Lợi','0',38,127,NULL),(16342,'Xã Thăng Bình','0',38,127,NULL),(16348,'Xã Trường Văn','0',38,127,NULL),(16363,'Xã Tượng Lĩnh','0',38,127,NULL),(16369,'Xã Công Chính','0',38,127,NULL),(16378,'Phường Đông Sơn ','0',38,127,NULL),(16417,'Phường Đông Quang ','0',38,127,NULL),(16438,'Xã Lưu Vệ ','0',38,127,NULL),(16480,'Xã Quảng Yên ','0',38,127,NULL),(16489,'Xã Quảng Chính ','0',38,127,NULL),(16498,'Xã Quảng Ngọc ','0',38,127,NULL),(16516,'Phường Nam Sầm Sơn ','0',38,127,NULL),(16522,'Phường Quảng Phú ','0',38,127,NULL),(16531,'Phường Sầm Sơn ','0',38,127,NULL),(16540,'Xã Quảng Ninh ','0',38,127,NULL),(16543,'Xã Quảng Bình ','0',38,127,NULL),(16549,'Xã Tiên Trang ','0',38,127,NULL),(16561,'Phường Tĩnh Gia','0',38,127,NULL),(16576,'Phường Ngọc Sơn','0',38,127,NULL),(16591,'Xã Các Sơn','0',38,127,NULL),(16594,'Phường Tân Dân','0',38,127,NULL),(16597,'Phường Hải Lĩnh','0',38,127,NULL),(16609,'Phường Đào Duy Tư','0',38,127,NULL),(16624,'Phường Trúc Lâm','0',38,127,NULL),(16636,'Xã Trường Lâm','0',38,127,NULL),(16645,'Phường Hải Bình','0',38,127,NULL),(16654,'Phường Nghi Sơn','0',38,127,NULL),(16681,'Phường Thành Vinh','0',40,127,NULL),(16690,'Phường Trường Vinh ','0',40,127,NULL),(16702,'Phường Vinh Phú','0',40,127,NULL),(16708,'Phường Vinh Lộc','0',40,127,NULL),(16732,'Phường Cửa Lò','0',40,127,NULL),(16738,'Xã Quế Phong','0',40,127,NULL),(16744,'Xã Thông Thụ','0',40,127,NULL),(16750,'Xã Tiền Phong','0',40,127,NULL),(16756,'Xã Tri Lễ','0',40,127,NULL),(16774,'Xã Mường Quàng','0',40,127,NULL),(16777,'Xã Quỳ Châu','0',40,127,NULL),(16792,'Xã Châu Tiến','0',40,127,NULL),(16801,'Xã Hùng Chân','0',40,127,NULL),(16804,'Xã Châu Bình','0',40,127,NULL),(16813,'Xã Mường Xén','0',40,127,NULL),(16816,'Xã Mỹ Lý','0',40,127,NULL),(16819,'Xã Bắc Lý','0',40,127,NULL),(16822,'Xã Keng Đu','0',40,127,NULL),(16828,'Xã Huồi Tụ','0',40,127,NULL),(16831,'Xã Mường Lống','0',40,127,NULL),(16834,'Xã Na Loi','0',40,127,NULL),(16837,'Xã Nậm Cắn','0',40,127,NULL),(16849,'Xã Hữu Kiệm','0',40,127,NULL),(16855,'Xã Chiêu Lưu','0',40,127,NULL),(16858,'Xã Mường Típ','0',40,127,NULL),(16870,'Xã Na Ngoi','0',40,127,NULL),(16876,'Xã Tương Dương','0',40,127,NULL),(16882,'Xã Nhôn Mai','0',40,127,NULL),(16885,'Xã Hữu Khuông','0',40,127,NULL),(16903,'Xã Nga My','0',40,127,NULL),(16906,'Xã Lượng Minh','0',40,127,NULL),(16909,'Xã Yên Hòa','0',40,127,NULL),(16912,'Xã Yên Na','0',40,127,NULL),(16933,'Xã Tam Quang','0',40,127,NULL),(16936,'Xã Tam Thái','0',40,127,NULL),(16939,'Phường Thái Hòa','0',40,127,NULL),(16941,'Xã Nghĩa Đàn','0',40,127,NULL),(16951,'Xã Nghĩa Lâm','0',40,127,NULL),(16969,'Xã Nghĩa Thọ','0',40,127,NULL),(16972,'Xã Nghĩa Hưng','0',40,127,NULL),(16975,'Xã Nghĩa Mai','0',40,127,NULL),(16994,'Phường Tây Hiếu','0',40,127,NULL),(17017,'Xã Đông Hiếu','0',40,127,NULL),(17029,'Xã Nghĩa Lộc','0',40,127,NULL),(17032,'Xã Nghĩa Khánh','0',40,127,NULL),(17035,'Xã Quỳ Hợp ','0',40,127,NULL),(17044,'Xã Châu Hồng','0',40,127,NULL),(17056,'Xã Châu Lộc','0',40,127,NULL),(17059,'Xã Tam Hợp','0',40,127,NULL),(17071,'Xã Minh Hợp','0',40,127,NULL),(17077,'Xã Mường Ham','0',40,127,NULL),(17089,'Xã Mường Chọng','0',40,127,NULL),(17110,'Phường Hoàng Mai','0',40,127,NULL),(17125,'Phường Quỳnh Mai','0',40,127,NULL),(17128,'Phường Tân Mai','0',40,127,NULL),(17143,'Xã Quỳnh Văn','0',40,127,NULL),(17149,'Xã Quỳnh Tam','0',40,127,NULL),(17152,'Xã Quỳnh Sơn','0',40,127,NULL),(17176,'Xã Quỳnh Anh','0',40,127,NULL),(17179,'Xã Quỳnh Lưu','0',40,127,NULL),(17212,'Xã Quỳnh Phú','0',40,127,NULL),(17224,'Xã Quỳnh Thắng','0',40,127,NULL),(17230,'Xã Bình Chuẩn','0',40,127,NULL),(17239,'Xã Mậu Thạch','0',40,127,NULL),(17242,'Xã Cam Phục','0',40,127,NULL),(17248,'Xã Châu Khê','0',40,127,NULL),(17254,'Xã Con Cuông ','0',40,127,NULL),(17263,'Xã Môn Sơn','0',40,127,NULL),(17266,'Xã Tân Kỳ ','0',40,127,NULL),(17272,'Xã Tân Phú','0',40,127,NULL),(17278,'Xã Giai Xuân','0',40,127,NULL),(17284,'Xã Nghĩa Đồng','0',40,127,NULL),(17287,'Xã Tiên Đồng','0',40,127,NULL),(17305,'Xã Tân An ','0',40,127,NULL),(17326,'Xã Nghĩa Hành','0',40,127,NULL),(17329,'Xã Anh Sơn','0',40,127,NULL),(17335,'Xã Thành Bình Thọ','0',40,127,NULL),(17344,'Xã Nhân Hòa','0',40,127,NULL),(17357,'Xã Vĩnh Tường','0',40,127,NULL),(17365,'Xã Anh Sơn Đông','0',40,127,NULL),(17380,'Xã Yên Xuân','0',40,127,NULL),(17395,'Xã Hùng Châu','0',40,127,NULL),(17416,'Xã Đức Châu','0',40,127,NULL),(17419,'Xã Hải Châu','0',40,127,NULL),(17443,'Xã Quảng Châu','0',40,127,NULL),(17464,'Xã Diễn Châu','0',40,127,NULL),(17476,'Xã Minh Châu','0',40,127,NULL),(17479,'Xã An Châu','0',40,127,NULL),(17488,'Xã Tân Châu','0',40,127,NULL),(17506,'Xã Yên Thành ','0',40,127,NULL),(17515,'Xã Bình Minh','0',40,127,NULL),(17521,'Xã Quang Đồng','0',40,127,NULL),(17524,'Xã Giai Lạc','0',40,127,NULL),(17530,'Xã Đông Thành','0',40,127,NULL),(17560,'Xã Vân Du','0',40,127,NULL),(17569,'Xã Quan Thành','0',40,127,NULL),(17605,'Xã Hợp Minh','0',40,127,NULL),(17611,'Xã Vân Tụ','0',40,127,NULL),(17623,'Xã Bạch Ngọc','0',40,127,NULL),(17641,'Xã Lương Sơn','0',40,127,NULL),(17662,'Xã Đô Lương ','0',40,127,NULL),(17677,'Xã Văn Hiến','0',40,127,NULL),(17689,'Xã Thuần Trung','0',40,127,NULL),(17707,'Xã Bạch Hà','0',40,127,NULL),(17713,'Xã Đại Đồng','0',40,127,NULL),(17722,'Xã Hạnh Lâm','0',40,127,NULL),(17728,'Xã Cát Ngạn','0',40,127,NULL),(17743,'Xã Tam Đồng','0',40,127,NULL),(17759,'Xã Sơn Lâm','0',40,127,NULL),(17770,'Xã Hoa Quân','0',40,127,NULL),(17779,'Xã Xuân Lâm','0',40,127,NULL),(17791,'Xã Kim Bảng','0',40,127,NULL),(17818,'Xã Bích Hào','0',40,127,NULL),(17827,'Xã Nghi Lộc','0',40,127,NULL),(17833,'Xã Hải Lộc','0',40,127,NULL),(17842,'Xã Thần Lĩnh','0',40,127,NULL),(17854,'Xã Văn Kiều','0',40,127,NULL),(17857,'Xã Phúc Lộc','0',40,127,NULL),(17866,'Xã Trung Lộc','0',40,127,NULL),(17878,'Xã Đông Lộc','0',40,127,NULL),(17920,'Phường Vinh Hưng','0',40,127,NULL),(17935,'Xã Nam Đàn','0',40,127,NULL),(17944,'Xã Đại Huệ','0',40,127,NULL),(17950,'Xã Vạn An','0',40,127,NULL),(17971,'Xã Kim Liên','0',40,127,NULL),(17989,'Xã Thiên Nhẫn','0',40,127,NULL),(18001,'Xã Hưng Nguyên','0',40,127,NULL),(18007,'Xã Yên Trung','0',40,127,NULL),(18028,'Xã Hưng Nguyên Nam ','0',40,127,NULL),(18040,'Xã Lam Thành','0',40,127,NULL),(18073,'Phường Thành Sen','0',42,127,NULL),(18100,'Phường Trần Phú','0',42,127,NULL),(18115,'Phường Bắc Hồng Lĩnh','0',42,127,NULL),(18118,'Phường Nam Hồng Lĩnh','0',42,127,NULL),(18133,'Xã Hương Sơn','0',42,127,NULL),(18160,'Xã Sơn Hồng','0',42,127,NULL),(18163,'Xã Sơn Tiến','0',42,127,NULL),(18172,'Xã Sơn Tây','0',42,127,NULL),(18184,'Xã Sơn Giang','0',42,127,NULL),(18196,'Xã Sơn Kim 1','0',42,127,NULL),(18199,'Xã Sơn Kim 2','0',42,127,NULL),(18202,'Xã Tứ Mỹ','0',42,127,NULL),(18223,'Xã Kim Hoa','0',42,127,NULL),(18229,'Xã Đức Thọ','0',42,127,NULL),(18244,'Xã Đức Minh','0',42,127,NULL),(18262,'Xã Đức Quang','0',42,127,NULL),(18277,'Xã Đức Thịnh','0',42,127,NULL),(18304,'Xã Đức Đồng','0',42,127,NULL),(18313,'Xã Vũ Quang','0',42,127,NULL),(18322,'Xã Mai Hoa','0',42,127,NULL),(18328,'Xã Thượng Đức','0',42,127,NULL),(18352,'Xã Nghi Xuân','0',42,127,NULL),(18364,'Xã Đan Hải','0',42,127,NULL),(18373,'Xã Tiên Điền','0',42,127,NULL),(18394,'Xã Cổ Đạm','0',42,127,NULL),(18406,'Xã Can Lộc','0',42,127,NULL),(18409,'Xã Hồng Lộc','0',42,127,NULL),(18418,'Xã Tùng Lộc','0',42,127,NULL),(18436,'Xã Trường Lưu','0',42,127,NULL),(18466,'Xã Gia Hanh','0',42,127,NULL),(18481,'Xã Xuân Lộc','0',42,127,NULL),(18484,'Xã Đồng Lộc','0',42,127,NULL),(18496,'Xã Hương Khê','0',42,127,NULL),(18502,'Xã Hà Linh','0',42,127,NULL),(18523,'Xã Hương Bình','0',42,127,NULL),(18532,'Xã Hương Phố','0',42,127,NULL),(18544,'Xã Hương Xuân','0',42,127,NULL),(18547,'Xã Phúc Trạch','0',42,127,NULL),(18550,'Xã Hương Đô','0',42,127,NULL),(18562,'Xã Thạch Hà','0',42,127,NULL),(18568,'Xã Lộc Hà','0',42,127,NULL),(18583,'Xã Mai Phụ','0',42,127,NULL),(18586,'Xã Đông Kinh','0',42,127,NULL),(18601,'Xã Việt Xuyên','0',42,127,NULL),(18604,'Xã Thạch Khê','0',42,127,NULL),(18619,'Xã Đồng Tiến','0',42,127,NULL),(18628,'Xã Thạch Lạc','0',42,127,NULL),(18634,'Xã Toàn Lưu','0',42,127,NULL),(18652,'Phường Hà Huy Tập','0',42,127,NULL),(18667,'Xã Thạch Xuân','0',42,127,NULL),(18673,'Xã Cẩm Xuyên','0',42,127,NULL),(18676,'Xã Thiên Cầm','0',42,127,NULL),(18682,'Xã Yên Hòa','0',42,127,NULL),(18685,'Xã Cẩm Bình','0',42,127,NULL),(18736,'Xã Cẩm Hưng','0',42,127,NULL),(18739,'Xã Cẩm Duệ','0',42,127,NULL),(18742,'Xã Cẩm Trung','0',42,127,NULL),(18748,'Xã Cẩm Lạc','0',42,127,NULL),(18754,'Phường Sông Trí','0',42,127,NULL),(18766,'Xã Kỳ Xuân','0',42,127,NULL),(18775,'Xã Kỳ Anh','0',42,127,NULL),(18781,'Phường Hải Ninh','0',42,127,NULL),(18787,'Xã Kỳ Văn','0',42,127,NULL),(18790,'Xã Kỳ Khang','0',42,127,NULL),(18814,'Xã Kỳ Hoa','0',42,127,NULL),(18823,'Phường Vũng Áng','0',42,127,NULL),(18832,'Phường Hoành Sơn','0',42,127,NULL),(18838,'Xã Kỳ Lạc','0',42,127,NULL),(18844,'Xã Kỳ Thượng','0',42,127,NULL),(18859,'Phường Đồng Thuận','0',44,127,NULL),(18871,'Phường Đồng Sơn','0',44,127,NULL),(18880,'Phường Đồng Hới','0',44,127,NULL),(18901,'Xã Minh Hóa','0',44,127,NULL),(18904,'Xã Dân Hóa','0',44,127,NULL),(18919,'Xã Tân Thành','0',44,127,NULL),(18922,'Xã Kim Điền','0',44,127,NULL),(18943,'Xã Kim Phú','0',44,127,NULL),(18949,'Xã Đồng Lê','0',44,127,NULL),(18952,'Xã Tuyên Sơn','0',44,127,NULL),(18958,'Xã Tuyên Lâm','0',44,127,NULL),(18985,'Xã Tuyên Phú','0',44,127,NULL),(18991,'Xã Tuyên Bình','0',44,127,NULL),(18997,'Xã Tuyên Hóa','0',44,127,NULL),(19009,'Phường Ba Đồn','0',44,127,NULL),(19021,'Xã Phú Trạch','0',44,127,NULL),(19030,'Xã Trung Thuần','0',44,127,NULL),(19033,'Xã Hòa Trạch','0',44,127,NULL),(19051,'Xã Tân Gianh','0',44,127,NULL),(19057,'Xã Quảng Trạch','0',44,127,NULL),(19066,'Phường Bắc Gianh','0',44,127,NULL),(19075,'Xã Nam Ba Đồn','0',44,127,NULL),(19093,'Xã Nam Gianh','0',44,127,NULL),(19111,'Xã Hoàn Lão','0',44,127,NULL),(19126,'Xã Bắc Trạch','0',44,127,NULL),(19141,'Xã Bố Trạch','0',44,127,NULL),(19147,'Xã Thượng Trạch','0',44,127,NULL),(19159,'Xã Đông Trạch','0',44,127,NULL),(19165,'Xã Phong Nha','0',44,127,NULL),(19198,'Xã Nam Trạch','0',44,127,NULL),(19204,'Xã Trường Sơn','0',44,127,NULL),(19207,'Xã Quảng Ninh','0',44,127,NULL),(19225,'Xã Ninh Châu','0',44,127,NULL),(19237,'Xã Trường Ninh','0',44,127,NULL),(19246,'Xã Lệ Ninh','0',44,127,NULL),(19249,'Xã Lệ Thủy','0',44,127,NULL),(19255,'Xã Cam Hồng','0',44,127,NULL),(19288,'Xã Sen Ngư','0',44,127,NULL),(19291,'Xã Tân Mỹ','0',44,127,NULL),(19309,'Xã Trường Phú','0',44,127,NULL),(19318,'Xã Kim Ngân','0',44,127,NULL),(19333,'Phường Đông Hà','0',44,127,NULL),(19351,'Phường Nam Đông Hà','0',44,127,NULL),(19360,'Phường Quảng Trị','0',44,127,NULL),(19363,'Xã Vĩnh Linh ','0',44,127,NULL),(19366,'Xã Bến Quan','0',44,127,NULL),(19372,'Xã Vĩnh Hoàng','0',44,127,NULL),(19405,'Xã Vĩnh Thủy','0',44,127,NULL),(19414,'Xã Cửa Tùng','0',44,127,NULL),(19429,'Xã Khe Sanh','0',44,127,NULL),(19432,'Xã Lao Bảo','0',44,127,NULL),(19435,'Xã Hướng Lập','0',44,127,NULL),(19441,'Xã Hướng Phùng','0',44,127,NULL),(19462,'Xã Tân Lập','0',44,127,NULL),(19483,'Xã A Dơi','0',44,127,NULL),(19489,'Xã Lìa','0',44,127,NULL),(19495,'Xã Gio Linh','0',44,127,NULL),(19496,'Xã Cửa Việt','0',44,127,NULL),(19501,'Xã Bến Hải','0',44,127,NULL),(19537,'Xã Cồn Tiên','0',44,127,NULL),(19555,'Xã Hướng Hiệp','0',44,127,NULL),(19564,'Xã Đakrông','0',44,127,NULL),(19567,'Xã Ba Lòng','0',44,127,NULL),(19588,'Xã Tà Rụt','0',44,127,NULL),(19594,'Xã La Lay','0',44,127,NULL),(19597,'Xã Cam Lộ','0',44,127,NULL),(19603,'Xã Hiếu Giang','0',44,127,NULL),(19624,'Xã Triệu Phong','0',44,127,NULL),(19639,'Xã Nam Cửa Việt ','0',44,127,NULL),(19645,'Xã Triệu Bình   ','0',44,127,NULL),(19654,'Xã Triệu Cơ','0',44,127,NULL),(19669,'Xã Ái Tử','0',44,127,NULL),(19681,'Xã Diên Sanh','0',44,127,NULL),(19699,'Xã Vĩnh Định','0',44,127,NULL),(19702,'Xã Hải Lăng','0',44,127,NULL),(19735,'Xã Nam Hải Lăng','0',44,127,NULL),(19741,'Xã Mỹ Thủy','0',44,127,NULL),(19742,' Đặc khu Cồn Cỏ','0',44,127,NULL),(19768,'Phường Phú Xuân','0',46,127,NULL),(19777,'Phường Vỹ Dạ','0',46,127,NULL),(19786,'Phường Thuận Hóa','0',46,127,NULL),(19810,'Phường Kim Long','0',46,127,NULL),(19813,'Phường Thủy Xuân','0',46,127,NULL),(19815,'Phường An Cựu','0',46,127,NULL),(19819,'Phường Phong Điền','0',46,127,NULL),(19828,'Phường Phong Phú','0',46,127,NULL),(19831,'Phường Phong Dinh','0',46,127,NULL),(19864,'Phường Phong Thái ','0',46,127,NULL),(19867,'Xã Quảng Điền','0',46,127,NULL),(19873,'Phường Phong Quảng','0',46,127,NULL),(19885,'Xã Đan Điền','0',46,127,NULL),(19900,'Phường Thuận An','0',46,127,NULL),(19909,'Phường Dương Nỗ ','0',46,127,NULL),(19918,'Xã Phú Hồ','0',46,127,NULL),(19930,'Phường Mỹ Thượng','0',46,127,NULL),(19942,'Xã Phú Vang','0',46,127,NULL),(19945,'Xã Phú Vinh','0',46,127,NULL),(19960,'Phường Phú Bài','0',46,127,NULL),(19969,'Phường Thanh Thủy','0',46,127,NULL),(19975,'Phường Hương Thủy','0',46,127,NULL),(19996,'Phường Hương Trà','0',46,127,NULL),(20014,'Phường Hóa Châu','0',46,127,NULL),(20017,'Phường Kim Trà','0',46,127,NULL),(20023,'Phường Hương An','0',46,127,NULL),(20035,'Xã Bình Điền','0',46,127,NULL),(20044,'Xã A Lưới 2','0',46,127,NULL),(20050,'Xã A Lưới 5','0',46,127,NULL),(20056,'Xã A Lưới 1','0',46,127,NULL),(20071,'Xã A Lưới 3','0',46,127,NULL),(20101,'Xã A Lưới 4','0',46,127,NULL),(20107,'Xã Phú Lộc','0',46,127,NULL),(20122,'Xã Vinh Lộc','0',46,127,NULL),(20131,'Xã Hưng Lộc','0',46,127,NULL),(20140,'Xã Lộc An','0',46,127,NULL),(20152,'Xã Chân Mây – Lăng Cô','0',46,127,NULL),(20161,'Xã Khe Tre','0',46,127,NULL),(20179,'Xã Nam Đông','0',46,127,NULL),(20182,'Xã Long Quảng','0',46,127,NULL),(20195,'Phường Hải Vân','0',48,127,NULL),(20197,'Phường Liên Chiểu','0',48,127,NULL),(20200,'Phường Hòa Khánh','0',48,127,NULL),(20209,'Phường Thanh Khê','0',48,127,NULL),(20224,'Phường An Khê','0',48,127,NULL),(20242,'Phường Hải Châu','0',48,127,NULL),(20257,'Phường Hòa Cường','0',48,127,NULL),(20260,'Phường Cẩm Lệ','0',48,127,NULL),(20263,'Phường Sơn Trà','0',48,127,NULL),(20275,'Phường An Hải','0',48,127,NULL),(20285,'Phường Ngũ Hành Sơn','0',48,127,NULL),(20308,'Xã Bà Nà','0',48,127,NULL),(20314,'Phường Hòa Xuân','0',48,127,NULL),(20320,'Xã Hòa Vang','0',48,127,NULL),(20332,'Xã Hòa Tiến','0',48,127,NULL),(20333,' Đặc khu Hoàng Sa','0',48,127,NULL),(20335,'Phường Bàn Thạch','0',48,127,NULL),(20341,'Phường Tam Kỳ','0',48,127,NULL),(20350,'Phường Hương Trà','0',48,127,NULL),(20356,'Phường Quảng Phú','0',48,127,NULL),(20364,'Xã Chiên Đàn','0',48,127,NULL),(20380,'Xã Tây Hồ','0',48,127,NULL),(20392,'Xã Phú Ninh','0',48,127,NULL),(20401,'Phường Hội An Tây','0',48,127,NULL),(20410,'Phường Hội An','0',48,127,NULL),(20413,'Phường Hội An Đông','0',48,127,NULL),(20434,'Xã Tân Hiệp','0',48,127,NULL),(20443,'Xã Hùng Sơn','0',48,127,NULL),(20455,'Xã Tây Giang','0',48,127,NULL),(20458,'Xã Avương','0',48,127,NULL),(20467,'Xã Đông Giang','0',48,127,NULL),(20476,'Xã Sông Kôn','0',48,127,NULL),(20485,'Xã Sông Vàng','0',48,127,NULL),(20494,'Xã Bến Hiên','0',48,127,NULL),(20500,'Xã Đại Lộc','0',48,127,NULL),(20506,'Xã Thượng Đức','0',48,127,NULL),(20515,'Xã Hà Nha','0',48,127,NULL),(20539,'Xã Vu Gia','0',48,127,NULL),(20542,'Xã Phú Thuận','0',48,127,NULL),(20551,'Phường Điện Bàn','0',48,127,NULL),(20557,'Phường Điện Bàn Bắc','0',48,127,NULL),(20569,'Xã Điện Bàn Tây','0',48,127,NULL),(20575,'Phường An Thắng','0',48,127,NULL),(20579,'Phường Điện Bàn Đông','0',48,127,NULL),(20587,'Xã Gò Nổi','0',48,127,NULL),(20599,'Xã Nam Phước','0',48,127,NULL),(20611,'Xã Thu Bồn','0',48,127,NULL),(20623,'Xã Duy Xuyên','0',48,127,NULL),(20635,'Xã Duy Nghĩa','0',48,127,NULL),(20641,'Xã Quế Sơn','0',48,127,NULL),(20650,'Xã Xuân Phú','0',48,127,NULL),(20656,'Xã Nông Sơn','0',48,127,NULL),(20662,'Xã Quế Sơn Trung','0',48,127,NULL),(20669,'Xã Quế Phước','0',48,127,NULL),(20695,'Xã Thạnh Mỹ','0',48,127,NULL),(20698,'Xã La Êê','0',48,127,NULL),(20704,'Xã La Dêê','0',48,127,NULL),(20707,'Xã Nam Giang','0',48,127,NULL),(20710,'Xã Bến Giằng','0',48,127,NULL),(20716,'Xã Đắc Pring','0',48,127,NULL),(20722,'Xã Khâm Đức','0',48,127,NULL),(20728,'Xã Phước Hiệp','0',48,127,NULL),(20734,'Xã Phước Năng','0',48,127,NULL),(20740,'Xã Phước Chánh','0',48,127,NULL),(20752,'Xã Phước Thành','0',48,127,NULL),(20767,'Xã Việt An','0',48,127,NULL),(20770,'Xã Phước Trà','0',48,127,NULL),(20779,'Xã Hiệp Đức','0',48,127,NULL),(20791,'Xã Thăng Bình','0',48,127,NULL),(20794,'Xã Thăng An','0',48,127,NULL),(20818,'Xã Đồng Dương','0',48,127,NULL),(20827,'Xã Thăng Phú','0',48,127,NULL),(20836,'Xã Thăng Trường','0',48,127,NULL),(20848,'Xã Thăng Điền','0',48,127,NULL),(20854,'Xã Tiên Phước','0',48,127,NULL),(20857,'Xã Sơn Cẩm Hà','0',48,127,NULL),(20872,'Xã Lãnh Ngọc','0',48,127,NULL),(20878,'Xã Thạnh Bình','0',48,127,NULL),(20900,'Xã Trà My','0',48,127,NULL),(20908,'Xã Trà Liên','0',48,127,NULL),(20920,'Xã Trà Đốc','0',48,127,NULL),(20923,'Xã Trà Tân','0',48,127,NULL),(20929,'Xã Trà Giáp','0',48,127,NULL),(20938,'Xã Trà Leng','0',48,127,NULL),(20941,'Xã Trà Tập','0',48,127,NULL),(20944,'Xã Nam Trà My','0',48,127,NULL),(20950,'Xã Trà Linh','0',48,127,NULL),(20959,'Xã Trà Vân','0',48,127,NULL),(20965,'Xã Núi Thành','0',48,127,NULL),(20971,'Xã Tam Xuân','0',48,127,NULL),(20977,'Xã Đức Phú','0',48,127,NULL),(20984,'Xã Tam Anh','0',48,127,NULL),(20992,'Xã Tam Hải','0',48,127,NULL),(21004,'Xã Tam Mỹ','0',48,127,NULL),(21025,'Phường Cẩm Thành','0',51,127,NULL),(21028,'Phường Nghĩa Lộ','0',51,127,NULL),(21034,'Xã An Phú','0',51,127,NULL),(21040,'Xã Bình Sơn','0',51,127,NULL),(21061,'Xã Vạn Tường','0',51,127,NULL),(21085,'Xã Bình Minh','0',51,127,NULL),(21100,'Xã Bình Chương','0',51,127,NULL),(21109,'Xã Đông Sơn','0',51,127,NULL),(21115,'Xã Trà Bồng','0',51,127,NULL),(21124,'Xã Thanh Bồng','0',51,127,NULL),(21127,'Xã Đông Trà Bồng','0',51,127,NULL),(21136,'Xã Cà Đam','0',51,127,NULL),(21154,'Xã Tây Trà','0',51,127,NULL),(21157,'Xã Tây Trà Bồng','0',51,127,NULL),(21172,'Phường Trương Quang Trọng','0',51,127,NULL),(21181,'Xã Thọ Phong','0',51,127,NULL),(21196,'Xã Trường Giang','0',51,127,NULL),(21205,'Xã Ba Gia','0',51,127,NULL),(21211,'Xã Tịnh Khê','0',51,127,NULL),(21220,'Xã Sơn Tịnh ','0',51,127,NULL),(21235,'Xã Tư Nghĩa ','0',51,127,NULL),(21238,'Xã Vệ Giang','0',51,127,NULL),(21244,'Xã Trà Giang','0',51,127,NULL),(21250,'Xã Nghĩa Giang','0',51,127,NULL),(21289,'Xã Sơn Hà','0',51,127,NULL),(21292,'Xã Sơn Hạ','0',51,127,NULL),(21307,'Xã Sơn Linh','0',51,127,NULL),(21319,'Xã Sơn Thủy','0',51,127,NULL),(21325,'Xã Sơn Kỳ','0',51,127,NULL),(21334,'Xã Sơn Tây Thượng','0',51,127,NULL),(21340,'Xã Sơn Tây','0',51,127,NULL),(21343,'Xã Sơn Tây Hạ','0',51,127,NULL),(21349,'Xã Sơn Mai','0',51,127,NULL),(21361,'Xã Minh Long ','0',51,127,NULL),(21364,'Xã Nghĩa Hành ','0',51,127,NULL),(21370,'Xã Phước Giang','0',51,127,NULL),(21385,'Xã Đình Cương','0',51,127,NULL),(21388,'Xã Thiện Tín','0',51,127,NULL),(21400,'Xã Mộ Đức','0',51,127,NULL),(21409,'Xã Long Phụng','0',51,127,NULL),(21421,'Xã Mỏ Cày','0',51,127,NULL),(21433,'Xã Lân Phong','0',51,127,NULL),(21439,'Phường Đức Phổ','0',51,127,NULL),(21451,'Phường Trà Câu','0',51,127,NULL),(21457,'Xã Nguyễn Nghiêm','0',51,127,NULL),(21472,'Xã Khánh Cường','0',51,127,NULL),(21478,'Phường Sa Huỳnh','0',51,127,NULL),(21484,'Xã Ba Tơ','0',51,127,NULL),(21490,'Xã Ba Vinh','0',51,127,NULL),(21496,'Xã Ba Động','0',51,127,NULL),(21499,'Xã Ba Dinh','0',51,127,NULL),(21520,'Xã Đặng Thùy Trâm','0',51,127,NULL),(21523,'Xã Ba Tô','0',51,127,NULL),(21529,'Xã Ba Vì','0',51,127,NULL),(21538,'Xã Ba Xa','0',51,127,NULL),(21548,' Đặc khu Lý Sơn','0',51,127,NULL),(21553,'Phường Quy Nhơn Bắc','0',52,127,NULL),(21583,'Phường Quy Nhơn','0',52,127,NULL),(21589,'Phường Quy Nhơn Tây','0',52,127,NULL),(21592,'Phường Quy Nhơn Nam','0',52,127,NULL),(21601,'Phường Quy Nhơn Đông','0',52,127,NULL),(21607,'Xã Nhơn Châu','0',52,127,NULL),(21609,'Xã An Lão ','0',52,127,NULL),(21616,'Xã An Vinh ','0',52,127,NULL),(21622,'Xã An Toàn ','0',52,127,NULL),(21628,'Xã An Hòa ','0',52,127,NULL),(21637,'Phường Tam Quan','0',52,127,NULL),(21640,'Phường Bồng Sơn','0',52,127,NULL),(21655,'Phường Hoài Nhơn Bắc','0',52,127,NULL),(21661,'Phường Hoài Nhơn Tây','0',52,127,NULL),(21664,'Phường Hoài Nhơn','0',52,127,NULL),(21670,'Phường Hoài Nhơn Đông','0',52,127,NULL),(21673,'Phường Hoài Nhơn Nam','0',52,127,NULL),(21688,'Xã Hoài Ân','0',52,127,NULL),(21697,'Xã Ân Hảo','0',52,127,NULL),(21703,'Xã Vạn Đức','0',52,127,NULL),(21715,'Xã Ân Tường','0',52,127,NULL),(21727,'Xã Kim Sơn','0',52,127,NULL),(21730,'Xã Phù Mỹ','0',52,127,NULL),(21733,'Xã Bình Dương','0',52,127,NULL),(21739,'Xã Phù Mỹ Bắc','0',52,127,NULL),(21751,'Xã Phù Mỹ Đông','0',52,127,NULL),(21757,'Xã Phù Mỹ Tây','0',52,127,NULL),(21769,'Xã An Lương','0',52,127,NULL),(21775,'Xã Phù Mỹ Nam','0',52,127,NULL),(21786,'Xã Vĩnh Thạnh','0',52,127,NULL),(21787,'Xã Vĩnh Sơn','0',52,127,NULL),(21796,'Xã Vĩnh Thịnh','0',52,127,NULL),(21805,'Xã Vĩnh Quang','0',52,127,NULL),(21808,'Xã Tây Sơn','0',52,127,NULL),(21817,'Xã Bình Hiệp','0',52,127,NULL),(21820,'Xã Bình Khê','0',52,127,NULL),(21829,'Xã Bình An','0',52,127,NULL),(21835,'Xã Bình Phú','0',52,127,NULL),(21853,'Xã Phù Cát','0',52,127,NULL),(21862,'Xã Đề Gi','0',52,127,NULL),(21868,'Xã Hội Sơn','0',52,127,NULL),(21871,'Xã Hòa Hội','0',52,127,NULL),(21889,'Xã Ngô Mây','0',52,127,NULL),(21892,'Xã Xuân An','0',52,127,NULL),(21898,'Xã Cát Tiến','0',52,127,NULL),(21907,'Phường Bình Định ','0',52,127,NULL),(21910,'Phường An Nhơn','0',52,127,NULL),(21925,'Phường An Nhơn Bắc','0',52,127,NULL),(21934,'Phường An Nhơn Đông','0',52,127,NULL),(21940,'Xã An Nhơn Tây','0',52,127,NULL),(21943,'Phường An Nhơn Nam','0',52,127,NULL),(21952,'Xã Tuy Phước','0',52,127,NULL),(21964,'Xã Tuy Phước Bắc','0',52,127,NULL),(21970,'Xã Tuy Phước Đông','0',52,127,NULL),(21985,'Xã Tuy Phước Tây','0',52,127,NULL),(21994,'Xã Vân Canh','0',52,127,NULL),(21997,'Xã Canh Liên ','0',52,127,NULL),(22003,'Xã Canh Vinh','0',52,127,NULL),(22015,'Phường Tuy Hòa ','0',66,127,NULL),(22045,'Phường Bình Kiến ','0',66,127,NULL),(22051,'Phường Sông Cầu ','0',66,127,NULL),(22057,'Xã Xuân Lộc ','0',66,127,NULL),(22066,'Xã Xuân Cảnh ','0',66,127,NULL),(22075,'Xã Xuân Thọ  ','0',66,127,NULL),(22076,'Phường Xuân Đài ','0',66,127,NULL),(22081,'Xã Đồng Xuân','0',66,127,NULL),(22090,'Xã Xuân Lãnh','0',66,127,NULL),(22096,'Xã Phú Mỡ','0',66,127,NULL),(22111,'Xã Xuân Phước','0',66,127,NULL),(22114,'Xã Tuy An Bắc','0',66,127,NULL),(22120,'Xã Tuy An Đông','0',66,127,NULL),(22132,'Xã Tuy An Tây','0',66,127,NULL),(22147,'Xã Ô Loan ','0',66,127,NULL),(22153,'Xã Tuy An Nam','0',66,127,NULL),(22165,'Xã Sơn Hòa','0',66,127,NULL),(22171,'Xã Tây Sơn','0',66,127,NULL),(22177,'Xã Vân Hòa','0',66,127,NULL),(22192,'Xã Suối Trai','0',66,127,NULL),(22207,'Xã Sông Hinh','0',66,127,NULL),(22222,'Xã Đức Bình','0',66,127,NULL),(22225,'Xã Ea Bá','0',66,127,NULL),(22237,'Xã Ea Ly','0',66,127,NULL),(22240,'Phường Phú Yên','0',66,127,NULL),(22250,'Xã Sơn Thành','0',66,127,NULL),(22255,'Xã Tây Hòa','0',66,127,NULL),(22258,'Phường Đông Hòa ','0',66,127,NULL),(22261,'Phường Hòa Hiệp','0',66,127,NULL),(22276,'Xã Hòa Thịnh','0',66,127,NULL),(22285,'Xã Hòa Mỹ','0',66,127,NULL),(22291,'Xã Hòa Xuân','0',66,127,NULL),(22306,'Xã Phú Hòa 2','0',66,127,NULL),(22319,'Xã Phú Hòa 1','0',66,127,NULL),(22333,'Phường Bắc Nha Trang','0',56,127,NULL),(22366,'Phường Nha Trang','0',56,127,NULL),(22390,'Phường Tây Nha Trang','0',56,127,NULL),(22402,'Phường Nam Nha Trang','0',56,127,NULL),(22408,'Phường Bắc Cam Ranh','0',56,127,NULL),(22420,'Phường Cam Ranh','0',56,127,NULL),(22423,'Phường Ba Ngòi','0',56,127,NULL),(22432,'Phường Cam Linh','0',56,127,NULL),(22435,'Xã Cam Hiệp','0',56,127,NULL),(22453,'Xã Cam Lâm','0',56,127,NULL),(22465,'Xã Cam An','0',56,127,NULL),(22480,'Xã Nam Cam Ranh','0',56,127,NULL),(22489,'Xã Vạn Ninh','0',56,127,NULL),(22498,'Xã Tu Bông','0',56,127,NULL),(22504,'Xã Đại Lãnh','0',56,127,NULL),(22516,'Xã Vạn Thắng','0',56,127,NULL),(22525,'Xã Vạn Hưng','0',56,127,NULL),(22528,'Phường Ninh Hòa','0',56,127,NULL),(22546,'Xã Bắc Ninh Hòa','0',56,127,NULL),(22552,' Xã Tây Ninh Hòa','0',56,127,NULL),(22558,' Xã Hòa Trí','0',56,127,NULL),(22561,' Phường Đông Ninh Hòa','0',56,127,NULL),(22576,'Xã Tân Định','0',56,127,NULL),(22591,' Phường Hòa Thắng','0',56,127,NULL),(22597,' Xã Nam Ninh Hòa','0',56,127,NULL),(22609,'Xã Khánh Vĩnh','0',56,127,NULL),(22612,'Xã Trung Khánh Vĩnh','0',56,127,NULL),(22615,'Xã Bắc Khánh Vĩnh','0',56,127,NULL),(22624,'Xã Tây Khánh Vĩnh','0',56,127,NULL),(22648,'Xã Nam Khánh Vĩnh','0',56,127,NULL),(22651,'Xã Diên Khánh','0',56,127,NULL),(22657,'Xã Diên Điền','0',56,127,NULL),(22660,'Xã Diên Lâm','0',56,127,NULL),(22672,'Xã Diên Thọ','0',56,127,NULL),(22678,'Xã Diên Lạc','0',56,127,NULL),(22702,'Xã Suối Hiệp','0',56,127,NULL),(22708,'Xã Suối Dầu','0',56,127,NULL),(22714,'Xã Khánh Sơn','0',56,127,NULL),(22720,'Xã Tây Khánh Sơn','0',56,127,NULL),(22732,'Xã Đông Khánh Sơn','0',56,127,NULL),(22736,' Đặc khu Trường Sa','0',56,127,NULL),(22738,'Phường Đô Vinh','0',56,127,NULL),(22741,'Phường Bảo An','0',56,127,NULL),(22759,'Phường Phan Rang','0',56,127,NULL),(22779,'Phường Đông Hải','0',56,127,NULL),(22786,'Xã Bác Ái Tây','0',56,127,NULL),(22795,'Xã Bác Ái','0',56,127,NULL),(22801,'Xã Bác Ái Đông','0',56,127,NULL),(22810,'Xã Ninh Sơn','0',56,127,NULL),(22813,'Xã Lâm Sơn','0',56,127,NULL),(22822,'Xã Mỹ Sơn','0',56,127,NULL),(22828,'Xã Anh Dũng','0',56,127,NULL),(22834,'Phường Ninh Chử','0',56,127,NULL),(22840,'Xã Công Hải','0',56,127,NULL),(22849,'Xã Thuận Bắc','0',56,127,NULL),(22852,'Xã Ninh Hải','0',56,127,NULL),(22858,'Xã Xuân Hải','0',56,127,NULL),(22868,'Xã Vĩnh Hải','0',56,127,NULL),(22870,'Xã Ninh Phước','0',56,127,NULL),(22873,'Xã Phước Hậu','0',56,127,NULL),(22885,'Xã Phước Hà','0',56,127,NULL),(22891,'Xã Phước Hữu','0',56,127,NULL),(22897,'Xã Thuận Nam','0',56,127,NULL),(22903,'Xã Phước Dinh','0',56,127,NULL),(22910,'Xã Cà Ná','0',56,127,NULL),(22918,'Phường Mũi Né','0',68,127,NULL),(22924,'Phường Phú Thuỷ','0',68,127,NULL),(22933,'Phường Hàm Thắng','0',68,127,NULL),(22945,'Phường Phan Thiết','0',68,127,NULL),(22954,'Phường Tiến Thành','0',68,127,NULL),(22960,'Phường Bình Thuận','0',68,127,NULL),(22963,'Xã Tuyên Quang','0',68,127,NULL),(22969,'Xã Liên Hương','0',68,127,NULL),(22972,'Xã Phan Rí Cửa','0',68,127,NULL),(22978,'Xã Tuy Phong','0',68,127,NULL),(22981,'Xã Vĩnh Hảo','0',68,127,NULL),(23005,'Xã Bắc Bình','0',68,127,NULL),(23008,'Xã Phan Sơn','0',68,127,NULL),(23020,'Xã Hải Ninh','0',68,127,NULL),(23023,'Xã Sông Lũy','0',68,127,NULL),(23032,'Xã Lương Sơn','0',68,127,NULL),(23041,'Xã Hồng Thái','0',68,127,NULL),(23053,'Xã Hòa Thắng','0',68,127,NULL),(23059,'Xã Hàm Thuận  ','0',68,127,NULL),(23065,'Xã La Dạ','0',68,127,NULL),(23074,'Xã Đông Giang','0',68,127,NULL),(23086,'Xã Hồng Sơn','0',68,127,NULL),(23089,'Xã Hàm Thuận Bắc','0',68,127,NULL),(23098,'Xã Hàm Liêm','0',68,127,NULL),(23110,'Xã Hàm Thuận Nam','0',68,127,NULL),(23122,'Xã Hàm Thạnh','0',68,127,NULL),(23128,'Xã Hàm Kiệm','0',68,127,NULL),(23134,'Xã Tân Lập','0',68,127,NULL),(23143,'Xã Tân Thành','0',68,127,NULL),(23149,'Xã Tánh Linh','0',68,127,NULL),(23152,'Xã Bắc Ruộng','0',68,127,NULL),(23158,'Xã Nghị Đức','0',68,127,NULL),(23173,'Xã Đồng Kho','0',68,127,NULL),(23188,'Xã Suối Kiết','0',68,127,NULL),(23191,'Xã Đức Linh','0',68,127,NULL),(23194,'Xã Hoài Đức','0',68,127,NULL),(23200,'Xã Nam Thành','0',68,127,NULL),(23227,'Xã Trà Tân','0',68,127,NULL),(23230,'Xã Tân Minh','0',68,127,NULL),(23231,'Phường Phước Hội','0',68,127,NULL),(23235,'Phường La Gi','0',68,127,NULL),(23236,'Xã Hàm Tân','0',68,127,NULL),(23246,'Xã Tân Hải','0',68,127,NULL),(23266,'Xã Sơn Mỹ','0',68,127,NULL),(23272,' Đặc khu Phú Quý','0',68,127,NULL),(23284,'Phường Đăk Cấm','0',51,127,NULL),(23293,'Phường Kon Tum','0',51,127,NULL),(23302,'Phường Đăk BLa','0',51,127,NULL),(23317,'Xã Ngọk Bay','0',51,127,NULL),(23326,'Xã Ia Chim','0',51,127,NULL),(23332,'Xã Đăk Rơ Wa','0',51,127,NULL),(23341,'Xã Đăk Pék','0',51,127,NULL),(23344,'Xã Đăk Plô','0',51,127,NULL),(23356,'Xã Xốp','0',51,127,NULL),(23365,'Xã Ngọc Linh','0',51,127,NULL),(23368,'Xã Đăk Long','0',51,127,NULL),(23374,'Xã Đăk Môn','0',51,127,NULL),(23377,'Xã Bờ Y','0',51,127,NULL),(23383,'Xã Dục Nông','0',51,127,NULL),(23392,'Xã Sa Loong','0',51,127,NULL),(23401,'Xã Đăk Tô','0',51,127,NULL),(23416,'Xã Đăk Sao','0',51,127,NULL),(23419,'Xã Đăk Tờ Kan','0',51,127,NULL),(23425,'Xã Tu Mơ Rông','0',51,127,NULL),(23428,'Xã Ngọk Tụ','0',51,127,NULL),(23430,'Xã Kon Đào ','0',51,127,NULL),(23446,'Xã Măng Ri','0',51,127,NULL),(23455,'Xã Măng Bút','0',51,127,NULL),(23473,'Xã Măng Đen','0',51,127,NULL),(23476,'Xã Kon Plông','0',51,127,NULL),(23479,'Xã Đăk Rve','0',51,127,NULL),(23485,'Xã Đăk Kôi','0',51,127,NULL),(23497,'Xã Kon Braih','0',51,127,NULL),(23500,'Xã Đăk Hà','0',51,127,NULL),(23504,'Xã Đăk Pxi','0',51,127,NULL),(23510,'Xã Đăk Ui','0',51,127,NULL),(23512,'Xã Đăk Mar','0',51,127,NULL),(23515,'Xã Ngọk Réo','0',51,127,NULL),(23527,'Xã Sa Thầy','0',51,127,NULL),(23530,'Xã Rờ Kơi','0',51,127,NULL),(23534,'Xã Sa Bình ','0',51,127,NULL),(23535,'Xã Ia Đal','0',51,127,NULL),(23536,'Xã Mô Rai','0',51,127,NULL),(23538,'Xã Ia Tơi ','0',51,127,NULL),(23548,'Xã Ya Ly','0',51,127,NULL),(23563,'Phường Diên Hồng','0',52,127,NULL),(23575,'Phường Pleiku','0',52,127,NULL),(23584,'Phường Thống Nhất','0',52,127,NULL),(23586,'Phường Hội Phú','0',52,127,NULL),(23590,'Xã Biển Hồ','0',52,127,NULL),(23602,'Phường An Phú','0',52,127,NULL),(23611,'Xã Gào','0',52,127,NULL),(23614,'Phường An Bình','0',52,127,NULL),(23617,'Phường An Khê','0',52,127,NULL),(23629,'Xã Cửu An','0',52,127,NULL),(23638,'Xã Kbang','0',52,127,NULL),(23644,'Xã Đak Rong','0',52,127,NULL),(23647,'Xã Sơn Lang','0',52,127,NULL),(23650,'Xã Krong','0',52,127,NULL),(23668,'Xã Tơ Tung','0',52,127,NULL),(23674,'Xã Kông Bơ La','0',52,127,NULL),(23677,'Xã Đak Đoa','0',52,127,NULL),(23683,'Xã Đak Sơmei','0',52,127,NULL),(23701,'Xã Kon Gang','0',52,127,NULL),(23710,'Xã Ia Băng','0',52,127,NULL),(23714,'Xã KDang','0',52,127,NULL),(23722,'Xã Chư Păh','0',52,127,NULL),(23728,'Xã Ia Khươl','0',52,127,NULL),(23734,'Xã Ia Ly','0',52,127,NULL),(23737,'Xã Ia Mơ','0',52,127,NULL),(23749,'Xã Ia Phí','0',52,127,NULL),(23764,'Xã Ia Grai','0',52,127,NULL),(23767,'Xã Ia Hrung','0',52,127,NULL),(23776,'Xã Ia Krái','0',52,127,NULL),(23782,'Xã Ia O ','0',52,127,NULL),(23788,'Xã Ia Chia','0',52,127,NULL),(23794,'Xã Mang Yang','0',52,127,NULL),(23798,'Xã Ayun','0',52,127,NULL),(23799,'Xã Hra','0',52,127,NULL),(23812,'Xã Lơ Pang','0',52,127,NULL),(23818,'Xã Kon Chiêng','0',52,127,NULL),(23824,'Xã Kông Chro','0',52,127,NULL),(23830,'Xã Chư Krey','0',52,127,NULL),(23833,'Xã Ya Ma','0',52,127,NULL),(23839,'Xã SRó','0',52,127,NULL),(23842,'Xã Đăk Song','0',52,127,NULL),(23851,'Xã Chơ Long','0',52,127,NULL),(23857,'Xã Đức Cơ','0',52,127,NULL),(23866,'Xã Ia Krêl','0',52,127,NULL),(23869,'Xã Ia Dơk','0',52,127,NULL),(23872,'Xã Ia Dom','0',52,127,NULL),(23881,'Xã Ia Pnôn','0',52,127,NULL),(23884,'Xã Ia Nan','0',52,127,NULL),(23887,'Xã Chư Prông','0',52,127,NULL),(23896,'Xã Bàu Cạn','0',52,127,NULL),(23908,'Xã Ia Tôr','0',52,127,NULL),(23911,'Xã Ia Boòng','0',52,127,NULL),(23917,'Xã Ia Púch','0',52,127,NULL),(23926,'Xã Ia Pia','0',52,127,NULL),(23935,'Xã Ia Lâu','0',52,127,NULL),(23941,'Xã Chư Sê','0',52,127,NULL),(23942,'Xã Chư Pưh','0',52,127,NULL),(23947,'Xã Bờ Ngoong','0',52,127,NULL),(23954,'Xã Albá','0',52,127,NULL),(23971,'Xã Ia Hrú','0',52,127,NULL),(23977,'Xã Ia Ko','0',52,127,NULL),(23986,'Xã Ia Le','0',52,127,NULL),(23995,'Xã Đak Pơ','0',52,127,NULL),(24007,'Xã Ya Hội','0',52,127,NULL),(24013,'Xã Pờ Tó','0',52,127,NULL),(24022,'Xã Ia Pa','0',52,127,NULL),(24028,'Xã Ia Tul','0',52,127,NULL),(24043,'Xã Phú Thiện','0',52,127,NULL),(24044,'Phường Ayun Pa','0',52,127,NULL),(24049,'Xã Chư A Thai','0',52,127,NULL),(24061,'Xã Ia Hiao','0',52,127,NULL),(24065,'Xã Ia Rbol','0',52,127,NULL),(24073,'Xã Ia Sao','0',52,127,NULL),(24076,'Xã Phú Túc','0',52,127,NULL),(24100,'Xã Ia Dreh','0',52,127,NULL),(24109,'Xã Uar','0',52,127,NULL),(24112,'Xã Ia Rsai','0',52,127,NULL),(24121,'Phường Tân Lập','0',66,127,NULL),(24133,'Phường Buôn Ma Thuột','0',66,127,NULL),(24154,'Phường Thành Nhất','0',66,127,NULL),(24163,'Phường Tân An','0',66,127,NULL),(24169,'Phường Ea Kao','0',66,127,NULL),(24175,'Xã Hòa Phú','0',66,127,NULL),(24181,'Xã Ea Drăng','0',66,127,NULL),(24184,'Xã Ea H’leo','0',66,127,NULL),(24187,'Xã Ea Hiao','0',66,127,NULL),(24193,'Xã Ea Wy','0',66,127,NULL),(24208,'Xã Ea Khăl','0',66,127,NULL),(24211,'Xã Ea Súp','0',66,127,NULL),(24214,'Xã Ia Lốp','0',66,127,NULL),(24217,'Xã Ea Rốk','0',66,127,NULL),(24221,'Xã Ia Rvê','0',66,127,NULL),(24229,'Xã Ea Bung','0',66,127,NULL),(24235,'Xã Buôn Đôn','0',66,127,NULL),(24241,'Xã Ea Wer','0',66,127,NULL),(24250,'Xã Ea Nuôl','0',66,127,NULL),(24259,'Xã Quảng Phú','0',66,127,NULL),(24265,'Xã Ea Kiết','0',66,127,NULL),(24277,'Xã Ea Tul','0',66,127,NULL),(24280,'Xã Cư M’gar','0',66,127,NULL),(24286,'Xã Ea M’Droh','0',66,127,NULL),(24301,'Xã Cuôr Đăng','0',66,127,NULL),(24305,'Phường Buôn Hồ','0',66,127,NULL),(24310,'Xã Krông Búk','0',66,127,NULL),(24313,'Xã Cư Pơng','0',66,127,NULL),(24316,'Xã Pơng Drang','0',66,127,NULL),(24328,'Xã Ea Drông','0',66,127,NULL),(24340,'Phường Cư Bao','0',66,127,NULL),(24343,'Xã Krông Năng','0',66,127,NULL),(24346,'Xã Dliê Ya','0',66,127,NULL),(24352,'Xã Tam Giang','0',66,127,NULL),(24364,'Xã Phú Xuân','0',66,127,NULL),(24373,'Xã Ea Kar','0',66,127,NULL),(24376,'Xã Ea Knốp','0',66,127,NULL),(24400,'Xã Ea Păl','0',66,127,NULL),(24403,'Xã Ea Ô','0',66,127,NULL),(24406,'Xã Cư Yang','0',66,127,NULL),(24412,'Xã M’Drắk','0',66,127,NULL),(24415,'Xã Cư Prao','0',66,127,NULL),(24433,'Xã Ea Riêng','0',66,127,NULL),(24436,'Xã Cư M’ta','0',66,127,NULL),(24444,'Xã Krông Á','0',66,127,NULL),(24445,'Xã Ea Trang','0',66,127,NULL),(24448,'Xã Krông Bông','0',66,127,NULL),(24454,'Xã Dang Kang','0',66,127,NULL),(24478,'Xã Cư Pui','0',66,127,NULL),(24481,'Xã Hòa Sơn','0',66,127,NULL),(24484,'Xã Yang Mao','0',66,127,NULL),(24490,'Xã Krông Pắc','0',66,127,NULL),(24496,'Xã Ea Kly','0',66,127,NULL),(24502,'Xã Ea Phê','0',66,127,NULL),(24505,'Xã Ea Knuếc','0',66,127,NULL),(24526,'Xã Tân Tiến','0',66,127,NULL),(24529,'Xã Vụ Bổn','0',66,127,NULL),(24538,'Xã Krông Ana','0',66,127,NULL),(24540,'Xã Ea Ning','0',66,127,NULL),(24544,'Xã Ea Ktur','0',66,127,NULL),(24559,'Xã Ea Na','0',66,127,NULL),(24561,'Xã Dray Bhăng','0',66,127,NULL),(24568,'Xã Dur Kmăl','0',66,127,NULL),(24580,'Xã Liên Sơn Lắk','0',66,127,NULL),(24595,'Xã Đắk Liêng','0',66,127,NULL),(24598,'Xã Đắk Phơi','0',66,127,NULL),(24604,'Xã Krông Nô','0',66,127,NULL),(24607,'Xã Nam Ka','0',66,127,NULL),(24611,'Phường Bắc Gia Nghĩa','0',68,127,NULL),(24615,'Phường Nam Gia Nghĩa','0',68,127,NULL),(24616,'Xã Quảng Sơn  ','0',68,127,NULL),(24617,'Phường Đông Gia Nghĩa','0',68,127,NULL),(24620,'Xã Quảng Hòa','0',68,127,NULL),(24631,'Xã Quảng Khê','0',68,127,NULL),(24637,'Xã Tà Đùng','0',68,127,NULL),(24640,'Xã Cư Jút','0',68,127,NULL),(24646,'Xã Đắk Wil','0',68,127,NULL),(24649,'Xã Nam Dong','0',68,127,NULL),(24664,'Xã Đức Lập','0',68,127,NULL),(24670,'Xã Đắk Mil','0',68,127,NULL),(24678,'Xã Đắk Sắk','0',68,127,NULL),(24682,'Xã Thuận An','0',68,127,NULL),(24688,'Xã Krông Nô','0',68,127,NULL),(24697,'Xã Nam Đà','0',68,127,NULL),(24703,'Xã Nâm Nung','0',68,127,NULL),(24712,'Xã Quảng Phú','0',68,127,NULL),(24717,'Xã Đức An ','0',68,127,NULL),(24718,'Xã Đắk song','0',68,127,NULL),(24722,'Xã Thuận Hạnh','0',68,127,NULL),(24730,'Xã Trường Xuân','0',68,127,NULL),(24733,'Xã Kiến Đức','0',68,127,NULL),(24736,'Xã Quảng Trực ','0',68,127,NULL),(24739,'Xã Tuy Đức','0',68,127,NULL),(24748,'Xã Quảng Tân','0',68,127,NULL),(24751,'Xã Nhân Cơ','0',68,127,NULL),(24760,'Xã Quảng Tín','0',68,127,NULL),(24778,'Phường Lâm Viên - Đà Lạt ','0',68,127,NULL),(24781,'Phường Xuân Hương - Đà Lạt ','0',68,127,NULL),(24787,'Phường Cam Ly - Đà Lạt ','0',68,127,NULL),(24805,'Phường Xuân Trường - Đà Lạt ','0',68,127,NULL),(24820,'Phường 2 Bảo Lộc ','0',68,127,NULL),(24823,'Phường 1 Bảo Lộc ','0',68,127,NULL),(24829,'Phường B\'Lao','0',68,127,NULL),(24841,'Phường 3 Bảo Lộc ','0',68,127,NULL),(24846,'Phường Lang Biang - Đà Lạt ','0',68,127,NULL),(24848,'Xã Lạc Dương','0',68,127,NULL),(24853,'Xã Đam Rông 4','0',68,127,NULL),(24868,'Xã Nam Ban Lâm Hà ','0',68,127,NULL),(24871,'Xã Đinh Văn Lâm Hà','0',68,127,NULL),(24875,'Xã Đam Rông 3','0',68,127,NULL),(24877,'Xã Đam Rông 2','0',68,127,NULL),(24883,'Xã Nam Hà Lâm Hà','0',68,127,NULL),(24886,'Xã Đam Rông 1','0',68,127,NULL),(24895,'Xã Phú Sơn Lâm Hà ','0',68,127,NULL),(24907,'Xã Phúc Thọ Lâm Hà ','0',68,127,NULL),(24916,'Xã Tân Hà Lâm Hà ','0',68,127,NULL),(24931,'Xã Đơn Dương','0',68,127,NULL),(24934,'Xã D\'Ran','0',68,127,NULL),(24943,'Xã Ka Đô ','0',68,127,NULL),(24955,'Xã Quảng Lập','0',68,127,NULL),(24958,'Xã Đức Trọng','0',68,127,NULL),(24967,'Xã Hiệp Thạnh','0',68,127,NULL),(24976,'Xã Tân Hội','0',68,127,NULL),(24985,'Xã Ninh Gia ','0',68,127,NULL),(24988,'Xã Tà Năng ','0',68,127,NULL),(24991,'Xã Tà Hine ','0',68,127,NULL),(25000,'Xã Di Linh ','0',68,127,NULL),(25007,'Xã Đinh Trang Thượng ','0',68,127,NULL),(25015,'Xã Gia Hiệp ','0',68,127,NULL),(25018,'Xã Bảo Thuận ','0',68,127,NULL),(25036,'Xã Hòa Ninh ','0',68,127,NULL),(25042,'Xã Hòa Bắc','0',68,127,NULL),(25051,'Xã Sơn Điền ','0',68,127,NULL),(25054,'Xã Bảo Lâm 1','0',68,127,NULL),(25057,'Xã Bảo Lâm 5','0',68,127,NULL),(25063,'Xã Bảo Lâm 4','0',68,127,NULL),(25084,'Xã Bảo Lâm 2','0',68,127,NULL),(25093,'Xã Bảo Lâm 3','0',68,127,NULL),(25099,'Xã Đạ Huoai ','0',68,127,NULL),(25105,'Xã Đạ Huoai 2','0',68,127,NULL),(25114,'Xã Đạ Huoai 3','0',68,127,NULL),(25126,'Xã Đạ Tẻh','0',68,127,NULL),(25135,'Xã Đạ Tẻh 3 ','0',68,127,NULL),(25138,'Xã Đạ Tẻh 2 ','0',68,127,NULL),(25159,'Xã Cát Tiên ','0',68,127,NULL),(25162,'Xã Cát Tiên 3 ','0',68,127,NULL),(25180,'Xã Cát Tiên 2 ','0',68,127,NULL),(25195,'Phường Bình Phước','0',75,127,NULL),(25210,'Phường Đồng Xoài','0',75,127,NULL),(25217,'Phường Phước Long','0',75,127,NULL),(25220,'Phường Phước Bình','0',75,127,NULL),(25222,'Xã Bù Gia Mập','0',75,127,NULL),(25225,'Xã Đăk Ơ','0',75,127,NULL),(25231,'Xã Đa Kia','0',75,127,NULL),(25246,'Xã Bình Tân','0',75,127,NULL),(25255,'Xã Long Hà','0',75,127,NULL),(25261,'Xã Phú Trung','0',75,127,NULL),(25264,'Xã Phú Riềng','0',75,127,NULL),(25267,'Xã Phú Nghĩa','0',75,127,NULL),(25270,'Xã Lộc Ninh','0',75,127,NULL),(25279,'Xã Lộc Tấn','0',75,127,NULL),(25280,'Xã Lộc Thạnh','0',75,127,NULL),(25292,'Xã Lộc Quang','0',75,127,NULL),(25294,'Xã Lộc Thành','0',75,127,NULL),(25303,'Xã Lộc Hưng','0',75,127,NULL),(25308,'Xã Thiện Hưng','0',75,127,NULL),(25309,'Xã Hưng Phước','0',75,127,NULL),(25318,'Xã Tân Tiến','0',75,127,NULL),(25326,'Phường Bình Long','0',75,127,NULL),(25336,'Phường An Lộc','0',75,127,NULL),(25345,'Xã Tân Hưng','0',75,127,NULL),(25349,'Xã Minh Đức','0',75,127,NULL),(25351,'Xã Tân Quan','0',75,127,NULL),(25357,'Xã Tân Khai','0',75,127,NULL),(25363,'Xã Đồng Phú','0',75,127,NULL),(25378,'Xã Tân Lợi','0',75,127,NULL),(25387,'Xã Thuận Lợi','0',75,127,NULL),(25390,'Xã Đồng Tâm','0',75,127,NULL),(25396,'Xã Bù Đăng','0',75,127,NULL),(25399,'Xã Đak Nhau','0',75,127,NULL),(25402,'Xã Thọ Sơn','0',75,127,NULL),(25405,'Xã Bom Bo','0',75,127,NULL),(25417,'Xã Nghĩa Trung','0',75,127,NULL),(25420,'Xã Phước Sơn','0',75,127,NULL),(25432,'Phường Chơn Thành','0',75,127,NULL),(25441,'Phường Minh Hưng','0',75,127,NULL),(25453,'Xã Nha Bích','0',75,127,NULL),(25459,'Phường Tân Ninh','0',80,127,NULL),(25480,'Phường Bình Minh','0',80,127,NULL),(25486,'Xã Tân Biên','0',80,127,NULL),(25489,'Xã Tân Lập','0',80,127,NULL),(25498,'Xã Thạnh Bình','0',80,127,NULL),(25510,'Xã Trà Vong','0',80,127,NULL),(25516,'Xã Tân Châu','0',80,127,NULL),(25522,'Xã Tân Đông','0',80,127,NULL),(25525,'Xã Tân Hội','0',80,127,NULL),(25531,'Xã Tân Hòa','0',80,127,NULL),(25534,'Xã Tân Thành','0',80,127,NULL),(25549,'Xã Tân Phú ','0',80,127,NULL),(25552,'Xã Dương Minh Châu','0',80,127,NULL),(25567,'Phường Ninh Thạnh','0',80,127,NULL),(25573,'Xã Cầu Khởi','0',80,127,NULL),(25579,'Xã Lộc Ninh','0',80,127,NULL),(25585,'Xã Châu Thành','0',80,127,NULL),(25588,'Xã Hảo Đước','0',80,127,NULL),(25591,'Xã Phước Vinh','0',80,127,NULL),(25606,'Xã Hoà Hội ','0',80,127,NULL),(25621,'Xã Ninh Điền','0',80,127,NULL),(25630,'Phường Long Hoa','0',80,127,NULL),(25633,'Phường Thanh Điền','0',80,127,NULL),(25645,'Phường Hoà Thành','0',80,127,NULL),(25654,'Phường Gò Dầu','0',80,127,NULL),(25657,'Xã Thạnh Đức','0',80,127,NULL),(25663,'Xã Phước Thạnh','0',80,127,NULL),(25666,'Xã Truông Mít','0',80,127,NULL),(25672,'Phường Gia Lộc','0',80,127,NULL),(25681,'Xã Bến Cầu','0',80,127,NULL),(25684,'Xã Long Chữ','0',80,127,NULL),(25702,'Xã Long Thuận','0',80,127,NULL),(25708,'Phường Trảng Bàng','0',80,127,NULL),(25711,'Xã Hưng Thuận','0',80,127,NULL),(25729,'Xã Phước Chỉ','0',80,127,NULL),(25732,'Phường An Tịnh','0',80,127,NULL),(25747,'Phường Thủ Dầu Một','0',79,127,NULL),(25750,'Phường Phú Lợi','0',79,127,NULL),(25760,'Phường Bình Dương','0',79,127,NULL),(25768,'Phường Phú An','0',79,127,NULL),(25771,'Phường Chánh Hiệp','0',79,127,NULL),(25777,'Xã Dầu Tiếng','0',79,127,NULL),(25780,'Xã Minh Thạnh','0',79,127,NULL),(25792,'Xã Long Hòa','0',79,127,NULL),(25807,'Xã Thanh An','0',79,127,NULL),(25813,'Phường Bến Cát','0',79,127,NULL),(25819,'Xã Trừ Văn Thố','0',79,127,NULL),(25822,'Xã Bàu Bàng','0',79,127,NULL),(25837,'Phường Chánh Phú Hòa','0',79,127,NULL),(25840,'Phường Long Nguyên','0',79,127,NULL),(25843,'Phường Tây Nam','0',79,127,NULL),(25846,'Phường Thới Hòa','0',79,127,NULL),(25849,'Phường Hòa Lợi','0',79,127,NULL),(25858,'Xã Phú Giáo','0',79,127,NULL),(25864,'Xã Phước Thành','0',79,127,NULL),(25867,'Xã An Long','0',79,127,NULL),(25882,'Xã Phước Hòa','0',79,127,NULL),(25888,'Phường Tân Uyên','0',79,127,NULL),(25891,'Phường Tân Khánh','0',79,127,NULL),(25906,'Xã Bắc Tân Uyên','0',79,127,NULL),(25909,'Xã Thường Tân','0',79,127,NULL),(25912,'Phường Vĩnh Tân','0',79,127,NULL),(25915,'Phường Bình Cơ','0',79,127,NULL),(25920,'Phường Tân Hiệp','0',79,127,NULL),(25942,'Phường Dĩ An','0',79,127,NULL),(25945,'Phường Tân Đông Hiệp','0',79,127,NULL),(25951,'Phường Đông Hòa','0',79,127,NULL),(25966,'Phường Lái Thiêu','0',79,127,NULL),(25969,'Phường Thuận Giao','0',79,127,NULL),(25975,'Phường An Phú','0',79,127,NULL),(25978,'Phường Thuận An','0',79,127,NULL),(25987,'Phường Bình Hòa','0',79,127,NULL),(25993,'Phường Trảng Dài','0',75,127,NULL),(26005,'Phường Hố Nai','0',75,127,NULL),(26017,'Phường Tam Hiệp','0',75,127,NULL),(26020,'Phường Long Bình','0',75,127,NULL),(26041,'Phường Trấn Biên','0',75,127,NULL),(26068,'Phường Biên Hòa','0',75,127,NULL),(26080,'Phường Long Khánh','0',75,127,NULL),(26089,'Phường Bình Lộc','0',75,127,NULL),(26098,'Phường Bảo Vinh','0',75,127,NULL),(26104,'Phường Xuân Lập','0',75,127,NULL),(26113,'Phường Hàng Gòn','0',75,127,NULL),(26116,'Xã Tân Phú','0',75,127,NULL),(26119,'Xã Đak Lua','0',75,127,NULL),(26122,'Xã Nam Cát Tiên','0',75,127,NULL),(26134,'Xã Tà Lài','0',75,127,NULL),(26158,'Xã Phú Lâm','0',75,127,NULL),(26170,'Xã Trị An','0',75,127,NULL),(26173,'Xã Phú Lý','0',75,127,NULL),(26179,'Xã Tân An','0',75,127,NULL),(26188,'Phường Tân Triều','0',75,127,NULL),(26206,'Xã Định Quán','0',75,127,NULL),(26209,'Xã Thanh Sơn','0',75,127,NULL),(26215,'Xã Phú Vinh','0',75,127,NULL),(26221,'Xã Phú Hòa','0',75,127,NULL),(26227,'Xã La Ngà','0',75,127,NULL),(26248,'Xã Trảng Bom','0',75,127,NULL),(26254,'Xã Bàu Hàm','0',75,127,NULL),(26278,'Xã Bình Minh','0',75,127,NULL),(26281,'Xã Hưng Thịnh','0',75,127,NULL),(26296,'Xã An Viễn','0',75,127,NULL),(26299,'Xã Thống Nhất','0',75,127,NULL),(26311,'Xã Gia Kiệm','0',75,127,NULL),(26326,'Xã Dầu Giây','0',75,127,NULL),(26329,'Xã Xuân Quế','0',75,127,NULL),(26341,'Xã Cẩm Mỹ','0',75,127,NULL),(26347,'Xã Xuân Đường','0',75,127,NULL),(26359,'Xã Xuân Đông','0',75,127,NULL),(26362,'Xã Sông Ray','0',75,127,NULL),(26368,'Xã Long Thành','0',75,127,NULL),(26374,'Phường Tam Phước','0',75,127,NULL),(26377,'Phường Phước Tân','0',75,127,NULL),(26380,'Phường Long Hưng','0',75,127,NULL),(26383,'Xã An Phước','0',75,127,NULL),(26389,'Xã Bình An','0',75,127,NULL),(26413,'Xã Long Phước','0',75,127,NULL),(26422,'Xã Phước Thái','0',75,127,NULL),(26425,'Xã Xuân Lộc','0',75,127,NULL),(26428,'Xã Xuân Bắc','0',75,127,NULL),(26434,'Xã Xuân Thành','0',75,127,NULL),(26446,'Xã Xuân Hòa','0',75,127,NULL),(26458,'Xã Xuân Phú','0',75,127,NULL),(26461,'Xã Xuân Định','0',75,127,NULL),(26485,'Xã Nhơn Trạch','0',75,127,NULL),(26491,'Xã Đại Phước','0',75,127,NULL),(26503,'Xã Phước An','0',75,127,NULL),(26506,'Phường Vũng Tàu','0',79,127,NULL),(26526,'Phường Tam Thắng','0',79,127,NULL),(26536,'Phường Rạch Dừa','0',79,127,NULL),(26542,'Phường Phước Thắng','0',79,127,NULL),(26545,'Xã Long Sơn','0',79,127,NULL),(26560,'Phường Bà Rịa','0',79,127,NULL),(26566,'Phường Long Hương','0',79,127,NULL),(26572,'Phường Tam Long','0',79,127,NULL),(26575,'Xã Ngãi Giao','0',79,127,NULL),(26584,'Xã Xuân Sơn','0',79,127,NULL),(26590,'Xã Bình Giã','0',79,127,NULL),(26596,'Xã Châu Đức','0',79,127,NULL),(26608,'Xã Kim Long','0',79,127,NULL),(26617,'Xã Nghĩa Thành','0',79,127,NULL),(26620,'Xã Hồ Tràm','0',79,127,NULL),(26632,'Xã Xuyên Mộc','0',79,127,NULL),(26638,'Xã Bàu Lâm','0',79,127,NULL),(26641,'Xã Hòa Hội','0',79,127,NULL),(26647,'Xã Hòa Hiệp','0',79,127,NULL),(26656,'Xã Bình Châu','0',79,127,NULL),(26659,'Xã Long Điền','0',79,127,NULL),(26662,'Xã Long Hải','0',79,127,NULL),(26680,'Xã Đất Đỏ','0',79,127,NULL),(26686,'Xã Phước Hải','0',79,127,NULL),(26704,'Phường Phú Mỹ','0',79,127,NULL),(26710,'Phường Tân Hải','0',79,127,NULL),(26713,'Phường Tân Phước','0',79,127,NULL),(26725,'Phường Tân Thành','0',79,127,NULL),(26728,'Xã Châu Pha','0',79,127,NULL),(26732,' Đặc khu Côn Đảo','0',79,127,NULL),(26737,'Phường Tân Định','0',79,127,NULL),(26740,'Phường Sài Gòn','0',79,127,NULL),(26743,'Phường Bến Thành','0',79,127,NULL),(26758,'Phường Cầu Ông Lãnh','0',79,127,NULL),(26767,'Phường An Phú Đông','0',79,127,NULL),(26773,'Phường Thới An','0',79,127,NULL),(26782,'Phường Tân Thới Hiệp','0',79,127,NULL),(26785,'Phường Trung Mỹ Tây','0',79,127,NULL),(26791,'Phường Đông Hưng Thuận','0',79,127,NULL),(26794,'Phường Linh Xuân','0',79,127,NULL),(26797,'Phường Tam Bình','0',79,127,NULL),(26812,'Phường Hiệp Bình','0',79,127,NULL),(26824,'Phường Thủ Đức','0',79,127,NULL),(26833,'Phường Long Bình','0',79,127,NULL),(26842,'Phường Tăng Nhơn Phú','0',79,127,NULL),(26848,'Phường Phước Long','0',79,127,NULL),(26857,'Phường Long Phước','0',79,127,NULL),(26860,'Phường Long Trường','0',79,127,NULL),(26878,' Phường An Hội Đông','0',79,127,NULL),(26882,' Phường An Hội Tây','0',79,127,NULL),(26884,' Phường Gò Vấp','0',79,127,NULL),(26887,' Phường  An Nhơn','0',79,127,NULL),(26899,' Phường Thông Tây Hội','0',79,127,NULL),(26902,' Phường Hạnh Thông','0',79,127,NULL),(26905,'Phường Bình Lợi Trung','0',79,127,NULL),(26911,'Phường Bình Quới','0',79,127,NULL),(26929,'Phường Bình Thạnh','0',79,127,NULL),(26944,'Phường Gia Định','0',79,127,NULL),(26956,'Phường Thạnh Mỹ Tây','0',79,127,NULL),(26968,' Phường Tân Sơn Nhất','0',79,127,NULL),(26977,' Phường Tân Sơn Hòa','0',79,127,NULL),(26983,' Phường Bảy Hiền','0',79,127,NULL),(26995,' Phường Tân Hòa','0',79,127,NULL),(27004,' Phường Tân Bình','0',79,127,NULL),(27007,' Phường Tân Sơn','0',79,127,NULL),(27010,'Phường Tân Sơn Nhì','0',79,127,NULL),(27013,'Phường Tây Thạnh','0',79,127,NULL),(27022,'Phường Phú Thọ Hòa','0',79,127,NULL),(27028,'Phường Phú Thạnh','0',79,127,NULL),(27031,'Phường Tân Phú','0',79,127,NULL),(27043,'Phường Đức Nhuận','0',79,127,NULL),(27058,'Phường Cầu Kiệu','0',79,127,NULL),(27073,'Phường Phú Nhuận','0',79,127,NULL),(27097,'Phường Bình Trưng','0',79,127,NULL),(27112,'Phường Cát Lái','0',79,127,NULL),(27118,'Phường An Khánh','0',79,127,NULL),(27139,'Phường Xuân Hòa','0',79,127,NULL),(27142,'Phường Nhiêu Lộc','0',79,127,NULL),(27160,'Phường Bàn Cờ','0',79,127,NULL),(27163,'Phường Hòa Hưng','0',79,127,NULL),(27169,'Phường Diên Hồng','0',79,127,NULL),(27190,'Phường Vườn Lài','0',79,127,NULL),(27211,'Phường Hòa Bình','0',79,127,NULL),(27226,'Phường Phú Thọ','0',79,127,NULL),(27232,'Phường Bình Thới','0',79,127,NULL),(27238,'Phường Minh Phụng','0',79,127,NULL),(27259,' Phường Xóm Chiếu','0',79,127,NULL),(27265,' Phường Khánh Hội','0',79,127,NULL),(27286,' Phường Vĩnh Hội','0',79,127,NULL),(27301,'Phường Chợ Quán','0',79,127,NULL),(27316,'Phường An Đông','0',79,127,NULL),(27343,'Phường Chợ Lớn','0',79,127,NULL),(27349,'Phường Phú Lâm','0',79,127,NULL),(27367,'Phường Bình Tây','0',79,127,NULL),(27373,'Phường Bình Tiên','0',79,127,NULL),(27385,'Phường Bình Phú','0',79,127,NULL),(27418,'Phường Chánh Hưng','0',79,127,NULL),(27424,'Phường Bình Đông','0',79,127,NULL),(27427,'Phường Phú Định','0',79,127,NULL),(27439,' Phường Bình Hưng Hòa','0',79,127,NULL),(27442,' Phường Bình Tân','0',79,127,NULL),(27448,' Phường Bình Trị Đông','0',79,127,NULL),(27457,' Phường Tân Tạo','0',79,127,NULL),(27460,' Phường An Lạc','0',79,127,NULL),(27475,'Phường Tân Hưng','0',79,127,NULL),(27478,'Phường Tân Thuận','0',79,127,NULL),(27484,'Phường Phú Thuận','0',79,127,NULL),(27487,'Phường Tân Mỹ','0',79,127,NULL),(27496,'Xã Tân An Hội','0',79,127,NULL),(27508,'Xã An Nhơn Tây','0',79,127,NULL),(27511,'Xã Nhuận Đức','0',79,127,NULL),(27526,'Xã Thái Mỹ','0',79,127,NULL),(27541,'Xã Phú Hòa Đông','0',79,127,NULL),(27544,'Xã Bình Mỹ','0',79,127,NULL),(27553,'Xã Củ Chi','0',79,127,NULL),(27559,'Xã Hóc Môn','0',79,127,NULL),(27568,'Xã Đông Thạnh','0',79,127,NULL),(27577,'Xã Xuân Thới Sơn','0',79,127,NULL),(27592,'Xã Bà Điểm','0',79,127,NULL),(27595,'Xã Tân Nhựt','0',79,127,NULL),(27601,'Xã Vĩnh Lộc','0',79,127,NULL),(27604,'Xã Tân Vĩnh Lộc','0',79,127,NULL),(27610,'Xã Bình Lợi','0',79,127,NULL),(27619,'Xã Bình Hưng','0',79,127,NULL),(27628,'Xã Hưng Long','0',79,127,NULL),(27637,'Xã Bình Chánh','0',79,127,NULL),(27655,'Xã Nhà Bè','0',79,127,NULL),(27658,'Xã Hiệp Phước','0',79,127,NULL),(27664,'Xã Cần Giờ','0',79,127,NULL),(27667,'Xã Bình Khánh','0',79,127,NULL),(27673,'Xã An Thới Đông','0',79,127,NULL),(27676,'Xã Thạnh An','0',79,127,NULL),(27694,'Phường Long An','0',80,127,NULL),(27712,'Phường Tân An','0',80,127,NULL),(27715,'Phường Khánh Hậu','0',80,127,NULL),(27721,'Xã Tân Hưng','0',80,127,NULL),(27727,'Xã Hưng Điền','0',80,127,NULL),(27736,'Xã Vĩnh Thạnh','0',80,127,NULL),(27748,'Xã Vĩnh Châu','0',80,127,NULL),(27757,'Xã Vĩnh Hưng','0',80,127,NULL),(27763,'Xã Khánh Hưng','0',80,127,NULL),(27775,'Xã Tuyên Bình','0',80,127,NULL),(27787,'Phường Kiến Tường','0',80,127,NULL),(27793,'Xã Bình Hiệp','0',80,127,NULL),(27811,'Xã Bình Hoà ','0',80,127,NULL),(27817,'Xã Tuyên Thạnh','0',80,127,NULL),(27823,'Xã Mộc Hoá','0',80,127,NULL),(27826,'Xã Tân Thạnh','0',80,127,NULL),(27838,'Xã Nhơn Hòa Lập','0',80,127,NULL),(27841,'Xã Hậu Thạnh','0',80,127,NULL),(27856,'Xã Nhơn Ninh','0',80,127,NULL),(27865,'Xã Thạnh Hóa','0',80,127,NULL),(27868,'Xã Bình Thành','0',80,127,NULL),(27877,'Xã Thạnh Phước','0',80,127,NULL),(27889,'Xã Tân Tây','0',80,127,NULL),(27898,'Xã Đông Thành','0',80,127,NULL),(27907,'Xã Mỹ Quý','0',80,127,NULL),(27925,'Xã Đức Huệ','0',80,127,NULL),(27931,'Xã Hậu Nghĩa','0',80,127,NULL),(27937,'Xã Đức Hòa','0',80,127,NULL),(27943,'Xã An Ninh','0',80,127,NULL),(27952,'Xã Hiệp Hoà','0',80,127,NULL),(27964,'Xã Đức Lập','0',80,127,NULL),(27976,'Xã Mỹ Hạnh','0',80,127,NULL),(27979,'Xã Hoà Khánh','0',80,127,NULL),(27991,'Xã Bến Lức','0',80,127,NULL),(27994,'Xã Thạnh Lợi','0',80,127,NULL),(28003,'Xã Lương Hoà','0',80,127,NULL),(28015,'Xã Bình Đức','0',80,127,NULL),(28018,'Xã Mỹ Yên','0',80,127,NULL),(28036,'Xã Thủ Thừa','0',80,127,NULL),(28051,'Xã Mỹ Thạnh','0',80,127,NULL),(28066,'Xã Mỹ An','0',80,127,NULL),(28072,'Xã Tân Long','0',80,127,NULL),(28075,'Xã Tân Trụ','0',80,127,NULL),(28087,'Xã Nhựt Tảo','0',80,127,NULL),(28093,'Xã Vàm Cỏ','0',80,127,NULL),(28108,'Xã Cần Đước','0',80,127,NULL),(28114,'Xã Rạch Kiến','0',80,127,NULL),(28126,'Xã Long Cang','0',80,127,NULL),(28132,'Xã Mỹ Lệ','0',80,127,NULL),(28138,'Xã Tân Lân','0',80,127,NULL),(28144,'Xã Long Hựu','0',80,127,NULL),(28159,'Xã Cần Giuộc','0',80,127,NULL),(28165,'Xã Phước Lý','0',80,127,NULL),(28177,'Xã Mỹ Lộc','0',80,127,NULL),(28201,'Xã Phước Vĩnh Tây','0',80,127,NULL),(28207,'Xã Tân Tập','0',80,127,NULL),(28210,'Xã Tầm Vu','0',80,127,NULL),(28222,'Xã Vĩnh Công','0',80,127,NULL),(28225,'Xã Thuận Mỹ','0',80,127,NULL),(28243,'Xã An Lục Long','0',80,127,NULL),(28249,'Phường Đạo Thạnh','0',82,127,NULL),(28261,'Phường Mỹ Tho','0',82,127,NULL),(28270,'Phường Thới Sơn','0',82,127,NULL),(28273,'Phường Mỹ Phong','0',82,127,NULL),(28285,'Phường Trung An','0',82,127,NULL),(28297,'Phường Long Thuận','0',82,127,NULL),(28306,'Phường Gò Công','0',82,127,NULL),(28315,'Phường Bình Xuân','0',82,127,NULL),(28321,'Xã Tân Phước 1','0',82,127,NULL),(28327,'Xã Tân Phước 2','0',82,127,NULL),(28336,'Xã Hưng Thạnh','0',82,127,NULL),(28345,'Xã Tân Phước 3','0',82,127,NULL),(28360,'Xã Cái Bè','0',82,127,NULL),(28366,'Xã Hậu Mỹ','0',82,127,NULL),(28378,'Xã Mỹ Thiện','0',82,127,NULL),(28393,'Xã Hội Cư','0',82,127,NULL),(28405,'Xã Mỹ Đức Tây','0',82,127,NULL),(28414,'Xã Mỹ Lợi','0',82,127,NULL),(28426,'Xã Thanh Hưng','0',82,127,NULL),(28429,'Xã An Hữu','0',82,127,NULL),(28435,'Phường Mỹ Phước Tây','0',82,127,NULL),(28436,'Phường Thanh Hòa','0',82,127,NULL),(28439,'Phường Cai Lậy','0',82,127,NULL),(28444,'Xã Thạnh Phú','0',82,127,NULL),(28456,'Xã Mỹ Thành','0',82,127,NULL),(28468,'Xã Tân Phú','0',82,127,NULL),(28471,'Xã Bình Phú','0',82,127,NULL),(28477,'Phường Nhị Quý','0',82,127,NULL),(28501,'Xã Hiệp Đức','0',82,127,NULL),(28504,'Xã Long Tiên','0',82,127,NULL),(28516,'Xã Ngũ Hiệp','0',82,127,NULL),(28519,'Xã Châu Thành','0',82,127,NULL),(28525,'Xã Tân Hương','0',82,127,NULL),(28537,'Xã Long Hưng','0',82,127,NULL),(28543,'Xã Long Định','0',82,127,NULL),(28564,'Xã Bình Trưng','0',82,127,NULL),(28576,'Xã Vĩnh Kim','0',82,127,NULL),(28582,'Xã Kim Sơn','0',82,127,NULL),(28594,'Xã Chợ Gạo','0',82,127,NULL),(28603,'Xã Mỹ Tịnh An','0',82,127,NULL),(28615,'Xã Lương Hòa Lạc','0',82,127,NULL),(28627,'Xã Tân Thuận Bình','0',82,127,NULL),(28633,'Xã An Thạnh Thủy','0',82,127,NULL),(28648,'Xã Bình Ninh','0',82,127,NULL),(28651,'Xã Vĩnh Bình','0',82,127,NULL),(28660,'Xã Đồng Sơn','0',82,127,NULL),(28663,'Xã Phú Thành','0',82,127,NULL),(28678,'Xã Vĩnh Hựu','0',82,127,NULL),(28687,'Xã Long Bình','0',82,127,NULL),(28693,'Xã Tân Thới','0',82,127,NULL),(28696,'Xã Tân Phú Đông','0',82,127,NULL),(28702,'Xã Tân Hòa','0',82,127,NULL),(28720,'Xã Gia Thuận','0',82,127,NULL),(28723,'Xã Tân Đông','0',82,127,NULL),(28729,'Phường Sơn Qui','0',82,127,NULL),(28738,'Xã Tân Điền','0',82,127,NULL),(28747,'Xã Gò Công Đông','0',82,127,NULL),(28756,'Phường Phú Khương','0',86,127,NULL),(28777,'Phường An Hội','0',86,127,NULL),(28783,'Phường Sơn Đông','0',86,127,NULL),(28789,'Phường Bến Tre ','0',86,127,NULL),(28807,'Xã Giao Long ','0',86,127,NULL),(28810,'Xã Phú Túc','0',86,127,NULL),(28840,'Xã Tân Phú','0',86,127,NULL),(28858,'Phường Phú Tân','0',86,127,NULL),(28861,'Xã Tiên Thủy','0',86,127,NULL),(28870,'Xã Chợ Lách ','0',86,127,NULL),(28879,'Xã Phú Phụng','0',86,127,NULL),(28894,'Xã Vĩnh Thành ','0',86,127,NULL),(28901,'Xã Hưng Khánh Trung ','0',86,127,NULL),(28903,'Xã Mỏ Cày ','0',86,127,NULL),(28915,'Xã Phước Mỹ Trung','0',86,127,NULL),(28921,'Xã Tân Thành Bình','0',86,127,NULL),(28945,'Xã Đồng Khởi ','0',86,127,NULL),(28948,'Xã Nhuận Phú Tân ','0',86,127,NULL),(28957,'Xã An Định ','0',86,127,NULL),(28969,'Xã Thành Thới ','0',86,127,NULL),(28981,'Xã Hương Mỹ ','0',86,127,NULL),(28984,'Xã Giồng Trôm ','0',86,127,NULL),(28987,'Xã Lương Hòa ','0',86,127,NULL),(28993,'Xã Lương Phú ','0',86,127,NULL),(28996,'Xã Châu Hòa ','0',86,127,NULL),(29020,'Xã Phước Long ','0',86,127,NULL),(29029,'Xã Tân Hào ','0',86,127,NULL),(29044,'Xã Hưng Nhượng ','0',86,127,NULL),(29050,'Xã Bình Đại','0',86,127,NULL),(29062,'Xã Phú Thuận ','0',86,127,NULL),(29077,'Xã Lộc Thuận','0',86,127,NULL),(29083,'Xã Châu Hưng','0',86,127,NULL),(29089,'Xã Thạnh Trị','0',86,127,NULL),(29104,'Xã Thạnh Phước ','0',86,127,NULL),(29107,'Xã Thới Thuận ','0',86,127,NULL),(29110,'Xã Ba Tri ','0',86,127,NULL),(29122,'Xã Mỹ Chánh Hòa ','0',86,127,NULL),(29125,'Xã Bảo Thạnh','0',86,127,NULL),(29137,'Xã Tân Xuân ','0',86,127,NULL),(29143,'Xã An Ngãi Trung ','0',86,127,NULL),(29158,'Xã An Hiệp','0',86,127,NULL),(29167,'Xã Tân Thủy ','0',86,127,NULL),(29182,'Xã Thạnh Phú ','0',86,127,NULL),(29191,'Xã Quới Điền ','0',86,127,NULL),(29194,'Xã Đại Điền ','0',86,127,NULL),(29221,'Xã Thạnh Hải ','0',86,127,NULL),(29224,'Xã An Qui ','0',86,127,NULL),(29227,'Xã Thạnh Phong ','0',86,127,NULL),(29242,'Phường Trà Vinh','0',86,127,NULL),(29254,'Phường Nguyệt Hóa','0',86,127,NULL),(29263,'Phường Long Đức','0',86,127,NULL),(29266,'Xã Càng Long','0',86,127,NULL),(29275,'Xã An Trường','0',86,127,NULL),(29278,'Xã Tân An','0',86,127,NULL),(29287,'Xã Bình Phú','0',86,127,NULL),(29302,'Xã Nhị Long','0',86,127,NULL),(29308,'Xã Cầu Kè','0',86,127,NULL),(29317,'Xã An Phú Tân','0',86,127,NULL),(29329,'Xã Phong Thạnh','0',86,127,NULL),(29335,'Xã Tam Ngãi','0',86,127,NULL),(29341,'Xã Tiểu Cần','0',86,127,NULL),(29362,'Xã Hùng Hòa','0',86,127,NULL),(29365,'Xã Tập Ngãi','0',86,127,NULL),(29371,'Xã Tân Hòa','0',86,127,NULL),(29374,'Xã Châu Thành','0',86,127,NULL),(29386,'Xã Song Lộc','0',86,127,NULL),(29398,'Phường Hòa Thuận','0',86,127,NULL),(29407,'Xã Hưng Mỹ','0',86,127,NULL),(29410,'Xã Hòa Minh','0',86,127,NULL),(29413,'Xã Long Hòa','0',86,127,NULL),(29416,'Xã Cầu Ngang','0',86,127,NULL),(29419,'Xã Mỹ Long','0',86,127,NULL),(29431,'Xã Vinh Kim','0',86,127,NULL),(29446,'Xã Nhị Trường','0',86,127,NULL),(29455,'Xã Hiệp Mỹ','0',86,127,NULL),(29461,'Xã Trà Cú','0',86,127,NULL),(29467,'Xã Tập Sơn','0',86,127,NULL),(29476,'Xã Lưu Nghiệp Anh','0',86,127,NULL),(29489,'Xã Hàm Giang','0',86,127,NULL),(29491,'Xã Đại An','0',86,127,NULL),(29497,'Xã Đôn Châu','0',86,127,NULL),(29506,'Xã Long Hiệp','0',86,127,NULL),(29512,'Phường Duyên Hải','0',86,127,NULL),(29513,'Xã Long Thành','0',86,127,NULL),(29516,'Phường Trường Long Hòa','0',86,127,NULL),(29518,'Xã Long Hữu','0',86,127,NULL),(29530,'Xã Ngũ Lạc','0',86,127,NULL),(29533,'Xã Long Vĩnh','0',86,127,NULL),(29536,'Xã Đông Hải ','0',86,127,NULL),(29551,' Phường Long Châu','0',86,127,NULL),(29557,' Phường Phước Hậu','0',86,127,NULL),(29566,'Phường Tân Ngãi','0',86,127,NULL),(29584,' Xã An Bình','0',86,127,NULL),(29590,' Phường Thanh Đức','0',86,127,NULL),(29593,'Phường Tân Hạnh','0',86,127,NULL),(29602,'Xã Long Hồ','0',86,127,NULL),(29611,'Xã Phú Quới','0',86,127,NULL),(29623,'Xã Nhơn Phú','0',86,127,NULL),(29638,'Xã Bình Phước','0',86,127,NULL),(29641,'Xã Cái Nhum','0',86,127,NULL),(29653,'Xã Tân Long Hội','0',86,127,NULL),(29659,'Xã Trung Thành','0',86,127,NULL),(29668,'Xã Quới An','0',86,127,NULL),(29677,'Xã Quới Thiện','0',86,127,NULL),(29683,'Xã Trung Hiệp','0',86,127,NULL),(29698,'Xã Trung Ngãi','0',86,127,NULL),(29701,'Xã Hiếu Phụng','0',86,127,NULL),(29713,'Xã Hiếu Thành','0',86,127,NULL),(29719,'Xã Tam Bình','0',86,127,NULL),(29728,'Xã Cái Ngang','0',86,127,NULL),(29734,'Xã Hòa Hiệp','0',86,127,NULL),(29752,'Xã Song Phú','0',86,127,NULL),(29767,'Xã Ngãi Tứ','0',86,127,NULL),(29770,'Phường Cái Vồn','0',86,127,NULL),(29771,'Phường Bình Minh','0',86,127,NULL),(29785,'Xã Tân Lược','0',86,127,NULL),(29788,'Xã Mỹ Thuận','0',86,127,NULL),(29800,'Xã Tân Quới','0',86,127,NULL),(29812,'Phường Đông Thành','0',86,127,NULL),(29821,'Xã Trà Ôn','0',86,127,NULL),(29830,'Xã Hòa Bình','0',86,127,NULL),(29836,'Xã Trà Côn','0',86,127,NULL),(29845,'Xã Vĩnh Xuân','0',86,127,NULL),(29857,'Xã Lục Sỹ Thành','0',86,127,NULL),(29869,'Phường Cao Lãnh','0',82,127,NULL),(29884,'Phường Mỹ Ngãi','0',82,127,NULL),(29888,'Phường Mỹ Trà','0',82,127,NULL),(29905,'Phường Sa Đéc ','0',82,127,NULL),(29926,'Xã Tân Hồng','0',82,127,NULL),(29929,'Xã Tân Hộ Cơ','0',82,127,NULL),(29938,'Xã Tân Thành','0',82,127,NULL),(29944,'Xã An Phước','0',82,127,NULL),(29954,'Phường An Bình','0',82,127,NULL),(29955,'Phường Hồng Ngự','0',82,127,NULL),(29971,'Xã Thường Phước ','0',82,127,NULL),(29978,'Phường Thường Lạc','0',82,127,NULL),(29983,'Xã Long Khánh','0',82,127,NULL),(29992,'Xã Long Phú Thuận','0',82,127,NULL),(30001,'Xã Tràm Chim','0',82,127,NULL),(30010,'Xã Tam Nông','0',82,127,NULL),(30019,'Xã An Hòa','0',82,127,NULL),(30025,'Xã Phú Cường','0',82,127,NULL),(30028,'Xã An Long','0',82,127,NULL),(30034,'Xã Phú Thọ','0',82,127,NULL),(30037,'Xã Tháp Mười','0',82,127,NULL),(30043,'Xã Phương Thịnh','0',82,127,NULL),(30046,'Xã Trường Xuân','0',82,127,NULL),(30055,'Xã Mỹ Quí','0',82,127,NULL),(30061,'Xã Đốc Binh Kiều','0',82,127,NULL),(30073,'Xã Thanh Mỹ','0',82,127,NULL),(30076,'Xã Mỹ Thọ','0',82,127,NULL),(30085,'Xã Ba Sao','0',82,127,NULL),(30088,'Xã Phong Mỹ','0',82,127,NULL),(30112,'Xã Mỹ Hiệp','0',82,127,NULL),(30118,'Xã Bình Hàng Trung','0',82,127,NULL),(30130,'Xã Thanh Bình','0',82,127,NULL),(30154,'Xã Tân Long','0',82,127,NULL),(30157,'Xã Tân Thạnh ','0',82,127,NULL),(30163,'Xã Bình Thành','0',82,127,NULL),(30169,'Xã Lấp Vò','0',82,127,NULL),(30178,'Xã Mỹ An Hưng','0',82,127,NULL),(30184,'Xã Tân Khánh Trung','0',82,127,NULL),(30208,'Xã Hòa Long','0',82,127,NULL),(30214,'Xã Tân Dương','0',82,127,NULL),(30226,'Xã Lai Vung','0',82,127,NULL),(30235,'Xã Phong Hòa','0',82,127,NULL),(30244,'Xã Phú Hựu','0',82,127,NULL),(30253,'Xã Tân Nhuận Đông','0',82,127,NULL),(30259,'Xã Tân Phú Trung','0',82,127,NULL),(30292,'Phường Bình Đức','0',91,127,NULL),(30301,'Phường Mỹ Thới ','0',91,127,NULL),(30307,'Phường Long Xuyên','0',91,127,NULL),(30313,'Xã Mỹ Hòa Hưng','0',91,127,NULL),(30316,'Phường Châu Đốc','0',91,127,NULL),(30325,'Phường Vĩnh Tế','0',91,127,NULL),(30337,'Xã An Phú','0',91,127,NULL),(30341,'Xã Khánh Bình','0',91,127,NULL),(30346,'Xã Nhơn Hội ','0',91,127,NULL),(30352,'Xã Phú Hữu ','0',91,127,NULL),(30367,'Xã Vĩnh Hậu ','0',91,127,NULL),(30376,'Phường Tân Châu','0',91,127,NULL),(30377,'Phường Long Phú ','0',91,127,NULL),(30385,'Xã Vĩnh Xương','0',91,127,NULL),(30388,'Xã Tân An ','0',91,127,NULL),(30403,'Xã Châu Phong ','0',91,127,NULL),(30406,'Xã Phú Tân','0',91,127,NULL),(30409,'Xã Chợ Vàm ','0',91,127,NULL),(30421,'Xã Phú Lâm ','0',91,127,NULL),(30430,'Xã Hòa Lạc ','0',91,127,NULL),(30436,'Xã Phú An ','0',91,127,NULL),(30445,'Xã Bình Thạnh Đông ','0',91,127,NULL),(30463,'Xã Châu Phú','0',91,127,NULL),(30469,'Xã Mỹ Đức','0',91,127,NULL),(30478,'Xã Vĩnh Thạnh Trung','0',91,127,NULL),(30481,'Xã Thạnh Mỹ Tây','0',91,127,NULL),(30487,'Xã Bình Mỹ','0',91,127,NULL),(30502,'Phường Thới Sơn','0',91,127,NULL),(30505,'Phường Chi Lăng','0',91,127,NULL),(30520,'Phường Tịnh Biên','0',91,127,NULL),(30526,'Xã An Cư','0',91,127,NULL),(30538,'Xã Núi Cấm','0',91,127,NULL),(30544,'Xã Tri Tôn','0',91,127,NULL),(30547,'Xã Ba Chúc','0',91,127,NULL),(30568,'Xã Vĩnh Gia','0',91,127,NULL),(30577,'Xã Ô Lâm','0',91,127,NULL),(30580,'Xã Cô Tô','0',91,127,NULL),(30589,'Xã An Châu','0',91,127,NULL),(30595,'Xã Cần Đăng','0',91,127,NULL),(30604,'Xã Vĩnh An','0',91,127,NULL),(30607,'Xã Bình Hòa','0',91,127,NULL),(30619,'Xã Vĩnh Hanh','0',91,127,NULL),(30628,'Xã Chợ Mới','0',91,127,NULL),(30631,'Xã Long Điền','0',91,127,NULL),(30643,'Xã Cù Lao Giêng','0',91,127,NULL),(30658,'Xã Nhơn Mỹ ','0',91,127,NULL),(30664,'Xã Long Kiến','0',91,127,NULL),(30673,'Xã Hội An ','0',91,127,NULL),(30682,'Xã Thoại Sơn','0',91,127,NULL),(30685,'Xã Phú Hòa','0',91,127,NULL),(30688,'Xã Óc Eo','0',91,127,NULL),(30691,'Xã Tây Phú','0',91,127,NULL),(30697,'Xã Vĩnh Trạch','0',91,127,NULL),(30709,'Xã Định Mỹ','0',91,127,NULL),(30742,'Phường Rạch Giá','0',91,127,NULL),(30760,'Phường Vĩnh Thông','0',91,127,NULL),(30766,'Phường Tô Châu','0',91,127,NULL),(30769,'Phường Hà Tiên','0',91,127,NULL),(30781,'Xã Tiên Hải ','0',91,127,NULL),(30787,'Xã Kiên Lương','0',91,127,NULL),(30790,'Xã Hòa Điền','0',91,127,NULL),(30793,'Xã Vĩnh Điều','0',91,127,NULL),(30796,'Xã Giang Thành','0',91,127,NULL),(30811,'Xã Sơn Hải','0',91,127,NULL),(30814,'Xã Hòn Nghệ ','0',91,127,NULL),(30817,'Xã Hòn Đất','0',91,127,NULL),(30823,'Xã Bình Sơn','0',91,127,NULL),(30826,'Xã Bình Giang ','0',91,127,NULL),(30835,'Xã Sơn Kiên','0',91,127,NULL),(30838,'Xã Mỹ Thuận','0',91,127,NULL),(30850,'Xã Tân Hiệp','0',91,127,NULL),(30856,'Xã Tân Hội','0',91,127,NULL),(30874,'Xã Thạnh Đông','0',91,127,NULL),(30880,'Xã Châu Thành','0',91,127,NULL),(30886,'Xã Thạnh Lộc','0',91,127,NULL),(30898,'Xã Bình An','0',91,127,NULL),(30904,'Xã Giồng Riềng','0',91,127,NULL),(30910,'Xã Thạnh Hưng','0',91,127,NULL),(30928,'Xã Ngọc Chúc','0',91,127,NULL),(30934,'Xã Hòa Hưng','0',91,127,NULL),(30943,'Xã Long Thạnh','0',91,127,NULL),(30949,'Xã Hòa Thuận','0',91,127,NULL),(30952,'Xã Gò Quao','0',91,127,NULL),(30958,'Xã Định Hòa','0',91,127,NULL),(30970,'Xã Vĩnh Hòa Hưng','0',91,127,NULL),(30982,'Xã Vĩnh Tuy','0',91,127,NULL),(30985,'Xã An Biên','0',91,127,NULL),(30988,'Xã Tây Yên','0',91,127,NULL),(31006,'Xã Đông Thái','0',91,127,NULL),(31012,'Xã Vĩnh Hòa','0',91,127,NULL),(31018,'Xã An Minh','0',91,127,NULL),(31024,'Xã Đông Hòa','0',91,127,NULL),(31027,'Xã U Minh Thượng','0',91,127,NULL),(31031,'Xã Tân Thạnh','0',91,127,NULL),(31036,'Xã Đông Hưng','0',91,127,NULL),(31042,'Xã Vân Khánh','0',91,127,NULL),(31051,'Xã Vĩnh Phong','0',91,127,NULL),(31064,'Xã Vĩnh Bình','0',91,127,NULL),(31069,'Xã Vĩnh Thuận','0',91,127,NULL),(31078,' Đặc khu Phú Quốc','0',91,127,NULL),(31105,' Đặc khu Thổ Châu','0',91,127,NULL),(31108,' Đặc khu Kiên Hải','0',91,127,NULL),(31120,'Phường Cái Khế','0',92,127,NULL),(31135,'Phường Ninh Kiều','0',92,127,NULL),(31147,'Phường Tân An','0',92,127,NULL),(31150,'Phường An Bình','0',92,127,NULL),(31153,'Phường Ô Môn','0',92,127,NULL),(31157,'Phường Thới Long','0',92,127,NULL),(31162,'Phường Phước Thới','0',92,127,NULL),(31168,'Phường Bình Thủy','0',92,127,NULL),(31174,'Phường Thới An Đông','0',92,127,NULL),(31183,'Phường Long Tuyền','0',92,127,NULL),(31186,'Phường Cái Răng','0',92,127,NULL),(31201,'Phường Hưng Phú','0',92,127,NULL),(31207,'Phường Thuận Hưng','0',92,127,NULL),(31212,'Phường Thốt Nốt','0',92,127,NULL),(31213,'Phường Tân Lộc','0',92,127,NULL),(31217,'Phường Trung Nhứt','0',92,127,NULL),(31231,'Xã Thạnh An','0',92,127,NULL),(31232,'Xã Vĩnh Thạnh','0',92,127,NULL),(31237,'Xã Vĩnh Trinh','0',92,127,NULL),(31246,'Xã Thạnh Quới','0',92,127,NULL),(31249,'Xã Thạnh Phú','0',92,127,NULL),(31255,'Xã Trung Hưng','0',92,127,NULL),(31258,'Xã Thới Lai','0',92,127,NULL),(31261,'Xã Cờ Đỏ','0',92,127,NULL),(31264,'Xã Thới Hưng','0',92,127,NULL),(31273,'Xã Đông Hiệp','0',92,127,NULL),(31282,'Xã Đông Thuận','0',92,127,NULL),(31288,'Xã Trường Thành','0',92,127,NULL),(31294,'Xã Trường Xuân','0',92,127,NULL),(31299,'Xã Phong Điền','0',92,127,NULL),(31309,'Xã Trường Long','0',92,127,NULL),(31315,'Xã Nhơn Ái','0',92,127,NULL),(31321,'Phường Vị Thanh','0',92,127,NULL),(31333,'Phường Vị Tân','0',92,127,NULL),(31338,'Xã Hỏa Lựu','0',92,127,NULL),(31340,'Phường Ngã Bảy','0',92,127,NULL),(31342,'Xã Tân Hòa','0',92,127,NULL),(31348,'Xã Trường Long Tây ','0',92,127,NULL),(31360,'Xã Thạnh Xuân','0',92,127,NULL),(31366,'Xã Châu Thành','0',92,127,NULL),(31369,'Xã Đông Phước','0',92,127,NULL),(31378,'Xã Phú Hữu','0',92,127,NULL),(31393,'Xã Hòa An','0',92,127,NULL),(31396,'Xã Hiệp Hưng','0',92,127,NULL),(31399,'Xã Tân Bình','0',92,127,NULL),(31408,'Xã Thạnh Hòa','0',92,127,NULL),(31411,'Phường Đại Thành','0',92,127,NULL),(31420,'Xã Phụng Hiệp','0',92,127,NULL),(31426,'Xã Phương Bình','0',92,127,NULL),(31432,'Xã Tân Phước Hưng','0',92,127,NULL),(31441,'Xã Vị Thủy','0',92,127,NULL),(31453,'Xã Vĩnh Thuận Đông','0',92,127,NULL),(31459,'Xã Vĩnh Tường','0',92,127,NULL),(31465,'Xã Vị Thanh 1','0',92,127,NULL),(31471,'Phường Long Mỹ','0',92,127,NULL),(31473,'Phường Long Bình','0',92,127,NULL),(31480,'Phường Long Phú 1','0',92,127,NULL),(31489,'Xã Vĩnh Viễn','0',92,127,NULL),(31492,'Xã Lương Tâm','0',92,127,NULL),(31495,'Xã Xà Phiên','0',92,127,NULL),(31507,'Phường Sóc Trăng ','0',92,127,NULL),(31510,'Phường Phú Lợi','0',92,127,NULL),(31528,'Xã Kế Sách','0',92,127,NULL),(31531,'Xã An Lạc Thôn','0',92,127,NULL),(31537,'Xã Phong Nẫm','0',92,127,NULL),(31540,'Xã Thới An Hội','0',92,127,NULL),(31552,'Xã Nhơn Mỹ','0',92,127,NULL),(31561,'Xã Đại Hải','0',92,127,NULL),(31567,'Xã Mỹ Tú','0',92,127,NULL),(31569,'Xã Phú Tâm','0',92,127,NULL),(31570,'Xã Hồ Đắc Kiện','0',92,127,NULL),(31579,'Xã Long Hưng','0',92,127,NULL),(31582,'Xã Thuận Hòa','0',92,127,NULL),(31591,'Xã Mỹ Hương','0',92,127,NULL),(31594,'Xã An Ninh','0',92,127,NULL),(31603,'Xã Mỹ Phước','0',92,127,NULL),(31615,'Xã An Thạnh','0',92,127,NULL),(31633,'Xã Cù Lao Dung','0',92,127,NULL),(31639,'Xã Long Phú','0',92,127,NULL),(31645,'Xã Đại Ngãi','0',92,127,NULL),(31654,'Xã Trường Khánh','0',92,127,NULL),(31666,'Xã Tân Thạnh','0',92,127,NULL),(31673,'Xã Trần Đề','0',92,127,NULL),(31675,'Xã Liêu Tú','0',92,127,NULL),(31679,'Xã Lịch Hội Thượng','0',92,127,NULL),(31684,'Phường Mỹ Xuyên','0',92,127,NULL),(31687,'Xã Tài Văn','0',92,127,NULL),(31699,'Xã Thạnh Thới An','0',92,127,NULL),(31708,'Xã Nhu Gia','0',92,127,NULL),(31717,'Xã Hòa Tú','0',92,127,NULL),(31723,'Xã Ngọc Tố','0',92,127,NULL),(31726,'Xã Gia Hòa','0',92,127,NULL),(31732,'Phường Ngã Năm','0',92,127,NULL),(31741,'Xã Tân Long','0',92,127,NULL),(31753,'Phường Mỹ Quới','0',92,127,NULL),(31756,'Xã Phú Lộc','0',92,127,NULL),(31759,'Xã Lâm Tân','0',92,127,NULL),(31777,'Xã Vĩnh Lợi','0',92,127,NULL),(31783,'Phường Vĩnh Châu','0',92,127,NULL),(31789,'Phường Khánh Hòa','0',92,127,NULL),(31795,'Xã Vĩnh Hải','0',92,127,NULL),(31804,'Phường Vĩnh Phước','0',92,127,NULL),(31810,'Xã Lai Hòa','0',92,127,NULL),(31825,'Phường Bạc Liêu','0',96,127,NULL),(31834,'Phường Vĩnh Trạch','0',96,127,NULL),(31840,'Phường Hiệp Thành','0',96,127,NULL),(31843,'Xã Hồng Dân','0',96,127,NULL),(31849,'Xã Ninh Quới','0',96,127,NULL),(31858,'Xã Vĩnh Lộc','0',96,127,NULL),(31864,'Xã Ninh Thạnh Lợi','0',96,127,NULL),(31867,'Xã Phước Long ','0',96,127,NULL),(31876,'Xã Vĩnh Phước','0',96,127,NULL),(31882,'Xã Vĩnh Thanh','0',96,127,NULL),(31885,'Xã Phong Hiệp','0',96,127,NULL),(31891,'Xã Hòa Bình','0',96,127,NULL),(31894,'Xã Châu Thới','0',96,127,NULL),(31900,'Xã Vĩnh Lợi','0',96,127,NULL),(31906,'Xã Hưng Hội','0',96,127,NULL),(31918,'Xã Vĩnh Mỹ','0',96,127,NULL),(31927,'Xã Vĩnh Hậu','0',96,127,NULL),(31942,'Phường Giá Rai','0',96,127,NULL),(31951,'Phường Láng Tròn','0',96,127,NULL),(31957,'Xã Phong Thạnh ','0',96,127,NULL),(31972,'Xã Gành Hào','0',96,127,NULL),(31975,'Xã Đông Hải','0',96,127,NULL),(31985,'Xã Long Điền','0',96,127,NULL),(31988,'Xã An Trạch','0',96,127,NULL),(31993,'Xã Định Thành','0',96,127,NULL),(32002,'Phường An Xuyên','0',96,127,NULL),(32014,'Phường Lý Văn Lâm','0',96,127,NULL),(32025,'Phường Tân Thành','0',96,127,NULL),(32041,'Phường Hòa Thành','0',96,127,NULL),(32044,'Xã Nguyễn Phích','0',96,127,NULL),(32047,'Xã U Minh','0',96,127,NULL),(32059,'Xã Khánh An','0',96,127,NULL),(32062,'Xã Khánh Lâm','0',96,127,NULL),(32065,'Xã Thới Bình','0',96,127,NULL),(32069,'Xã Biển Bạch','0',96,127,NULL),(32071,'Xã Trí Phải','0',96,127,NULL),(32083,'Xã Tân Lộc ','0',96,127,NULL),(32092,'Xã Hồ Thị Kỷ','0',96,127,NULL),(32095,'Xã Trần Văn Thời','0',96,127,NULL),(32098,'Xã Sông Đốc','0',96,127,NULL),(32104,'Xã Đá Bạc','0',96,127,NULL),(32110,'Xã Khánh Bình','0',96,127,NULL),(32119,'Xã Khánh Hưng','0',96,127,NULL),(32128,'Xã Cái Nước','0',96,127,NULL),(32134,'Xã Lương Thế Trân','0',96,127,NULL),(32137,'Xã Tân Hưng','0',96,127,NULL),(32140,'Xã Hưng Mỹ','0',96,127,NULL),(32152,'Xã Đầm Dơi','0',96,127,NULL),(32155,'Xã Tạ An Khương','0',96,127,NULL),(32161,'Xã Trần Phán','0',96,127,NULL),(32167,'Xã Tân Thuận','0',96,127,NULL),(32182,'Xã Quách Phẩm','0',96,127,NULL),(32185,'Xã Thanh Tùng','0',96,127,NULL),(32188,'Xã Tân Tiến','0',96,127,NULL),(32191,'Xã Năm Căn','0',96,127,NULL),(32201,'Xã Đất Mới','0',96,127,NULL),(32206,'Xã Tam Giang','0',96,127,NULL),(32212,'Xã Cái Đôi Vàm','0',96,127,NULL),(32214,'Xã Phú Mỹ','0',96,127,NULL),(32218,'Xã Phú Tân','0',96,127,NULL),(32227,'Xã Nguyễn Việt Khái','0',96,127,NULL),(32236,'Xã Tân Ân','0',96,127,NULL),(32244,'Xã Phan Ngọc Hiển','0',96,127,NULL),(32248,'Xã Đất Mũi','0',96,127,NULL);
+/*!40000 ALTER TABLE `vn_district` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `vn_province`
+--
+
+DROP TABLE IF EXISTS `vn_province`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `vn_province` (
+  `provinceid` int NOT NULL,
+  `name` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `type` varchar(30) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `thu_tu` int DEFAULT '0',
+  `active` int DEFAULT '1',
+  PRIMARY KEY (`provinceid`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 ROW_FORMAT=COMPACT;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `vn_province`
+--
+
+LOCK TABLES `vn_province` WRITE;
+/*!40000 ALTER TABLE `vn_province` DISABLE KEYS */;
+INSERT INTO `vn_province` VALUES (1,'TP. Hà Nội','0',1,1),(79,'TP. Hồ Chí Minh','0',2,1),(92,'TP. Cần Thơ','0',3,1),(48,'TP. Đà Nẵng','0',4,1),(31,'TP. Hải Phòng','0',5,1),(46,'TP. Huế','0',6,1),(91,'Tỉnh An Giang','0',7,1),(24,'Tỉnh Bắc Ninh','0',8,1),(4,'Tỉnh Cao Bằng','0',9,1),(96,'Tỉnh Cà Mau','0',10,1),(66,'Tỉnh Đắk Lắk','0',11,1),(11,'Tỉnh Điện Biên','0',12,1),(75,'Tỉnh Đồng Nai','0',13,1),(82,'Tỉnh Đồng Tháp','0',14,1),(42,'Tỉnh Hà Tĩnh','0',15,1),(33,'Tỉnh Hưng Yên','0',16,1),(52,'Tỉnh Gia Lai','0',17,1),(56,'Tỉnh Khánh Hoà','0',18,1),(12,'Tỉnh Lai Châu','0',19,1),(68,'Tỉnh Lâm Đồng','0',20,1),(20,'Tỉnh Lạng Sơn','0',21,1),(15,'Tỉnh Lào Cai','0',22,1),(40,'Tỉnh Nghệ An','0',23,1),(37,'Tỉnh Ninh Bình','0',24,1),(25,'Tỉnh Phú Thọ','0',25,1),(51,'Tỉnh Quảng Ngãi','0',26,1),(22,'Tỉnh Quảng Ninh','0',27,1),(44,'Tỉnh Quảng Trị','0',28,1),(14,'Tỉnh Sơn La','0',29,1),(80,'Tỉnh Tây Ninh','0',30,1),(19,'Tỉnh Thái Nguyên','0',31,1),(38,'Tỉnh Thanh Hoá','0',32,1),(8,'Tỉnh Tuyên Quang','0',33,1),(86,'Tỉnh Vĩnh Long','0',34,1);
+/*!40000 ALTER TABLE `vn_province` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `yahoo`
+--
+
+DROP TABLE IF EXISTS `yahoo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `yahoo` (
+  `id_yahoo` tinyint NOT NULL AUTO_INCREMENT,
+  `id_category` int DEFAULT NULL,
+  `image` varchar(1024) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `nick` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `thu_tu` tinyint DEFAULT '0',
+  `active` tinyint DEFAULT '0',
+  `sky` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `zalo` varchar(512) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `email` varchar(512) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `intro` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `phone` varchar(30) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `lang` varchar(128) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '',
+  PRIMARY KEY (`id_yahoo`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `yahoo`
+--
+
+LOCK TABLES `yahoo` WRITE;
+/*!40000 ALTER TABLE `yahoo` DISABLE KEYS */;
+INSERT INTO `yahoo` VALUES (19,23,'/uploaded/y-kien-khach-hang/man.png','#NickNick','Tên nhân viên hỗ trợ',2,1,'skype:0912652259?chat','https://zalo.me/0968675568','','abc bac','0968123456',''),(20,23,'/uploaded/khachhang/Layer%2024.png','#NickNick','Tiêu đề bài viết hiển thị tại đây',1,1,'skype:0912652259?chat','za','','abc bac','0968123456','');
+/*!40000 ALTER TABLE `yahoo` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `ykien`
+--
+
+DROP TABLE IF EXISTS `ykien`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `ykien` (
+  `id_ykien` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `id_category` bigint unsigned NOT NULL DEFAULT '0',
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `title` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `description` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `keywords` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `image_title` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `image` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `intro` mediumtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `content` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `ngay_dang` bigint unsigned NOT NULL DEFAULT '0',
+  `thu_tu` bigint NOT NULL DEFAULT '0',
+  `active` tinyint NOT NULL DEFAULT '1',
+  `small_image` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `normal_image` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `id_user` bigint NOT NULL DEFAULT '0',
+  `file` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `tieubieu` int DEFAULT '0',
+  `hit` int DEFAULT NULL,
+  `imgshowdetail` tinyint NOT NULL DEFAULT '0',
+  `hot` tinyint NOT NULL DEFAULT '0',
+  `inhome` tinyint NOT NULL DEFAULT '0',
+  `showdate` tinyint NOT NULL DEFAULT '1',
+  `showcomment` tinyint NOT NULL DEFAULT '0',
+  `postcomment` tinyint NOT NULL DEFAULT '0',
+  `groupcat` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL DEFAULT '0',
+  `tags` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `soure` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `url` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `author_id` int DEFAULT NULL,
+  `author_name` varchar(1024) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `author_email` varchar(512) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `author_info` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `id_service` bigint DEFAULT '0',
+  PRIMARY KEY (`id_ykien`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ykien`
+--
+
+LOCK TABLES `ykien` WRITE;
+/*!40000 ALTER TABLE `ykien` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ykien` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2026-06-15 11:26:20
