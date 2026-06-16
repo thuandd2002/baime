@@ -336,6 +336,7 @@ function menuleft()
 
   if (intval($root_idc) > 0) {
     $dbCat = dbMenu::listSubCat($root_idc);
+
     $tpl1->newBlock("menu_left");
   }
 
@@ -345,6 +346,7 @@ function menuleft()
   $arr = explode(",", $activeid);
 
   $tpl1->assign("cat_name", strip_tags($root_cat['name']));
+
   $tpl1->assign("cat_link", $dir_path . '/' . $root_cat['url']);
 
   if (substr($root_cat['url'], 0, 2) == "//" || substr($root_cat['url'], 0, 4) == "http")

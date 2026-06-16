@@ -501,7 +501,7 @@ class DBi
     }
 
     $sql = "UPDATE {$table} SET {$placeholders} WHERE $where_condition ";
-    dd($sql);
+    // dd($sql);
     //exit($sql);
     //$stmt = $mysqli->prepare($sql);
     $stmt = mysqli_prepare($mysqli, $sql);

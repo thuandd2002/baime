@@ -30,7 +30,7 @@ if (!$id) {
 }
 $tpl->printToScreen();
 
-function itemList() {
+function itemList() {View: Reset Workbench Layout
     global $DB, $tpl, $cache_image_path, $article, $dir_path, $idc, $SETTING;
     $db = $article->itemList($idc, 18);
     $tpl->newBlock("itemList");

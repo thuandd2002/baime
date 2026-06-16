@@ -326,9 +326,10 @@ a img {
   border-left: 1px solid #ccc;
 }
 
-.nav > li:first-child > a {
+.nav>li:first-child>a {
   border-left: none;
 }
+
 .nav>li:hover>a {
   background: var(--maincolor);
   color: #fff;
@@ -959,7 +960,7 @@ a.close:hover {
 .buy-now {
   font-family: var(--fontB);
   float: left;
-  background: #935a27;
+  background: var(--maincolor);
   display: block;
   color: #fff;
   padding: 10px 20px;
@@ -993,7 +994,7 @@ a.close:hover {
 
 .menu-mobile {
   display: block;
-  float: left;
+  float: right;
   color: #e1943f;
   margin-left: auto;
 }
@@ -1478,6 +1479,33 @@ a.close:hover {
   background-color: #061d3d;
 }
 
+
+.news-item {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  height: 100%;
+  transition: all .3s ease;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, .06);
+}
+
+.news-item__desc {
+  font-size: 18px;
+  padding: 0 20px;
+  line-height: 1.5;
+  font-weight: 700;
+  color: #222;
+  transition: color .3s;
+}
+
+.news-intro {
+  padding: 0 20px;
+}
+
+.news-item {
+  padding-bottom: 20px;
+}
+
 /*============== END HOME ==============*/
 .footer {
   background: url(/uploaded/pic-cat/banner-footer.png);
@@ -1631,15 +1659,15 @@ a.close:hover {
   display: flex;
   align-items: center;
   height: 34px;
-  background: rgba(255,255,255,.08);
-  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255, 255, 255, .08);
+  border: 1px solid rgba(255, 255, 255, .12);
   border-radius: 30px;
   overflow: hidden;
   transition: .3s;
 }
 
 .top-search:hover {
-  background: rgba(255,255,255,.12);
+  background: rgba(255, 255, 255, .12);
 }
 
 .top-search input {
@@ -2069,6 +2097,7 @@ a.close:hover {
 /* ============Tuyen dung========= */
 .tuyendung-table {
   overflow-x: auto;
+  flex: 0 0 100%;
 }
 
 .table-list {
@@ -2459,9 +2488,11 @@ a.close:hover {
 .view-map-btn:hover .viewmap-btn-icon {
   transform: translateX(4px);
 }
-.hethong-card .hethong-box{
+
+.hethong-card .hethong-box {
   padding: 0 20px;
 }
+
 /* =============Trang ung dung bai viet========= */
 .article-list {
   gap: 30px 0;
@@ -2474,12 +2505,12 @@ a.close:hover {
   background: #fff;
   height: 100%;
   transition: all .3s ease;
-  box-shadow: 0 3px 10px rgba(0,0,0,.04);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, .04);
 }
 
 .article-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0,0,0,.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, .1);
 }
 
 .article-item-img {

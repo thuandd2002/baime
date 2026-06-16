@@ -593,7 +593,7 @@ only screen and (max-width: 767px) {
 
 @media handheld,
 only screen and (max-width: 579px) {
-  .grid {
+  .grid, .grid-less {
     max-width: 420px;
     min-width: 0;
     margin-left: 0px;

@@ -146,7 +146,7 @@ function tdCatList() {
             $tpl->assign(array(
                 name => $rs['name'],
                 soluong => $rs['soluong'],
-                noilamviec => $rs['noilamviec'],
+                noilamviec => $rs['diadiem'],
                 donvi => $rs['donvi'],
                 ngayhethan => date('d/m/Y', $rs['ngayhethan']),
                 content => ($rs['content']),

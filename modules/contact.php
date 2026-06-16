@@ -30,12 +30,13 @@ if ($rs_cat['image']) {
     $tpl->assignGlobal("image", '<img  src="' . $cache_image_path . resizeimage(1200, 600, $dir_path . '/' . $rs_cat['image']) . '" alt="' . $rs_cat['name'] . '" style="max-width:100%" />');
 }
 
-$sql = "SELECT * FROM contactinfo WHERE active=1 $language ";
+$sql = "SELECT * FROM category WHERE active=1 and data_type = 'contact' $language ";
 
 
 $db = $DBi->query($sql);
 if ($rs = $DBi->fetch_array($db)) {
-    $tpl->assignGlobal("contactname", $rs['name']);
+
+    $tpl->assignGlobal("contactname", $rs['subname']);
     $tpl->assignGlobal("contentcontact", $rs['content']);
 }
 $db_contact = dbStatic::getInWhere("contact");

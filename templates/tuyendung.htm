@@ -92,54 +92,46 @@
 <div class="grid">
   <div class="flex-container flex-space-between">
 
-    <div class="cell-3-4 tab-cell-1-1">
-      <h1 class="homecat-title">{catname}</h1>
-      <div>
-        {catcontent}
-      </div>
 
-      <div class="c20"></div>
-
-
-      <!-- Bảng danh sách tuyển dụng -->
-      <div class="tuyendung-table">
-        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table-list">
-          <tbody>
-            <tr>
-              <th width="10%">STT</th>
-              <th width="30%">Vị trí tuyển dụng</th>
-              <th width="15%">Số lượng</th>
-              <th width="45%">Địa điểm</th>
-            </tr>
-
-            <!-- START BLOCK : newsItem  -->
-            <tr>
-              <td>{stt}</td>
-              <td><a class="news-name" href="{link_detail}"> {name} </a> </td>
-              <td>{soluong}</td>
-              <td>{noilamviec}</td>
-
-            </tr>
-            <!-- END BLOCK : newsItem  -->
-
-          </tbody>
-        </table>
-      </div>
-      <div class="c50"></div>
-      <!-- end bảng danh sách tuyển dụng -->
-
+    <h1 class="homecat-title">{catname}</h1>
+    <div>
+      {catcontent}
     </div>
 
-    <div class="cell-1-4 tab-cell-1-1">
-      {leftcol}
+    <div class="c20"></div>
+
+
+    <!-- Bảng danh sách tuyển dụng -->
+    <div class="tuyendung-table">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table-list">
+        <tbody>
+          <tr>
+            <th width="10%">STT</th>
+            <th width="50%">Vị trí tuyển dụng</th>
+            <th width="15%">Số lượng</th>
+            <th width="25%">Địa điểm</th>
+          </tr>
+
+          <!-- START BLOCK : newsItem  -->
+          <tr>
+            <td>{stt}</td>
+            <td><a class="news-name" href="{link_detail}"> {name} </a> </td>
+            <td>{soluong}</td>
+            <td>{noilamviec}</td>
+
+          </tr>
+          <!-- END BLOCK : newsItem  -->
+
+        </tbody>
+      </table>
     </div>
+    <div class="c50"></div>
+    <!-- end bảng danh sách tuyển dụng -->
+
+
+
 
   </div>
-
-
-  <div class="c20"></div>
-  <div class="c20"></div>
-
   <div class="c20"></div>
 </div>
 

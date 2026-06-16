@@ -82,7 +82,7 @@ class TuyenDung extends cat_tree {
             }
         $info['parentid'] .= '</select>';
         $tpl->assign("parentid", $info['parentid']);
-        // in group	
+        // in group
         $str = $rs['groupcat'];
         $gr = explode(':', $str);
         $info1['parentid'] .= '<option value="0">None</option>';
@@ -135,7 +135,7 @@ class TuyenDung extends cat_tree {
                 }
             $info['parentid'] .= '</select>';
             $tpl->assign("parentid", $info['parentid']);
-            // in group	
+            // in group
             $str = $rs['groupcat'];
             $gr = explode(':', $str);
             $info1['parentid'] .= '<option value="0">None</option>';
@@ -155,15 +155,15 @@ class TuyenDung extends cat_tree {
             $tpl->assign("parentid1", $info1['parentid']);
             $tpl->assign("name", $rs['name']);
             $tpl->assign("short_name", $rs['short_name']);
-            
-            
+
+
             $tpl->assign("title", $rs['title']);
 
             $tpl->assign("soluong", $rs['soluong']);
             $tpl->assign("congviec", $rs['congviec']);
             $tpl->assign("diadiem", $rs['diadiem']);
             $tpl->assign("thoihan", date('d/m/Y H:i', $rs['thoihan']));
-            
+
             $tpl->assign("description", $rs['description']);
             $tpl->assign("keywords", $rs['keywords']);
             $tpl->assign("thu_tu", $rs['thu_tu']);
@@ -223,22 +223,22 @@ class TuyenDung extends cat_tree {
             }
         $info['parentid'] .= '</select>';
         $tpl->assign("parentid", $info['parentid']);
-        
+
         if ($pid == 0) {
             $dk = " (id_category IN (SELECT id_category FROM category WHERE active = 1 $language ) OR id_category = 0) ";
         } else {
             $dk = "(" . $this->table . ".id_category=" . $pid . " OR " . $this->table . ".groupcat LIKE '%:" . $pid . ":%')";
         }
-        
+
         if ($_REQUEST['keyword']) {
             $keyword = clean_value($_REQUEST['keyword']);
             $dk .= " AND " . $this->table . ".name LIKE '%" . $keyword . "%' ";
             $kw = "&keyword=" . $keyword;
         }
         $sql = "SELECT " . $this->table . ".*,users.name as user_name, users.username as username FROM " . $this->table . " LEFT JOIN users ON(" . $this->table . ".id_user=users.id_users) WHERE  $dk ORDER BY " . $this->table . ".thu_tu DESC, " . $this->id_item . " DESC";
-        
+
         $db = paging::pagingAdmin($p, "?page=" . $this->par_page . "&pid=$pid" . $kw, $sql, 8, 20);
-        
+
         while ($rs = $DBi->fetch_array($db['db'])) {
             $tpl->newBlock("list");
             $tpl->assign(array(
@@ -273,8 +273,8 @@ class TuyenDung extends cat_tree {
             Message::showMessage("success", "Cập nhật thứ tự thành công !");
         }
     }
-    
-    
+
+
     private function save() {
         global $DBi, $lang, $search_obj, $clsUrl;
         $data = $this->getData();
@@ -303,9 +303,9 @@ class TuyenDung extends cat_tree {
             }
         }
     }
-    
-    
-    
+
+
+
     private function getGroupCatName($groupcat) {
         global $DBi;
         $i = 0;
@@ -349,13 +349,13 @@ class TuyenDung extends cat_tree {
         $id = intval($id);
         $data = array();
         $data['name'] = compile_post('name');
-       
+
         if (compile_post('short_name'))
             $data['short_name'] = compile_post('short_name');
-        else 
+        else
             $data['short_name'] = $data['name'];
-        
-        
+
+
         if (compile_post('title')) {
             $data['title'] = compile_post('title');
         } else {
@@ -363,10 +363,10 @@ class TuyenDung extends cat_tree {
         }
         $data['id_category'] = compile_post('parentid');
         $data['congviec'] = compile_post('congviec');
-        $data['diadiem'] = compile_post('diadiem');
+        $data['diadiem'] = compile_post('noilamviec');
         $data['thoihan'] = string_to_microtime(compile_post('thoihan'));
         $data['soluong'] = intval(compile_post('soluong'));
-        
+
         $data['intro'] = str_replace('\\', "", $_POST['intro']);
         $data['content'] = str_replace('\\', "", $_POST['content']);
 
@@ -374,7 +374,7 @@ class TuyenDung extends cat_tree {
         $data['keywords'] = compile_post('keywords');
         $data['active'] = intval(compile_post('active'));
         $data['thu_tu'] = intval(compile_post('thu_tu'));
-        
+
         if (compile_post('ngay_dang') != '')
             $data['ngay_dang'] = string_to_microtime(compile_post('ngay_dang'));
         else
@@ -397,7 +397,7 @@ class TuyenDung extends cat_tree {
         $data['image'] = compile_post('imageurl');
         $data['id_user'] = $my['id'];
         $data['last_modify'] = time();
-        
+
         return $data;
     }
 }
